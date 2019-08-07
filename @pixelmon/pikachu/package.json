@@ -1,6 +1,6 @@
 {
   "name": "@pixelmon/pikachu",
-  "version": "0.1.2-a50440f",
+  "version": "0.1.2",
   "author": "giscafer<giscafer@outlook.com>",
   "license": "MIT",
   "repository": {
@@ -24,7 +24,7 @@
     "file-saver": "^1.3.3",
     "ngx-countdown": "^3.0.0",
     "qrious": "^4.0.2",
-    "@pixelmon/theme": "^0.1.2-a50440f",
+    "@pixelmon/theme": "^0.1.2",
     "tslib": "^1.9.0"
   },
   "sideEffects": false,

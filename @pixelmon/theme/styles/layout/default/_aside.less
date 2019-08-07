@@ -1,0 +1,78 @@
+@{pixelmon-default-prefix}__aside {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: @zindex + 5;
+  width: @pixelmon-default-aside-wd;
+  margin-top: @pixelmon-default-header-hg;
+  overflow: hidden;
+  background-color: @pixelmon-default-aside-bg;
+  backface-visibility: hidden;
+  transition: width 0.2s @pixelmon-default-ease, translate 0.2s @pixelmon-default-ease;
+  -webkit-overflow-scrolling: touch;
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-right: 1px solid @pixelmon-default-content-heading-border;
+    content: '';
+  }
+  &-inner {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    // IE
+    -ms-scroll-chaining: chained;
+    -ms-overflow-style: none;
+    -ms-content-zooming: zoom;
+    -ms-scroll-rails: none;
+    -ms-content-zoom-limit-min: 100%;
+    -ms-content-zoom-limit-max: 500%;
+    -ms-scroll-snap-type: proximity;
+    -ms-scroll-snap-points-x: snaplist(100%, 200%, 300%, 400%, 500%);
+    // Firefox
+    scrollbar-width: none;
+    // Chrome
+    &::-webkit-scrollbar {
+      width: @pixelmon-default-aside-scrollbar-height;
+      height: @pixelmon-default-aside-scrollbar-width;
+    }
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 @pixelmon-default-aside-scrollbar-width
+        @pixelmon-default-aside-scrollbar-track-color;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: @pixelmon-default-aside-scrollbar-thumb-color;
+    }
+  }
+}
+
+// Desktop
+@media (min-width: @mobile-min) {
+  @{pixelmon-default-prefix}__collapsed {
+    @{pixelmon-default-prefix}__aside {
+      width: @pixelmon-default-aside-collapsed-wd;
+    }
+  }
+}
+
+// Under pad
+@media (max-width: @mobile-max) {
+  @{pixelmon-default-prefix}__aside,
+  @{pixelmon-default-prefix}__content {
+    transition: transform 0.3s ease;
+  }
+  @{pixelmon-default-prefix}__content {
+    transform: translate3d(@pixelmon-default-aside-wd, 0, 0);
+  }
+  @{pixelmon-default-prefix}__collapsed {
+    @{pixelmon-default-prefix}__aside {
+      transform: translate3d(-100%, 0, 0);
+    }
+    @{pixelmon-default-prefix}__content {
+      transform: translateZ(0);
+    }
+  }
+}

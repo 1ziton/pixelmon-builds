@@ -1,0 +1,42 @@
+{
+  "name": "@pixelmon/acl",
+  "version": "0.1.2-a50440f",
+  "author": "giscafer<giscafer@outlook.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1ziton/pixelmon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/1ziton/pixelmon/issues"
+  },
+  "homepage": "https://1ziton.com",
+  "keywords": [
+    "@pixelmon/acl",
+    "angular acl",
+    "ng acl",
+    "ngx acl",
+    "pixelmon",
+    "1ziton",
+    "pixelmon",
+    "antd",
+    "ng-zorro-antd",
+    "acl",
+    "angular",
+    "component"
+  ],
+  "dependencies": {
+    "@pixelmon/util": "^0.1.2-a50440f",
+    "tslib": "^1.9.0"
+  },
+  "sideEffects": false,
+  "main": "bundles/acl.umd.js",
+  "module": "fesm5/acl.js",
+  "es2015": "fesm2015/acl.js",
+  "esm5": "esm5/acl.js",
+  "esm2015": "esm2015/acl.js",
+  "fesm5": "fesm5/acl.js",
+  "fesm2015": "fesm2015/acl.js",
+  "typings": "acl.d.ts",
+  "metadata": "acl.metadata.json"
+}

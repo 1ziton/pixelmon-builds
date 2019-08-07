@@ -1,0 +1,19 @@
+@{footer-toolbar-prefix} {
+  &__left {
+    margin-left: @pixelmon-default-aside-wd;
+  }
+}
+
+@{pixelmon-default-prefix}__collapsed {
+  @{footer-toolbar-prefix} {
+    &__left {
+      margin-left: @pixelmon-default-aside-collapsed-wd;
+    }
+  }
+}
+
+@{footer-toolbar-prefix}__body {
+  @{pixelmon-default-prefix}__content {
+    margin-bottom: @layout-gutter + @footer-toolbar-height;
+  }
+}

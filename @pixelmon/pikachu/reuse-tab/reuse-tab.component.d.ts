@@ -1,0 +1,51 @@
+import { ChangeDetectorRef, ElementRef, EventEmitter, OnChanges, OnDestroy, OnInit, Renderer2, SimpleChange, SimpleChanges, TemplateRef } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PixelmonI18NService } from '@pixelmon/theme';
+import { ReuseContextCloseEvent, ReuseContextI18n, ReuseCustomContextMenu, ReuseItem, ReuseTabMatchMode } from './reuse-tab.interfaces';
+import { ReuseTabService } from './reuse-tab.service';
+export declare class ReuseTabComponent implements OnInit, OnChanges, OnDestroy {
+    private srv;
+    private cdr;
+    private router;
+    private route;
+    private render;
+    private i18nSrv;
+    private doc;
+    private el;
+    private unsubscribe$;
+    private _keepingScrollContainer;
+    list: ReuseItem[];
+    item: ReuseItem;
+    pos: number;
+    mode: ReuseTabMatchMode;
+    i18n: ReuseContextI18n;
+    debug: boolean;
+    max: number;
+    excludes: RegExp[];
+    allowClose: boolean;
+    showCurrent: boolean;
+    keepingScroll: boolean;
+    keepingScrollContainer: string | Element;
+    customContextMenu: ReuseCustomContextMenu[];
+    tabBarExtraContent: TemplateRef<void>;
+    tabBarGutter: number;
+    tabBarStyle: {
+        [key: string]: string;
+    };
+    readonly change: EventEmitter<ReuseItem>;
+    readonly close: EventEmitter<ReuseItem | null>;
+    constructor(el: ElementRef, srv: ReuseTabService, cdr: ChangeDetectorRef, router: Router, route: ActivatedRoute, render: Renderer2, i18nSrv: PixelmonI18NService, doc: any);
+    private genTit;
+    private genList;
+    private visibility;
+    private readonly acitveIndex;
+    cmChange(res: ReuseContextCloseEvent): void;
+    refStatus(dc?: boolean): void;
+    to(e: Event | null, index: number, cb?: () => void): void;
+    _close(e: Event | null, idx: number, includeNonCloseable: boolean): boolean;
+    ngOnInit(): void;
+    ngOnChanges(changes: {
+        [P in keyof this]?: SimpleChange;
+    } & SimpleChanges): void;
+    ngOnDestroy(): void;
+}

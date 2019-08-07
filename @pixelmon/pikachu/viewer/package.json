@@ -1,0 +1,13 @@
+{
+  "main": "../bundles/pixelmon-pikachu-viewer.umd.js",
+  "module": "../fesm5/pixelmon-pikachu-viewer.js",
+  "es2015": "../fesm2015/pixelmon-pikachu-viewer.js",
+  "esm5": "../esm5/viewer/pixelmon-pikachu-viewer.js",
+  "esm2015": "../esm2015/viewer/pixelmon-pikachu-viewer.js",
+  "fesm5": "../fesm5/pixelmon-pikachu-viewer.js",
+  "fesm2015": "../fesm2015/pixelmon-pikachu-viewer.js",
+  "typings": "pixelmon-pikachu-viewer.d.ts",
+  "metadata": "pixelmon-pikachu-viewer.metadata.json",
+  "sideEffects": false,
+  "name": "@pixelmon/pikachu/viewer"
+}

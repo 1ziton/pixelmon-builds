@@ -1,0 +1,41 @@
+{
+  "name": "@pixelmon/mock",
+  "version": "0.1.2-a50440f",
+  "author": "giscafer<giscafer@outlook.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ng-pixelmon/pixelmon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ng-pixelmon/ng-pixelmon/issues"
+  },
+  "homepage": "https://ng-pixelmon.com",
+  "keywords": [
+    "pixelmon",
+    "ng-pixelmon",
+    "pixelmon",
+    "mock",
+    "mockjs",
+    "angular-mock",
+    "ng mock",
+    "ngx-mock",
+    "antd",
+    "ng-zorro-antd",
+    "angular",
+    "component"
+  ],
+  "sideEffects": false,
+  "main": "bundles/mock.umd.js",
+  "module": "fesm5/mock.js",
+  "es2015": "fesm2015/mock.js",
+  "esm5": "esm5/mock.js",
+  "esm2015": "esm2015/mock.js",
+  "fesm5": "fesm5/mock.js",
+  "fesm2015": "fesm2015/mock.js",
+  "typings": "mock.d.ts",
+  "metadata": "mock.metadata.json",
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

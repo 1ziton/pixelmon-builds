@@ -2688,7 +2688,7 @@ PixelmonThemeModule.ctorParameters = () => [
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
-const VERSION = new Version('0.1.2-11be4a9');
+const VERSION = new Version('0.1.2-faef6cb');
 
 export { APP, BaseApi, BaseHeaders, BaseUrl, Body, CNCurrencyPipe, DELETE, DELON_LOCALE, DELON_LOCALE_SERVICE_PROVIDER, DELON_LOCALE_SERVICE_PROVIDER_FACTORY, DatePipe, FilterPipe, FilterPipeModule, GET, HEAD, HTMLPipe, Headers, JSONP, KeysPipe, LAYOUT, MenuService, ModalHelper, OPTIONS, PATCH, PIXELMON_I18N_TOKEN, POST, PUT, Path, PixelmonI18NServiceFake, PixelmonLocaleModule, PixelmonLocaleService, PixelmonThemeConfig, PixelmonThemeModule, Query, REP_MAX, ResponsiveService, ScrollService, SettingsService, ShortcutPipe, ShortcutPipeModule, TitleService, TranslatePipe, TranslatePipeModule, URLPipe, USER, VERSION, WINDOW, YNPipe, _HttpClient, elGR as el_GR, enUS as en_US, koKR as ko_KR, plPL as pl_PL, preloaderFinished, trTR as tr_TR, zhCN as zh_CN, zhTW as zh_TW, PIXELMON_I18N_TOKEN_FACTORY as ɵa, I18nPipe as ɵb, DrawerHelper as ɵc };
 //# sourceMappingURL=theme.js.map

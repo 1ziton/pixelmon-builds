@@ -1,5 +1,5 @@
 /**
- * @license ng-alain(cipchk@qq.com) v0.1.2
+ * @license ng-alain(cipchk@qq.com) v0.1.3
  * (c) 2019 giscafer(giscafer@outlook.com)
  * License: MIT
  */

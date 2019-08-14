@@ -1,5 +1,5 @@
 /**
- * @license ng-alain(cipchk@qq.com) v0.1.2
+ * @license ng-alain(cipchk@qq.com) v0.1.3
  * (c) 2019 giscafer(giscafer@outlook.com)
  * License: MIT
  */
@@ -3383,7 +3383,7 @@
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
-    var VERSION = new core.Version('0.1.2');
+    var VERSION = new core.Version('0.1.3');
 
     exports.APP = APP;
     exports.BaseApi = BaseApi;

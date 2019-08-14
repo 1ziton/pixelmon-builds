@@ -63,10 +63,10 @@ var FlowEditorComponent = /** @class */ (function () {
     function () {
         return !!this.rootDomID;
     };
-    //<GGEditor>
+    // <GGEditor>
     //   <Flow style={{ width: 500, height: 500 }} data={data} />
     // </GGEditor>
-    //<GGEditor>
+    // <GGEditor>
     //   <Flow style={{ width: 500, height: 500 }} data={data} />
     // </GGEditor>
     /**
@@ -74,7 +74,7 @@ var FlowEditorComponent = /** @class */ (function () {
      * @return {?}
      */
     FlowEditorComponent.prototype.render = 
-    //<GGEditor>
+    // <GGEditor>
     //   <Flow style={{ width: 500, height: 500 }} data={data} />
     // </GGEditor>
     /**
@@ -123,28 +123,6 @@ var FlowEditorComponent = /** @class */ (function () {
      * @return {?}
      */
     function () {
-    };
-    /**
-     * @return {?}
-     */
-    FlowEditorComponent.prototype.ngAfterContentInit = /**
-     * @return {?}
-     */
-    function () {
-        // e.on('message', message => {
-        //   this.message = message.text
-        //   this.changeDetector.detectChanges()
-        //   this.returnMessageToReactWhenReceived()
-        // })
-    };
-    /**
-     * @return {?}
-     */
-    FlowEditorComponent.prototype.returnMessageToReactWhenReceived = /**
-     * @return {?}
-     */
-    function () {
-        // e.emit('received', { text: 'Woohoo! Hello from Angular! 🎉' })
     };
     FlowEditorComponent.decorators = [
         { type: Component, args: [{
@@ -216,20 +194,20 @@ var MindEditorComponent = /** @class */ (function () {
     function () {
         return !!this.rootDomID;
     };
-    //<GGEditor>
+    // <GGEditor>
     //   <Mind style={{ width: 500, height: 500 }} data={data} />
-    //</GGEditor>
-    //<GGEditor>
+    // </GGEditor>
+    // <GGEditor>
     //   <Mind style={{ width: 500, height: 500 }} data={data} />
-    //</GGEditor>
+    // </GGEditor>
     /**
      * @protected
      * @return {?}
      */
     MindEditorComponent.prototype.render = 
-    //<GGEditor>
+    // <GGEditor>
     //   <Mind style={{ width: 500, height: 500 }} data={data} />
-    //</GGEditor>
+    // </GGEditor>
     /**
      * @protected
      * @return {?}
@@ -275,28 +253,6 @@ var MindEditorComponent = /** @class */ (function () {
      * @return {?}
      */
     function () {
-    };
-    /**
-     * @return {?}
-     */
-    MindEditorComponent.prototype.ngAfterContentInit = /**
-     * @return {?}
-     */
-    function () {
-        // e.on('message', message => {
-        //   this.message = message.text
-        //   this.changeDetector.detectChanges()
-        //   this.returnMessageToReactWhenReceived()
-        // })
-    };
-    /**
-     * @return {?}
-     */
-    MindEditorComponent.prototype.returnMessageToReactWhenReceived = /**
-     * @return {?}
-     */
-    function () {
-        // e.emit('received', { text: 'Woohoo! Hello from Angular! 🎉' })
     };
     MindEditorComponent.decorators = [
         { type: Component, args: [{

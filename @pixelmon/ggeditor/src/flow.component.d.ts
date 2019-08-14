@@ -19,6 +19,4 @@ export declare class FlowEditorComponent implements OnInit, OnDestroy, OnChanges
     ngOnChanges(): void;
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
-    ngAfterContentInit(): void;
-    returnMessageToReactWhenReceived(): void;
 }

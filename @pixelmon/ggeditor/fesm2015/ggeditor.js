@@ -47,7 +47,7 @@ class FlowEditorComponent {
     isMounted() {
         return !!this.rootDomID;
     }
-    //<GGEditor>
+    // <GGEditor>
     //   <Flow style={{ width: 500, height: 500 }} data={data} />
     // </GGEditor>
     /**
@@ -84,22 +84,6 @@ class FlowEditorComponent {
      * @return {?}
      */
     ngOnDestroy() {
-    }
-    /**
-     * @return {?}
-     */
-    ngAfterContentInit() {
-        // e.on('message', message => {
-        //   this.message = message.text
-        //   this.changeDetector.detectChanges()
-        //   this.returnMessageToReactWhenReceived()
-        // })
-    }
-    /**
-     * @return {?}
-     */
-    returnMessageToReactWhenReceived() {
-        // e.emit('received', { text: 'Woohoo! Hello from Angular! 🎉' })
     }
 }
 FlowEditorComponent.decorators = [
@@ -157,9 +141,9 @@ class MindEditorComponent {
     isMounted() {
         return !!this.rootDomID;
     }
-    //<GGEditor>
+    // <GGEditor>
     //   <Mind style={{ width: 500, height: 500 }} data={data} />
-    //</GGEditor>
+    // </GGEditor>
     /**
      * @protected
      * @return {?}
@@ -193,22 +177,6 @@ class MindEditorComponent {
      * @return {?}
      */
     ngOnDestroy() {
-    }
-    /**
-     * @return {?}
-     */
-    ngAfterContentInit() {
-        // e.on('message', message => {
-        //   this.message = message.text
-        //   this.changeDetector.detectChanges()
-        //   this.returnMessageToReactWhenReceived()
-        // })
-    }
-    /**
-     * @return {?}
-     */
-    returnMessageToReactWhenReceived() {
-        // e.emit('received', { text: 'Woohoo! Hello from Angular! 🎉' })
     }
 }
 MindEditorComponent.decorators = [

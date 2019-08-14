@@ -19,6 +19,4 @@ export declare class MindEditorComponent implements OnInit, OnDestroy, OnChanges
     ngOnChanges(): void;
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
-    ngAfterContentInit(): void;
-    returnMessageToReactWhenReceived(): void;
 }

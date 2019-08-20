@@ -1,13 +1,13 @@
 /**
- * @license ng-alain(cipchk@qq.com) v0.1.3
+ * @license ng-alain(cipchk@qq.com) v0.1.4
  * (c) 2019 giscafer(giscafer@outlook.com)
  * License: MIT
  */
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/core'), require('@angular/forms'), require('@pixelmon/pikachu/viewer'), require('ng-zorro-antd'), require('rxjs'), require('rxjs/operators'), require('@pixelmon/theme'), require('ng-zorro-antd/tooltip')) :
-    typeof define === 'function' && define.amd ? define('@pixelmon/pikachu/advanced-table', ['exports', '@angular/common', '@angular/core', '@angular/forms', '@pixelmon/pikachu/viewer', 'ng-zorro-antd', 'rxjs', 'rxjs/operators', '@pixelmon/theme', 'ng-zorro-antd/tooltip'], factory) :
-    (global = global || self, factory((global.pixelmon = global.pixelmon || {}, global.pixelmon.pikachu = global.pixelmon.pikachu || {}, global.pixelmon.pikachu['advanced-table'] = {}), global.ng.common, global.ng.core, global.ng.forms, global.pixelmon.pikachu.viewer, global.ngZorroAntd, global.rxjs, global.rxjs.operators, global.theme, global.tooltip));
-}(this, function (exports, common, core, forms, viewer, ngZorroAntd, rxjs, operators, theme, tooltip) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/core'), require('@angular/forms'), require('@pixelmon/pikachu/viewer'), require('ng-zorro-antd'), require('rxjs'), require('rxjs/operators'), require('@pixelmon/pikachu/smart-text')) :
+    typeof define === 'function' && define.amd ? define('@pixelmon/pikachu/advanced-table', ['exports', '@angular/common', '@angular/core', '@angular/forms', '@pixelmon/pikachu/viewer', 'ng-zorro-antd', 'rxjs', 'rxjs/operators', '@pixelmon/pikachu/smart-text'], factory) :
+    (global = global || self, factory((global.pixelmon = global.pixelmon || {}, global.pixelmon.pikachu = global.pixelmon.pikachu || {}, global.pixelmon.pikachu['advanced-table'] = {}), global.ng.common, global.ng.core, global.ng.forms, global.pixelmon.pikachu.viewer, global.ngZorroAntd, global.rxjs, global.rxjs.operators, global.pixelmon.pikachu['smart-text']));
+}(this, function (exports, common, core, forms, viewer, ngZorroAntd, rxjs, operators, smartText) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -23,6 +23,20 @@
     See the Apache Version 2.0 License for specific language governing permissions
     and limitations under the License.
     ***************************************************************************** */
+    /* global Reflect, Promise */
+
+    var extendStatics = function(d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+
+    function __extends(d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    }
 
     var __assign = function() {
         __assign = Object.assign || function __assign(t) {
@@ -34,6 +48,85 @@
         };
         return __assign.apply(this, arguments);
     };
+
+    function __rest(s, e) {
+        var t = {};
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+            t[p] = s[p];
+        if (s != null && typeof Object.getOwnPropertySymbols === "function")
+            for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+                if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                    t[p[i]] = s[p[i]];
+            }
+        return t;
+    }
+
+    function __decorate(decorators, target, key, desc) {
+        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    }
+
+    function __param(paramIndex, decorator) {
+        return function (target, key) { decorator(target, key, paramIndex); }
+    }
+
+    function __metadata(metadataKey, metadataValue) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
+    }
+
+    function __awaiter(thisArg, _arguments, P, generator) {
+        return new (P || (P = Promise))(function (resolve, reject) {
+            function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+            function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+            function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+            step((generator = generator.apply(thisArg, _arguments || [])).next());
+        });
+    }
+
+    function __generator(thisArg, body) {
+        var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+        return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+        function verb(n) { return function (v) { return step([n, v]); }; }
+        function step(op) {
+            if (f) throw new TypeError("Generator is already executing.");
+            while (_) try {
+                if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+                if (y = 0, t) op = [op[0] & 2, t.value];
+                switch (op[0]) {
+                    case 0: case 1: t = op; break;
+                    case 4: _.label++; return { value: op[1], done: false };
+                    case 5: _.label++; y = op[1]; op = [0]; continue;
+                    case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                    default:
+                        if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                        if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                        if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                        if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                        if (t[2]) _.ops.pop();
+                        _.trys.pop(); continue;
+                }
+                op = body.call(thisArg, _);
+            } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+            if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+        }
+    }
+
+    function __exportStar(m, exports) {
+        for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+    }
+
+    function __values(o) {
+        var m = typeof Symbol === "function" && o[Symbol.iterator], i = 0;
+        if (m) return m.call(o);
+        return {
+            next: function () {
+                if (o && i >= o.length) o = void 0;
+                return { value: o && o[i++], done: !o };
+            }
+        };
+    }
 
     function __read(o, n) {
         var m = typeof Symbol === "function" && o[Symbol.iterator];
@@ -58,6 +151,61 @@
         return ar;
     }
 
+    function __spreadArrays() {
+        for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+        for (var r = Array(s), k = 0, i = 0; i < il; i++)
+            for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+                r[k] = a[j];
+        return r;
+    };
+
+    function __await(v) {
+        return this instanceof __await ? (this.v = v, this) : new __await(v);
+    }
+
+    function __asyncGenerator(thisArg, _arguments, generator) {
+        if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+        var g = generator.apply(thisArg, _arguments || []), i, q = [];
+        return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
+        function verb(n) { if (g[n]) i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
+        function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
+        function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
+        function fulfill(value) { resume("next", value); }
+        function reject(value) { resume("throw", value); }
+        function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
+    }
+
+    function __asyncDelegator(o) {
+        var i, p;
+        return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
+        function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: n === "return" } : f ? f(v) : v; } : f; }
+    }
+
+    function __asyncValues(o) {
+        if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+        var m = o[Symbol.asyncIterator], i;
+        return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
+        function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
+        function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
+    }
+
+    function __makeTemplateObject(cooked, raw) {
+        if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+        return cooked;
+    };
+
+    function __importStar(mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+        result.default = mod;
+        return result;
+    }
+
+    function __importDefault(mod) {
+        return (mod && mod.__esModule) ? mod : { default: mod };
+    }
+
     /**
      * @fileoverview added by tsickle
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
@@ -75,7 +223,7 @@
         function () { };
         AdvancedCellComponent.decorators = [
             { type: core.Component, args: [{
-                        selector: 'advanced-cell',
+                        selector: 'p-advancedCell',
                         template: '<ng-content> </ng-content>'
                     }] }
         ];
@@ -87,6 +235,12 @@
         };
         return AdvancedCellComponent;
     }());
+    if (false) {
+        /** @type {?} */
+        AdvancedCellComponent.prototype.field;
+        /** @type {?} */
+        AdvancedCellComponent.prototype.templateRef;
+    }
 
     /**
      * @fileoverview added by tsickle
@@ -105,7 +259,7 @@
         function () { };
         AdvancedFilterComponent.decorators = [
             { type: core.Component, args: [{
-                        selector: 'advanced-filter',
+                        selector: 'p-advancedFilter',
                         template: '<ng-content> </ng-content>'
                     }] }
         ];
@@ -117,6 +271,12 @@
         };
         return AdvancedFilterComponent;
     }());
+    if (false) {
+        /** @type {?} */
+        AdvancedFilterComponent.prototype.field;
+        /** @type {?} */
+        AdvancedFilterComponent.prototype.templateRef;
+    }
 
     /**
      * @fileoverview added by tsickle
@@ -128,7 +288,7 @@
             this._renderer2 = _renderer2;
             this.columns = []; // 列数据
             // 列数据
-            this.data = { content: [], totalElements: 0 }; // 表格数据
+            this.data = { data: [], totalSize: 0 }; // 表格数据
             // 表格数据
             this.selections = []; // 已选项
             // 固定表头，滚动
@@ -140,7 +300,7 @@
             // 是否前端分页
             this.showPagination = true; // 是否显示分页器
             // 是否显示分页器
-            this.fixedPagination = true; // 是否固定分页器
+            this.fixedPagination = false; // 是否固定分页器
             // 是否固定分页器
             this.showSizeChanger = true; // 是否显示条数切换器
             // 是否显示条数切换器
@@ -149,8 +309,7 @@
             this.pageSizeOptions = [10, 30, 50, 100]; // 页数选择器可选值
             // 页数选择器可选值
             this.showCheckbox = false; // 是否显示复选框
-            // 是否显示复选框
-            this.showTitle = true; // 是否有title
+            // title模板
             this.columnsChange = new core.EventEmitter(); // 列数据改变事件 用于双向绑定
             // 列数据改变事件 用于双向绑定
             this.selectionsChange = new core.EventEmitter(); // 已选项改变事件 用于双向绑定
@@ -166,8 +325,6 @@
             this.displayData = []; // 当前显示数据
             // 当前显示数据
             this.pageIndex = 1; // 当前页码
-            // 当前页码
-            this.queryParams = {};
         }
         /**
          * @param {?} changes
@@ -185,7 +342,7 @@
                 }
             }
             if (changes.columns) {
-                // 智能词典
+                // 是下拉选择的自动添加词典
                 changes.columns.currentValue.forEach((/**
                  * @param {?} column
                  * @return {?}
@@ -195,6 +352,9 @@
                         column.lexicon = column.lexicon ? __spread(column.lexicon, column.filterOptions) : column.filterOptions;
                     }
                 }));
+            }
+            if (changes.selections) {
+                this.updateCheckedBySelections();
             }
         };
         /**
@@ -214,7 +374,7 @@
                 _this.selections = [];
                 _this.selectionsChange.emit(_this.selections);
                 // 发出load事件
-                _this.load.emit([{ page: _this.pageIndex, size: _this.pageSize }, _this.queryParams]);
+                _this.load.emit({ page: _this.pageIndex, size: _this.pageSize });
             }));
         };
         /**
@@ -282,16 +442,16 @@
             this.load$.unsubscribe();
         };
         /**
-         * 表格当前显示数据改变时调用
+         * 表格当前显示数据改变回调
          * @param currentData 当前页显示数据
          */
         /**
-         * 表格当前显示数据改变时调用
+         * 表格当前显示数据改变回调
          * @param {?} currentData 当前页显示数据
          * @return {?}
          */
         AdvancedTableComponent.prototype.currentPageDataChange = /**
-         * 表格当前显示数据改变时调用
+         * 表格当前显示数据改变回调
          * @param {?} currentData 当前页显示数据
          * @return {?}
          */
@@ -310,7 +470,7 @@
          * @return {?}
          */
         function () {
-            this.updateSelections();
+            this.updateSelectionsByChecked();
         };
         /**
          * 全选复选框改变回调
@@ -332,17 +492,17 @@
              * @return {?}
              */
             function (row) { return (row.isChecked = isChecked); }));
-            this.updateSelections();
+            this.updateSelectionsByChecked();
         };
         /**
-         * 更新selections
+         * 根据checked更新selections
          */
         /**
-         * 更新selections
+         * 根据checked更新selections
          * @return {?}
          */
-        AdvancedTableComponent.prototype.updateSelections = /**
-         * 更新selections
+        AdvancedTableComponent.prototype.updateSelectionsByChecked = /**
+         * 根据checked更新selections
          * @return {?}
          */
         function () {
@@ -352,6 +512,25 @@
              */
             function (row) { return row.isChecked; }));
             this.selectionsChange.emit(this.selections);
+        };
+        /**
+         * 根据selections更新checked
+         */
+        /**
+         * 根据selections更新checked
+         * @return {?}
+         */
+        AdvancedTableComponent.prototype.updateCheckedBySelections = /**
+         * 根据selections更新checked
+         * @return {?}
+         */
+        function () {
+            var _this = this;
+            this.displayData.forEach((/**
+             * @param {?} row
+             * @return {?}
+             */
+            function (row) { return (row.isChecked = _this.selections.includes(row)); }));
         };
         /**
          * 页码改变回调
@@ -409,7 +588,7 @@
             function (column) { return column.field === sortParams.key; }));
             // 如果没有自定义排序，自动前端排序
             if (sortColumn && !sortColumn.customSort) {
-                this.data.content.sort((/**
+                this.data.data.sort((/**
                  * @param {?} previous
                  * @param {?} further
                  * @return {?}
@@ -423,7 +602,7 @@
                             ? 1
                             : -1;
                 }));
-                this.data.content = __spread(this.data.content);
+                this.data.data = __spread(this.data.data);
             }
             this.sort.emit(sortParams);
         };
@@ -459,33 +638,18 @@
          */
         /**
          * 查询确认回调
+         * @param {?} dropdown
          * @return {?}
          */
         AdvancedTableComponent.prototype.onFilterConfim = /**
          * 查询确认回调
+         * @param {?} dropdown
          * @return {?}
          */
-        function () {
-            this.columns = __spread(this.columns); // 传入子组件query-display
-            this.columnsChange.emit(this.columns); // 传出父组件
-        };
-        /**
-         * 查询参数改变回调
-         * @param queryParams 查询参数
-         */
-        /**
-         * 查询参数改变回调
-         * @param {?} queryParams 查询参数
-         * @return {?}
-         */
-        AdvancedTableComponent.prototype.onQueryChange = /**
-         * 查询参数改变回调
-         * @param {?} queryParams 查询参数
-         * @return {?}
-         */
-        function (queryParams) {
-            this.queryParams = queryParams;
-            this.load$.next();
+        function (dropdown) {
+            dropdown.setVisibleStateWhen(false);
+            this.columns = __spread(this.columns);
+            this.columnsChange.emit(this.columns);
         };
         /**
          * 固定分页
@@ -500,7 +664,7 @@
          */
         function () {
             var _this = this;
-            // zorro设计缺陷，没有滚动条时和有滚动条时tableBody会不一样，故先给上滚动条
+            // 没有滚动条时和有滚动条时tableBody会不一样，故先给上滚动条
             this.scroll = { y: '0px' };
             // 等待滚动条更新
             setTimeout((/**
@@ -536,10 +700,10 @@
         };
         AdvancedTableComponent.decorators = [
             { type: core.Component, args: [{
-                        selector: 'advanced-table',
-                        template: "<!-- \u5305\u88F9\u8868\u683C+\u5206\u9875 -->\n<nz-spin [nzSpinning]=\"loading\">\n  <nz-table\n    [nzData]=\"data?.content || []\"\n    [nzTitle]=\"showTitle ? titleTemplate || defaultTitleTemplate : null\"\n    [nzScroll]=\"scroll\"\n    [nzFrontPagination]=\"frontPagination\"\n    [nzSize]=\"size\"\n    [nzShowPagination]=\"false\"\n    [(nzPageIndex)]=\"pageIndex\"\n    [(nzPageSize)]=\"pageSize\"\n    [nzShowSizeChanger]=\"showSizeChanger\"\n    [nzPageSizeOptions]=\"pageSizeOptions\"\n    [nzTotal]=\"data?.totalElements || 0\"\n    [nzShowTotal]=\"totalTemplate\"\n    (nzPageIndexChange)=\"pageIndexChange()\"\n    (nzPageSizeChange)=\"pageSizeChange()\"\n    (nzCurrentPageDataChange)=\"currentPageDataChange($event)\"\n    [class.fixed-pagination]=\"fixedPagination\"\n  >\n    <thead (nzSortChange)=\"onSort($event)\" nzSingleSort>\n      <tr>\n        <th\n          *ngIf=\"showCheckbox\"\n          nzLeft=\"0px\"\n          nzWidth=\"40px\"\n          nzShowCheckbox\n          [nzChecked]=\"selections.length > 0 && displayData.length === selections.length\"\n          [nzIndeterminate]=\"selections.length > 0 && displayData.length !== selections.length\"\n          (nzCheckedChange)=\"allCheckChange($event)\"\n        ></th>\n        <th\n          *ngFor=\"let column of columns\"\n          [nzLeft]=\"column.left\"\n          [nzRight]=\"column.right\"\n          [nzWidth]=\"column.width || '120px'\"\n          [nzShowSort]=\"column.showSort\"\n          [nzSortKey]=\"column.field\"\n          [nzCustomFilter]=\"column.showFilter\"\n        >\n          {{ column.title }}\n          <nz-dropdown\n            *ngIf=\"column.showFilter\"\n            nzTrigger=\"click\"\n            nzPlacement=\"bottomRight\"\n            [nzClickHide]=\"false\"\n            nzTableFilter\n            #dropdown\n          >\n            <i\n              nz-icon\n              nzType=\"search\"\n              class=\"ant-table-filter-icon\"\n              [class.ant-table-filter-open]=\"dropdown.nzVisible\"\n              nz-dropdown\n            ></i>\n            <div class=\"padding-8\">\n              <!-- \u81EA\u5B9A\u4E49\u641C\u7D22\u7EC4\u4EF6 -->\n              <ng-template [ngIf]=\"column.customFilter\" [ngIfElse]=\"defaultFilterTemplate\">\n                <ng-container\n                  [ngTemplateOutlet]=\"column.customFilter\"\n                  [ngTemplateOutletContext]=\"{ $implicit: column }\"\n                ></ng-container>\n              </ng-template>\n              <!-- \u9ED8\u8BA4\u641C\u7D22\u7EC4\u4EF6 -->\n              <ng-template #defaultFilterTemplate>\n                <ng-container [ngSwitch]=\"column.filterType\">\n                  <!-- select -->\n                  <ng-template ngSwitchCase=\"select\">\n                    <nz-select\n                      nzAllowClear\n                      nzPlaceHolder=\"\u8BF7\u9009\u62E9\"\n                      [(ngModel)]=\"column.searchValue\"\n                      [nzMode]=\"filterMultiple ? 'multiple' : 'default'\"\n                      [style.width]=\"column.filterWidth || '180px'\"\n                    >\n                      <nz-option\n                        *ngFor=\"let option of column.filterOptions || []\"\n                        [nzValue]=\"option.value\"\n                        [nzLabel]=\"option.label\"\n                      ></nz-option>\n                    </nz-select>\n                  </ng-template>\n                  <!-- range-picker -->\n                  <ng-template ngSwitchCase=\"rangePicker\">\n                    <nz-range-picker\n                      nzAllowClear\n                      [(ngModel)]=\"column.searchValue\"\n                      [nzStyle]=\"{ width: column.filterWidth || '240px' }\"\n                      (nzOnOpenChange)=\"onRangePickerOpenChange($event, column)\"\n                    ></nz-range-picker>\n                  </ng-template>\n                  <!-- input -->\n                  <ng-template ngSwitchDefault>\n                    <nz-input-group [nzSuffix]=\"suffixTemplate\">\n                      <input\n                        #input\n                        nz-input\n                        placeholder=\"\u8BF7\u8F93\u5165\"\n                        [(ngModel)]=\"column.searchValue\"\n                        [style.width]=\"column.filterWidth || '180px'\"\n                        (keydown.enter)=\"dropdown.setVisibleStateWhen(false); onFilterConfim()\"\n                      />\n                    </nz-input-group>\n                    <ng-template #suffixTemplate>\n                      <i\n                        nz-icon\n                        nz-tooltip\n                        class=\"clear-icon\"\n                        nzTheme=\"fill\"\n                        nzType=\"close-circle\"\n                        *ngIf=\"column.searchValue\"\n                        (click)=\"column.searchValue = null; input.focus()\"\n                      ></i>\n                    </ng-template>\n                  </ng-template>\n                </ng-container>\n              </ng-template>\n              <!-- \u6309\u94AE -->\n              <div nz-row nzType=\"flex\" nzJustify=\"end\" nzAlign=\"middle\" class=\"margin-top-8\">\n                <button\n                  nz-button\n                  nzSize=\"small\"\n                  nzType=\"primary\"\n                  (click)=\"dropdown.setVisibleStateWhen(false); onFilterConfim()\"\n                >\n                  \u786E\u8BA4\n                </button>\n              </div>\n            </div>\n          </nz-dropdown>\n        </th>\n      </tr>\n    </thead>\n    <tbody>\n      <ng-container *ngFor=\"let row of displayData\">\n        <tr>\n          <td\n            *ngIf=\"showCheckbox\"\n            nzLeft=\"0px\"\n            nzShowCheckbox\n            [(nzChecked)]=\"row.isChecked\"\n            (nzCheckedChange)=\"singleCheckChange()\"\n          ></td>\n          <td [nzLeft]=\"column.left\" [nzRight]=\"column.right\" *ngFor=\"let column of columns\">\n            <!-- \u81EA\u5B9A\u4E49\u5355\u5143\u683C -->\n            <ng-template [ngIf]=\"column.customCell\" [ngIfElse]=\"defaultCellTemplate\">\n              <ng-container\n                [ngTemplateOutlet]=\"column.customCell\"\n                [ngTemplateOutletContext]=\"{ $implicit: row }\"\n              ></ng-container>\n            </ng-template>\n            <!-- \u9ED8\u8BA4\u5355\u5143\u683C -->\n            <ng-template #defaultCellTemplate>\n              <ng-container [ngSwitch]=\"column.type\">\n                <!-- link -->\n                <ng-template ngSwitchCase=\"link\">\n                  <a (click)=\"onlinkClick(column['field'], row)\">\n                    <smart-text [text]=\"row[column['field']]\"></smart-text>\n                  </a>\n                </ng-template>\n                <!-- thumbnail -->\n                <ng-template ngSwitchCase=\"thumbnail\">\n                  <!-- \u65E0\u56FE\u7247\u4E0D\u521D\u59CB\u5316viewer -->\n                  <div viewer [isLazyLoad]=\"true\" [maxShowNum]=\"1\" *ngIf=\"row[column['field']]?.length\">\n                    <!-- \u8D85\u8FC7\u4E00\u5F20\u56FE\u7247\u663E\u793Abadge -->\n                    <ng-template [ngIf]=\"row[column['field']]?.length > 1\" [ngIfElse]=\"noBadgeTemplate\">\n                      <nz-badge [nzCount]=\"row[column['field']]?.length\">\n                        <ng-container [ngTemplateOutlet]=\"noBadgeTemplate\"></ng-container>\n                      </nz-badge>\n                    </ng-template>\n                    <!-- \u53EA\u6709\u4E00\u5F20\u56FE\u7247\u4E0D\u663E\u793Abadge -->\n                    <ng-template #noBadgeTemplate>\n                      <img\n                        viewerImg\n                        height=\"24px\"\n                        width=\"24px\"\n                        *ngFor=\"let url of row[column['field']] || []\"\n                        [lazyLoadSrc]=\"url\"\n                        style=\"cursor: zoom-in\"\n                      />\n                    </ng-template>\n                  </div>\n                </ng-template>\n                <!-- default -->\n                <ng-template ngSwitchDefault>\n                  <smart-text [text]=\"row[column['field']]\"></smart-text>\n                </ng-template>\n              </ng-container>\n            </ng-template>\n          </td>\n        </tr>\n      </ng-container>\n    </tbody>\n\n    <!-- total\u6A21\u677F -->\n    <ng-template #totalTemplate let-total> \u603B {{ total }} \u6761\u6570\u636E </ng-template>\n    <!-- \u9ED8\u8BA4title\u6A21\u677F -->\n    <ng-template #defaultTitleTemplate>\n      <div class=\"content-header\" [hidden]=\"selections.length\">\n        <div class=\"content-title\">\u5217\u8868</div>\n        <div class=\"content-query\">\n          <query-display [(columns)]=\"columns\" (queryChange)=\"onQueryChange($event)\"></query-display>\n        </div>\n      </div>\n      <div class=\"content-header\" [hidden]=\"!selections.length\">\n        <div class=\"selection-box\">\n          \u5DF2\u9009 <span class=\"color-theme\">{{ selections.length }}</span> \u9879\n          <a *ngIf=\"selections.length\" class=\"margin-left-16\" (click)=\"allCheckChange(false)\">\u53D6\u6D88</a>\n        </div>\n        <!-- \u7ED1\u5B9A\u64CD\u4F5C\u5217\u8868\u7684ng-content -->\n        <ng-content select=\".operation-box\"> </ng-content>\n      </div>\n    </ng-template>\n  </nz-table>\n\n  <!-- \u989D\u5916\u5206\u9875\u7EC4\u4EF6\uFF0C\u4E0D\u4F7F\u7528\u8868\u683C\u81EA\u5E26\u5206\u9875\uFF0C\u4E3A\u4E86\u6EE1\u8DB3UI\u7684\u6CA1\u6709\u6570\u636E\u4E5F\u8981\u663E\u793A\u5206\u9875\u7684\u9700\u6C42 -->\n  <nz-pagination\n    nzSize=\"small\"\n    [(nzPageIndex)]=\"pageIndex\"\n    [(nzPageSize)]=\"pageSize\"\n    [nzShowSizeChanger]=\"showSizeChanger\"\n    [nzPageSizeOptions]=\"pageSizeOptions\"\n    [nzTotal]=\"data?.totalElements || 0\"\n    [nzShowTotal]=\"totalTemplate\"\n    (nzPageIndexChange)=\"pageIndexChange()\"\n    (nzPageSizeChange)=\"pageSizeChange()\"\n  >\n  </nz-pagination>\n</nz-spin>\n",
+                        selector: 'p-advancedTable',
+                        template: "<nz-table\n  class=\"advanced-table\"\n  [nzData]=\"data?.data || []\"\n  [nzLoading]=\"loading\"\n  [nzTitle]=\"titleTemplate || null\"\n  [nzScroll]=\"scroll\"\n  [nzFrontPagination]=\"frontPagination\"\n  [nzSize]=\"size\"\n  [nzShowPagination]=\"showPagination\"\n  [(nzPageIndex)]=\"pageIndex\"\n  [(nzPageSize)]=\"pageSize\"\n  [nzShowSizeChanger]=\"showSizeChanger\"\n  [nzPageSizeOptions]=\"pageSizeOptions\"\n  [nzTotal]=\"data?.totalSize || 0\"\n  [nzShowTotal]=\"totalTemplate\"\n  (nzPageIndexChange)=\"pageIndexChange()\"\n  (nzPageSizeChange)=\"pageSizeChange()\"\n  (nzCurrentPageDataChange)=\"currentPageDataChange($event)\"\n  [class.fixed-pagination]=\"fixedPagination\"\n>\n  <thead (nzSortChange)=\"onSort($event)\" nzSingleSort>\n    <tr>\n      <th\n        *ngIf=\"showCheckbox\"\n        nzLeft=\"0px\"\n        nzWidth=\"40px\"\n        nzShowCheckbox\n        [nzChecked]=\"selections.length > 0 && displayData.length === selections.length\"\n        [nzIndeterminate]=\"selections.length > 0 && displayData.length !== selections.length\"\n        (nzCheckedChange)=\"allCheckChange($event)\"\n      ></th>\n      <th\n        *ngFor=\"let column of columns\"\n        [nzLeft]=\"column.left\"\n        [nzRight]=\"column.right\"\n        [nzWidth]=\"column.width || '120px'\"\n        [nzShowSort]=\"column.showSort\"\n        [nzSortKey]=\"column.field\"\n        [nzCustomFilter]=\"column.showFilter\"\n      >\n        {{ column.title }}\n        <nz-dropdown *ngIf=\"column.showFilter\" nzTrigger=\"click\" nzPlacement=\"bottomRight\" [nzClickHide]=\"false\" nzTableFilter #dropdown>\n          <i nz-icon nzType=\"search\" class=\"ant-table-filter-icon\" [class.ant-table-filter-open]=\"dropdown.nzVisible\" nz-dropdown></i>\n          <div class=\"advanced-table-filter-panel\">\n            <!-- \u81EA\u5B9A\u4E49\u641C\u7D22\u7EC4\u4EF6 -->\n            <ng-template [ngIf]=\"column.customFilter\" [ngIfElse]=\"defaultFilterTemplate\">\n              <ng-container [ngTemplateOutlet]=\"column.customFilter\" [ngTemplateOutletContext]=\"{ $implicit: column }\"></ng-container>\n            </ng-template>\n            <!-- \u9ED8\u8BA4\u641C\u7D22\u7EC4\u4EF6 -->\n            <ng-template #defaultFilterTemplate>\n              <ng-container [ngSwitch]=\"column.filterType\">\n                <!-- select -->\n                <ng-template ngSwitchCase=\"select\">\n                  <nz-select\n                    nzAllowClear\n                    nzPlaceHolder=\"\u8BF7\u9009\u62E9\"\n                    [(ngModel)]=\"column.searchValue\"\n                    [nzMode]=\"column.filterMultiple ? 'multiple' : 'default'\"\n                    [style.width]=\"column.filterWidth || '180px'\"\n                  >\n                    <nz-option\n                      *ngFor=\"let option of column.filterOptions || []\"\n                      [nzValue]=\"option.value\"\n                      [nzLabel]=\"option.label\"\n                    ></nz-option>\n                  </nz-select>\n                </ng-template>\n                <!-- range-picker -->\n                <ng-template ngSwitchCase=\"rangePicker\">\n                  <nz-range-picker\n                    nzAllowClear\n                    [(ngModel)]=\"column.searchValue\"\n                    [nzStyle]=\"{ width: column.filterWidth || '240px' }\"\n                    (nzOnOpenChange)=\"onRangePickerOpenChange($event, column)\"\n                  ></nz-range-picker>\n                </ng-template>\n                <!-- input -->\n                <ng-template ngSwitchDefault>\n                  <nz-input-group [nzSuffix]=\"suffixTemplate\">\n                    <input\n                      #input\n                      nz-input\n                      placeholder=\"\u8BF7\u8F93\u5165\"\n                      [(ngModel)]=\"column.searchValue\"\n                      [style.width]=\"column.filterWidth || '180px'\"\n                      (keydown.enter)=\"onFilterConfim(dropdown)\"\n                    />\n                  </nz-input-group>\n                  <ng-template #suffixTemplate>\n                    <i\n                      nz-icon\n                      nz-tooltip\n                      class=\"clear-icon\"\n                      nzTheme=\"fill\"\n                      nzType=\"close-circle\"\n                      *ngIf=\"column.searchValue\"\n                      (click)=\"column.searchValue = null; input.focus()\"\n                    ></i>\n                  </ng-template>\n                </ng-template>\n              </ng-container>\n            </ng-template>\n            <!-- \u6309\u94AE -->\n            <div nz-row nzType=\"flex\" nzJustify=\"end\" nzAlign=\"middle\" class=\"advanced-table-filter-button\">\n              <button nz-button nzSize=\"small\" nzType=\"primary\" (click)=\"onFilterConfim(dropdown)\">\n                \u786E\u8BA4\n              </button>\n            </div>\n          </div>\n        </nz-dropdown>\n      </th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let row of displayData\">\n      <tr>\n        <td *ngIf=\"showCheckbox\" nzLeft=\"0px\" nzShowCheckbox [(nzChecked)]=\"row.isChecked\" (nzCheckedChange)=\"singleCheckChange()\"></td>\n        <td [nzLeft]=\"column.left\" [nzRight]=\"column.right\" *ngFor=\"let column of columns\">\n          <!-- \u81EA\u5B9A\u4E49\u5355\u5143\u683C -->\n          <ng-template [ngIf]=\"column.customCell\" [ngIfElse]=\"defaultCellTemplate\">\n            <ng-container [ngTemplateOutlet]=\"column.customCell\" [ngTemplateOutletContext]=\"{ $implicit: row }\"></ng-container>\n          </ng-template>\n          <!-- \u9ED8\u8BA4\u5355\u5143\u683C -->\n          <ng-template #defaultCellTemplate>\n            <ng-container [ngSwitch]=\"column.type\">\n              <!-- link -->\n              <ng-template ngSwitchCase=\"link\">\n                <a (click)=\"onlinkClick(column['field'], row)\">\n                  <smart-text [text]=\"row[column['field']]\"></smart-text>\n                </a>\n              </ng-template>\n              <!-- thumbnail -->\n              <ng-template ngSwitchCase=\"thumbnail\">\n                <!-- \u65E0\u56FE\u7247\u4E0D\u521D\u59CB\u5316viewer -->\n                <div viewer [isLazyLoad]=\"true\" [maxShowNum]=\"1\" *ngIf=\"row[column['field']]?.length\">\n                  <!-- \u8D85\u8FC7\u4E00\u5F20\u56FE\u7247\u663E\u793Abadge -->\n                  <ng-template [ngIf]=\"row[column['field']]?.length > 1\" [ngIfElse]=\"noBadgeTemplate\">\n                    <nz-badge [nzCount]=\"row[column['field']]?.length\">\n                      <ng-container [ngTemplateOutlet]=\"noBadgeTemplate\"></ng-container>\n                    </nz-badge>\n                  </ng-template>\n                  <!-- \u53EA\u6709\u4E00\u5F20\u56FE\u7247\u4E0D\u663E\u793Abadge -->\n                  <ng-template #noBadgeTemplate>\n                    <img\n                      viewerImg\n                      height=\"24px\"\n                      width=\"24px\"\n                      *ngFor=\"let url of row[column['field']] || []\"\n                      [lazyLoadSrc]=\"url\"\n                      style=\"cursor: zoom-in\"\n                    />\n                  </ng-template>\n                </div>\n              </ng-template>\n              <!-- default -->\n              <ng-template ngSwitchDefault>\n                <smart-text [text]=\"row[column['field']]\"></smart-text>\n              </ng-template>\n            </ng-container>\n          </ng-template>\n        </td>\n      </tr>\n    </ng-container>\n  </tbody>\n\n  <!-- total\u6A21\u677F -->\n  <ng-template #totalTemplate let-total> \u603B {{ total }} \u6761\u6570\u636E </ng-template>\n</nz-table>\n",
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
-                        styles: ["nz-pagination{display:flex;flex-direction:column;align-items:flex-end;justify-content:center;height:48px;margin-top:2px;box-shadow:0 -2px 5px 0 rgba(194,194,194,.5)}:host ::ng-deep .ant-table-scroll{position:relative}:host ::ng-deep .fixed-pagination .ant-table-placeholder{position:absolute;bottom:0;width:100%}td{word-break:break-all}.clear-icon{color:rgba(0,0,0,.25);font-size:12px;vertical-align:top;cursor:pointer;transition:color .3s}.clear-icon:hover{color:rgba(0,0,0,.45)}"]
+                        styles: [":host ::ng-deep .ant-table-scroll{position:relative}:host ::ng-deep .fixed-pagination .ant-table-placeholder{position:absolute;bottom:0;width:100%}td{word-break:break-all}.clear-icon{color:rgba(0,0,0,.25);font-size:12px;vertical-align:top;cursor:pointer;transition:color .3s}.clear-icon:hover{color:rgba(0,0,0,.45)}"]
                     }] }
         ];
         /** @nocollapse */
@@ -561,9 +725,7 @@
             size: [{ type: core.Input }],
             pageSizeOptions: [{ type: core.Input }],
             showCheckbox: [{ type: core.Input }],
-            showTitle: [{ type: core.Input }],
             titleTemplate: [{ type: core.Input }],
-            filterMultiple: [{ type: core.Input }],
             columnsChange: [{ type: core.Output }],
             selectionsChange: [{ type: core.Output }],
             load: [{ type: core.Output }],
@@ -574,191 +736,68 @@
         };
         return AdvancedTableComponent;
     }());
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    var QueryDisplayComponent = /** @class */ (function () {
-        function QueryDisplayComponent() {
-            this.columns = [];
-            this.lexicon = []; // 词典
-            // 词典
-            this.columnsChange = new core.EventEmitter();
-            this.queryChange = new core.EventEmitter();
-            this.close = new core.EventEmitter();
-            // 过滤规则
-            this.filterRule = (/**
-             * @param {?} element
-             * @return {?}
-             */
-            function (element) {
-                /** @type {?} */
-                var searchValue = element.searchValue;
-                // 有默认值且搜索值和默认值相等
-                if (element.hasOwnProperty('defaultValue') && searchValue === element.defaultValue) {
-                    return false;
-                }
-                // 非法基础数据类型
-                if ([undefined, null, ''].includes(searchValue)) {
-                    return false;
-                }
-                // 空数组
-                if (Array.isArray(searchValue) && !searchValue.length) {
-                    return false;
-                }
-                // 通过校验，返回true
-                return true;
-            });
-        }
+    if (false) {
+        /** @type {?} */
+        AdvancedTableComponent.prototype.columns;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.data;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.selections;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.scroll;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.loading;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.pageSize;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.frontPagination;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.showPagination;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.fixedPagination;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.showSizeChanger;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.size;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.pageSizeOptions;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.showCheckbox;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.titleTemplate;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.columnsChange;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.selectionsChange;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.load;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.sort;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.linkClick;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.customCells;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.customFilters;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.load$;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.displayData;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.pageIndex;
+        /** @type {?} */
+        AdvancedTableComponent.prototype.sortParams;
         /**
-         * @return {?}
+         * @type {?}
+         * @private
          */
-        QueryDisplayComponent.prototype.ngOnInit = /**
-         * @return {?}
-         */
-        function () { };
+        AdvancedTableComponent.prototype._elementRef;
         /**
-         * @param {?} changes
-         * @return {?}
+         * @type {?}
+         * @private
          */
-        QueryDisplayComponent.prototype.ngOnChanges = /**
-         * @param {?} changes
-         * @return {?}
-         */
-        function (changes) {
-            if (changes.columns) {
-                this.updateQuery();
-            }
-        };
-        /**
-         * @param {?} column
-         * @return {?}
-         */
-        QueryDisplayComponent.prototype.onClose = /**
-         * @param {?} column
-         * @return {?}
-         */
-        function (column) {
-            // 有默认值恢复默认值，没有则置为null
-            column.searchValue = column.hasOwnProperty('defaultValue') ? column.defaultValue : null;
-            this.close.emit(column);
-            this.columns = __spread(this.columns);
-            this.columnsChange.emit(this.columns);
-        };
-        // 组件内更新查询值
-        // 组件内更新查询值
-        /**
-         * @return {?}
-         */
-        QueryDisplayComponent.prototype.updateQuery = 
-        // 组件内更新查询值
-        /**
-         * @return {?}
-         */
-        function () {
-            /** @type {?} */
-            var query = {};
-            this.columns.forEach((/**
-             * @param {?} column
-             * @return {?}
-             */
-            function (column) {
-                if (column.showFilter) {
-                    query[column.field] = column.searchValue;
-                }
-            }));
-            this.queryChange.emit(query);
-        };
-        /**
-         * @param {?} column
-         * @return {?}
-         */
-        QueryDisplayComponent.prototype.closeTab = /**
-         * @param {?} column
-         * @return {?}
-         */
-        function (column) {
-            console.log(column);
-        };
-        QueryDisplayComponent.decorators = [
-            { type: core.Component, args: [{
-                        selector: 'query-display',
-                        template: "<nz-tabset nzType=\"card\">\n  <ng-container *ngFor=\"let column of columns | filter: filterRule\">\n    <nz-tab [nzTitle]=\"titleTemplate\">\n      <ng-template #titleTemplate>\n        <div class=\"flex\">\n          <span class=\"label\">{{ column.title + '\uFF1A' }}</span>\n          <ng-container\n            *ngIf=\"(column.searchValue | translate: column.lexicon || lexicon)?.length > 10; else textTemplate\"\n          >\n            <div nz-popover nzTrigger=\"hover\" [nzContent]=\"textTemplate\" nzPlacement=\"bottom\">\n              <span class=\"value text-ellipsis\">\n                {{ column.displayValue || column.searchValue | translate: column.lexicon || lexicon }}\n              </span>\n            </div>\n          </ng-container>\n\n          <ng-template #textTemplate>\n            <div>\n              <span class=\"value\">\n                {{ column.displayValue || column.searchValue | translate: column.lexicon || lexicon }}\n              </span>\n            </div>\n          </ng-template>\n\n          <div>\n            <i nz-icon type=\"close\" class=\"ant-tabs-close-x\" (click)=\"closeTab(column)\"></i>\n          </div>\n        </div>\n      </ng-template>\n    </nz-tab>\n  </ng-container>\n</nz-tabset>\n",
-                        changeDetection: core.ChangeDetectionStrategy.OnPush,
-                        styles: [".text-ellipsis{display:inline-block;max-width:180px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;vertical-align:top}.flex{display:flex;align-items:center;justify-content:center}.label{color:#515151}.value{color:#1890ff}:host ::ng-deep .ant-tabs.ant-tabs-card .ant-tabs-bar{margin:0 0 2px;border:none}:host ::ng-deep .ant-tabs.ant-tabs-card .ant-tabs-bar .ant-tabs-tab{height:30px;margin:0 2px 0 0;padding:0 16px;line-height:28px;background:#fafafa;border:1px solid #e8e8e8!important;border-radius:4px;transition:.3s cubic-bezier(.645,.045,.355,1)}:host ::ng-deep .ant-tabs.ant-tabs-card .ant-tabs-bar .ant-tabs-nav-container{height:31px}:host ::ng-deep .ant-tabs.ant-tabs-card .ant-tabs-bar .ant-tabs-tab-active{font-weight:400}"]
-                    }] }
-        ];
-        /** @nocollapse */
-        QueryDisplayComponent.ctorParameters = function () { return []; };
-        QueryDisplayComponent.propDecorators = {
-            columns: [{ type: core.Input }],
-            lexicon: [{ type: core.Input }],
-            columnsChange: [{ type: core.Output }],
-            queryChange: [{ type: core.Output }],
-            close: [{ type: core.Output }],
-            filterRule: [{ type: core.Input }]
-        };
-        return QueryDisplayComponent;
-    }());
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    var QueryDisplayModule = /** @class */ (function () {
-        function QueryDisplayModule() {
-        }
-        QueryDisplayModule.decorators = [
-            { type: core.NgModule, args: [{
-                        declarations: [QueryDisplayComponent],
-                        imports: [common.CommonModule, theme.TranslatePipeModule, theme.FilterPipeModule, ngZorroAntd.NgZorroAntdModule],
-                        exports: [QueryDisplayComponent],
-                    },] }
-        ];
-        return QueryDisplayModule;
-    }());
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    var SmartTextComponent = /** @class */ (function () {
-        function SmartTextComponent() {
-            this.text = '';
-            this.maxLength = 20;
-            this.tail = '...';
-        }
-        SmartTextComponent.decorators = [
-            { type: core.Component, args: [{
-                        selector: 'smart-text',
-                        template: "<!-- \u76F4\u63A5\u663E\u793A -->\n<ng-container *ngIf=\"text.length <= maxLength; else tooltipBlock\">\n  <span>{{ text }}</span>\n</ng-container>\n\n<!-- \u63D0\u793A\u6846\u663E\u793A -->\n<ng-template #tooltipBlock>\n  <span nz-tooltip [nzTitle]=\"text\">{{ text | shortcut: maxLength:tail }}</span>\n</ng-template>\n\n<ng-content></ng-content>\n"
-                    }] }
-        ];
-        SmartTextComponent.propDecorators = {
-            text: [{ type: core.Input }],
-            maxLength: [{ type: core.Input }],
-            tail: [{ type: core.Input }]
-        };
-        return SmartTextComponent;
-    }());
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    var SmartTextModule = /** @class */ (function () {
-        function SmartTextModule() {
-        }
-        SmartTextModule.decorators = [
-            { type: core.NgModule, args: [{
-                        imports: [common.CommonModule, theme.ShortcutPipeModule, tooltip.NzToolTipModule],
-                        declarations: [SmartTextComponent],
-                        exports: [common.CommonModule, SmartTextComponent],
-                    },] }
-        ];
-        return SmartTextModule;
-    }());
+        AdvancedTableComponent.prototype._renderer2;
+    }
 
     /**
      * @fileoverview added by tsickle
@@ -767,15 +806,7 @@
     /** @type {?} */
     var COMPONENT = [AdvancedTableComponent, AdvancedCellComponent, AdvancedFilterComponent];
     /** @type {?} */
-    var MODULE = [
-        common.CommonModule,
-        forms.FormsModule,
-        ngZorroAntd.NgZorroAntdModule,
-        QueryDisplayModule,
-        SmartTextModule,
-        viewer.ViewerDirectiveModule,
-        QueryDisplayModule,
-    ];
+    var MODULE = [common.CommonModule, forms.FormsModule, ngZorroAntd.NgZorroAntdModule, smartText.SmartTextModule, viewer.ViewerDirectiveModule];
     var AdvancedTableModule = /** @class */ (function () {
         function AdvancedTableModule() {
         }
@@ -788,15 +819,68 @@
         ];
         return AdvancedTableModule;
     }());
+    /**
+     * @record
+     */
+    function AdvancedTableColumn() { }
+    if (false) {
+        /** @type {?} */
+        AdvancedTableColumn.prototype.title;
+        /** @type {?} */
+        AdvancedTableColumn.prototype.field;
+        /** @type {?|undefined} */
+        AdvancedTableColumn.prototype.width;
+        /** @type {?|undefined} */
+        AdvancedTableColumn.prototype.left;
+        /** @type {?|undefined} */
+        AdvancedTableColumn.prototype.right;
+        /** @type {?|undefined} */
+        AdvancedTableColumn.prototype.type;
+        /** @type {?|undefined} */
+        AdvancedTableColumn.prototype.customCell;
+        /** @type {?|undefined} */
+        AdvancedTableColumn.prototype.showSort;
+        /** @type {?|undefined} */
+        AdvancedTableColumn.prototype.sortValue;
+        /** @type {?|undefined} */
+        AdvancedTableColumn.prototype.customSort;
+        /** @type {?|undefined} */
+        AdvancedTableColumn.prototype.showFilter;
+        /** @type {?|undefined} */
+        AdvancedTableColumn.prototype.filterType;
+        /** @type {?|undefined} */
+        AdvancedTableColumn.prototype.filterOptions;
+        /** @type {?|undefined} */
+        AdvancedTableColumn.prototype.filterWidth;
+        /** @type {?|undefined} */
+        AdvancedTableColumn.prototype.filterMultiple;
+        /** @type {?|undefined} */
+        AdvancedTableColumn.prototype.customFilter;
+    }
+    /**
+     * @record
+     */
+    function AdvancedTableRow() { }
+    if (false) {
+        /** @type {?} */
+        AdvancedTableRow.prototype.isChecked;
+        /* Skipping unhandled member: [key: string]: any;*/
+    }
+    /**
+     * @record
+     */
+    function PageParams() { }
+    if (false) {
+        /** @type {?} */
+        PageParams.prototype.page;
+        /** @type {?} */
+        PageParams.prototype.size;
+    }
 
     exports.AdvancedTableModule = AdvancedTableModule;
     exports.ɵa = AdvancedTableComponent;
     exports.ɵb = AdvancedCellComponent;
     exports.ɵc = AdvancedFilterComponent;
-    exports.ɵd = QueryDisplayModule;
-    exports.ɵe = QueryDisplayComponent;
-    exports.ɵf = SmartTextModule;
-    exports.ɵg = SmartTextComponent;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

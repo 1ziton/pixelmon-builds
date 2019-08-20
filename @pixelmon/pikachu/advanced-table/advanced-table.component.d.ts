@@ -7,16 +7,17 @@ import { AfterContentInit, AfterViewInit, ElementRef, EventEmitter, OnChanges, O
 import { Subject } from 'rxjs';
 import { AdvancedCellComponent } from './advanced-cell.component';
 import { AdvancedFilterComponent } from './advanced-filter.component';
-import { Column, PageParams } from './advanced-table.module';
+import { AdvancedTableColumn, PageParams, AdvancedTableRow } from './advanced-table.module';
+import { NzDropDownComponent } from 'ng-zorro-antd';
 export declare class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit, AfterContentInit, OnDestroy {
     private _elementRef;
     private _renderer2;
-    columns: Column[];
+    columns: AdvancedTableColumn[];
     data: {
-        content: object[];
-        totalElements: number;
+        data: AdvancedTableRow[];
+        totalSize: number;
     };
-    selections: object[];
+    selections: AdvancedTableRow[];
     scroll: {
         x?: string | null;
         y?: string | null;
@@ -30,14 +31,10 @@ export declare class AdvancedTableComponent implements OnChanges, OnInit, AfterV
     size: string;
     pageSizeOptions: number[];
     showCheckbox: boolean;
-    showTitle: boolean;
     titleTemplate: TemplateRef<void>;
-    filterMultiple: string;
-    columnsChange: EventEmitter<Column[]>;
-    selectionsChange: EventEmitter<object[]>;
-    load: EventEmitter<[PageParams, {
-        [key: string]: any;
-    }?]>;
+    columnsChange: EventEmitter<AdvancedTableColumn[]>;
+    selectionsChange: EventEmitter<AdvancedTableRow[]>;
+    load: EventEmitter<PageParams>;
     sort: EventEmitter<{
         key: string;
         value: 'descend' | 'ascend' | null;
@@ -49,11 +46,8 @@ export declare class AdvancedTableComponent implements OnChanges, OnInit, AfterV
     customCells: AdvancedCellComponent[];
     customFilters: AdvancedFilterComponent[];
     load$: Subject<any>;
-    displayData: any[];
+    displayData: AdvancedTableRow[];
     pageIndex: number;
-    queryParams: {
-        [key: string]: any;
-    };
     sortParams: {
         key: string;
         value: 'descend' | 'ascend' | null;
@@ -65,7 +59,7 @@ export declare class AdvancedTableComponent implements OnChanges, OnInit, AfterV
     ngAfterContentInit(): void;
     ngOnDestroy(): void;
     /**
-     * 表格当前显示数据改变时调用
+     * 表格当前显示数据改变回调
      * @param currentData 当前页显示数据
      */
     currentPageDataChange(currentData: any[]): void;
@@ -79,9 +73,13 @@ export declare class AdvancedTableComponent implements OnChanges, OnInit, AfterV
      */
     allCheckChange(isChecked: boolean): void;
     /**
-     * 更新selections
+     * 根据checked更新selections
      */
-    updateSelections(): void;
+    updateSelectionsByChecked(): void;
+    /**
+     * 根据selections更新checked
+     */
+    updateCheckedBySelections(): void;
     /**
      * 页码改变回调
      */
@@ -103,18 +101,11 @@ export declare class AdvancedTableComponent implements OnChanges, OnInit, AfterV
      * @param isOpen 是否打开
      * @param column 当前列模型数据
      */
-    onRangePickerOpenChange(isOpen: boolean, column: Column): void;
+    onRangePickerOpenChange(isOpen: boolean, column: AdvancedTableColumn): void;
     /**
      * 查询确认回调
      */
-    onFilterConfim(): void;
-    /**
-     * 查询参数改变回调
-     * @param queryParams 查询参数
-     */
-    onQueryChange(queryParams: {
-        [key: string]: any;
-    }): void;
+    onFilterConfim(dropdown: NzDropDownComponent): void;
     /**
      * 固定分页
      */

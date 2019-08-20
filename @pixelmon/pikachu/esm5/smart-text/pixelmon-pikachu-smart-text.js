@@ -1,0 +1,10 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Generated bundle index. Do not edit.
+ */
+export { SmartTextModule } from './public_api';
+export { SmartTextComponent as ɵa } from './smart-text.component';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicGl4ZWxtb24tcGlrYWNodS1zbWFydC10ZXh0LmpzIiwic291cmNlUm9vdCI6Im5nOi8vQHBpeGVsbW9uL3Bpa2FjaHUvc21hcnQtdGV4dC8iLCJzb3VyY2VzIjpbInBpeGVsbW9uLXBpa2FjaHUtc21hcnQtdGV4dC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBSUEsZ0NBQWMsY0FBYyxDQUFDO0FBRTdCLE9BQU8sRUFBQyxrQkFBa0IsSUFBSSxFQUFFLEVBQUMsTUFBTSx3QkFBd0IsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogR2VuZXJhdGVkIGJ1bmRsZSBpbmRleC4gRG8gbm90IGVkaXQuXG4gKi9cblxuZXhwb3J0ICogZnJvbSAnLi9wdWJsaWNfYXBpJztcblxuZXhwb3J0IHtTbWFydFRleHRDb21wb25lbnQgYXMgybVhfSBmcm9tICcuL3NtYXJ0LXRleHQuY29tcG9uZW50JzsiXX0=

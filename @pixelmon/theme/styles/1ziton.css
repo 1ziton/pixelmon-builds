@@ -26773,6 +26773,12 @@ body {
     margin-bottom: 0;
   }
 }
+.advanced-table-filter-panel {
+  padding: 8px;
+}
+.advanced-table-filter-button {
+  margin-top: 8px;
+}
 .reuse-tab {
   display: block;
   padding: 8px;

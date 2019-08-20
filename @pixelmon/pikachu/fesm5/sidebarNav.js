@@ -1,6 +1,6 @@
 import { __decorate, __metadata } from 'tslib';
 import { DOCUMENT, CommonModule } from '@angular/common';
-import { Component, ChangeDetectionStrategy, ViewEncapsulation, Renderer2, ChangeDetectorRef, NgZone, Inject, Input, Output, EventEmitter, NgModule } from '@angular/core';
+import { EventEmitter, Component, ChangeDetectionStrategy, ViewEncapsulation, Renderer2, ChangeDetectorRef, NgZone, Inject, Input, Output, NgModule } from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { MenuService, SettingsService, WINDOW } from '@pixelmon/theme';
 import { InputBoolean, PixelmonUtilModule } from '@pixelmon/util';
@@ -467,6 +467,75 @@ var SidebarNavComponent = /** @class */ (function () {
     ], SidebarNavComponent.prototype, "openStrictly", void 0);
     return SidebarNavComponent;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    SidebarNavComponent.prototype.bodyEl;
+    /**
+     * @type {?}
+     * @private
+     */
+    SidebarNavComponent.prototype.unsubscribe$;
+    /**
+     * @type {?}
+     * @private
+     */
+    SidebarNavComponent.prototype.floatingEl;
+    /** @type {?} */
+    SidebarNavComponent.prototype.list;
+    /** @type {?} */
+    SidebarNavComponent.prototype.disabledAcl;
+    /** @type {?} */
+    SidebarNavComponent.prototype.autoCloseUnderPad;
+    /** @type {?} */
+    SidebarNavComponent.prototype.recursivePath;
+    /** @type {?} */
+    SidebarNavComponent.prototype.openStrictly;
+    /** @type {?} */
+    SidebarNavComponent.prototype.select;
+    /**
+     * @type {?}
+     * @private
+     */
+    SidebarNavComponent.prototype.menuSrv;
+    /**
+     * @type {?}
+     * @private
+     */
+    SidebarNavComponent.prototype.settings;
+    /**
+     * @type {?}
+     * @private
+     */
+    SidebarNavComponent.prototype.router;
+    /**
+     * @type {?}
+     * @private
+     */
+    SidebarNavComponent.prototype.render;
+    /**
+     * @type {?}
+     * @private
+     */
+    SidebarNavComponent.prototype.cdr;
+    /**
+     * @type {?}
+     * @private
+     */
+    SidebarNavComponent.prototype.ngZone;
+    /**
+     * @type {?}
+     * @private
+     */
+    SidebarNavComponent.prototype.doc;
+    /**
+     * @type {?}
+     * @private
+     */
+    SidebarNavComponent.prototype.win;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -484,6 +553,16 @@ var SidebarNavModule = /** @class */ (function () {
     ];
     return SidebarNavModule;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { SidebarNavComponent, SidebarNavModule };
 //# sourceMappingURL=sidebarNav.js.map

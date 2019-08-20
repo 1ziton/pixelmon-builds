@@ -1,5 +1,5 @@
 import { InjectionToken, Injectable, ɵɵdefineInjectable, Optional, Inject, ɵɵinject, Injector, INJECTOR, SkipSelf, NgModule, Pipe, Version } from '@angular/core';
-import { __assign, __values, __spread, __extends } from 'tslib';
+import { __values, __assign, __spread, __extends } from 'tslib';
 import { BehaviorSubject, Subject, Observable, throwError } from 'rxjs';
 import { filter, share, tap, catchError } from 'rxjs/operators';
 import { ACLService } from '@pixelmon/acl';
@@ -78,6 +78,188 @@ function preloaderFinished() {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function MenuIcon() { }
+if (false) {
+    /** @type {?} */
+    MenuIcon.prototype.type;
+    /**
+     * 值，包含：类名、图标 `type`、图像
+     * @type {?|undefined}
+     */
+    MenuIcon.prototype.value;
+    /**
+     * 图标主题风格，默认：`outline`
+     * @type {?|undefined}
+     */
+    MenuIcon.prototype.theme;
+    /**
+     * 是否有旋转动画，默认：`false`
+     * @type {?|undefined}
+     */
+    MenuIcon.prototype.spin;
+    /**
+     * 仅适用双色图标，设置双色图标的主要颜色，仅对当前 icon 生效
+     * @type {?|undefined}
+     */
+    MenuIcon.prototype.twoToneColor;
+    /**
+     * 指定来自 IconFont 的图标类型
+     * @type {?|undefined}
+     */
+    MenuIcon.prototype.iconfont;
+}
+/**
+ * @record
+ */
+function Menu() { }
+if (false) {
+    /**
+     * 文本
+     * @type {?}
+     */
+    Menu.prototype.text;
+    /**
+     * i18n主键
+     * @type {?|undefined}
+     */
+    Menu.prototype.i18n;
+    /**
+     * 是否显示分组名，默认：`true`
+     * @type {?|undefined}
+     */
+    Menu.prototype.group;
+    /**
+     * 路由
+     * @type {?|undefined}
+     */
+    Menu.prototype.link;
+    /**
+     * @deprecated
+     * 路由是否精准匹配，默认：`false`，see:
+     * - [#344](https://github.com/1ziton/pixelmon/issues/344)
+     * - [RouterLinkActive](https://angular.io/api/router/RouterLinkActive#routerLinkActiveOptions)
+     * @type {?|undefined}
+     */
+    Menu.prototype.linkExact;
+    /**
+     * 外部链接
+     * @type {?|undefined}
+     */
+    Menu.prototype.externalLink;
+    /**
+     * 链接 target
+     * @type {?|undefined}
+     */
+    Menu.prototype.target;
+    /**
+     * 图标
+     * @type {?|undefined}
+     */
+    Menu.prototype.icon;
+    /**
+     * 徽标数，展示的数字。（注：`group:true` 无效）
+     * @type {?|undefined}
+     */
+    Menu.prototype.badge;
+    /**
+     * 徽标数，显示小红点
+     * @type {?|undefined}
+     */
+    Menu.prototype.badgeDot;
+    /**
+     * 徽标 Badge 颜色 （默认：error， 所有颜色值见：https://github.com/1ziton/pixelmon/blob/master/_documents/utils.md#色彩）
+     * @type {?|undefined}
+     */
+    Menu.prototype.badgeStatus;
+    /**
+     * 是否禁用
+     * @type {?|undefined}
+     */
+    Menu.prototype.disabled;
+    /**
+     * 是否隐藏菜单
+     * @type {?|undefined}
+     */
+    Menu.prototype.hide;
+    /**
+     * 隐藏面包屑，指 `page-header` 组件的自动生成面包屑时有效
+     * @type {?|undefined}
+     */
+    Menu.prototype.hideInBreadcrumb;
+    /**
+     * ACL配置，若导入 `\@pixelmon/acl` 时自动有效，等同于 `ACLService.can(roleOrAbility: ACLCanType)` 参数值
+     * @type {?|undefined}
+     */
+    Menu.prototype.acl;
+    /**
+     * 是否快捷菜单项
+     * @type {?|undefined}
+     */
+    Menu.prototype.shortcut;
+    /**
+     * 快捷菜单根节点
+     * @type {?|undefined}
+     */
+    Menu.prototype.shortcutRoot;
+    /**
+     * 是否允许复用，需配合 `reuse-tab` 组件
+     * @type {?|undefined}
+     */
+    Menu.prototype.reuse;
+    /**
+     * 是否展开，当设置 `checkStrictly` 时有效
+     * @type {?|undefined}
+     */
+    Menu.prototype.open;
+    /**
+     * 二级菜单
+     * @type {?|undefined}
+     */
+    Menu.prototype.children;
+    /* Skipping unhandled member: [key: string]: any;*/
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @record
+ */
+function PixelmonI18NService() { }
+if (false) {
+    /**
+     * 调用 `use` 触发变更通知
+     * @type {?}
+     */
+    PixelmonI18NService.prototype.change;
+    /* Skipping unhandled member: [key: string]: any;*/
+    /**
+     * 变更语言
+     * @param {?} lang 语言代码
+     * @param {?=} emit 是否触发 `change`，默认：true
+     * @return {?}
+     */
+    PixelmonI18NService.prototype.use = function (lang, emit) { };
+    /**
+     * 返回当前语言列表
+     * @return {?}
+     */
+    PixelmonI18NService.prototype.getLangs = function () { };
+    /**
+     * 翻译
+     * - `params` 模板所需要的参数对象
+     * - `isSafe` 是否返回安全字符，自动调用 `bypassSecurityTrustHtml`
+     * @param {?} key
+     * @param {?=} params
+     * @param {?=} isSafe
+     * @return {?}
+     */
+    PixelmonI18NService.prototype.fanyi = function (key, params, isSafe) { };
+}
 /** @type {?} */
 var PIXELMON_I18N_TOKEN = new InjectionToken('pixelmonTranslatorToken', {
     providedIn: 'root',
@@ -144,6 +326,13 @@ var PixelmonI18NServiceFake = /** @class */ (function () {
     /** @nocollapse */ PixelmonI18NServiceFake.ngInjectableDef = ɵɵdefineInjectable({ factory: function PixelmonI18NServiceFake_Factory() { return new PixelmonI18NServiceFake(); }, token: PixelmonI18NServiceFake, providedIn: "root" });
     return PixelmonI18NServiceFake;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    PixelmonI18NServiceFake.prototype.change$;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -553,6 +742,33 @@ var MenuService = /** @class */ (function () {
     /** @nocollapse */ MenuService.ngInjectableDef = ɵɵdefineInjectable({ factory: function MenuService_Factory() { return new MenuService(ɵɵinject(PIXELMON_I18N_TOKEN, 8), ɵɵinject(ACLService, 8)); }, token: MenuService, providedIn: "root" });
     return MenuService;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    MenuService.prototype._change$;
+    /**
+     * @type {?}
+     * @private
+     */
+    MenuService.prototype.i18n$;
+    /**
+     * @type {?}
+     * @private
+     */
+    MenuService.prototype.data;
+    /**
+     * @type {?}
+     * @private
+     */
+    MenuService.prototype.i18nSrv;
+    /**
+     * @type {?}
+     * @private
+     */
+    MenuService.prototype.aclService;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -664,6 +880,99 @@ var ScrollService = /** @class */ (function () {
     /** @nocollapse */ ScrollService.ngInjectableDef = ɵɵdefineInjectable({ factory: function ScrollService_Factory() { return new ScrollService(ɵɵinject(WINDOW), ɵɵinject(DOCUMENT)); }, token: ScrollService, providedIn: "root" });
     return ScrollService;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    ScrollService.prototype.win;
+    /**
+     * @type {?}
+     * @private
+     */
+    ScrollService.prototype.doc;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @record
+ */
+function App() { }
+if (false) {
+    /**
+     * Name for app
+     * @type {?|undefined}
+     */
+    App.prototype.name;
+    /**
+     * Description for app
+     * @type {?|undefined}
+     */
+    App.prototype.description;
+    /* Skipping unhandled member: [key: string]: any;*/
+}
+/**
+ * @record
+ */
+function User() { }
+if (false) {
+    /**
+     * Name for current user
+     * @type {?|undefined}
+     */
+    User.prototype.name;
+    /**
+     * Avatar for current user
+     * @type {?|undefined}
+     */
+    User.prototype.avatar;
+    /**
+     * Email for current user
+     * @type {?|undefined}
+     */
+    User.prototype.email;
+    /* Skipping unhandled member: [key: string]: any;*/
+}
+/**
+ * @record
+ */
+function Layout() { }
+if (false) {
+    /**
+     * Whether to fold menu
+     * @type {?}
+     */
+    Layout.prototype.collapsed;
+    /**
+     * Current language
+     * @type {?}
+     */
+    Layout.prototype.lang;
+    /**
+     * Color weak
+     * @type {?}
+     */
+    Layout.prototype.colorWeak;
+    /* Skipping unhandled member: [key: string]: any;*/
+}
+/**
+ * @record
+ */
+function SettingsNotify() { }
+if (false) {
+    /** @type {?} */
+    SettingsNotify.prototype.type;
+    /**
+     * Update `key` name, limited `layout` type
+     * @type {?|undefined}
+     */
+    SettingsNotify.prototype.name;
+    /** @type {?} */
+    SettingsNotify.prototype.value;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -817,6 +1126,59 @@ var SettingsService = /** @class */ (function () {
     /** @nocollapse */ SettingsService.ngInjectableDef = ɵɵdefineInjectable({ factory: function SettingsService_Factory() { return new SettingsService(); }, token: SettingsService, providedIn: "root" });
     return SettingsService;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    SettingsService.prototype.notify$;
+    /**
+     * @type {?}
+     * @private
+     */
+    SettingsService.prototype._app;
+    /**
+     * @type {?}
+     * @private
+     */
+    SettingsService.prototype._user;
+    /**
+     * @type {?}
+     * @private
+     */
+    SettingsService.prototype._layout;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @record
+ */
+function ResponsiveConfig() { }
+if (false) {
+    /** @type {?} */
+    ResponsiveConfig.prototype.rules;
+}
+/**
+ * @record
+ */
+function ResponsiveConfigRule() { }
+if (false) {
+    /** @type {?|undefined} */
+    ResponsiveConfigRule.prototype.xs;
+    /** @type {?|undefined} */
+    ResponsiveConfigRule.prototype.sm;
+    /** @type {?|undefined} */
+    ResponsiveConfigRule.prototype.md;
+    /** @type {?|undefined} */
+    ResponsiveConfigRule.prototype.lg;
+    /** @type {?|undefined} */
+    ResponsiveConfigRule.prototype.xl;
+    /** @type {?|undefined} */
+    ResponsiveConfigRule.prototype.xxl;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -831,6 +1193,12 @@ var PixelmonThemeConfig = /** @class */ (function () {
     /** @nocollapse */ PixelmonThemeConfig.ngInjectableDef = ɵɵdefineInjectable({ factory: function PixelmonThemeConfig_Factory() { return new PixelmonThemeConfig(); }, token: PixelmonThemeConfig, providedIn: "root" });
     return PixelmonThemeConfig;
 }());
+if (false) {
+    /** @type {?} */
+    PixelmonThemeConfig.prototype.http;
+    /** @type {?} */
+    PixelmonThemeConfig.prototype.responsive;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -899,6 +1267,13 @@ var ResponsiveService = /** @class */ (function () {
     /** @nocollapse */ ResponsiveService.ngInjectableDef = ɵɵdefineInjectable({ factory: function ResponsiveService_Factory() { return new ResponsiveService(ɵɵinject(PixelmonThemeConfig)); }, token: ResponsiveService, providedIn: "root" });
     return ResponsiveService;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    ResponsiveService.prototype.cog;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -1111,6 +1486,63 @@ var TitleService = /** @class */ (function () {
     /** @nocollapse */ TitleService.ngInjectableDef = ɵɵdefineInjectable({ factory: function TitleService_Factory() { return new TitleService(ɵɵinject(INJECTOR), ɵɵinject(Title), ɵɵinject(MenuService), ɵɵinject(PIXELMON_I18N_TOKEN, 8), ɵɵinject(DOCUMENT)); }, token: TitleService, providedIn: "root" });
     return TitleService;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    TitleService.prototype._prefix;
+    /**
+     * @type {?}
+     * @private
+     */
+    TitleService.prototype._suffix;
+    /**
+     * @type {?}
+     * @private
+     */
+    TitleService.prototype._separator;
+    /**
+     * @type {?}
+     * @private
+     */
+    TitleService.prototype._reverse;
+    /**
+     * @type {?}
+     * @private
+     */
+    TitleService.prototype.i18n$;
+    /**
+     * 设置默认标题名
+     * @type {?}
+     */
+    TitleService.prototype.default;
+    /**
+     * @type {?}
+     * @private
+     */
+    TitleService.prototype.injector;
+    /**
+     * @type {?}
+     * @private
+     */
+    TitleService.prototype.title;
+    /**
+     * @type {?}
+     * @private
+     */
+    TitleService.prototype.menuSrv;
+    /**
+     * @type {?}
+     * @private
+     */
+    TitleService.prototype.i18nSrv;
+    /**
+     * @type {?}
+     * @private
+     */
+    TitleService.prototype.doc;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -1118,6 +1550,201 @@ var TitleService = /** @class */ (function () {
  */
 /** @type {?} */
 var DELON_LOCALE = new InjectionToken('pixelmon-locale');
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @record
+ */
+function LocaleData() { }
+/**
+ * @record
+ */
+function ExceptionLocaleData() { }
+if (false) {
+    /* Skipping unnamed member:
+    403: string;*/
+    /* Skipping unnamed member:
+    404: string;*/
+    /* Skipping unnamed member:
+    500: string;*/
+    /** @type {?} */
+    ExceptionLocaleData.prototype.backToHome;
+}
+/**
+ * @record
+ */
+function NoticeIconLocaleData() { }
+if (false) {
+    /** @type {?} */
+    NoticeIconLocaleData.prototype.emptyText;
+    /** @type {?} */
+    NoticeIconLocaleData.prototype.clearText;
+}
+/**
+ * @record
+ */
+function ReuseTabLocaleData() { }
+if (false) {
+    /** @type {?} */
+    ReuseTabLocaleData.prototype.close;
+    /** @type {?} */
+    ReuseTabLocaleData.prototype.closeOther;
+    /** @type {?} */
+    ReuseTabLocaleData.prototype.closeRight;
+    /** @type {?} */
+    ReuseTabLocaleData.prototype.clear;
+}
+/**
+ * @record
+ */
+function TagSelectLocaleData() { }
+if (false) {
+    /** @type {?} */
+    TagSelectLocaleData.prototype.expand;
+    /** @type {?} */
+    TagSelectLocaleData.prototype.collapse;
+}
+/**
+ * @record
+ */
+function MiniProgressLocaleData() { }
+if (false) {
+    /** @type {?} */
+    MiniProgressLocaleData.prototype.target;
+}
+/**
+ * @record
+ */
+function STLocaleData() { }
+if (false) {
+    /** @type {?} */
+    STLocaleData.prototype.total;
+    /** @type {?} */
+    STLocaleData.prototype.filterConfirm;
+    /** @type {?} */
+    STLocaleData.prototype.filterReset;
+}
+/**
+ * @record
+ */
+function SFLocaleData() { }
+if (false) {
+    /** @type {?} */
+    SFLocaleData.prototype.submit;
+    /** @type {?} */
+    SFLocaleData.prototype.reset;
+    /** @type {?} */
+    SFLocaleData.prototype.search;
+    /** @type {?} */
+    SFLocaleData.prototype.edit;
+    /** @type {?} */
+    SFLocaleData.prototype.addText;
+    /** @type {?} */
+    SFLocaleData.prototype.removeText;
+    /** @type {?} */
+    SFLocaleData.prototype.checkAllText;
+    /** @type {?} */
+    SFLocaleData.prototype.error;
+}
+/**
+ * @record
+ */
+function SFErrorLocaleData() { }
+if (false) {
+    /* Skipping unnamed member:
+    'false schema': string;*/
+    /** @type {?} */
+    SFErrorLocaleData.prototype.$ref;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.additionalItems;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.additionalProperties;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.anyOf;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.dependencies;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.enum;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.format;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.type;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.required;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.maxLength;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.minLength;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.minimum;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.formatMinimum;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.maximum;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.formatMaximum;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.maxItems;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.minItems;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.maxProperties;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.minProperties;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.multipleOf;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.not;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.oneOf;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.pattern;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.uniqueItems;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.custom;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.propertyNames;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.patternRequired;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.switch;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.const;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.contains;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.formatExclusiveMaximum;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.formatExclusiveMinimum;
+    /** @type {?} */
+    SFErrorLocaleData.prototype.if;
+}
+/**
+ * @record
+ */
+function FullLocaleData() { }
+if (false) {
+    /** @type {?} */
+    FullLocaleData.prototype.abbr;
+    /** @type {?} */
+    FullLocaleData.prototype.exception;
+    /** @type {?} */
+    FullLocaleData.prototype.noticeIcon;
+    /** @type {?} */
+    FullLocaleData.prototype.reuseTab;
+    /** @type {?} */
+    FullLocaleData.prototype.tagSelect;
+    /** @type {?} */
+    FullLocaleData.prototype.miniProgress;
+    /** @type {?} */
+    FullLocaleData.prototype.st;
+    /** @type {?} */
+    FullLocaleData.prototype.sf;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -1264,6 +1891,18 @@ var PixelmonLocaleService = /** @class */ (function () {
     ]; };
     return PixelmonLocaleService;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    PixelmonLocaleService.prototype._locale;
+    /**
+     * @type {?}
+     * @private
+     */
+    PixelmonLocaleService.prototype.change$;
+}
 /**
  * @param {?} exist
  * @param {?} locale
@@ -1785,6 +2424,42 @@ var koKR = (/** @type {?} */ ({
  * @fileoverview added by tsickle
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @record
+ */
+function ModalHelperOptions() { }
+if (false) {
+    /**
+     * 大小；例如：lg、600，默认：`lg`
+     * @type {?|undefined}
+     */
+    ModalHelperOptions.prototype.size;
+    /**
+     * 对话框 [ModalOptionsForService](https://github.com/NG-ZORRO/ng-zorro-antd/blob/master/components/modal/nz-modal.type.ts) 参数
+     * @type {?|undefined}
+     */
+    ModalHelperOptions.prototype.modalOptions;
+    /**
+     * 是否精准（默认：`true`），若返回值非空值（`null`或`undefined`）视为成功，否则视为错误
+     * @type {?|undefined}
+     */
+    ModalHelperOptions.prototype.exact;
+    /**
+     * 是否包裹标签页，修复模态包含标签间距问题
+     * @type {?|undefined}
+     */
+    ModalHelperOptions.prototype.includeTabs;
+}
 /**
  * 对话框辅助类
  */
@@ -2080,6 +2755,13 @@ var ModalHelper = /** @class */ (function () {
     /** @nocollapse */ ModalHelper.ngInjectableDef = ɵɵdefineInjectable({ factory: function ModalHelper_Factory() { return new ModalHelper(ɵɵinject(NzModalService)); }, token: ModalHelper, providedIn: "root" });
     return ModalHelper;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    ModalHelper.prototype.srv;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -2388,6 +3070,23 @@ var _HttpClient = /** @class */ (function () {
     /** @nocollapse */ _HttpClient.ngInjectableDef = ɵɵdefineInjectable({ factory: function _HttpClient_Factory() { return new _HttpClient(ɵɵinject(HttpClient), ɵɵinject(PixelmonThemeConfig)); }, token: _HttpClient, providedIn: "root" });
     return _HttpClient;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    _HttpClient.prototype.cog;
+    /**
+     * @type {?}
+     * @private
+     */
+    _HttpClient.prototype._loading;
+    /**
+     * @type {?}
+     * @private
+     */
+    _HttpClient.prototype.http;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -2406,6 +3105,44 @@ var BaseApi = /** @class */ (function () {
     ]; };
     return BaseApi;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @protected
+     */
+    BaseApi.prototype.injector;
+}
+/**
+ * @record
+ */
+function HttpOptions() { }
+if (false) {
+    /**
+     * ACL配置，若导入 `\@pixelmon/acl` 时自动有效，等同于 `ACLService.can(roleOrAbility: ACLCanType)` 参数值
+     * @type {?|undefined}
+     */
+    HttpOptions.prototype.acl;
+    /** @type {?|undefined} */
+    HttpOptions.prototype.observe;
+    /** @type {?|undefined} */
+    HttpOptions.prototype.responseType;
+    /** @type {?|undefined} */
+    HttpOptions.prototype.reportProgress;
+    /** @type {?|undefined} */
+    HttpOptions.prototype.withCredentials;
+}
+/**
+ * @record
+ */
+function ParamType() { }
+if (false) {
+    /** @type {?} */
+    ParamType.prototype.key;
+    /** @type {?} */
+    ParamType.prototype.index;
+    /* Skipping unhandled member: [key: string]: any;*/
+    /* Skipping unhandled member: [key: number]: any;*/
+}
 /** @type {?} */
 var paramKey = "__api_params";
 /**
@@ -2800,6 +3537,13 @@ var HTMLPipe = /** @class */ (function () {
     ]; };
     return HTMLPipe;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    HTMLPipe.prototype.dom;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -2829,6 +3573,13 @@ var URLPipe = /** @class */ (function () {
     ]; };
     return URLPipe;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    URLPipe.prototype.dom;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -2887,6 +3638,13 @@ var YNPipe = /** @class */ (function () {
     ]; };
     return YNPipe;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    YNPipe.prototype.dom;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -2924,7 +3682,7 @@ var ShortcutPipe = /** @class */ (function () {
         if (value.length <= maxLength) {
             return value;
         }
-        return value.substr(0, maxLength) + tail;
+        return String(value).substr(0, maxLength) + tail;
     };
     ShortcutPipe.decorators = [
         { type: Pipe, args: [{
@@ -3077,6 +3835,46 @@ var TranslatePipeModule = /** @class */ (function () {
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
+ * @record
+ */
+function DrawerHelperOptions() { }
+if (false) {
+    /**
+     * 大小，若值为数值类型，则根据 `nzPlacement` 自动转化为 `nzHeight` 或 `nzWidth`；例如：lg、600，默认：`md`
+     *
+     * | 类型 | 默认大小 |
+     * | --- | ------ |
+     * | `sm` | `300` |
+     * | `md` | `600` |
+     * | `lg` | `900` |
+     * | `xl` | `1200` |
+     *
+     * > 以上值，可通过覆盖相应的LESS参数自行调整
+     * @type {?|undefined}
+     */
+    DrawerHelperOptions.prototype.size;
+    /**
+     * 是否包含底部工具条，默认：`true`
+     * @type {?|undefined}
+     */
+    DrawerHelperOptions.prototype.footer;
+    /**
+     * 底部工具条高度，默认：`55`
+     * @type {?|undefined}
+     */
+    DrawerHelperOptions.prototype.footerHeight;
+    /**
+     * 是否精准（默认：`true`），若返回值非空值（`null`或`undefined`）视为成功，否则视为错误
+     * @type {?|undefined}
+     */
+    DrawerHelperOptions.prototype.exact;
+    /**
+     * 抽屉 [NzDrawerOptions](https://ng.ant.design/components/drawer/zh#nzdraweroptions) 参数
+     * @type {?|undefined}
+     */
+    DrawerHelperOptions.prototype.drawerOptions;
+}
+/**
  * 抽屉辅助类
  *
  * **注意：** 构建结果都可被订阅，但永远都不会触发 `observer.error`
@@ -3218,6 +4016,13 @@ var DrawerHelper = /** @class */ (function () {
     /** @nocollapse */ DrawerHelper.ngInjectableDef = ɵɵdefineInjectable({ factory: function DrawerHelper_Factory() { return new DrawerHelper(ɵɵinject(NzDrawerService)); }, token: DrawerHelper, providedIn: "root" });
     return DrawerHelper;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    DrawerHelper.prototype.srv;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -3251,6 +4056,13 @@ var I18nPipe = /** @class */ (function () {
     ]; };
     return I18nPipe;
 }());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    I18nPipe.prototype.i18n;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -3313,7 +4125,17 @@ var PixelmonThemeModule = /** @class */ (function () {
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
-var VERSION = new Version('0.1.3');
+var VERSION = new Version('0.1.4');
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { APP, BaseApi, BaseHeaders, BaseUrl, Body, CNCurrencyPipe, DELETE, DELON_LOCALE, DELON_LOCALE_SERVICE_PROVIDER, DELON_LOCALE_SERVICE_PROVIDER_FACTORY, DatePipe, FilterPipe, FilterPipeModule, GET, HEAD, HTMLPipe, Headers, JSONP, KeysPipe, LAYOUT, MenuService, ModalHelper, OPTIONS, PATCH, PIXELMON_I18N_TOKEN, POST, PUT, Path, PixelmonI18NServiceFake, PixelmonLocaleModule, PixelmonLocaleService, PixelmonThemeConfig, PixelmonThemeModule, Query, REP_MAX, ResponsiveService, ScrollService, SettingsService, ShortcutPipe, ShortcutPipeModule, TitleService, TranslatePipe, TranslatePipeModule, URLPipe, USER, VERSION, WINDOW, YNPipe, _HttpClient, elGR as el_GR, enUS as en_US, koKR as ko_KR, plPL as pl_PL, preloaderFinished, trTR as tr_TR, zhCN as zh_CN, zhTW as zh_TW, PIXELMON_I18N_TOKEN_FACTORY as ɵa, I18nPipe as ɵb, DrawerHelper as ɵc };
 //# sourceMappingURL=theme.js.map

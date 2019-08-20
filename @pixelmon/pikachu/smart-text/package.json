@@ -1,0 +1,13 @@
+{
+  "main": "../bundles/pixelmon-pikachu-smart-text.umd.js",
+  "module": "../fesm5/pixelmon-pikachu-smart-text.js",
+  "es2015": "../fesm2015/pixelmon-pikachu-smart-text.js",
+  "esm5": "../esm5/smart-text/pixelmon-pikachu-smart-text.js",
+  "esm2015": "../esm2015/smart-text/pixelmon-pikachu-smart-text.js",
+  "fesm5": "../fesm5/pixelmon-pikachu-smart-text.js",
+  "fesm2015": "../fesm2015/pixelmon-pikachu-smart-text.js",
+  "typings": "pixelmon-pikachu-smart-text.d.ts",
+  "metadata": "pixelmon-pikachu-smart-text.metadata.json",
+  "sideEffects": false,
+  "name": "@pixelmon/pikachu/smart-text"
+}

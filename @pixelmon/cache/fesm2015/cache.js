@@ -8,6 +8,56 @@ import { tap, map } from 'rxjs/operators';
  * @fileoverview added by tsickle
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function ICache() { }
+if (false) {
+    /** @type {?} */
+    ICache.prototype.v;
+    /**
+     * 过期时间戳，`0` 表示不过期
+     * @type {?}
+     */
+    ICache.prototype.e;
+}
+/**
+ * @record
+ */
+function ICacheStore() { }
+if (false) {
+    /**
+     * @param {?} key
+     * @return {?}
+     */
+    ICacheStore.prototype.get = function (key) { };
+    /**
+     * @param {?} key
+     * @param {?} value
+     * @return {?}
+     */
+    ICacheStore.prototype.set = function (key, value) { };
+    /**
+     * @param {?} key
+     * @return {?}
+     */
+    ICacheStore.prototype.remove = function (key) { };
+}
+/**
+ * @record
+ */
+function CacheNotifyResult() { }
+if (false) {
+    /** @type {?} */
+    CacheNotifyResult.prototype.type;
+    /** @type {?|undefined} */
+    CacheNotifyResult.prototype.value;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 class PixelmonCacheConfig {
     constructor() {
         /**
@@ -37,6 +87,33 @@ PixelmonCacheConfig.decorators = [
     { type: Injectable, args: [{ providedIn: 'root' },] }
 ];
 /** @nocollapse */ PixelmonCacheConfig.ngInjectableDef = ɵɵdefineInjectable({ factory: function PixelmonCacheConfig_Factory() { return new PixelmonCacheConfig(); }, token: PixelmonCacheConfig, providedIn: "root" });
+if (false) {
+    /**
+     * 缓存模式，默认：`promise`
+     * - `promise` 约定模式，允许 `key` 作为 http 获取数据
+     * - `none` 正常模式
+     * @type {?}
+     */
+    PixelmonCacheConfig.prototype.mode;
+    /**
+     * 重命名返回参数，例如：
+     * - `null` 返回体为内容
+     * - `list` 返回体应 `{ list: [] }`
+     * - `result.list` 返回体应 `{ result: { list: [] } }`
+     * @type {?}
+     */
+    PixelmonCacheConfig.prototype.reName;
+    /**
+     * 持久化数据键值前缀
+     * @type {?}
+     */
+    PixelmonCacheConfig.prototype.prefix;
+    /**
+     * 持久化数据元数据存储键名
+     * @type {?}
+     */
+    PixelmonCacheConfig.prototype.meta_key;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -473,6 +550,48 @@ CacheService.ctorParameters = () => [
     { type: HttpClient }
 ];
 /** @nocollapse */ CacheService.ngInjectableDef = ɵɵdefineInjectable({ factory: function CacheService_Factory() { return new CacheService(ɵɵinject(PixelmonCacheConfig), ɵɵinject(DC_STORE_STORAGE_TOKEN), ɵɵinject(HttpClient)); }, token: CacheService, providedIn: "root" });
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    CacheService.prototype.memory;
+    /**
+     * @type {?}
+     * @private
+     */
+    CacheService.prototype.notifyBuffer;
+    /**
+     * @type {?}
+     * @private
+     */
+    CacheService.prototype.meta;
+    /**
+     * @type {?}
+     * @private
+     */
+    CacheService.prototype.freqTick;
+    /**
+     * @type {?}
+     * @private
+     */
+    CacheService.prototype.freqTime;
+    /**
+     * @type {?}
+     * @private
+     */
+    CacheService.prototype.cog;
+    /**
+     * @type {?}
+     * @private
+     */
+    CacheService.prototype.store;
+    /**
+     * @type {?}
+     * @private
+     */
+    CacheService.prototype.http;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -483,6 +602,16 @@ class PixelmonCacheModule {
 PixelmonCacheModule.decorators = [
     { type: NgModule, args: [{},] }
 ];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 
 export { CacheService, PixelmonCacheConfig, PixelmonCacheModule, DC_STORE_STORAGE_TOKEN as ɵa, DC_STORE_STORAGE_TOKEN_FACTORY as ɵb, LocalStorageCacheService as ɵc };
 //# sourceMappingURL=cache.js.map

@@ -1,7 +1,8 @@
 import { TemplateRef } from '@angular/core';
+import { QueryTab } from '@pixelmon/pikachu/query-tabs';
 export declare class AdvancedTableModule {
 }
-export interface Column {
+export interface AdvancedTableColumn extends QueryTab {
     title: string;
     field: string;
     width?: string;
@@ -21,12 +22,10 @@ export interface Column {
     filterWidth?: string;
     filterMultiple?: boolean;
     customFilter?: TemplateRef<any>;
-    searchValue?: any;
-    defaultValue?: any;
-    displayValue?: any;
-    lexicon?: {
-        [key: string]: string;
-    };
+}
+export interface AdvancedTableRow {
+    isChecked: boolean;
+    [key: string]: any;
 }
 export interface PageParams {
     page: number;

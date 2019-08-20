@@ -1,3 +1,4 @@
+export declare type GraphType = 'flow' | 'mind';
 export interface FlowNode {
     type: string;
     size: string;

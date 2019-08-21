@@ -993,7 +993,7 @@
      */
     function toBoolean(value, allowUndefined) {
         if (allowUndefined === void 0) { allowUndefined = false; }
-        return allowUndefined && typeof value === 'undefined' ? undefined : value != null && "" + value !== 'false';
+        return allowUndefined && typeof value === 'undefined' ? undefined : value != null && "" + value !== 'false' || value === '';
     }
     /**
      * Input decorator that handle a prop to do get/set automatically with toBoolean

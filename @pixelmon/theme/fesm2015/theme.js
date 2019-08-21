@@ -3500,7 +3500,7 @@ PixelmonThemeModule.ctorParameters = () => [
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
-const VERSION = new Version('0.1.4');
+const VERSION = new Version('0.1.4-24301b2');
 
 /**
  * @fileoverview added by tsickle

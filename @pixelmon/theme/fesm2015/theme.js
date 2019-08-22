@@ -3106,13 +3106,15 @@ class ShortcutPipe {
      * @return {?}
      */
     transform(value, maxLength = 20, tail = '...') {
-        if (!value) {
+        if (value === undefined || value === null) {
             return '';
         }
-        if (value.length <= maxLength) {
-            return value;
+        /** @type {?} */
+        const valueString = String(value);
+        if (valueString.length <= maxLength) {
+            return valueString;
         }
-        return String(value).substr(0, maxLength) + tail;
+        return valueString.substr(0, maxLength) + tail;
     }
 }
 ShortcutPipe.decorators = [
@@ -3500,7 +3502,7 @@ PixelmonThemeModule.ctorParameters = () => [
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
-const VERSION = new Version('0.1.4-bdbc3be');
+const VERSION = new Version('0.1.4-db08631');
 
 /**
  * @fileoverview added by tsickle

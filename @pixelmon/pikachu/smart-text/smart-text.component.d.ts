@@ -4,7 +4,8 @@
  * @Date: 2019-07-08 10:04:13
  */
 export declare class SmartTextComponent {
-    text: string;
+    protected _text: string;
     maxLength: number;
     tail: string;
+    text: any;
 }

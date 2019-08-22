@@ -1,6 +1,6 @@
 {
   "name": "@pixelmon/theme",
-  "version": "0.1.4-bdbc3be",
+  "version": "0.1.4-db08631",
   "author": "giscafer<giscafer@outlook.com>",
   "license": "MIT",
   "repository": {
@@ -22,8 +22,8 @@
   ],
   "dependencies": {
     "ng-zorro-antd": "^8.2.0",
-    "@pixelmon/acl": "^0.1.4-bdbc3be",
-    "@pixelmon/util": "^0.1.4-bdbc3be",
+    "@pixelmon/acl": "^0.1.4-db08631",
+    "@pixelmon/util": "^0.1.4-db08631",
     "tslib": "^1.9.0"
   },
   "sideEffects": false,

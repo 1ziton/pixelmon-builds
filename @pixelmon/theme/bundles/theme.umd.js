@@ -3869,13 +3869,15 @@
         function (value, maxLength, tail) {
             if (maxLength === void 0) { maxLength = 20; }
             if (tail === void 0) { tail = '...'; }
-            if (!value) {
+            if (value === undefined || value === null) {
                 return '';
             }
-            if (value.length <= maxLength) {
-                return value;
+            /** @type {?} */
+            var valueString = String(value);
+            if (valueString.length <= maxLength) {
+                return valueString;
             }
-            return String(value).substr(0, maxLength) + tail;
+            return valueString.substr(0, maxLength) + tail;
         };
         ShortcutPipe.decorators = [
             { type: core.Pipe, args: [{

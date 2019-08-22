@@ -9,9 +9,27 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
  */
 class SmartTextComponent {
     constructor() {
-        this.text = '';
+        this._text = '';
         this.maxLength = 20;
         this.tail = '...';
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set text(value) {
+        if (value === undefined || value === null) {
+            this._text = '';
+        }
+        else {
+            this._text = String(value);
+        }
+    }
+    /**
+     * @return {?}
+     */
+    get text() {
+        return this._text;
     }
 }
 SmartTextComponent.decorators = [
@@ -21,13 +39,16 @@ SmartTextComponent.decorators = [
             }] }
 ];
 SmartTextComponent.propDecorators = {
-    text: [{ type: Input }],
     maxLength: [{ type: Input }],
-    tail: [{ type: Input }]
+    tail: [{ type: Input }],
+    text: [{ type: Input }]
 };
 if (false) {
-    /** @type {?} */
-    SmartTextComponent.prototype.text;
+    /**
+     * @type {?}
+     * @protected
+     */
+    SmartTextComponent.prototype._text;
     /** @type {?} */
     SmartTextComponent.prototype.maxLength;
     /** @type {?} */

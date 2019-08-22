@@ -5121,10 +5121,32 @@ if (false) {
  */
 var SmartTextComponent = /** @class */ (function () {
     function SmartTextComponent() {
-        this.text = '';
+        this._text = '';
         this.maxLength = 20;
         this.tail = '...';
     }
+    Object.defineProperty(SmartTextComponent.prototype, "text", {
+        get: /**
+         * @return {?}
+         */
+        function () {
+            return this._text;
+        },
+        set: /**
+         * @param {?} value
+         * @return {?}
+         */
+        function (value) {
+            if (value === undefined || value === null) {
+                this._text = '';
+            }
+            else {
+                this._text = String(value);
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
     SmartTextComponent.decorators = [
         { type: Component, args: [{
                     selector: 'smart-text',
@@ -5132,15 +5154,18 @@ var SmartTextComponent = /** @class */ (function () {
                 }] }
     ];
     SmartTextComponent.propDecorators = {
-        text: [{ type: Input }],
         maxLength: [{ type: Input }],
-        tail: [{ type: Input }]
+        tail: [{ type: Input }],
+        text: [{ type: Input }]
     };
     return SmartTextComponent;
 }());
 if (false) {
-    /** @type {?} */
-    SmartTextComponent.prototype.text;
+    /**
+     * @type {?}
+     * @protected
+     */
+    SmartTextComponent.prototype._text;
     /** @type {?} */
     SmartTextComponent.prototype.maxLength;
     /** @type {?} */

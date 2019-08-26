@@ -509,6 +509,21 @@
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
+     * @param {?=} length
+     * @return {?}
+     */
+    function uid(length) {
+        if (length === void 0) { length = 11; }
+        return Math.random()
+            .toString(36)
+            .substr(2, length);
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /**
      * 获取时间范围
      * @param {?} type 类型，带 `-` 表示过去一个时间，若指定 `number` 表示天数
      * @param {?=} time 开始时间
@@ -1679,6 +1694,7 @@
     exports.isUrl = isUrl;
     exports.toBoolean = toBoolean;
     exports.toNumber = toNumber;
+    exports.uid = uid;
     exports.updateHostClass = updateHostClass;
 
     Object.defineProperty(exports, '__esModule', { value: true });

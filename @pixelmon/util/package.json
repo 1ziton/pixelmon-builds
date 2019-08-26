@@ -1,6 +1,6 @@
 {
   "name": "@pixelmon/util",
-  "version": "0.1.4-26b4e78",
+  "version": "0.1.4-4b0e3d3",
   "author": "giscafer<giscafer@outlook.com>",
   "license": "MIT",
   "repository": {
@@ -10,7 +10,7 @@
   "bugs": {
     "url": "https://github.com/1ziton/pixelmon/issues"
   },
-  "homepage": "https://1ziton.com",
+  "homepage": "http://fex.1ziton.com/pixelmon",
   "keywords": [
     "pixelmon",
     "1ziton",

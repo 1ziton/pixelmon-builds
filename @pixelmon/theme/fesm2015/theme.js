@@ -2888,7 +2888,7 @@ const JSONP = makeMethod('JSONP');
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
- * @see https://1ziton.com/theme/currency
+ * @see http://fex.1ziton.com/pixelmon/theme/currency
  */
 // tslint:disable-next-line:use-pipe-transform-interface
 class CNCurrencyPipe extends CurrencyPipe {
@@ -2943,7 +2943,7 @@ DatePipe.decorators = [
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
- * @see https://1ziton.com/theme/keys
+ * @see http://fex.1ziton.com/pixelmon/theme/keys
  */
 class KeysPipe {
     /**
@@ -3502,7 +3502,7 @@ PixelmonThemeModule.ctorParameters = () => [
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
-const VERSION = new Version('0.1.4-26b4e78');
+const VERSION = new Version('0.1.4-4b0e3d3');
 
 /**
  * @fileoverview added by tsickle

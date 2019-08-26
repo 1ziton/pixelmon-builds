@@ -3593,7 +3593,7 @@
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
-     * @see https://1ziton.com/theme/currency
+     * @see http://fex.1ziton.com/pixelmon/theme/currency
      */
     // tslint:disable-next-line:use-pipe-transform-interface
     var CNCurrencyPipe = /** @class */ (function (_super) {
@@ -3671,7 +3671,7 @@
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
-     * @see https://1ziton.com/theme/keys
+     * @see http://fex.1ziton.com/pixelmon/theme/keys
      */
     var KeysPipe = /** @class */ (function () {
         function KeysPipe() {

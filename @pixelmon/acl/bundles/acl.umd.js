@@ -1,7 +1,9 @@
 /**
- * @license ng-alain(cipchk@qq.com) v0.1.4
+ * @Based on delon(cipchk@qq.com) v0.1.5
  * (c) 2019 giscafer(giscafer@outlook.com)
- * License: MIT
+ * 
+ * Licensed under the MIT license:
+ * https://opensource.org/licenses/MIT
  */
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('rxjs'), require('@pixelmon/util'), require('rxjs/operators'), require('@angular/router'), require('@angular/common')) :

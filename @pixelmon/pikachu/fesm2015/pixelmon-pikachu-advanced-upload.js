@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, ChangeDetectorRef, Input, NgModule 
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { uid } from '@pixelmon/util';
+import { uuidv1 } from '@pixelmon/util';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 /**
@@ -210,7 +210,7 @@ class AdvancedUploadComponent {
          * @return {?}
          */
         file => {
-            file.uid = file.uid || uid();
+            file.uid = file.uid || uuidv1();
         }));
         this._cdr.detectChanges(); // for issue：https://github.com/angular/angular/issues/10816
     }

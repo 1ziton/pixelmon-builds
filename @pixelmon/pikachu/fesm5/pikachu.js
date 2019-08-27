@@ -10,7 +10,7 @@ export { AdvancedTableModule } from '@pixelmon/pikachu/advanced-table';
 import { EventEmitter, Component, ViewEncapsulation, Input, Output, ChangeDetectionStrategy, ChangeDetectorRef, NgModule, Injectable, ɵɵdefineInjectable, TemplateRef, Renderer2, Optional, Inject, ViewChild, ElementRef, Directive, Injector, ɵɵinject, INJECTOR, NgZone, Host, ContentChild, ContentChildren } from '@angular/core';
 import { __decorate, __metadata, __spread, __assign, __extends } from 'tslib';
 import { PixelmonLocaleService, PixelmonLocaleModule, SettingsService, MenuService, PIXELMON_I18N_TOKEN, TitleService, ScrollService, WINDOW, ResponsiveService, TranslatePipeModule, FilterPipeModule, ShortcutPipeModule } from '@pixelmon/theme';
-import { InputNumber, InputBoolean, isEmpty, PixelmonUtilModule, updateHostClass, uid } from '@pixelmon/util';
+import { InputNumber, InputBoolean, isEmpty, PixelmonUtilModule, updateHostClass, uuidv1 } from '@pixelmon/util';
 import { CommonModule, DOCUMENT, formatDate } from '@angular/common';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
@@ -5427,7 +5427,7 @@ var AdvancedUploadComponent = /** @class */ (function () {
          * @return {?}
          */
         function (file) {
-            file.uid = file.uid || uid();
+            file.uid = file.uid || uuidv1();
         }));
         this._cdr.detectChanges(); // for issue：https://github.com/angular/angular/issues/10816
     };

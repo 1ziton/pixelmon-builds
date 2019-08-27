@@ -1,7 +1,9 @@
 /**
- * @license ng-alain(cipchk@qq.com) v0.1.4
+ * @Based on delon(cipchk@qq.com) v0.1.5
  * (c) 2019 giscafer(giscafer@outlook.com)
- * License: MIT
+ * 
+ * Licensed under the MIT license:
+ * https://opensource.org/licenses/MIT
  */
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('rxjs'), require('rxjs/operators'), require('@pixelmon/acl'), require('@angular/common'), require('@angular/platform-browser'), require('@angular/router'), require('@pixelmon/util'), require('ng-zorro-antd/modal'), require('@angular/common/http'), require('date-fns/distance_in_words_to_now'), require('date-fns/format'), require('@angular/cdk/overlay'), require('@ant-design/icons-angular/icons'), require('ng-zorro-antd/icon'), require('ng-zorro-antd/drawer')) :
@@ -4320,7 +4322,7 @@
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
-    var VERSION = new core.Version('0.1.4');
+    var VERSION = new core.Version('0.1.5');
 
     exports.APP = APP;
     exports.BaseApi = BaseApi;

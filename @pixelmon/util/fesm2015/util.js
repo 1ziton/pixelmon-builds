@@ -1,5 +1,9 @@
 import { TemplateRef, Directive, ViewContainerRef, Input, Injectable, Inject, ɵɵdefineInjectable, ɵɵinject, NgModule } from '@angular/core';
 import extend from 'extend';
+import v1 from 'uuid/v1';
+import v3 from 'uuid/v3';
+import v4 from 'uuid/v4';
+import v5 from 'uuid/v5';
 import addDays from 'date-fns/add_days';
 import endOfDay from 'date-fns/end_of_day';
 import endOfMonth from 'date-fns/end_of_month';
@@ -290,15 +294,20 @@ function format(str, obj, needDeepGet = false) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
-/**
- * @param {?=} length
- * @return {?}
- */
-function uid(length = 11) {
-    return Math.random()
-        .toString(36)
-        .substr(2, length);
-}
+/** @type {?} */
+const uuid = v4;
+uuid.v1 = v1;
+uuid.v3 = v3;
+uuid.v4 = v4;
+uuid.v5 = v5;
+/** @type {?} */
+const uuidv1 = v1;
+/** @type {?} */
+const uuidv3 = v3;
+/** @type {?} */
+const uuidv4 = v4;
+/** @type {?} */
+const uuidv5 = v5;
 
 /**
  * @fileoverview added by tsickle
@@ -1300,5 +1309,5 @@ PixelmonUtilModule.decorators = [
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
-export { ArrayService, InputBoolean, InputNumber, LazyService, PixelmonUtilConfig, PixelmonUtilModule, StringTemplateOutletDirective, _Validators, copy, deepCopy, deepGet, deepMerge, deepMergeKey, fixEndTimeOfRange, format, getTimeDistance, isDecimal, isEmpty, isIdCard, isInt, isMobile, isNum, isUrl, toBoolean, toNumber, uid, updateHostClass };
+export { ArrayService, InputBoolean, InputNumber, LazyService, PixelmonUtilConfig, PixelmonUtilModule, StringTemplateOutletDirective, _Validators, copy, deepCopy, deepGet, deepMerge, deepMergeKey, fixEndTimeOfRange, format, getTimeDistance, isDecimal, isEmpty, isIdCard, isInt, isMobile, isNum, isUrl, toBoolean, toNumber, updateHostClass, uuidv1, uuidv3, uuidv4, uuidv5 };
 //# sourceMappingURL=util.js.map

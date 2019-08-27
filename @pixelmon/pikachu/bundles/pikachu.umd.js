@@ -1,7 +1,9 @@
 /**
- * @license ng-alain(cipchk@qq.com) v0.1.4
+ * @Based on delon(cipchk@qq.com) v0.1.5
  * (c) 2019 giscafer(giscafer@outlook.com)
- * License: MIT
+ * 
+ * Licensed under the MIT license:
+ * https://opensource.org/licenses/MIT
  */
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@pixelmon/pikachu/lodop'), require('@pixelmon/pikachu/reuse-tab'), require('@pixelmon/pikachu/notice-icon'), require('@pixelmon/pikachu/sidebar-nav'), require('@pixelmon/pikachu/view'), require('@pixelmon/pikachu/page-header'), require('@pixelmon/pikachu/advanced-table'), require('@angular/core'), require('@pixelmon/theme'), require('@pixelmon/util'), require('@angular/common'), require('ng-zorro-antd/badge'), require('ng-zorro-antd/dropdown'), require('ng-zorro-antd/icon'), require('ng-zorro-antd/list'), require('ng-zorro-antd/spin'), require('ng-zorro-antd/tabs'), require('ng-zorro-antd/tag'), require('@angular/router'), require('ng-zorro-antd/affix'), require('rxjs'), require('rxjs/operators'), require('ng-zorro-antd/breadcrumb'), require('ng-zorro-antd/skeleton'), require('@angular/cdk/overlay'), require('@angular/cdk/portal'), require('ng-zorro-antd/menu'), require('ng-zorro-antd/tooltip'), require('@angular/cdk/observers'), require('ng-zorro-antd'), require('@angular/forms'), require('@pixelmon/pikachu/viewer'), require('@pixelmon/pikachu/smart-text')) :
@@ -5598,7 +5600,7 @@
              * @return {?}
              */
             function (file) {
-                file.uid = file.uid || util.uid();
+                file.uid = file.uid || util.uuidv1();
             }));
             this._cdr.detectChanges(); // for issue：https://github.com/angular/angular/issues/10816
         };

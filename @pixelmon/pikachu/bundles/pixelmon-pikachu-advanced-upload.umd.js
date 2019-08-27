@@ -1,7 +1,9 @@
 /**
- * @license ng-alain(cipchk@qq.com) v0.1.4
+ * @Based on delon(cipchk@qq.com) v0.1.5
  * (c) 2019 giscafer(giscafer@outlook.com)
- * License: MIT
+ * 
+ * Licensed under the MIT license:
+ * https://opensource.org/licenses/MIT
  */
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('rxjs'), require('@angular/forms'), require('@pixelmon/util'), require('ng-zorro-antd')) :
@@ -434,7 +436,7 @@
              * @return {?}
              */
             function (file) {
-                file.uid = file.uid || util.uid();
+                file.uid = file.uid || util.uuidv1();
             }));
             this._cdr.detectChanges(); // for issue：https://github.com/angular/angular/issues/10816
         };

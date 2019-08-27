@@ -1,15 +1,21 @@
 /**
- * @license ng-alain(cipchk@qq.com) v0.1.4
+ * @Based on delon(cipchk@qq.com) v0.1.5
  * (c) 2019 giscafer(giscafer@outlook.com)
- * License: MIT
+ * 
+ * Licensed under the MIT license:
+ * https://opensource.org/licenses/MIT
  */
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('extend'), require('date-fns/add_days'), require('date-fns/end_of_day'), require('date-fns/end_of_month'), require('date-fns/end_of_week'), require('date-fns/end_of_year'), require('date-fns/parse'), require('date-fns/start_of_day'), require('date-fns/start_of_month'), require('date-fns/start_of_week'), require('date-fns/start_of_year'), require('date-fns/sub_months'), require('date-fns/sub_weeks'), require('date-fns/sub_years'), require('@angular/common'), require('rxjs'), require('rxjs/operators'), require('ng-zorro-antd/core')) :
-    typeof define === 'function' && define.amd ? define('@pixelmon/util', ['exports', '@angular/core', 'extend', 'date-fns/add_days', 'date-fns/end_of_day', 'date-fns/end_of_month', 'date-fns/end_of_week', 'date-fns/end_of_year', 'date-fns/parse', 'date-fns/start_of_day', 'date-fns/start_of_month', 'date-fns/start_of_week', 'date-fns/start_of_year', 'date-fns/sub_months', 'date-fns/sub_weeks', 'date-fns/sub_years', '@angular/common', 'rxjs', 'rxjs/operators', 'ng-zorro-antd/core'], factory) :
-    (global = global || self, factory((global.pixelmon = global.pixelmon || {}, global.pixelmon.util = {}), global.ng.core, global.Extend, global.addDays, global.endOfDay, global.endOfMonth, global.endOfWeek, global.endOfYear, global.parse, global.startOfDay, global.startOfMonth, global.startOfWeek, global.startOfYear, global.subMonths, global.subWeeks, global.subYears, global.ng.common, global.rxjs, global.rxjs.operators, global['ng-zorro-antd/core']));
-}(this, function (exports, core, extend, addDays, endOfDay, endOfMonth, endOfWeek, endOfYear, parse, startOfDay, startOfMonth, startOfWeek, startOfYear, subMonths, subWeeks, subYears, common, rxjs, operators, core$1) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('extend'), require('uuid/v1'), require('uuid/v3'), require('uuid/v4'), require('uuid/v5'), require('date-fns/add_days'), require('date-fns/end_of_day'), require('date-fns/end_of_month'), require('date-fns/end_of_week'), require('date-fns/end_of_year'), require('date-fns/parse'), require('date-fns/start_of_day'), require('date-fns/start_of_month'), require('date-fns/start_of_week'), require('date-fns/start_of_year'), require('date-fns/sub_months'), require('date-fns/sub_weeks'), require('date-fns/sub_years'), require('@angular/common'), require('rxjs'), require('rxjs/operators'), require('ng-zorro-antd/core')) :
+    typeof define === 'function' && define.amd ? define('@pixelmon/util', ['exports', '@angular/core', 'extend', 'uuid/v1', 'uuid/v3', 'uuid/v4', 'uuid/v5', 'date-fns/add_days', 'date-fns/end_of_day', 'date-fns/end_of_month', 'date-fns/end_of_week', 'date-fns/end_of_year', 'date-fns/parse', 'date-fns/start_of_day', 'date-fns/start_of_month', 'date-fns/start_of_week', 'date-fns/start_of_year', 'date-fns/sub_months', 'date-fns/sub_weeks', 'date-fns/sub_years', '@angular/common', 'rxjs', 'rxjs/operators', 'ng-zorro-antd/core'], factory) :
+    (global = global || self, factory((global.pixelmon = global.pixelmon || {}, global.pixelmon.util = {}), global.ng.core, global.Extend, global.v1, global.v3, global.v4, global.v5, global.addDays, global.endOfDay, global.endOfMonth, global.endOfWeek, global.endOfYear, global.parse, global.startOfDay, global.startOfMonth, global.startOfWeek, global.startOfYear, global.subMonths, global.subWeeks, global.subYears, global.ng.common, global.rxjs, global.rxjs.operators, global['ng-zorro-antd/core']));
+}(this, function (exports, core, extend, v1, v3, v4, v5, addDays, endOfDay, endOfMonth, endOfWeek, endOfYear, parse, startOfDay, startOfMonth, startOfWeek, startOfYear, subMonths, subWeeks, subYears, common, rxjs, operators, core$1) { 'use strict';
 
     extend = extend && extend.hasOwnProperty('default') ? extend['default'] : extend;
+    v1 = v1 && v1.hasOwnProperty('default') ? v1['default'] : v1;
+    v3 = v3 && v3.hasOwnProperty('default') ? v3['default'] : v3;
+    v4 = v4 && v4.hasOwnProperty('default') ? v4['default'] : v4;
+    v5 = v5 && v5.hasOwnProperty('default') ? v5['default'] : v5;
     addDays = addDays && addDays.hasOwnProperty('default') ? addDays['default'] : addDays;
     endOfDay = endOfDay && endOfDay.hasOwnProperty('default') ? endOfDay['default'] : endOfDay;
     endOfMonth = endOfMonth && endOfMonth.hasOwnProperty('default') ? endOfMonth['default'] : endOfMonth;
@@ -508,16 +514,20 @@
      * @fileoverview added by tsickle
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
-    /**
-     * @param {?=} length
-     * @return {?}
-     */
-    function uid(length) {
-        if (length === void 0) { length = 11; }
-        return Math.random()
-            .toString(36)
-            .substr(2, length);
-    }
+    /** @type {?} */
+    var uuid = v4;
+    uuid.v1 = v1;
+    uuid.v3 = v3;
+    uuid.v4 = v4;
+    uuid.v5 = v5;
+    /** @type {?} */
+    var uuidv1 = v1;
+    /** @type {?} */
+    var uuidv3 = v3;
+    /** @type {?} */
+    var uuidv4 = v4;
+    /** @type {?} */
+    var uuidv5 = v5;
 
     /**
      * @fileoverview added by tsickle
@@ -1694,8 +1704,11 @@
     exports.isUrl = isUrl;
     exports.toBoolean = toBoolean;
     exports.toNumber = toNumber;
-    exports.uid = uid;
     exports.updateHostClass = updateHostClass;
+    exports.uuidv1 = uuidv1;
+    exports.uuidv3 = uuidv3;
+    exports.uuidv4 = uuidv4;
+    exports.uuidv5 = uuidv5;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

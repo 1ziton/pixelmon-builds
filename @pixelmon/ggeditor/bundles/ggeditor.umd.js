@@ -1,13 +1,15 @@
 /**
- * @license ng-alain(cipchk@qq.com) v0.1.4
+ * @Based on delon(cipchk@qq.com) v0.1.5
  * (c) 2019 giscafer(giscafer@outlook.com)
- * License: MIT
+ * 
+ * Licensed under the MIT license:
+ * https://opensource.org/licenses/MIT
  */
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/core'), require('@pixelmon/util'), require('gg-editor'), require('invariant'), require('react'), require('react-dom'), require('uuid'), require('antd')) :
-    typeof define === 'function' && define.amd ? define('@pixelmon/ggeditor', ['exports', '@angular/common', '@angular/core', '@pixelmon/util', 'gg-editor', 'invariant', 'react', 'react-dom', 'uuid', 'antd'], factory) :
-    (global = global || self, factory((global.pixelmon = global.pixelmon || {}, global.pixelmon.ggeditor = {}), global.ng.common, global.ng.core, global.pixelmon.util, global.GGEditor, global.invariant, global.React, global.ReactDOM, global.uuid, global.antd));
-}(this, function (exports, common, core, util, GGEditor, invariant_, React__default, reactDom, uuid, antd) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/core'), require('@pixelmon/util'), require('gg-editor'), require('invariant'), require('react'), require('react-dom'), require('antd')) :
+    typeof define === 'function' && define.amd ? define('@pixelmon/ggeditor', ['exports', '@angular/common', '@angular/core', '@pixelmon/util', 'gg-editor', 'invariant', 'react', 'react-dom', 'antd'], factory) :
+    (global = global || self, factory((global.pixelmon = global.pixelmon || {}, global.pixelmon.ggeditor = {}), global.ng.common, global.ng.core, global.pixelmon.util, global.GGEditor, global.invariant, global.React, global.ReactDOM, global.antd));
+}(this, function (exports, common, core, util, GGEditor, invariant_, React__default, reactDom, antd) { 'use strict';
 
     var GGEditor__default = 'default' in GGEditor ? GGEditor['default'] : GGEditor;
     var React__default__default = 'default' in React__default ? React__default['default'] : React__default;
@@ -1010,7 +1012,7 @@
          * @return {?}
          */
         function () {
-            this.rootDomID = uuid.v1();
+            this.rootDomID = util.uuidv1();
         };
         /**
          * @return {?}

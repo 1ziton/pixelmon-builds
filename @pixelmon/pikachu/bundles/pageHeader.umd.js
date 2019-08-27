@@ -1,7 +1,9 @@
 /**
- * @license ng-alain(cipchk@qq.com) v0.1.4
+ * @Based on delon(cipchk@qq.com) v0.1.5
  * (c) 2019 giscafer(giscafer@outlook.com)
- * License: MIT
+ * 
+ * Licensed under the MIT license:
+ * https://opensource.org/licenses/MIT
  */
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/router'), require('ng-zorro-antd/affix'), require('rxjs'), require('rxjs/operators'), require('@pixelmon/pikachu/reuse-tab'), require('@pixelmon/theme'), require('@pixelmon/util'), require('@angular/common'), require('ng-zorro-antd/breadcrumb'), require('ng-zorro-antd/skeleton')) :

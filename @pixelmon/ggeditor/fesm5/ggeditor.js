@@ -1,12 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input as Input$1, NgModule } from '@angular/core';
 import { __extends, __assign, __decorate, __metadata } from 'tslib';
-import { InputBoolean } from '@pixelmon/util';
+import { uuidv1, InputBoolean } from '@pixelmon/util';
 import GGEditor, { Minimap, Command, NodeMenu, EdgeMenu, GroupMenu, MultiMenu, CanvasMenu, ContextMenu, Toolbar, ItemPanel, Item as Item$1, withPropsAPI, DetailPanel, NodePanel, EdgePanel, GroupPanel, MultiPanel, CanvasPanel, Flow, Mind } from 'gg-editor';
 import * as invariant_ from 'invariant';
 import React__default, { createElement, Fragment } from 'react';
 import { render } from 'react-dom';
-import { v1 } from 'uuid';
 import { Card, Icon, Tooltip, Divider, Form, Select, Input, Row, Col } from 'antd';
 
 /**
@@ -810,7 +809,7 @@ var GGEditorComponent = /** @class */ (function () {
      * @return {?}
      */
     function () {
-        this.rootDomID = v1();
+        this.rootDomID = uuidv1();
     };
     /**
      * @return {?}

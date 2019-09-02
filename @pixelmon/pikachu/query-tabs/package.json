@@ -1,13 +1,13 @@
 {
-  "main": "../bundles/pixelmon-pikachu-query-tabs.umd.js",
-  "module": "../fesm5/pixelmon-pikachu-query-tabs.js",
-  "es2015": "../fesm2015/pixelmon-pikachu-query-tabs.js",
-  "esm5": "../esm5/query-tabs/pixelmon-pikachu-query-tabs.js",
-  "esm2015": "../esm2015/query-tabs/pixelmon-pikachu-query-tabs.js",
-  "fesm5": "../fesm5/pixelmon-pikachu-query-tabs.js",
-  "fesm2015": "../fesm2015/pixelmon-pikachu-query-tabs.js",
-  "typings": "pixelmon-pikachu-query-tabs.d.ts",
-  "metadata": "pixelmon-pikachu-query-tabs.metadata.json",
+  "main": "../bundles/queryTabs.umd.js",
+  "module": "../fesm5/queryTabs.js",
+  "es2015": "../fesm2015/queryTabs.js",
+  "esm5": "../esm5/query-tabs/queryTabs.js",
+  "esm2015": "../esm2015/query-tabs/queryTabs.js",
+  "fesm5": "../fesm5/queryTabs.js",
+  "fesm2015": "../fesm2015/queryTabs.js",
+  "typings": "queryTabs.d.ts",
+  "metadata": "queryTabs.metadata.json",
   "sideEffects": false,
   "name": "@pixelmon/pikachu/query-tabs"
 }

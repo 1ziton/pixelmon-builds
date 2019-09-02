@@ -1,15 +1,15 @@
 /**
- * @Based on delon(cipchk@qq.com) v0.1.5
- * (c) 2019 giscafer(giscafer@outlook.com)
+ * @Based on pixelmon(cipchk@qq.com) v0.1.6
+ * (c) 2019 developer(developer@1ziton.com)
  * 
  * Licensed under the MIT license:
  * https://opensource.org/licenses/MIT
  */
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@pixelmon/pikachu/lodop'), require('@pixelmon/pikachu/reuse-tab'), require('@pixelmon/pikachu/notice-icon'), require('@pixelmon/pikachu/sidebar-nav'), require('@pixelmon/pikachu/view'), require('@pixelmon/pikachu/page-header'), require('@pixelmon/pikachu/advanced-table'), require('@angular/core'), require('@pixelmon/theme'), require('@pixelmon/util'), require('@angular/common'), require('ng-zorro-antd/badge'), require('ng-zorro-antd/dropdown'), require('ng-zorro-antd/icon'), require('ng-zorro-antd/list'), require('ng-zorro-antd/spin'), require('ng-zorro-antd/tabs'), require('ng-zorro-antd/tag'), require('@angular/router'), require('ng-zorro-antd/affix'), require('rxjs'), require('rxjs/operators'), require('ng-zorro-antd/breadcrumb'), require('ng-zorro-antd/skeleton'), require('@angular/cdk/overlay'), require('@angular/cdk/portal'), require('ng-zorro-antd/menu'), require('ng-zorro-antd/tooltip'), require('@angular/cdk/observers'), require('ng-zorro-antd'), require('@angular/forms'), require('@pixelmon/pikachu/viewer'), require('@pixelmon/pikachu/smart-text')) :
-    typeof define === 'function' && define.amd ? define('@pixelmon/pikachu', ['exports', '@pixelmon/pikachu/lodop', '@pixelmon/pikachu/reuse-tab', '@pixelmon/pikachu/notice-icon', '@pixelmon/pikachu/sidebar-nav', '@pixelmon/pikachu/view', '@pixelmon/pikachu/page-header', '@pixelmon/pikachu/advanced-table', '@angular/core', '@pixelmon/theme', '@pixelmon/util', '@angular/common', 'ng-zorro-antd/badge', 'ng-zorro-antd/dropdown', 'ng-zorro-antd/icon', 'ng-zorro-antd/list', 'ng-zorro-antd/spin', 'ng-zorro-antd/tabs', 'ng-zorro-antd/tag', '@angular/router', 'ng-zorro-antd/affix', 'rxjs', 'rxjs/operators', 'ng-zorro-antd/breadcrumb', 'ng-zorro-antd/skeleton', '@angular/cdk/overlay', '@angular/cdk/portal', 'ng-zorro-antd/menu', 'ng-zorro-antd/tooltip', '@angular/cdk/observers', 'ng-zorro-antd', '@angular/forms', '@pixelmon/pikachu/viewer', '@pixelmon/pikachu/smart-text'], factory) :
-    (global = global || self, factory((global.pixelmon = global.pixelmon || {}, global.pixelmon.pikachu = {}), global.pixelmon.pikachu.lodop, global.pixelmon.pikachu['reuse-tab'], global.pixelmon.pikachu['notice-icon'], global.pixelmon.pikachu['sidebar-nav'], global.pixelmon.pikachu.view, global.pixelmon.pikachu['page-header'], global.pixelmon.pikachu['advanced-table'], global.ng.core, global.theme, global.util, global.ng.common, global.badge, global.dropdown, global.icon, global.list, global.spin, global.tabs, global.tag, global.ng.router, global.affix, global.rxjs, global.rxjs.operators, global.breadcrumb, global.skeleton, global.ng.cdk.overlay, global.ng.cdk.portal, global.menu, global.tooltip, global.ng.cdk.observers, global.ngZorroAntd, global.ng.forms, global.pixelmon.pikachu.viewer, global.pixelmon.pikachu['smart-text']));
-}(this, function (exports, lodop, reuseTab, noticeIcon, sidebarNav, view, pageHeader, advancedTable, core, theme, util, common, badge, dropdown, icon, list, spin, tabs, tag, router, affix, rxjs, operators, breadcrumb, skeleton, overlay, portal, menu, tooltip, observers, ngZorroAntd, forms, viewer, smartText) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@pixelmon/pikachu/lodop'), require('@pixelmon/pikachu/notice-icon'), require('@pixelmon/pikachu/page-header'), require('@pixelmon/pikachu/pagination'), require('@pixelmon/pikachu/reuse-tab'), require('@pixelmon/pikachu/sidebar-nav'), require('@pixelmon/pikachu/view'), require('@pixelmon/pikachu/viewer'), require('@pixelmon/pikachu/footer-toolbar'), require('@pixelmon/pikachu/table'), require('@pixelmon/pikachu/upload'), require('@angular/core'), require('@angular/common'), require('@pixelmon/util'), require('@pixelmon/theme'), require('ng-zorro-antd/badge'), require('ng-zorro-antd/dropdown'), require('ng-zorro-antd/icon'), require('ng-zorro-antd/list'), require('ng-zorro-antd/spin'), require('ng-zorro-antd/tabs'), require('ng-zorro-antd/tag'), require('@angular/router'), require('ng-zorro-antd/affix'), require('rxjs'), require('rxjs/operators'), require('ng-zorro-antd/breadcrumb'), require('ng-zorro-antd/skeleton'), require('@angular/forms'), require('ng-zorro-antd/i18n'), require('ng-zorro-antd/select'), require('ng-zorro-antd/core'), require('ng-zorro-antd'), require('@angular/cdk/overlay'), require('@angular/cdk/portal'), require('ng-zorro-antd/menu'), require('ng-zorro-antd/tooltip'), require('@pixelmon/pikachu/smart-text'), require('ng-zorro-antd/button'), require('ng-zorro-antd/date-picker'), require('ng-zorro-antd/grid'), require('ng-zorro-antd/input'), require('ng-zorro-antd/table'), require('ng-zorro-antd/upload'), require('ng-zorro-antd/modal'), require('@angular/cdk/observers')) :
+    typeof define === 'function' && define.amd ? define('@pixelmon/pikachu', ['exports', '@pixelmon/pikachu/lodop', '@pixelmon/pikachu/notice-icon', '@pixelmon/pikachu/page-header', '@pixelmon/pikachu/pagination', '@pixelmon/pikachu/reuse-tab', '@pixelmon/pikachu/sidebar-nav', '@pixelmon/pikachu/view', '@pixelmon/pikachu/viewer', '@pixelmon/pikachu/footer-toolbar', '@pixelmon/pikachu/table', '@pixelmon/pikachu/upload', '@angular/core', '@angular/common', '@pixelmon/util', '@pixelmon/theme', 'ng-zorro-antd/badge', 'ng-zorro-antd/dropdown', 'ng-zorro-antd/icon', 'ng-zorro-antd/list', 'ng-zorro-antd/spin', 'ng-zorro-antd/tabs', 'ng-zorro-antd/tag', '@angular/router', 'ng-zorro-antd/affix', 'rxjs', 'rxjs/operators', 'ng-zorro-antd/breadcrumb', 'ng-zorro-antd/skeleton', '@angular/forms', 'ng-zorro-antd/i18n', 'ng-zorro-antd/select', 'ng-zorro-antd/core', 'ng-zorro-antd', '@angular/cdk/overlay', '@angular/cdk/portal', 'ng-zorro-antd/menu', 'ng-zorro-antd/tooltip', '@pixelmon/pikachu/smart-text', 'ng-zorro-antd/button', 'ng-zorro-antd/date-picker', 'ng-zorro-antd/grid', 'ng-zorro-antd/input', 'ng-zorro-antd/table', 'ng-zorro-antd/upload', 'ng-zorro-antd/modal', '@angular/cdk/observers'], factory) :
+    (global = global || self, factory((global.pixelmon = global.pixelmon || {}, global.pixelmon.pikachu = {}), global.pixelmon.pikachu.lodop, global.pixelmon.pikachu['notice-icon'], global.pixelmon.pikachu['page-header'], global.pixelmon.pikachu.pagination, global.pixelmon.pikachu['reuse-tab'], global.pixelmon.pikachu['sidebar-nav'], global.pixelmon.pikachu.view, global.pixelmon.pikachu.viewer, global.pixelmon.pikachu['footer-toolbar'], global.pixelmon.pikachu.table, global.pixelmon.pikachu.upload, global.ng.core, global.ng.common, global.util, global.theme, global.badge, global.dropdown, global.icon, global.list, global.spin, global.tabs, global.tag, global.ng.router, global.affix, global.rxjs, global.rxjs.operators, global.breadcrumb, global.skeleton, global.ng.forms, global.i18n, global.select, global.core$1, global.ngZorroAntd, global.ng.cdk.overlay, global.ng.cdk.portal, global.menu, global.tooltip, global.pixelmon.pikachu['smart-text'], global.button, global.datePicker, global.grid, global.input, global.table$1, global.upload$1, global.modal, global.ng.cdk.observers));
+}(this, function (exports, lodop, noticeIcon, pageHeader, pagination, reuseTab, sidebarNav, view, viewer, footerToolbar, table, upload, core, common, util, theme, badge, dropdown, icon, list, spin, tabs, tag, router, affix, rxjs, operators, breadcrumb, skeleton, forms, i18n, select, core$1, ngZorroAntd, overlay, portal, menu, tooltip, smartText, button, datePicker, grid, input, table$1, upload$1, modal, observers) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -207,6 +207,126 @@
     function __importDefault(mod) {
         return (mod && mod.__esModule) ? mod : { default: mod };
     }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /** @type {?} */
+    var CLSBODY = 'footer-toolbar__body';
+    var FooterToolbarComponent = /** @class */ (function () {
+        function FooterToolbarComponent(el, renderer, doc) {
+            this.el = el;
+            this.renderer = renderer;
+            this.doc = doc;
+            this.errorCollect = false;
+        }
+        Object.defineProperty(FooterToolbarComponent.prototype, "bodyCls", {
+            get: /**
+             * @private
+             * @return {?}
+             */
+            function () {
+                return this.doc.querySelector('body').classList;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        /**
+         * @return {?}
+         */
+        FooterToolbarComponent.prototype.ngOnInit = /**
+         * @return {?}
+         */
+        function () {
+            this.renderer.addClass(this.el.nativeElement, 'footer-toolbar');
+            this.bodyCls.add(CLSBODY);
+        };
+        /**
+         * @return {?}
+         */
+        FooterToolbarComponent.prototype.ngOnDestroy = /**
+         * @return {?}
+         */
+        function () {
+            this.bodyCls.remove(CLSBODY);
+        };
+        FooterToolbarComponent.decorators = [
+            { type: core.Component, args: [{
+                        selector: 'footer-toolbar',
+                        exportAs: 'footerToolbar',
+                        template: "<div class=\"footer-toolbar__left\">\n  <ng-container *stringTemplateOutlet=\"extra\">{{ extra }}</ng-container>\n</div>\n<div class=\"footer-toolbar__right\">\n  <!-- <error-collect *ngIf=\"errorCollect\"></error-collect> -->\n  <ng-content></ng-content>\n</div>\n",
+                        preserveWhitespaces: false,
+                        changeDetection: core.ChangeDetectionStrategy.OnPush,
+                        encapsulation: core.ViewEncapsulation.None
+                    }] }
+        ];
+        /** @nocollapse */
+        FooterToolbarComponent.ctorParameters = function () { return [
+            { type: core.ElementRef },
+            { type: core.Renderer2 },
+            { type: undefined, decorators: [{ type: core.Inject, args: [common.DOCUMENT,] }] }
+        ]; };
+        FooterToolbarComponent.propDecorators = {
+            errorCollect: [{ type: core.Input }],
+            extra: [{ type: core.Input }]
+        };
+        __decorate([
+            util.InputBoolean(),
+            __metadata("design:type", Object)
+        ], FooterToolbarComponent.prototype, "errorCollect", void 0);
+        return FooterToolbarComponent;
+    }());
+    if (false) {
+        /** @type {?} */
+        FooterToolbarComponent.prototype.errorCollect;
+        /** @type {?} */
+        FooterToolbarComponent.prototype.extra;
+        /**
+         * @type {?}
+         * @private
+         */
+        FooterToolbarComponent.prototype.el;
+        /**
+         * @type {?}
+         * @private
+         */
+        FooterToolbarComponent.prototype.renderer;
+        /**
+         * @type {?}
+         * @private
+         */
+        FooterToolbarComponent.prototype.doc;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /** @type {?} */
+    var COMPONENTS = [FooterToolbarComponent];
+    var FooterToolbarModule = /** @class */ (function () {
+        function FooterToolbarModule() {
+        }
+        FooterToolbarModule.decorators = [
+            { type: core.NgModule, args: [{
+                        imports: [common.CommonModule, util.PixelmonUtilModule],
+                        declarations: __spread(COMPONENTS),
+                        exports: __spread(COMPONENTS),
+                    },] }
+        ];
+        return FooterToolbarModule;
+    }());
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
 
     /**
      * @fileoverview added by tsickle
@@ -512,7 +632,7 @@
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
-    var COMPONENTS = [NoticeIconComponent];
+    var COMPONENTS$1 = [NoticeIconComponent];
     var NoticeIconModule = /** @class */ (function () {
         function NoticeIconModule() {
         }
@@ -529,8 +649,8 @@
                             tabs.NzTabsModule,
                             tag.NzTagModule,
                         ],
-                        declarations: __spread(COMPONENTS, [NoticeIconTabComponent]),
-                        exports: __spread(COMPONENTS),
+                        declarations: __spread(COMPONENTS$1, [NoticeIconTabComponent]),
+                        exports: __spread(COMPONENTS$1),
                     },] }
         ];
         return NoticeIconModule;
@@ -1057,19 +1177,617 @@
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
-    var COMPONENTS$1 = [PageHeaderComponent];
+    var COMPONENTS$2 = [PageHeaderComponent];
     var PageHeaderModule = /** @class */ (function () {
         function PageHeaderModule() {
         }
         PageHeaderModule.decorators = [
             { type: core.NgModule, args: [{
                         imports: [common.CommonModule, router.RouterModule, util.PixelmonUtilModule, affix.NzAffixModule, skeleton.NzSkeletonModule, breadcrumb.NzBreadCrumbModule],
-                        declarations: __spread(COMPONENTS$1),
-                        exports: __spread(COMPONENTS$1),
+                        declarations: __spread(COMPONENTS$2),
+                        exports: __spread(COMPONENTS$2),
                     },] }
         ];
         return PageHeaderModule;
     }());
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    var PaginationComponent = /** @class */ (function () {
+        function PaginationComponent(i18n, cdr) {
+            this.i18n = i18n;
+            this.cdr = cdr;
+            // tslint:disable-next-line:no-any
+            this.locale = {};
+            this.firstIndex = 1;
+            this.pages = [];
+            this.$destroy = new rxjs.Subject();
+            this.nzPageSizeChange = new core.EventEmitter();
+            this.nzPageIndexChange = new core.EventEmitter();
+            this.nzInTable = false;
+            this.nzSize = 'default';
+            this.nzPageSizeOptions = [10, 20, 30, 40];
+            this.nzDisabled = false;
+            this.nzShowSizeChanger = false;
+            this.nzHideOnSinglePage = false;
+            this.nzShowQuickJumper = false;
+            this.nzSimple = false;
+            this.nzTotal = 0;
+            this.nzPageIndex = 1;
+            this.nzPageSize = 10;
+        }
+        /**
+         * @param {?} value
+         * @return {?}
+         */
+        PaginationComponent.prototype.validatePageIndex = /**
+         * @param {?} value
+         * @return {?}
+         */
+        function (value) {
+            if (value > this.lastIndex) {
+                return this.lastIndex;
+            }
+            else if (value < this.firstIndex) {
+                return this.firstIndex;
+            }
+            else {
+                return value;
+            }
+        };
+        /**
+         * @param {?} page
+         * @return {?}
+         */
+        PaginationComponent.prototype.updatePageIndexValue = /**
+         * @param {?} page
+         * @return {?}
+         */
+        function (page) {
+            this.nzPageIndex = page;
+            this.nzPageIndexChange.emit(this.nzPageIndex);
+            this.buildIndexes();
+        };
+        /**
+         * @param {?} value
+         * @return {?}
+         */
+        PaginationComponent.prototype.isPageIndexValid = /**
+         * @param {?} value
+         * @return {?}
+         */
+        function (value) {
+            return this.validatePageIndex(value) === value;
+        };
+        /**
+         * @param {?} index
+         * @return {?}
+         */
+        PaginationComponent.prototype.jumpPage = /**
+         * @param {?} index
+         * @return {?}
+         */
+        function (index) {
+            if (index !== this.nzPageIndex && !this.nzDisabled) {
+                /** @type {?} */
+                var pageIndex = this.validatePageIndex(index);
+                if (pageIndex !== this.nzPageIndex) {
+                    this.updatePageIndexValue(pageIndex);
+                }
+            }
+        };
+        /**
+         * @param {?} diff
+         * @return {?}
+         */
+        PaginationComponent.prototype.jumpDiff = /**
+         * @param {?} diff
+         * @return {?}
+         */
+        function (diff) {
+            this.jumpPage(this.nzPageIndex + diff);
+        };
+        /**
+         * @param {?} $event
+         * @return {?}
+         */
+        PaginationComponent.prototype.onPageSizeChange = /**
+         * @param {?} $event
+         * @return {?}
+         */
+        function ($event) {
+            this.nzPageSize = $event;
+            this.nzPageSizeChange.emit($event);
+            this.buildIndexes();
+            if (this.nzPageIndex > this.lastIndex) {
+                this.updatePageIndexValue(this.lastIndex);
+            }
+        };
+        /**
+         * @param {?} _
+         * @param {?} input
+         * @param {?} clearInputValue
+         * @return {?}
+         */
+        PaginationComponent.prototype.handleKeyDown = /**
+         * @param {?} _
+         * @param {?} input
+         * @param {?} clearInputValue
+         * @return {?}
+         */
+        function (_, input, clearInputValue) {
+            /** @type {?} */
+            var target = input;
+            /** @type {?} */
+            var page = core$1.toNumber(target.value, this.nzPageIndex);
+            if (core$1.isInteger(page) && this.isPageIndexValid(page) && page !== this.nzPageIndex) {
+                this.updatePageIndexValue(page);
+            }
+            if (clearInputValue) {
+                target.value = '';
+            }
+            else {
+                target.value = "" + this.nzPageIndex;
+            }
+        };
+        /** generate indexes list */
+        /**
+         * generate indexes list
+         * @return {?}
+         */
+        PaginationComponent.prototype.buildIndexes = /**
+         * generate indexes list
+         * @return {?}
+         */
+        function () {
+            /** @type {?} */
+            var pages = [];
+            if (this.lastIndex <= 9) {
+                for (var i = 2; i <= this.lastIndex - 1; i++) {
+                    pages.push(i);
+                }
+            }
+            else {
+                /** @type {?} */
+                var current = +this.nzPageIndex;
+                /** @type {?} */
+                var left = Math.max(2, current - 2);
+                /** @type {?} */
+                var right = Math.min(current + 2, this.lastIndex - 1);
+                if (current - 1 <= 2) {
+                    right = 5;
+                }
+                if (this.lastIndex - current <= 2) {
+                    left = this.lastIndex - 4;
+                }
+                for (var i = left; i <= right; i++) {
+                    pages.push(i);
+                }
+            }
+            this.pages = pages;
+            this.cdr.markForCheck();
+        };
+        Object.defineProperty(PaginationComponent.prototype, "lastIndex", {
+            get: /**
+             * @return {?}
+             */
+            function () {
+                return Math.ceil(this.nzTotal / this.nzPageSize);
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(PaginationComponent.prototype, "isLastIndex", {
+            get: /**
+             * @return {?}
+             */
+            function () {
+                return this.nzPageIndex === this.lastIndex;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(PaginationComponent.prototype, "isFirstIndex", {
+            get: /**
+             * @return {?}
+             */
+            function () {
+                return this.nzPageIndex === this.firstIndex;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(PaginationComponent.prototype, "ranges", {
+            get: /**
+             * @return {?}
+             */
+            function () {
+                return [(this.nzPageIndex - 1) * this.nzPageSize + 1, Math.min(this.nzPageIndex * this.nzPageSize, this.nzTotal)];
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(PaginationComponent.prototype, "showAddOption", {
+            get: /**
+             * @return {?}
+             */
+            function () {
+                return this.nzPageSizeOptions.indexOf(this.nzPageSize) === -1;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        /**
+         * @return {?}
+         */
+        PaginationComponent.prototype.ngOnInit = /**
+         * @return {?}
+         */
+        function () {
+            var _this = this;
+            this.i18n.localeChange.pipe(operators.takeUntil(this.$destroy)).subscribe((/**
+             * @return {?}
+             */
+            function () {
+                _this.locale = _this.i18n.getLocaleData('Pagination');
+                _this.cdr.markForCheck();
+            }));
+        };
+        /**
+         * @return {?}
+         */
+        PaginationComponent.prototype.ngOnDestroy = /**
+         * @return {?}
+         */
+        function () {
+            this.$destroy.next();
+            this.$destroy.complete();
+        };
+        /**
+         * @param {?} changes
+         * @return {?}
+         */
+        PaginationComponent.prototype.ngOnChanges = /**
+         * @param {?} changes
+         * @return {?}
+         */
+        function (changes) {
+            if (changes.nzTotal || changes.nzPageSize || changes.nzPageIndex) {
+                this.buildIndexes();
+            }
+        };
+        PaginationComponent.decorators = [
+            { type: core.Component, args: [{
+                        selector: 'p-pagination',
+                        exportAs: 'pPagination',
+                        preserveWhitespaces: false,
+                        changeDetection: core.ChangeDetectionStrategy.OnPush,
+                        encapsulation: core.ViewEncapsulation.None,
+                        template: "<ng-template #renderItemTemplate let-type let-page=\"page\">\n  <a class=\"ant-pagination-item-link\" *ngIf=\"type === 'pre'\">\n    <i nz-icon nzType=\"left\"></i>\n  </a>\n  <a class=\"ant-pagination-item-link\" *ngIf=\"type === 'next'\">\n    <i nz-icon nzType=\"right\"></i>\n  </a>\n  <a *ngIf=\"type == 'page'\">{{ page }}</a>\n</ng-template>\n<ng-container *ngIf=\"(nzHideOnSinglePage && nzTotal > nzPageSize) || !nzHideOnSinglePage\">\n  <ul\n    class=\"ant-pagination\"\n    [class.ant-table-pagination]=\"nzInTable\"\n    [class.ant-pagination-simple]=\"nzSimple\"\n    [class.ant-pagination-disabled]=\"nzDisabled\"\n    [class.mini]=\"nzSize === 'small' && !nzSimple\"\n  >\n    <ng-container *ngIf=\"nzSimple; else normalTemplate\">\n      <li class=\"ant-pagination-prev\" [attr.title]=\"locale.prev_page\" [class.ant-pagination-disabled]=\"isFirstIndex\" (click)=\"jumpDiff(-1)\">\n        <ng-template [ngTemplateOutlet]=\"nzItemRender\" [ngTemplateOutletContext]=\"{ $implicit: 'pre' }\"></ng-template>\n      </li>\n      <li [attr.title]=\"nzPageIndex + '/' + lastIndex\" class=\"ant-pagination-simple-pager\">\n        <input\n          #simplePagerInput\n          [disabled]=\"nzDisabled\"\n          [value]=\"nzPageIndex\"\n          (keydown.enter)=\"handleKeyDown($event, simplePagerInput, false)\"\n          size=\"3\"\n        />\n        <span class=\"ant-pagination-slash\">\uFF0F</span>\n        {{ lastIndex }}\n      </li>\n      <li class=\"ant-pagination-next\" [attr.title]=\"locale.next_page\" [class.ant-pagination-disabled]=\"isLastIndex\" (click)=\"jumpDiff(1)\">\n        <ng-template [ngTemplateOutlet]=\"nzItemRender\" [ngTemplateOutletContext]=\"{ $implicit: 'next' }\"></ng-template>\n      </li>\n    </ng-container>\n    <ng-template #normalTemplate>\n      <li class=\"ant-pagination-total-text\" *ngIf=\"nzShowTotal\">\n        <ng-template [ngTemplateOutlet]=\"nzShowTotal\" [ngTemplateOutletContext]=\"{ $implicit: nzTotal, range: ranges }\"></ng-template>\n      </li>\n      <li class=\"ant-pagination-prev\" [attr.title]=\"locale.prev_page\" [class.ant-pagination-disabled]=\"isFirstIndex\" (click)=\"jumpDiff(-1)\">\n        <ng-template [ngTemplateOutlet]=\"nzItemRender\" [ngTemplateOutletContext]=\"{ $implicit: 'pre' }\"></ng-template>\n      </li>\n      <li\n        class=\"ant-pagination-item\"\n        [attr.title]=\"firstIndex\"\n        [class.ant-pagination-item-active]=\"isFirstIndex\"\n        (click)=\"jumpPage(firstIndex)\"\n      >\n        <ng-template [ngTemplateOutlet]=\"nzItemRender\" [ngTemplateOutletContext]=\"{ $implicit: 'page', page: firstIndex }\"></ng-template>\n      </li>\n      <li\n        class=\"ant-pagination-jump-prev\"\n        *ngIf=\"lastIndex > 9 && nzPageIndex - 3 > firstIndex\"\n        [attr.title]=\"locale.prev_5\"\n        (click)=\"jumpDiff(-5)\"\n      >\n        <a class=\"ant-pagination-item-link\">\n          <div class=\"ant-pagination-item-container\">\n            <i nz-icon nzType=\"double-left\" class=\"ant-pagination-item-link-icon\"></i>\n            <span class=\"ant-pagination-item-ellipsis\">\u2022\u2022\u2022</span>\n          </div>\n        </a>\n      </li>\n      <li\n        class=\"ant-pagination-item\"\n        *ngFor=\"let page of pages\"\n        [attr.title]=\"page\"\n        [class.ant-pagination-item-active]=\"nzPageIndex === page\"\n        (click)=\"jumpPage(page)\"\n      >\n        <ng-template [ngTemplateOutlet]=\"nzItemRender\" [ngTemplateOutletContext]=\"{ $implicit: 'page', page: page }\"></ng-template>\n      </li>\n      <li\n        class=\"ant-pagination-jump-next ant-pagination-item-link-icon\"\n        [attr.title]=\"locale.next_5\"\n        (click)=\"jumpDiff(5)\"\n        *ngIf=\"lastIndex > 9 && nzPageIndex + 3 < lastIndex\"\n      >\n        <a class=\"ant-pagination-item-link\">\n          <div class=\"ant-pagination-item-container\">\n            <i nz-icon nzType=\"double-right\" class=\"ant-pagination-item-link-icon\"></i>\n            <span class=\"ant-pagination-item-ellipsis\">\u2022\u2022\u2022</span>\n          </div>\n        </a>\n      </li>\n      <li\n        class=\"ant-pagination-item\"\n        [attr.title]=\"lastIndex\"\n        (click)=\"jumpPage(lastIndex)\"\n        *ngIf=\"lastIndex > 0 && lastIndex !== firstIndex\"\n        [class.ant-pagination-item-active]=\"isLastIndex\"\n      >\n        <ng-template [ngTemplateOutlet]=\"nzItemRender\" [ngTemplateOutletContext]=\"{ $implicit: 'page', page: lastIndex }\"></ng-template>\n      </li>\n      <li class=\"ant-pagination-next\" [title]=\"locale.next_page\" [class.ant-pagination-disabled]=\"isLastIndex\" (click)=\"jumpDiff(1)\">\n        <ng-template [ngTemplateOutlet]=\"nzItemRender\" [ngTemplateOutletContext]=\"{ $implicit: 'next' }\"></ng-template>\n      </li>\n      <div class=\"ant-pagination-options\" *ngIf=\"nzShowQuickJumper || nzShowSizeChanger\">\n        <nz-select\n          class=\"ant-pagination-options-size-changer\"\n          *ngIf=\"nzShowSizeChanger\"\n          [nzDisabled]=\"nzDisabled\"\n          [nzSize]=\"nzSize\"\n          [ngModel]=\"nzPageSize\"\n          (ngModelChange)=\"onPageSizeChange($event)\"\n        >\n          <nz-option *ngFor=\"let option of nzPageSizeOptions\" [nzLabel]=\"option + locale.items_per_page\" [nzValue]=\"option\"> </nz-option>\n          <nz-option *ngIf=\"showAddOption\" [nzLabel]=\"nzPageSize + locale.items_per_page\" [nzValue]=\"nzPageSize\"> </nz-option>\n        </nz-select>\n        <div class=\"ant-pagination-options-quick-jumper\" *ngIf=\"nzShowQuickJumper\">\n          {{ locale.jump_to }}\n          <input #quickJumperInput [disabled]=\"nzDisabled\" (keydown.enter)=\"handleKeyDown($event, quickJumperInput, true)\" />\n          {{ locale.page }}\n        </div>\n      </div>\n    </ng-template>\n  </ul>\n</ng-container>\n"
+                    }] }
+        ];
+        /** @nocollapse */
+        PaginationComponent.ctorParameters = function () { return [
+            { type: i18n.NzI18nService },
+            { type: core.ChangeDetectorRef }
+        ]; };
+        PaginationComponent.propDecorators = {
+            nzPageSizeChange: [{ type: core.Output }],
+            nzPageIndexChange: [{ type: core.Output }],
+            nzShowTotal: [{ type: core.Input }],
+            nzInTable: [{ type: core.Input }],
+            nzSize: [{ type: core.Input }],
+            nzPageSizeOptions: [{ type: core.Input }],
+            nzItemRender: [{ type: core.Input }, { type: core.ViewChild, args: ['renderItemTemplate', { static: true },] }],
+            nzDisabled: [{ type: core.Input }],
+            nzShowSizeChanger: [{ type: core.Input }],
+            nzHideOnSinglePage: [{ type: core.Input }],
+            nzShowQuickJumper: [{ type: core.Input }],
+            nzSimple: [{ type: core.Input }],
+            nzTotal: [{ type: core.Input }],
+            nzPageIndex: [{ type: core.Input }],
+            nzPageSize: [{ type: core.Input }]
+        };
+        __decorate([
+            core$1.InputBoolean(),
+            __metadata("design:type", Object)
+        ], PaginationComponent.prototype, "nzDisabled", void 0);
+        __decorate([
+            core$1.InputBoolean(),
+            __metadata("design:type", Object)
+        ], PaginationComponent.prototype, "nzShowSizeChanger", void 0);
+        __decorate([
+            core$1.InputBoolean(),
+            __metadata("design:type", Object)
+        ], PaginationComponent.prototype, "nzHideOnSinglePage", void 0);
+        __decorate([
+            core$1.InputBoolean(),
+            __metadata("design:type", Object)
+        ], PaginationComponent.prototype, "nzShowQuickJumper", void 0);
+        __decorate([
+            core$1.InputBoolean(),
+            __metadata("design:type", Object)
+        ], PaginationComponent.prototype, "nzSimple", void 0);
+        __decorate([
+            core$1.InputNumber(),
+            __metadata("design:type", Object)
+        ], PaginationComponent.prototype, "nzTotal", void 0);
+        __decorate([
+            core$1.InputNumber(),
+            __metadata("design:type", Object)
+        ], PaginationComponent.prototype, "nzPageIndex", void 0);
+        __decorate([
+            core$1.InputNumber(),
+            __metadata("design:type", Object)
+        ], PaginationComponent.prototype, "nzPageSize", void 0);
+        return PaginationComponent;
+    }());
+    if (false) {
+        /** @type {?} */
+        PaginationComponent.prototype.locale;
+        /** @type {?} */
+        PaginationComponent.prototype.firstIndex;
+        /** @type {?} */
+        PaginationComponent.prototype.pages;
+        /**
+         * @type {?}
+         * @private
+         */
+        PaginationComponent.prototype.$destroy;
+        /** @type {?} */
+        PaginationComponent.prototype.nzPageSizeChange;
+        /** @type {?} */
+        PaginationComponent.prototype.nzPageIndexChange;
+        /** @type {?} */
+        PaginationComponent.prototype.nzShowTotal;
+        /** @type {?} */
+        PaginationComponent.prototype.nzInTable;
+        /** @type {?} */
+        PaginationComponent.prototype.nzSize;
+        /** @type {?} */
+        PaginationComponent.prototype.nzPageSizeOptions;
+        /** @type {?} */
+        PaginationComponent.prototype.nzItemRender;
+        /** @type {?} */
+        PaginationComponent.prototype.nzDisabled;
+        /** @type {?} */
+        PaginationComponent.prototype.nzShowSizeChanger;
+        /** @type {?} */
+        PaginationComponent.prototype.nzHideOnSinglePage;
+        /** @type {?} */
+        PaginationComponent.prototype.nzShowQuickJumper;
+        /** @type {?} */
+        PaginationComponent.prototype.nzSimple;
+        /** @type {?} */
+        PaginationComponent.prototype.nzTotal;
+        /** @type {?} */
+        PaginationComponent.prototype.nzPageIndex;
+        /** @type {?} */
+        PaginationComponent.prototype.nzPageSize;
+        /**
+         * @type {?}
+         * @private
+         */
+        PaginationComponent.prototype.i18n;
+        /**
+         * @type {?}
+         * @private
+         */
+        PaginationComponent.prototype.cdr;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    var PaginationModule = /** @class */ (function () {
+        function PaginationModule() {
+        }
+        PaginationModule.decorators = [
+            { type: core.NgModule, args: [{
+                        declarations: [PaginationComponent],
+                        exports: [PaginationComponent],
+                        imports: [common.CommonModule, forms.FormsModule, select.NzSelectModule, i18n.NzI18nModule, icon.NzIconModule]
+                    },] }
+        ];
+        return PaginationModule;
+    }());
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    var QueryTabsComponent = /** @class */ (function () {
+        function QueryTabsComponent() {
+            this.tabs = [];
+            this.lexicon = []; // 词典
+            // 词典
+            this.tabsChange = new core.EventEmitter();
+            this.queryChange = new core.EventEmitter();
+            this.closeTab = new core.EventEmitter();
+            // 过滤规则
+            this.filterRule = (/**
+             * @param {?} tab
+             * @return {?}
+             */
+            function (tab) {
+                /** @type {?} */
+                var searchValue = tab.searchValue;
+                // 有默认值且搜索值和默认值相等
+                if (tab.hasOwnProperty('defaultValue') && searchValue === tab.defaultValue) {
+                    return false;
+                }
+                // 非法基础数据类型
+                if ([undefined, null, ''].includes(searchValue)) {
+                    return false;
+                }
+                // 空数组
+                if (Array.isArray(searchValue) && !searchValue.length) {
+                    return false;
+                }
+                // 通过校验，返回true
+                return true;
+            });
+        }
+        /**
+         * @return {?}
+         */
+        QueryTabsComponent.prototype.ngOnInit = /**
+         * @return {?}
+         */
+        function () { };
+        /**
+         * @param {?} changes
+         * @return {?}
+         */
+        QueryTabsComponent.prototype.ngOnChanges = /**
+         * @param {?} changes
+         * @return {?}
+         */
+        function (changes) {
+            if (changes.tabs) {
+                this.updateQuery();
+            }
+        };
+        /**
+         * @param {?} tab
+         * @return {?}
+         */
+        QueryTabsComponent.prototype.onClose = /**
+         * @param {?} tab
+         * @return {?}
+         */
+        function (tab) {
+            // 有默认值恢复默认值，没有则置为null
+            tab.searchValue = tab.hasOwnProperty('defaultValue') ? tab.defaultValue : null;
+            this.closeTab.emit(tab);
+            this.tabs = __spread(this.tabs);
+            this.tabsChange.emit(this.tabs);
+        };
+        // 组件内更新查询值
+        // 组件内更新查询值
+        /**
+         * @return {?}
+         */
+        QueryTabsComponent.prototype.updateQuery = 
+        // 组件内更新查询值
+        /**
+         * @return {?}
+         */
+        function () {
+            /** @type {?} */
+            var query = {};
+            this.tabs.forEach((/**
+             * @param {?} tab
+             * @return {?}
+             */
+            function (tab) {
+                if (tab.showFilter) {
+                    query[tab.field] = tab.searchValue;
+                }
+            }));
+            this.queryChange.emit(query);
+        };
+        QueryTabsComponent.decorators = [
+            { type: core.Component, args: [{
+                        selector: 'p-queryTabs',
+                        exportAs: 'queryTabs',
+                        template: "<nz-tabset nzType=\"card\">\n  <ng-container *ngFor=\"let tab of tabs | filter: filterRule\">\n    <nz-tab [nzTitle]=\"titleTemplate\">\n      <ng-template #titleTemplate>\n        <div class=\"flex\">\n          <span class=\"label\">{{ tab.title + '\uFF1A' }}</span>\n          <ng-container *ngIf=\"(tab.searchValue | translate: tab.lexicon || lexicon)?.length > 10; else textTemplate\">\n            <div nz-popover nzTrigger=\"hover\" [nzContent]=\"textTemplate\" nzPlacement=\"bottom\">\n              <span class=\"value text-ellipsis\">\n                {{ tab.displayValue || tab.searchValue | translate: tab.lexicon || lexicon }}\n              </span>\n            </div>\n          </ng-container>\n\n          <ng-template #textTemplate>\n            <div>\n              <span class=\"value\">\n                {{ tab.displayValue || tab.searchValue | translate: tab.lexicon || lexicon }}\n              </span>\n            </div>\n          </ng-template>\n\n          <div>\n            <i nz-icon nzType=\"close\" class=\"ant-tabs-close-x\" (click)=\"onClose(tab)\"></i>\n          </div>\n        </div>\n      </ng-template>\n    </nz-tab>\n  </ng-container>\n</nz-tabset>\n",
+                        changeDetection: core.ChangeDetectionStrategy.OnPush,
+                        encapsulation: core.ViewEncapsulation.Emulated,
+                        styles: [".text-ellipsis{display:inline-block;max-width:180px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;vertical-align:top}.flex{display:flex;align-items:center;justify-content:center}.label{color:#515151}.value{color:#1890ff}:host ::ng-deep .ant-tabs.ant-tabs-card .ant-tabs-bar{margin:0 0 2px;border:none}:host ::ng-deep .ant-tabs.ant-tabs-card .ant-tabs-bar .ant-tabs-tab{height:30px;margin:0 2px 0 0;padding:0 16px;line-height:28px;background:#fafafa;border:1px solid #e8e8e8!important;border-radius:4px;transition:.3s cubic-bezier(.645,.045,.355,1)}:host ::ng-deep .ant-tabs.ant-tabs-card .ant-tabs-bar .ant-tabs-nav-container{height:31px}:host ::ng-deep .ant-tabs.ant-tabs-card .ant-tabs-bar .ant-tabs-tab-active{font-weight:400}"]
+                    }] }
+        ];
+        /** @nocollapse */
+        QueryTabsComponent.ctorParameters = function () { return []; };
+        QueryTabsComponent.propDecorators = {
+            tabs: [{ type: core.Input }],
+            lexicon: [{ type: core.Input }],
+            tabsChange: [{ type: core.Output }],
+            queryChange: [{ type: core.Output }],
+            closeTab: [{ type: core.Output }],
+            filterRule: [{ type: core.Input }]
+        };
+        return QueryTabsComponent;
+    }());
+    if (false) {
+        /** @type {?} */
+        QueryTabsComponent.prototype.tabs;
+        /** @type {?} */
+        QueryTabsComponent.prototype.lexicon;
+        /** @type {?} */
+        QueryTabsComponent.prototype.tabsChange;
+        /** @type {?} */
+        QueryTabsComponent.prototype.queryChange;
+        /** @type {?} */
+        QueryTabsComponent.prototype.closeTab;
+        /** @type {?} */
+        QueryTabsComponent.prototype.filterRule;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    var QueryTabsModule = /** @class */ (function () {
+        function QueryTabsModule() {
+        }
+        QueryTabsModule.decorators = [
+            { type: core.NgModule, args: [{
+                        declarations: [QueryTabsComponent],
+                        imports: [common.CommonModule, theme.TranslatePipeModule, theme.FilterPipeModule, ngZorroAntd.NgZorroAntdModule],
+                        exports: [common.CommonModule, theme.TranslatePipeModule, theme.FilterPipeModule, ngZorroAntd.NgZorroAntdModule, QueryTabsComponent],
+                    },] }
+        ];
+        return QueryTabsModule;
+    }());
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /**
+     * @record
+     */
+    function QueryTab() { }
+    if (false) {
+        /** @type {?} */
+        QueryTab.prototype.title;
+        /** @type {?} */
+        QueryTab.prototype.field;
+        /** @type {?|undefined} */
+        QueryTab.prototype.showFilter;
+        /** @type {?|undefined} */
+        QueryTab.prototype.searchValue;
+        /** @type {?|undefined} */
+        QueryTab.prototype.defaultValue;
+        /** @type {?|undefined} */
+        QueryTab.prototype.displayValue;
+        /** @type {?|undefined} */
+        QueryTab.prototype.lexicon;
+    }
 
     /**
      * @fileoverview added by tsickle
@@ -3372,7 +4090,7 @@
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
-    var COMPONENTS$2 = [ReuseTabComponent];
+    var COMPONENTS$3 = [ReuseTabComponent];
     /** @type {?} */
     var NOEXPORTS = [ReuseTabContextMenuComponent, ReuseTabContextComponent, ReuseTabContextDirective];
     var ReuseTabModule = /** @class */ (function () {
@@ -3381,9 +4099,9 @@
         ReuseTabModule.decorators = [
             { type: core.NgModule, args: [{
                         imports: [common.CommonModule, router.RouterModule, theme.PixelmonLocaleModule, menu.NzMenuModule, tabs.NzTabsModule, icon.NzIconModule, overlay.OverlayModule],
-                        declarations: __spread(COMPONENTS$2, NOEXPORTS),
+                        declarations: __spread(COMPONENTS$3, NOEXPORTS),
                         entryComponents: [ReuseTabContextMenuComponent],
-                        exports: __spread(COMPONENTS$2),
+                        exports: __spread(COMPONENTS$3),
                     },] }
         ];
         return ReuseTabModule;
@@ -3958,6 +4676,1356 @@
      * @fileoverview added by tsickle
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
+    var SmartTextComponent = /** @class */ (function () {
+        function SmartTextComponent() {
+            this._text = '';
+            this.maxLength = 20;
+            this.tail = '...';
+        }
+        Object.defineProperty(SmartTextComponent.prototype, "text", {
+            get: /**
+             * @return {?}
+             */
+            function () {
+                return this._text;
+            },
+            set: /**
+             * @param {?} value
+             * @return {?}
+             */
+            function (value) {
+                if (value === undefined || value === null) {
+                    this._text = '';
+                }
+                else {
+                    this._text = String(value);
+                }
+            },
+            enumerable: true,
+            configurable: true
+        });
+        SmartTextComponent.decorators = [
+            { type: core.Component, args: [{
+                        selector: 'smart-text',
+                        exportAs: 'pSmartText',
+                        template: "<!-- \u76F4\u63A5\u663E\u793A -->\n<ng-container *ngIf=\"text.length <= maxLength; else tooltipBlock\">\n  <span>{{ text }}</span>\n</ng-container>\n\n<!-- \u63D0\u793A\u6846\u663E\u793A -->\n<ng-template #tooltipBlock>\n  <span nz-tooltip [nzTitle]=\"text\">{{ text | shortcut: maxLength:tail }}</span>\n</ng-template>\n\n<ng-content></ng-content>\n"
+                    }] }
+        ];
+        SmartTextComponent.propDecorators = {
+            maxLength: [{ type: core.Input }],
+            tail: [{ type: core.Input }],
+            text: [{ type: core.Input }]
+        };
+        return SmartTextComponent;
+    }());
+    if (false) {
+        /**
+         * @type {?}
+         * @protected
+         */
+        SmartTextComponent.prototype._text;
+        /** @type {?} */
+        SmartTextComponent.prototype.maxLength;
+        /** @type {?} */
+        SmartTextComponent.prototype.tail;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    var SmartTextModule = /** @class */ (function () {
+        function SmartTextModule() {
+        }
+        SmartTextModule.decorators = [
+            { type: core.NgModule, args: [{
+                        imports: [common.CommonModule, theme.ShortcutPipeModule, tooltip.NzToolTipModule],
+                        declarations: [SmartTextComponent],
+                        exports: [common.CommonModule, SmartTextComponent],
+                    },] }
+        ];
+        return SmartTextModule;
+    }());
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /**
+     * @record
+     */
+    function PTableData() { }
+    if (false) {
+        /** @type {?} */
+        PTableData.prototype.data;
+        /** @type {?} */
+        PTableData.prototype.totalSize;
+    }
+    /**
+     * @record
+     */
+    function PTableColumn() { }
+    if (false) {
+        /** @type {?} */
+        PTableColumn.prototype.title;
+        /** @type {?} */
+        PTableColumn.prototype.field;
+        /** @type {?|undefined} */
+        PTableColumn.prototype.width;
+        /** @type {?|undefined} */
+        PTableColumn.prototype.left;
+        /** @type {?|undefined} */
+        PTableColumn.prototype.right;
+        /** @type {?|undefined} */
+        PTableColumn.prototype.type;
+        /** @type {?|undefined} */
+        PTableColumn.prototype.customCell;
+        /** @type {?|undefined} */
+        PTableColumn.prototype.showSort;
+        /** @type {?|undefined} */
+        PTableColumn.prototype.sortValue;
+        /** @type {?|undefined} */
+        PTableColumn.prototype.customSort;
+        /** @type {?|undefined} */
+        PTableColumn.prototype.showFilter;
+        /** @type {?|undefined} */
+        PTableColumn.prototype.filterType;
+        /** @type {?|undefined} */
+        PTableColumn.prototype.filterOptions;
+        /** @type {?|undefined} */
+        PTableColumn.prototype.filterWidth;
+        /** @type {?|undefined} */
+        PTableColumn.prototype.filterMultiple;
+        /** @type {?|undefined} */
+        PTableColumn.prototype.customFilter;
+    }
+    /**
+     * @record
+     */
+    function PTableRow() { }
+    if (false) {
+        /** @type {?} */
+        PTableRow.prototype.isChecked;
+        /* Skipping unhandled member: [key: string]: any;*/
+    }
+    /**
+     * @record
+     */
+    function PTablePage() { }
+    if (false) {
+        /** @type {?} */
+        PTablePage.prototype.page;
+        /** @type {?} */
+        PTablePage.prototype.size;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    var TableCellComponent = /** @class */ (function () {
+        function TableCellComponent() {
+            this.field = ''; // 对应域
+        }
+        /**
+         * @return {?}
+         */
+        TableCellComponent.prototype.ngOnInit = /**
+         * @return {?}
+         */
+        function () { };
+        TableCellComponent.decorators = [
+            { type: core.Component, args: [{
+                        selector: 'p-tableCell',
+                        template: '<ng-content> </ng-content>'
+                    }] }
+        ];
+        /** @nocollapse */
+        TableCellComponent.ctorParameters = function () { return []; };
+        TableCellComponent.propDecorators = {
+            field: [{ type: core.Input }],
+            templateRef: [{ type: core.ContentChild, args: [core.TemplateRef, { static: false },] }]
+        };
+        return TableCellComponent;
+    }());
+    if (false) {
+        /** @type {?} */
+        TableCellComponent.prototype.field;
+        /** @type {?} */
+        TableCellComponent.prototype.templateRef;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    var TableFilterComponent = /** @class */ (function () {
+        function TableFilterComponent() {
+            this.field = ''; // 对应域
+        }
+        /**
+         * @return {?}
+         */
+        TableFilterComponent.prototype.ngOnInit = /**
+         * @return {?}
+         */
+        function () { };
+        TableFilterComponent.decorators = [
+            { type: core.Component, args: [{
+                        selector: 'p-tableFilter',
+                        template: '<ng-content> </ng-content>'
+                    }] }
+        ];
+        /** @nocollapse */
+        TableFilterComponent.ctorParameters = function () { return []; };
+        TableFilterComponent.propDecorators = {
+            field: [{ type: core.Input }],
+            templateRef: [{ type: core.ContentChild, args: [core.TemplateRef, { static: false },] }]
+        };
+        return TableFilterComponent;
+    }());
+    if (false) {
+        /** @type {?} */
+        TableFilterComponent.prototype.field;
+        /** @type {?} */
+        TableFilterComponent.prototype.templateRef;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    var TableComponent = /** @class */ (function () {
+        function TableComponent(_elementRef, _renderer2) {
+            this._elementRef = _elementRef;
+            this._renderer2 = _renderer2;
+            this.columns = []; // 列数据
+            // 列数据
+            this.data = { data: [], totalSize: 0 }; // 表格数据
+            // 表格数据
+            this.selections = []; // 已选项
+            // 固定表头，滚动
+            this.loading = false; // 表格loading
+            // 表格loading
+            this.pageSize = 10; // 显示条数
+            // 显示条数
+            this.frontPagination = false; // 是否前端分页
+            // 是否前端分页
+            this.showPagination = true; // 是否显示分页器
+            // 是否显示分页器
+            this.fixedPagination = false; // 是否固定分页器
+            // 是否固定分页器
+            this.showSizeChanger = true; // 是否显示条数切换器
+            // 是否显示条数切换器
+            this.size = 'middle'; // 表格size
+            // 表格size
+            this.pageSizeOptions = [10, 30, 50, 100]; // 页数选择器可选值
+            // 页数选择器可选值
+            this.showCheckbox = false; // 是否显示复选框
+            // title模板
+            this.columnsChange = new core.EventEmitter(); // 列数据改变事件 用于双向绑定
+            // 列数据改变事件 用于双向绑定
+            this.selectionsChange = new core.EventEmitter(); // 已选项改变事件 用于双向绑定
+            // 已选项改变事件 用于双向绑定
+            this.load = new core.EventEmitter(); // load事件
+            // load事件
+            this.sort = new core.EventEmitter(); // 排序事件
+            // 排序事件
+            this.linkClick = new core.EventEmitter(); // 链接点击事件
+            // 自定义搜索组件
+            this.load$ = new rxjs.Subject(); // load流
+            // load流
+            this.displayData = []; // 当前显示数据
+            // 当前显示数据
+            this.pageIndex = 1; // 当前页码
+        }
+        /**
+         * @param {?} changes
+         * @return {?}
+         */
+        TableComponent.prototype.ngOnChanges = /**
+         * @param {?} changes
+         * @return {?}
+         */
+        function (changes) {
+            if (changes.data) {
+                // 重走sort
+                if (this.sortParams && this.sortParams.key && this.sortParams.value) {
+                    this.onSort(this.sortParams);
+                }
+            }
+            if (changes.columns) {
+                // 是下拉选择的自动添加词典
+                this.columns.forEach((/**
+                 * @param {?} column
+                 * @return {?}
+                 */
+                function (column) {
+                    if (column.showFilter && column.filterType === 'select' && Array.isArray(column.filterOptions)) {
+                        column.lexicon = column.lexicon ? __spread(column.lexicon, column.filterOptions) : column.filterOptions;
+                    }
+                }));
+            }
+            if (changes.selections) {
+                this.updateCheckedBySelections();
+            }
+        };
+        /**
+         * @return {?}
+         */
+        TableComponent.prototype.ngOnInit = /**
+         * @return {?}
+         */
+        function () {
+            var _this = this;
+            /* tslint:disable */
+            this.load$.pipe(operators.debounceTime(20)).subscribe((/**
+             * @return {?}
+             */
+            function () {
+                // 清空selections
+                _this.selections = [];
+                _this.selectionsChange.emit(_this.selections);
+                // 发出load事件
+                _this.load.emit({ page: _this.pageIndex, size: _this.pageSize });
+            }));
+        };
+        /**
+         * @return {?}
+         */
+        TableComponent.prototype.ngAfterViewInit = /**
+         * @return {?}
+         */
+        function () {
+            // 页面初始化完成后自动load一次
+            this.load$.next();
+            if (this.showPagination && this.fixedPagination) {
+                this.toFixedPagination();
+            }
+        };
+        /**
+         * @return {?}
+         */
+        TableComponent.prototype.ngAfterContentInit = /**
+         * @return {?}
+         */
+        function () {
+            var _this = this;
+            // 赋值自定义单元格
+            this.customCells.forEach((/**
+             * @param {?} customCell
+             * @return {?}
+             */
+            function (customCell) {
+                /** @type {?} */
+                var findedColumn = _this.columns.find((/**
+                 * @param {?} column
+                 * @return {?}
+                 */
+                function (column) { return column.field === customCell.field; }));
+                if (findedColumn)
+                    findedColumn.customCell = customCell.templateRef;
+            }));
+            // 赋值自定义搜索组件
+            this.customFilters.forEach((/**
+             * @param {?} customFilter
+             * @return {?}
+             */
+            function (customFilter) {
+                /** @type {?} */
+                var findedColumn = _this.columns.find((/**
+                 * @param {?} column
+                 * @return {?}
+                 */
+                function (column) { return column.field === customFilter.field; }));
+                if (findedColumn) {
+                    findedColumn.showFilter = true;
+                    findedColumn.customFilter = customFilter.templateRef;
+                }
+            }));
+        };
+        /**
+         * @return {?}
+         */
+        TableComponent.prototype.ngOnDestroy = /**
+         * @return {?}
+         */
+        function () {
+            // 不使用takeUntil是因为直接unsubscribe性能更好
+            this.load$.unsubscribe();
+        };
+        /**
+         * 表格当前显示数据改变回调
+         * @param currentData 当前页显示数据
+         */
+        /**
+         * 表格当前显示数据改变回调
+         * @param {?} currentData 当前页显示数据
+         * @return {?}
+         */
+        TableComponent.prototype.currentPageDataChange = /**
+         * 表格当前显示数据改变回调
+         * @param {?} currentData 当前页显示数据
+         * @return {?}
+         */
+        function (currentData) {
+            this.displayData = currentData;
+        };
+        /**
+         * 单选改变回调
+         */
+        /**
+         * 单选改变回调
+         * @return {?}
+         */
+        TableComponent.prototype.singleCheckChange = /**
+         * 单选改变回调
+         * @return {?}
+         */
+        function () {
+            this.updateSelectionsByChecked();
+        };
+        /**
+         * 全选复选框改变回调
+         * @param isChecked 是否全选
+         */
+        /**
+         * 全选复选框改变回调
+         * @param {?} isChecked 是否全选
+         * @return {?}
+         */
+        TableComponent.prototype.allCheckChange = /**
+         * 全选复选框改变回调
+         * @param {?} isChecked 是否全选
+         * @return {?}
+         */
+        function (isChecked) {
+            this.displayData.forEach((/**
+             * @param {?} row
+             * @return {?}
+             */
+            function (row) { return (row.isChecked = isChecked); }));
+            this.updateSelectionsByChecked();
+        };
+        /**
+         * 根据checked更新selections
+         */
+        /**
+         * 根据checked更新selections
+         * @return {?}
+         */
+        TableComponent.prototype.updateSelectionsByChecked = /**
+         * 根据checked更新selections
+         * @return {?}
+         */
+        function () {
+            this.selections = this.displayData.filter((/**
+             * @param {?} row
+             * @return {?}
+             */
+            function (row) { return row.isChecked; }));
+            this.selectionsChange.emit(this.selections);
+        };
+        /**
+         * 根据selections更新checked
+         */
+        /**
+         * 根据selections更新checked
+         * @return {?}
+         */
+        TableComponent.prototype.updateCheckedBySelections = /**
+         * 根据selections更新checked
+         * @return {?}
+         */
+        function () {
+            var _this = this;
+            this.displayData.forEach((/**
+             * @param {?} row
+             * @return {?}
+             */
+            function (row) { return (row.isChecked = _this.selections.includes(row)); }));
+        };
+        /**
+         * 页码改变回调
+         */
+        /**
+         * 页码改变回调
+         * @return {?}
+         */
+        TableComponent.prototype.pageIndexChange = /**
+         * 页码改变回调
+         * @return {?}
+         */
+        function () {
+            this.load$.next();
+        };
+        /**
+         * 显示条数改变回调
+         */
+        /**
+         * 显示条数改变回调
+         * @return {?}
+         */
+        TableComponent.prototype.pageSizeChange = /**
+         * 显示条数改变回调
+         * @return {?}
+         */
+        function () {
+            // 显示条数改变时回到首页
+            this.pageIndex = 1;
+            this.load$.next();
+        };
+        /**
+         * 排序改变
+         * @param sortParams 排序参数
+         */
+        /**
+         * 排序改变
+         * @param {?} sortParams 排序参数
+         * @return {?}
+         */
+        TableComponent.prototype.onSort = /**
+         * 排序改变
+         * @param {?} sortParams 排序参数
+         * @return {?}
+         */
+        function (sortParams) {
+            // 保存排序参数，用于下次数据进来再进行排序
+            this.sortParams = sortParams;
+            // 查找正在排序的列
+            /** @type {?} */
+            var sortColumn = this.columns.find((/**
+             * @param {?} column
+             * @return {?}
+             */
+            function (column) { return column.field === sortParams.key; }));
+            // 如果没有自定义排序，自动前端排序
+            if (sortColumn && !sortColumn.customSort) {
+                this.data.data.sort((/**
+                 * @param {?} previous
+                 * @param {?} further
+                 * @return {?}
+                 */
+                function (previous, further) {
+                    return sortParams.value === 'descend'
+                        ? further[sortParams.key] > previous[sortParams.key]
+                            ? 1
+                            : -1
+                        : previous[sortParams.key] > further[sortParams.key]
+                            ? 1
+                            : -1;
+                }));
+                this.data.data = __spread(this.data.data);
+            }
+            this.sort.emit(sortParams);
+        };
+        /**
+         * 日期改变回调
+         * @param isOpen 是否打开
+         * @param column 当前列模型数据
+         */
+        /**
+         * 日期改变回调
+         * @param {?} isOpen 是否打开
+         * @param {?} column 当前列模型数据
+         * @return {?}
+         */
+        TableComponent.prototype.onRangePickerOpenChange = /**
+         * 日期改变回调
+         * @param {?} isOpen 是否打开
+         * @param {?} column 当前列模型数据
+         * @return {?}
+         */
+        function (isOpen, column) {
+            if (isOpen === false) {
+                /** @type {?} */
+                var date = column.searchValue;
+                if (date && Array.isArray(date) && date.length === 2) {
+                    column.searchValue = [common.formatDate(date[0], 'yyyy-MM-dd 00:00:00', 'zh_CN'), common.formatDate(date[1], 'yyyy-MM-dd 23:59:59', 'zh_CN')];
+                    column.displayValue = [common.formatDate(date[0], 'yyyy-MM-dd', 'zh_CN'), common.formatDate(date[1], 'yyyy-MM-dd', 'zh_CN')];
+                }
+            }
+        };
+        /**
+         * 查询确认回调
+         */
+        /**
+         * 查询确认回调
+         * @param {?} dropdown
+         * @return {?}
+         */
+        TableComponent.prototype.onFilterConfim = /**
+         * 查询确认回调
+         * @param {?} dropdown
+         * @return {?}
+         */
+        function (dropdown) {
+            dropdown.setVisibleStateWhen(false);
+            this.columns = __spread(this.columns);
+            this.columnsChange.emit(this.columns);
+        };
+        /**
+         * 固定分页
+         */
+        /**
+         * 固定分页
+         * @return {?}
+         */
+        TableComponent.prototype.toFixedPagination = /**
+         * 固定分页
+         * @return {?}
+         */
+        function () {
+            var _this = this;
+            // 没有滚动条时和有滚动条时tableBody会不一样，故先给上滚动条
+            this.scroll = __assign({}, this.scroll, { y: '0px' });
+            // 等待滚动条更新
+            setTimeout((/**
+             * @return {?}
+             */
+            function () {
+                /** @type {?} */
+                var windowHeight = document.documentElement.clientHeight;
+                /** @type {?} */
+                var tableBody = _this._elementRef.nativeElement.querySelector('.ant-table-body');
+                /** @type {?} */
+                var pagination = _this._elementRef.nativeElement.querySelector('.ant-pagination');
+                /** @type {?} */
+                var tableBodyTop = tableBody.getBoundingClientRect().top;
+                /** @type {?} */
+                var scrollHeight = windowHeight - tableBodyTop - pagination.clientHeight + 'px';
+                // 设scroll 实际上是设了max-height
+                _this.scroll = __assign({}, _this.scroll, { y: scrollHeight });
+                // 设height
+                _this._renderer2.setStyle(tableBody, 'height', scrollHeight);
+            }));
+        };
+        /**
+         * @param {?} field
+         * @param {?} rowData
+         * @return {?}
+         */
+        TableComponent.prototype.onlinkClick = /**
+         * @param {?} field
+         * @param {?} rowData
+         * @return {?}
+         */
+        function (field, rowData) {
+            this.linkClick.emit({ field: field, rowData: rowData });
+        };
+        TableComponent.decorators = [
+            { type: core.Component, args: [{
+                        selector: 'p-table',
+                        exportAs: 'pTable',
+                        template: "<nz-spin [nzTip]=\"'\u52A0\u8F7D\u4E2D...'\" [nzSpinning]=\"loading\">\n  <nz-table\n    #nzTable\n    class=\"p-table\"\n    [nzData]=\"data?.data || []\"\n    [nzTitle]=\"titleTemplate || null\"\n    [nzScroll]=\"scroll\"\n    [nzFrontPagination]=\"frontPagination\"\n    [nzSize]=\"size\"\n    [nzShowPagination]=\"false\"\n    (nzCurrentPageDataChange)=\"currentPageDataChange($event)\"\n    [class.fixed-pagination]=\"fixedPagination\"\n  >\n    <thead (nzSortChange)=\"onSort($event)\" nzSingleSort>\n      <tr>\n        <th\n          *ngIf=\"showCheckbox\"\n          nzLeft=\"0px\"\n          nzWidth=\"40px\"\n          nzShowCheckbox\n          [nzChecked]=\"selections.length > 0 && displayData.length === selections.length\"\n          [nzIndeterminate]=\"selections.length > 0 && displayData.length !== selections.length\"\n          (nzCheckedChange)=\"allCheckChange($event)\"\n        ></th>\n        <th\n          *ngFor=\"let column of columns\"\n          [nzLeft]=\"column.left\"\n          [nzRight]=\"column.right\"\n          [nzWidth]=\"column.width || '120px'\"\n          [nzShowSort]=\"column.showSort\"\n          [nzSortKey]=\"column.field\"\n          [nzCustomFilter]=\"column.showFilter\"\n        >\n          {{ column.title }}\n          <!-- \u641C\u7D22 -->\n          <nz-dropdown *ngIf=\"column.showFilter\" nzTrigger=\"click\" nzPlacement=\"bottomRight\" [nzClickHide]=\"false\" nzTableFilter #dropdown>\n            <i nz-icon nzType=\"search\" class=\"ant-table-filter-icon\" [class.ant-table-filter-open]=\"dropdown.nzVisible\" nz-dropdown></i>\n            <div class=\"p-table-filter-panel\">\n              <!-- \u641C\u7D22\u7EC4\u4EF6 -->\n              <ng-container\n                [ngTemplateOutlet]=\"filterTemplate\"\n                [ngTemplateOutletContext]=\"{ $implicit: column, dropdown: dropdown }\"\n              ></ng-container>\n              <!-- \u641C\u7D22\u786E\u8BA4\u6309\u94AE -->\n              <div nz-row nzType=\"flex\" nzJustify=\"end\" nzAlign=\"middle\" class=\"p-table-filter-button\">\n                <button nz-button nzSize=\"small\" nzType=\"primary\" (click)=\"onFilterConfim(dropdown)\">\n                  \u786E\u8BA4\n                </button>\n              </div>\n            </div>\n          </nz-dropdown>\n        </th>\n      </tr>\n    </thead>\n    <tbody>\n      <ng-container *ngFor=\"let row of displayData\">\n        <tr>\n          <td *ngIf=\"showCheckbox\" nzLeft=\"0px\" nzShowCheckbox [(nzChecked)]=\"row.isChecked\" (nzCheckedChange)=\"singleCheckChange()\"></td>\n          <td [nzLeft]=\"column.left\" [nzRight]=\"column.right\" *ngFor=\"let column of columns\">\n            <!-- \u5355\u5143\u683C -->\n            <ng-container [ngTemplateOutlet]=\"cellTemplate\" [ngTemplateOutletContext]=\"{ $implicit: column, row: row }\"></ng-container>\n          </td>\n        </tr>\n      </ng-container>\n    </tbody>\n  </nz-table>\n\n  <p-pagination\n    *ngIf=\"fixedPagination ? showPagination : showPagination && data?.totalSize\"\n    nzSize=\"small\"\n    [(nzPageIndex)]=\"pageIndex\"\n    [(nzPageSize)]=\"pageSize\"\n    [nzShowSizeChanger]=\"showSizeChanger\"\n    [nzPageSizeOptions]=\"pageSizeOptions\"\n    [nzTotal]=\"data?.totalSize || 0\"\n    [nzShowTotal]=\"totalTemplate\"\n    (nzPageIndexChange)=\"pageIndexChange()\"\n    (nzPageSizeChange)=\"pageSizeChange()\"\n  ></p-pagination>\n</nz-spin>\n\n<!-- total\u6A21\u677F -->\n<ng-template #totalTemplate let-total> \u603B {{ total }} \u6761\u6570\u636E </ng-template>\n\n<!-- \u641C\u7D22\u7EC4\u4EF6\u6A21\u677F -->\n<ng-template #filterTemplate let-column let-dropdown=\"dropdown\">\n  <!-- \u81EA\u5B9A\u4E49\u641C\u7D22\u7EC4\u4EF6 -->\n  <ng-template [ngIf]=\"column.customFilter\" [ngIfElse]=\"defaultFilterTemplate\">\n    <ng-container [ngTemplateOutlet]=\"column.customFilter\" [ngTemplateOutletContext]=\"{ $implicit: column }\"></ng-container>\n  </ng-template>\n  <!-- \u9ED8\u8BA4\u641C\u7D22\u7EC4\u4EF6 -->\n  <ng-template #defaultFilterTemplate>\n    <ng-container [ngSwitch]=\"column.filterType\">\n      <!-- select -->\n      <ng-template ngSwitchCase=\"select\">\n        <nz-select\n          nzAllowClear\n          nzPlaceHolder=\"\u8BF7\u9009\u62E9\"\n          [(ngModel)]=\"column.searchValue\"\n          [nzMode]=\"column.filterMultiple ? 'multiple' : 'default'\"\n          [style.width]=\"column.filterWidth || '180px'\"\n        >\n          <nz-option *ngFor=\"let option of column.filterOptions || []\" [nzValue]=\"option.value\" [nzLabel]=\"option.label\"></nz-option>\n        </nz-select>\n      </ng-template>\n      <!-- range-picker -->\n      <ng-template ngSwitchCase=\"rangePicker\">\n        <nz-range-picker\n          nzAllowClear\n          [(ngModel)]=\"column.searchValue\"\n          [nzStyle]=\"{ width: column.filterWidth || '240px' }\"\n          (nzOnOpenChange)=\"onRangePickerOpenChange($event, column)\"\n        ></nz-range-picker>\n      </ng-template>\n      <!-- input -->\n      <ng-template ngSwitchDefault>\n        <nz-input-group [nzSuffix]=\"suffixTemplate\">\n          <input\n            #input\n            nz-input\n            placeholder=\"\u8BF7\u8F93\u5165\"\n            [(ngModel)]=\"column.searchValue\"\n            [style.width]=\"column.filterWidth || '180px'\"\n            (keydown.enter)=\"onFilterConfim(dropdown)\"\n          />\n        </nz-input-group>\n        <ng-template #suffixTemplate>\n          <i\n            nz-icon\n            nz-tooltip\n            class=\"p-table-clear-icon\"\n            nzTheme=\"fill\"\n            nzType=\"close-circle\"\n            *ngIf=\"column.searchValue\"\n            (click)=\"column.searchValue = null; input.focus()\"\n          ></i>\n        </ng-template>\n      </ng-template>\n    </ng-container>\n  </ng-template>\n</ng-template>\n\n<!-- \u5355\u5143\u683C\u6A21\u677F -->\n<ng-template #cellTemplate let-column let-row=\"row\">\n  <!-- \u81EA\u5B9A\u4E49\u5355\u5143\u683C -->\n  <ng-template [ngIf]=\"column.customCell\" [ngIfElse]=\"defaultCellTemplate\">\n    <ng-container [ngTemplateOutlet]=\"column.customCell\" [ngTemplateOutletContext]=\"{ $implicit: row }\"></ng-container>\n  </ng-template>\n  <!-- \u9ED8\u8BA4\u5355\u5143\u683C -->\n  <ng-template #defaultCellTemplate>\n    <ng-container [ngSwitch]=\"column.type\">\n      <!-- link -->\n      <ng-template ngSwitchCase=\"link\">\n        <a (click)=\"onlinkClick(column['field'], row)\">\n          <smart-text [text]=\"row[column['field']]\"></smart-text>\n        </a>\n      </ng-template>\n      <!-- thumbnail -->\n      <ng-template ngSwitchCase=\"thumbnail\">\n        <!-- \u65E0\u56FE\u7247\u4E0D\u521D\u59CB\u5316viewer -->\n        <div viewer [isLazyLoad]=\"true\" [maxShowNum]=\"1\" *ngIf=\"row[column['field']]?.length\">\n          <!-- \u8D85\u8FC7\u4E00\u5F20\u56FE\u7247\u663E\u793Abadge -->\n          <ng-template [ngIf]=\"row[column['field']]?.length > 1\" [ngIfElse]=\"noBadgeTemplate\">\n            <nz-badge [nzCount]=\"row[column['field']]?.length\">\n              <ng-container [ngTemplateOutlet]=\"noBadgeTemplate\"></ng-container>\n            </nz-badge>\n          </ng-template>\n          <!-- \u53EA\u6709\u4E00\u5F20\u56FE\u7247\u4E0D\u663E\u793Abadge -->\n          <ng-template #noBadgeTemplate>\n            <img\n              viewerImg\n              height=\"24px\"\n              width=\"24px\"\n              *ngFor=\"let url of row[column['field']] || []\"\n              [lazyLoadSrc]=\"url\"\n              style=\"cursor: zoom-in\"\n            />\n          </ng-template>\n        </div>\n      </ng-template>\n      <!-- default -->\n      <ng-template ngSwitchDefault>\n        <smart-text [text]=\"row[column['field']]\"></smart-text>\n      </ng-template>\n    </ng-container>\n  </ng-template>\n</ng-template>\n",
+                        changeDetection: core.ChangeDetectionStrategy.OnPush,
+                        encapsulation: core.ViewEncapsulation.Emulated,
+                        styles: ["td{word-break:break-all}:host ::ng-deep .ant-table-scroll{position:relative}:host ::ng-deep .ant-pagination{margin:2px;padding:16px 0;text-align:right;box-shadow:0 0 2px 0 rgba(194,194,194,.5)}:host ::ng-deep .fixed-pagination .ant-table-placeholder{position:absolute;bottom:0;width:100%;border-top:none}"]
+                    }] }
+        ];
+        /** @nocollapse */
+        TableComponent.ctorParameters = function () { return [
+            { type: core.ElementRef },
+            { type: core.Renderer2 }
+        ]; };
+        TableComponent.propDecorators = {
+            columns: [{ type: core.Input }],
+            data: [{ type: core.Input }],
+            selections: [{ type: core.Input }],
+            scroll: [{ type: core.Input }],
+            loading: [{ type: core.Input }],
+            pageSize: [{ type: core.Input }],
+            frontPagination: [{ type: core.Input }],
+            showPagination: [{ type: core.Input }],
+            fixedPagination: [{ type: core.Input }],
+            showSizeChanger: [{ type: core.Input }],
+            size: [{ type: core.Input }],
+            pageSizeOptions: [{ type: core.Input }],
+            showCheckbox: [{ type: core.Input }],
+            titleTemplate: [{ type: core.Input }],
+            columnsChange: [{ type: core.Output }],
+            selectionsChange: [{ type: core.Output }],
+            load: [{ type: core.Output }],
+            sort: [{ type: core.Output }],
+            linkClick: [{ type: core.Output }],
+            customCells: [{ type: core.ContentChildren, args: [TableCellComponent,] }],
+            customFilters: [{ type: core.ContentChildren, args: [TableFilterComponent,] }]
+        };
+        return TableComponent;
+    }());
+    if (false) {
+        /** @type {?} */
+        TableComponent.prototype.columns;
+        /** @type {?} */
+        TableComponent.prototype.data;
+        /** @type {?} */
+        TableComponent.prototype.selections;
+        /** @type {?} */
+        TableComponent.prototype.scroll;
+        /** @type {?} */
+        TableComponent.prototype.loading;
+        /** @type {?} */
+        TableComponent.prototype.pageSize;
+        /** @type {?} */
+        TableComponent.prototype.frontPagination;
+        /** @type {?} */
+        TableComponent.prototype.showPagination;
+        /** @type {?} */
+        TableComponent.prototype.fixedPagination;
+        /** @type {?} */
+        TableComponent.prototype.showSizeChanger;
+        /** @type {?} */
+        TableComponent.prototype.size;
+        /** @type {?} */
+        TableComponent.prototype.pageSizeOptions;
+        /** @type {?} */
+        TableComponent.prototype.showCheckbox;
+        /** @type {?} */
+        TableComponent.prototype.titleTemplate;
+        /** @type {?} */
+        TableComponent.prototype.columnsChange;
+        /** @type {?} */
+        TableComponent.prototype.selectionsChange;
+        /** @type {?} */
+        TableComponent.prototype.load;
+        /** @type {?} */
+        TableComponent.prototype.sort;
+        /** @type {?} */
+        TableComponent.prototype.linkClick;
+        /** @type {?} */
+        TableComponent.prototype.customCells;
+        /** @type {?} */
+        TableComponent.prototype.customFilters;
+        /** @type {?} */
+        TableComponent.prototype.load$;
+        /** @type {?} */
+        TableComponent.prototype.displayData;
+        /** @type {?} */
+        TableComponent.prototype.pageIndex;
+        /** @type {?} */
+        TableComponent.prototype.sortParams;
+        /**
+         * @type {?}
+         * @private
+         */
+        TableComponent.prototype._elementRef;
+        /**
+         * @type {?}
+         * @private
+         */
+        TableComponent.prototype._renderer2;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /** @type {?} */
+    var COMPONENT = [TableComponent, TableCellComponent, TableFilterComponent];
+    /** @type {?} */
+    var MODULE = [
+        common.CommonModule,
+        forms.FormsModule,
+        table$1.NzTableModule,
+        dropdown.NzDropDownModule,
+        icon.NzIconModule,
+        button.NzButtonModule,
+        input.NzInputModule,
+        grid.NzGridModule,
+        badge.NzBadgeModule,
+        select.NzSelectModule,
+        datePicker.NzDatePickerModule,
+        spin.NzSpinModule,
+        smartText.SmartTextModule,
+        viewer.ViewerDirectiveModule,
+        pagination.PaginationModule,
+    ];
+    var TableModule = /** @class */ (function () {
+        function TableModule() {
+        }
+        TableModule.decorators = [
+            { type: core.NgModule, args: [{
+                        declarations: __spread(COMPONENT),
+                        imports: __spread(MODULE),
+                        exports: __spread(COMPONENT),
+                    },] }
+        ];
+        return TableModule;
+    }());
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /**
+     * @record
+     */
+    function BosConfig() { }
+    if (false) {
+        /** @type {?} */
+        BosConfig.prototype.endpoint;
+        /** @type {?} */
+        BosConfig.prototype.ak;
+        /** @type {?} */
+        BosConfig.prototype.sk;
+        /** @type {?} */
+        BosConfig.prototype.sessionToken;
+    }
+    /**
+     * @abstract
+     */
+    var /**
+     * @abstract
+     */
+    UploadServiceToken = /** @class */ (function () {
+        function UploadServiceToken() {
+        }
+        return UploadServiceToken;
+    }());
+    if (false) {
+        /** @type {?} */
+        UploadServiceToken.prototype.bosConfig;
+        /** @type {?} */
+        UploadServiceToken.prototype.workerUrl;
+        /**
+         * @abstract
+         * @return {?}
+         */
+        UploadServiceToken.prototype.getConfig = function () { };
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    var UploadComponent = /** @class */ (function () {
+        function UploadComponent(_cdr, _uploadSrv) {
+            var _this = this;
+            this._cdr = _cdr;
+            this._uploadSrv = _uploadSrv;
+            this.accept = 'image/png,image/jpeg,image/gif,image/bmp'; // 接受上传的文件类型, 详见https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept
+            // 接受上传的文件类型, 详见https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept
+            this.action = ''; // 上传的地址
+            // 上传的地址
+            this.directory = false; // 是否支持上传文件夹
+            // 是否支持上传文件夹
+            this.disabled = false; // 是否禁用
+            // 是否禁用
+            this.limit = 9; // 限制单次最多上传数量，nzMultiple 打开时有效；0 表示不限
+            // 限制单次最多上传数量，nzMultiple 打开时有效；0 表示不限
+            this.size = 0; // 限制文件大小，单位：KB；0 表示不限
+            // 限制文件大小，单位：KB；0 表示不限
+            this.fileType = 'image/png,image/jpeg,image/gif,image/bmp'; // 限制文件类型，例如：image/png,image/jpeg,image/gif,image/bmp
+            // 限制文件类型，例如：image/png,image/jpeg,image/gif,image/bmp
+            this.listType = 'picture-card'; // 上传列表的内建样式，支持三种基本样式
+            // 上传列表的内建样式，支持三种基本样式
+            this.multiple = true; // 是否支持多选文件，ie10+ 支持
+            // 是否支持多选文件，ie10+ 支持
+            this.showButton = true; // 是否展示上传按钮
+            // 是否展示上传按钮
+            this.placeholder = '上传'; // 占位提示语
+            // 自定义content
+            this.maxLength = Infinity; // 最多上传数
+            // 最多上传数
+            this.bucket = 'bucket'; // 百度BOS上的命名空间
+            // 百度BOS上的命名空间
+            this.fastUpload = true; // 是否使用快传
+            // 是否使用快传
+            this.filter = [
+                {
+                    name: 'maxLength',
+                    fn: (/**
+                     * @param {?} fileList
+                     * @return {?}
+                     */
+                    function (fileList) {
+                        // 限制最大上传数量
+                        return fileList.slice(0, _this.maxLength - _this.fileList.length);
+                    }),
+                },
+            ];
+            // 是否显示预览图标和删除图标
+            this.showUploadList = {
+                showPreviewIcon: true,
+                showRemoveIcon: true,
+                hidePreviewIconInNonImage: true,
+            };
+            this.bosClient = null; // 百度上传客户端
+            // 百度上传客户端
+            this.isSupportWorker = false; // 浏览器是否支持Worker
+            // 浏览器是否支持Worker
+            this.isLoading = false; // 百度上传客户端初始化中
+            // 百度上传客户端初始化中
+            this.fileList = []; // 文件列表，绑定ControlValueAccessor
+            // 文件列表改变，绑定ControlValueAccessor
+            // 预览modal参数对象
+            this.previewModal = {
+                visible: false,
+                // 是否显示预览modal
+                image: '',
+            };
+            // 点击文件链接或预览图标时的回调；注意：务必使用 => 定义处理方法
+            this.preview = (/**
+             * @param {?} file
+             * @return {?}
+             */
+            function (file) {
+                _this.previewModal.image = (/** @type {?} */ (file.url)) || (/** @type {?} */ (file.thumbUrl));
+                _this.previewModal.visible = true;
+                _this._cdr.detectChanges();
+            });
+            // 通过覆盖默认的上传行为，可以自定义自己的上传实现；注意：务必使用 => 定义处理方法
+            this.customRequest = (/**
+             * @param {?} uploadSubject
+             * @return {?}
+             */
+            function (uploadSubject) {
+                /** @type {?} */
+                var uploadFile = uploadSubject.file;
+                // uploadKey用于标识文件唯一性，如果重复Put同一个key的Object，之前上传的数据将被覆盖
+                _this.getUploadKey(uploadFile).then((/**
+                 * @param {?} uploadKey
+                 * @return {?}
+                 */
+                function (uploadKey) {
+                    // 尝试秒传
+                    if (_this.isSupportWorker && _this.fastUpload) {
+                        // 先用HEAD请求根据key判断是否已上传过该文件
+                        _this.bosClient
+                            .getObjectMetadata(_this.bucket, uploadKey)
+                            .then((/**
+                         * @param {?} event
+                         * @return {?}
+                         */
+                        function (event) {
+                            // 上传过了，直接回显
+                            uploadFile.url = _this.bosClient.config.endpoint + "/v1/" + _this.bucket + "/" + uploadKey;
+                            (/** @type {?} */ (uploadSubject.onSuccess))('上传成功', uploadFile, event);
+                        }))
+                            .catch((
+                        // 没有上传过，使用百度bos直传
+                        // 没有上传过，使用百度bos直传
+                        /**
+                         * @return {?}
+                         */
+                        function () { return _this.bosUpload(uploadSubject, _this.bucket, uploadKey, uploadFile); }));
+                    }
+                    else {
+                        // 百度bos直传
+                        _this.bosUpload(uploadSubject, _this.bucket, uploadKey, uploadFile);
+                    }
+                }));
+                // ZORRO要求返回一个Subscription
+                return new rxjs.Subscription();
+            });
+            this.initBosClient();
+        }
+        Object.defineProperty(UploadComponent.prototype, "showPreviewIcon", {
+            // 是否显示预览图标
+            set: 
+            // 是否显示预览图标
+            /**
+             * @param {?} value
+             * @return {?}
+             */
+            function (value) {
+                this.showUploadList = __assign({}, this.showUploadList, { showPreviewIcon: value });
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(UploadComponent.prototype, "showRemoveIcon", {
+            // 是否显示删除图标
+            set: 
+            // 是否显示删除图标
+            /**
+             * @param {?} value
+             * @return {?}
+             */
+            function (value) {
+                this.showUploadList = __assign({}, this.showUploadList, { showPreviewIcon: value });
+            },
+            enumerable: true,
+            configurable: true
+        });
+        /**
+         * @return {?}
+         */
+        UploadComponent.prototype.ngOnInit = /**
+         * @return {?}
+         */
+        function () {
+            // 判断是否支持Worker
+            if (typeof Worker !== 'undefined') {
+                this.isSupportWorker = true;
+            }
+            else {
+                if (this.fastUpload) {
+                    console.error('浏览器不支持Worker，无法使用快传！');
+                }
+            }
+        };
+        /**
+         * @param {?} value
+         * @return {?}
+         */
+        UploadComponent.prototype.writeValue = /**
+         * @param {?} value
+         * @return {?}
+         */
+        function (value) {
+            this.fileList = value || [];
+            this.fileList.forEach((/**
+             * @param {?} file
+             * @return {?}
+             */
+            function (file) {
+                file.uid = file.uid || util.uuidv1();
+            }));
+            this._cdr.detectChanges(); // for issue：https://github.com/angular/angular/issues/10816
+        };
+        /**
+         * @param {?} fn
+         * @return {?}
+         */
+        UploadComponent.prototype.registerOnChange = /**
+         * @param {?} fn
+         * @return {?}
+         */
+        function (fn) {
+            this.fileListChange = fn;
+        };
+        /**
+         * @return {?}
+         */
+        UploadComponent.prototype.registerOnTouched = /**
+         * @return {?}
+         */
+        function () { };
+        // 初始化百度上传客户端
+        // 初始化百度上传客户端
+        /**
+         * @return {?}
+         */
+        UploadComponent.prototype.initBosClient = 
+        // 初始化百度上传客户端
+        /**
+         * @return {?}
+         */
+        function () {
+            var _this = this;
+            if (this._uploadSrv.getConfig()) {
+                this.isLoading = true;
+                (/** @type {?} */ (this._uploadSrv.getConfig())).subscribe((/**
+                 * @param {?} config
+                 * @return {?}
+                 */
+                function (config) {
+                    _this.bosClient = new baidubce.sdk.BosClient({
+                        endpoint: config.endpoint,
+                        credentials: {
+                            ak: config.ak,
+                            sk: config.sk,
+                        },
+                        sessionToken: config.sessionToken,
+                    });
+                    _this.isLoading = false;
+                    _this._cdr.detectChanges();
+                }));
+            }
+        };
+        /**
+         * @param {?} file
+         * @return {?}
+         */
+        UploadComponent.prototype.getUploadKey = /**
+         * @param {?} file
+         * @return {?}
+         */
+        function (file) {
+            var _this = this;
+            return new Promise((/**
+             * @param {?} resolve
+             * @return {?}
+             */
+            function (resolve) {
+                // 使用Worker
+                if (_this.isSupportWorker && _this.fastUpload) {
+                    /** @type {?} */
+                    var worker_1 = new Worker(_this._uploadSrv.workerUrl);
+                    worker_1.onerror = (/**
+                     * @param {?} error
+                     * @return {?}
+                     */
+                    function (error) {
+                        console.error('Worker异常，已关闭！', error);
+                        worker_1.terminate();
+                    });
+                    worker_1.postMessage(file);
+                    worker_1.onmessage = (/**
+                     * @param {?} event
+                     * @return {?}
+                     */
+                    function (event) {
+                        // 使用文件md5+最后修改时间+文件大小+文件名来保证唯一性，同时相同的文件的key也会相同,用于秒传
+                        /** @type {?} */
+                        var key = "" + event.data + file.lastModified + file.size + file.name;
+                        resolve(key);
+                        worker_1.terminate();
+                    });
+                }
+                else {
+                    // 不使用Worker
+                    // 使用当前时间+四位随机码+最后修改时间+文件大小+文件名来保证唯一性，此时因为相同文件key也会不同，故实现不了秒传
+                    /** @type {?} */
+                    var random = "" + new Date().getTime() + (Math.random() * 10000).toFixed(0);
+                    /** @type {?} */
+                    var key = "" + random + file.lastModified + file.size + file.name;
+                    resolve(key);
+                }
+            }));
+        };
+        // 使用百度bos直传
+        // 使用百度bos直传
+        /**
+         * @param {?} uploadSubject
+         * @param {?} bucket
+         * @param {?} uploadKey
+         * @param {?} uploadFile
+         * @return {?}
+         */
+        UploadComponent.prototype.bosUpload = 
+        // 使用百度bos直传
+        /**
+         * @param {?} uploadSubject
+         * @param {?} bucket
+         * @param {?} uploadKey
+         * @param {?} uploadFile
+         * @return {?}
+         */
+        function (uploadSubject, bucket, uploadKey, uploadFile) {
+            var _this = this;
+            this.bosClient
+                .putObjectFromBlob(bucket, uploadKey, uploadFile)
+                .then((/**
+             * @param {?} event
+             * @return {?}
+             */
+            function (event) {
+                uploadFile.url = _this.bosClient.config.endpoint + "/v1/" + bucket + "/" + uploadKey;
+                (/** @type {?} */ (uploadSubject.onSuccess))('上传成功', uploadFile, event);
+            }))
+                .catch((/**
+             * @param {?} event
+             * @return {?}
+             */
+            function (event) {
+                (/** @type {?} */ (uploadSubject.onError))(event, uploadFile);
+            }));
+        };
+        /**
+         * @return {?}
+         */
+        UploadComponent.prototype.onFileListChange = /**
+         * @return {?}
+         */
+        function () {
+            // 去除缩略图，因为缩略图太大,要是外部不处理会影响Http请求速度
+            this.fileListChange(this.fileList.map((/**
+             * @param {?} file
+             * @return {?}
+             */
+            function (file) { return (__assign({}, file, { thumbUrl: '' })); })));
+            this._cdr.detectChanges();
+        };
+        /**
+         * @return {?}
+         */
+        UploadComponent.prototype.onChange = /**
+         * @return {?}
+         */
+        function () {
+            // 赋值url
+            this.fileList.forEach((/**
+             * @param {?} file
+             * @return {?}
+             */
+            function (file) {
+                file.url = file.url || (file.originFileObj && ((/** @type {?} */ (file.originFileObj))).url);
+            }));
+            this.onFileListChange();
+        };
+        UploadComponent.decorators = [
+            { type: core.Component, args: [{
+                        selector: 'p-upload',
+                        exportAs: 'pUpload',
+                        template: "<nz-upload\n  [nzAction]=\"action\"\n  [nzAccept]=\"accept\"\n  [nzListType]=\"listType\"\n  [(nzFileList)]=\"fileList\"\n  [nzShowButton]=\"showButton && fileList.length < maxLength\"\n  [nzFileType]=\"fileType\"\n  [nzShowUploadList]=\"showUploadList\"\n  [nzDirectory]=\"directory\"\n  [nzLimit]=\"limit\"\n  [nzSize]=\"size\"\n  [nzDisabled]=\"disabled || isLoading\"\n  [nzMultiple]=\"multiple\"\n  [nzPreview]=\"preview\"\n  [nzRemove]=\"remove\"\n  [nzFilter]=\"filter\"\n  [nzBeforeUpload]=\"beforeUpload\"\n  [nzCustomRequest]=\"customRequest\"\n  (nzFileListChange)=\"onFileListChange()\"\n  (nzChange)=\"onChange()\"\n>\n  <!-- \u81EA\u5B9A\u4E49content -->\n  <ng-template [ngIf]=\"customContent\" [ngIfElse]=\"defaultContent\">\n    <ng-container [ngTemplateOutlet]=\"customContent\"></ng-container>\n  </ng-template>\n\n  <!-- \u9ED8\u8BA4content -->\n  <ng-template #defaultContent>\n    <ng-container [ngSwitch]=\"listType\">\n      <ng-container *ngSwitchCase=\"'picture-card'\">\n        <i nz-icon nzType=\"plus\" class=\"upload-icon\"></i>\n        <div class=\"upload-text\">{{ placeholder }}</div>\n      </ng-container>\n      <ng-container *ngSwitchDefault>\n        <button nz-button>\n          <i nz-icon nzType=\"upload\"></i>\n          <span>{{ placeholder }}</span>\n        </button>\n      </ng-container>\n    </ng-container>\n  </ng-template>\n</nz-upload>\n\n<!-- \u9884\u89C8\u5F39\u6846 -->\n<nz-modal [(nzVisible)]=\"previewModal.visible\" [nzFooter]=\"null\" (nzOnCancel)=\"previewModal.visible = false\">\n  <img [src]=\"previewModal.image\" width=\"100%\" />\n</nz-modal>\n",
+                        providers: [
+                            {
+                                provide: forms.NG_VALUE_ACCESSOR,
+                                useExisting: UploadComponent,
+                                multi: true,
+                            },
+                        ],
+                        changeDetection: core.ChangeDetectionStrategy.OnPush,
+                        styles: [".upload-icon{color:#999;font-size:32px}.upload-text{margin-top:8px;color:#666}"]
+                    }] }
+        ];
+        /** @nocollapse */
+        UploadComponent.ctorParameters = function () { return [
+            { type: core.ChangeDetectorRef },
+            { type: UploadServiceToken }
+        ]; };
+        UploadComponent.propDecorators = {
+            accept: [{ type: core.Input }],
+            action: [{ type: core.Input }],
+            directory: [{ type: core.Input }],
+            disabled: [{ type: core.Input }],
+            limit: [{ type: core.Input }],
+            size: [{ type: core.Input }],
+            fileType: [{ type: core.Input }],
+            listType: [{ type: core.Input }],
+            multiple: [{ type: core.Input }],
+            showButton: [{ type: core.Input }],
+            placeholder: [{ type: core.Input }],
+            customContent: [{ type: core.Input }],
+            maxLength: [{ type: core.Input }],
+            bucket: [{ type: core.Input }],
+            fastUpload: [{ type: core.Input }],
+            filter: [{ type: core.Input }],
+            showPreviewIcon: [{ type: core.Input }],
+            showRemoveIcon: [{ type: core.Input }],
+            beforeUpload: [{ type: core.Input }],
+            remove: [{ type: core.Input }],
+            preview: [{ type: core.Input }],
+            customRequest: [{ type: core.Input }]
+        };
+        return UploadComponent;
+    }());
+    if (false) {
+        /** @type {?} */
+        UploadComponent.prototype.accept;
+        /** @type {?} */
+        UploadComponent.prototype.action;
+        /** @type {?} */
+        UploadComponent.prototype.directory;
+        /** @type {?} */
+        UploadComponent.prototype.disabled;
+        /** @type {?} */
+        UploadComponent.prototype.limit;
+        /** @type {?} */
+        UploadComponent.prototype.size;
+        /** @type {?} */
+        UploadComponent.prototype.fileType;
+        /** @type {?} */
+        UploadComponent.prototype.listType;
+        /** @type {?} */
+        UploadComponent.prototype.multiple;
+        /** @type {?} */
+        UploadComponent.prototype.showButton;
+        /** @type {?} */
+        UploadComponent.prototype.placeholder;
+        /** @type {?} */
+        UploadComponent.prototype.customContent;
+        /** @type {?} */
+        UploadComponent.prototype.maxLength;
+        /** @type {?} */
+        UploadComponent.prototype.bucket;
+        /** @type {?} */
+        UploadComponent.prototype.fastUpload;
+        /** @type {?} */
+        UploadComponent.prototype.filter;
+        /** @type {?} */
+        UploadComponent.prototype.showUploadList;
+        /**
+         * @type {?}
+         * @private
+         */
+        UploadComponent.prototype.bosClient;
+        /**
+         * @type {?}
+         * @private
+         */
+        UploadComponent.prototype.isSupportWorker;
+        /** @type {?} */
+        UploadComponent.prototype.isLoading;
+        /** @type {?} */
+        UploadComponent.prototype.fileList;
+        /** @type {?} */
+        UploadComponent.prototype.fileListChange;
+        /** @type {?} */
+        UploadComponent.prototype.previewModal;
+        /** @type {?} */
+        UploadComponent.prototype.beforeUpload;
+        /** @type {?} */
+        UploadComponent.prototype.remove;
+        /** @type {?} */
+        UploadComponent.prototype.preview;
+        /** @type {?} */
+        UploadComponent.prototype.customRequest;
+        /**
+         * @type {?}
+         * @private
+         */
+        UploadComponent.prototype._cdr;
+        /**
+         * @type {?}
+         * @private
+         */
+        UploadComponent.prototype._uploadSrv;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    var UploadModule = /** @class */ (function () {
+        function UploadModule() {
+        }
+        UploadModule.decorators = [
+            { type: core.NgModule, args: [{
+                        declarations: [UploadComponent],
+                        imports: [common.CommonModule, upload$1.NzUploadModule, modal.NzModalModule, spin.NzSpinModule, button.NzButtonModule],
+                        exports: [UploadComponent],
+                    },] }
+        ];
+        return UploadModule;
+    }());
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
     var SVConfig = /** @class */ (function () {
         function SVConfig() {
             /**
@@ -4406,15 +6474,15 @@
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
-    var COMPONENTS$3 = [SVContainerComponent, SVComponent, SVTitleComponent];
+    var COMPONENTS$4 = [SVContainerComponent, SVComponent, SVTitleComponent];
     var SVModule = /** @class */ (function () {
         function SVModule() {
         }
         SVModule.decorators = [
             { type: core.NgModule, args: [{
                         imports: [common.CommonModule, observers.ObserversModule, util.PixelmonUtilModule, tooltip.NzToolTipModule, icon.NzIconModule],
-                        declarations: __spread(COMPONENTS$3),
-                        exports: __spread(COMPONENTS$3),
+                        declarations: __spread(COMPONENTS$4),
+                        exports: __spread(COMPONENTS$4),
                     },] }
         ];
         return SVModule;
@@ -4434,1573 +6502,8 @@
      * @fileoverview added by tsickle
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
-    var QueryTabsComponent = /** @class */ (function () {
-        function QueryTabsComponent() {
-            this.tabs = [];
-            this.lexicon = []; // 词典
-            // 词典
-            this.tabsChange = new core.EventEmitter();
-            this.queryChange = new core.EventEmitter();
-            this.closeTab = new core.EventEmitter();
-            // 过滤规则
-            this.filterRule = (/**
-             * @param {?} tab
-             * @return {?}
-             */
-            function (tab) {
-                /** @type {?} */
-                var searchValue = tab.searchValue;
-                // 有默认值且搜索值和默认值相等
-                if (tab.hasOwnProperty('defaultValue') && searchValue === tab.defaultValue) {
-                    return false;
-                }
-                // 非法基础数据类型
-                if ([undefined, null, ''].includes(searchValue)) {
-                    return false;
-                }
-                // 空数组
-                if (Array.isArray(searchValue) && !searchValue.length) {
-                    return false;
-                }
-                // 通过校验，返回true
-                return true;
-            });
-        }
-        /**
-         * @return {?}
-         */
-        QueryTabsComponent.prototype.ngOnInit = /**
-         * @return {?}
-         */
-        function () { };
-        /**
-         * @param {?} changes
-         * @return {?}
-         */
-        QueryTabsComponent.prototype.ngOnChanges = /**
-         * @param {?} changes
-         * @return {?}
-         */
-        function (changes) {
-            if (changes.columns) {
-                this.updateQuery();
-            }
-        };
-        /**
-         * @param {?} tab
-         * @return {?}
-         */
-        QueryTabsComponent.prototype.onClose = /**
-         * @param {?} tab
-         * @return {?}
-         */
-        function (tab) {
-            // 有默认值恢复默认值，没有则置为null
-            tab.searchValue = tab.hasOwnProperty('defaultValue') ? tab.defaultValue : null;
-            this.closeTab.emit(tab);
-            this.tabs = __spread(this.tabs);
-            this.tabsChange.emit(this.tabs);
-        };
-        // 组件内更新查询值
-        // 组件内更新查询值
-        /**
-         * @return {?}
-         */
-        QueryTabsComponent.prototype.updateQuery = 
-        // 组件内更新查询值
-        /**
-         * @return {?}
-         */
-        function () {
-            /** @type {?} */
-            var query = {};
-            this.tabs.forEach((/**
-             * @param {?} tab
-             * @return {?}
-             */
-            function (tab) {
-                if (tab.showFilter) {
-                    query[tab.field] = tab.searchValue;
-                }
-            }));
-            this.queryChange.emit(query);
-        };
-        QueryTabsComponent.decorators = [
-            { type: core.Component, args: [{
-                        selector: 'p-queryTabs',
-                        template: "<nz-tabset nzType=\"card\">\n  <ng-container *ngFor=\"let tab of tabs | filter: filterRule\">\n    <nz-tab [nzTitle]=\"titleTemplate\">\n      <ng-template #titleTemplate>\n        <div class=\"flex\">\n          <span class=\"label\">{{ tab.title + '\uFF1A' }}</span>\n          <ng-container *ngIf=\"(tab.searchValue | translate: tab.lexicon || lexicon)?.length > 10; else textTemplate\">\n            <div nz-popover nzTrigger=\"hover\" [nzContent]=\"textTemplate\" nzPlacement=\"bottom\">\n              <span class=\"value text-ellipsis\">\n                {{ tab.displayValue || tab.searchValue | translate: tab.lexicon || lexicon }}\n              </span>\n            </div>\n          </ng-container>\n\n          <ng-template #textTemplate>\n            <div>\n              <span class=\"value\">\n                {{ tab.displayValue || tab.searchValue | translate: tab.lexicon || lexicon }}\n              </span>\n            </div>\n          </ng-template>\n\n          <div>\n            <i nz-icon nzType=\"close\" class=\"ant-tabs-close-x\" (click)=\"onClose(tab)\"></i>\n          </div>\n        </div>\n      </ng-template>\n    </nz-tab>\n  </ng-container>\n</nz-tabset>\n",
-                        changeDetection: core.ChangeDetectionStrategy.OnPush,
-                        styles: [".text-ellipsis{display:inline-block;max-width:180px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;vertical-align:top}.flex{display:flex;align-items:center;justify-content:center}.label{color:#515151}.value{color:#1890ff}:host ::ng-deep .ant-tabs.ant-tabs-card .ant-tabs-bar{margin:0 0 2px;border:none}:host ::ng-deep .ant-tabs.ant-tabs-card .ant-tabs-bar .ant-tabs-tab{height:30px;margin:0 2px 0 0;padding:0 16px;line-height:28px;background:#fafafa;border:1px solid #e8e8e8!important;border-radius:4px;transition:.3s cubic-bezier(.645,.045,.355,1)}:host ::ng-deep .ant-tabs.ant-tabs-card .ant-tabs-bar .ant-tabs-nav-container{height:31px}:host ::ng-deep .ant-tabs.ant-tabs-card .ant-tabs-bar .ant-tabs-tab-active{font-weight:400}"]
-                    }] }
-        ];
-        /** @nocollapse */
-        QueryTabsComponent.ctorParameters = function () { return []; };
-        QueryTabsComponent.propDecorators = {
-            tabs: [{ type: core.Input }],
-            lexicon: [{ type: core.Input }],
-            tabsChange: [{ type: core.Output }],
-            queryChange: [{ type: core.Output }],
-            closeTab: [{ type: core.Output }],
-            filterRule: [{ type: core.Input }]
-        };
-        return QueryTabsComponent;
-    }());
-    if (false) {
-        /** @type {?} */
-        QueryTabsComponent.prototype.tabs;
-        /** @type {?} */
-        QueryTabsComponent.prototype.lexicon;
-        /** @type {?} */
-        QueryTabsComponent.prototype.tabsChange;
-        /** @type {?} */
-        QueryTabsComponent.prototype.queryChange;
-        /** @type {?} */
-        QueryTabsComponent.prototype.closeTab;
-        /** @type {?} */
-        QueryTabsComponent.prototype.filterRule;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    var QueryTabsModule = /** @class */ (function () {
-        function QueryTabsModule() {
-        }
-        QueryTabsModule.decorators = [
-            { type: core.NgModule, args: [{
-                        declarations: [QueryTabsComponent],
-                        imports: [common.CommonModule, theme.TranslatePipeModule, theme.FilterPipeModule, ngZorroAntd.NgZorroAntdModule],
-                        exports: [common.CommonModule, theme.TranslatePipeModule, theme.FilterPipeModule, ngZorroAntd.NgZorroAntdModule, QueryTabsComponent],
-                    },] }
-        ];
-        return QueryTabsModule;
-    }());
-    /**
-     * @record
-     */
-    function QueryTab() { }
-    if (false) {
-        /** @type {?} */
-        QueryTab.prototype.title;
-        /** @type {?} */
-        QueryTab.prototype.field;
-        /** @type {?|undefined} */
-        QueryTab.prototype.showFilter;
-        /** @type {?|undefined} */
-        QueryTab.prototype.searchValue;
-        /** @type {?|undefined} */
-        QueryTab.prototype.defaultValue;
-        /** @type {?|undefined} */
-        QueryTab.prototype.displayValue;
-        /** @type {?|undefined} */
-        QueryTab.prototype.lexicon;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    var AdvancedCellComponent = /** @class */ (function () {
-        function AdvancedCellComponent() {
-            this.field = ''; // 对应域
-        }
-        /**
-         * @return {?}
-         */
-        AdvancedCellComponent.prototype.ngOnInit = /**
-         * @return {?}
-         */
-        function () { };
-        AdvancedCellComponent.decorators = [
-            { type: core.Component, args: [{
-                        selector: 'p-advancedCell',
-                        template: '<ng-content> </ng-content>'
-                    }] }
-        ];
-        /** @nocollapse */
-        AdvancedCellComponent.ctorParameters = function () { return []; };
-        AdvancedCellComponent.propDecorators = {
-            field: [{ type: core.Input }],
-            templateRef: [{ type: core.ContentChild, args: [core.TemplateRef, { static: false },] }]
-        };
-        return AdvancedCellComponent;
-    }());
-    if (false) {
-        /** @type {?} */
-        AdvancedCellComponent.prototype.field;
-        /** @type {?} */
-        AdvancedCellComponent.prototype.templateRef;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    var AdvancedFilterComponent = /** @class */ (function () {
-        function AdvancedFilterComponent() {
-            this.field = ''; // 对应域
-        }
-        /**
-         * @return {?}
-         */
-        AdvancedFilterComponent.prototype.ngOnInit = /**
-         * @return {?}
-         */
-        function () { };
-        AdvancedFilterComponent.decorators = [
-            { type: core.Component, args: [{
-                        selector: 'p-advancedFilter',
-                        template: '<ng-content> </ng-content>'
-                    }] }
-        ];
-        /** @nocollapse */
-        AdvancedFilterComponent.ctorParameters = function () { return []; };
-        AdvancedFilterComponent.propDecorators = {
-            field: [{ type: core.Input }],
-            templateRef: [{ type: core.ContentChild, args: [core.TemplateRef, { static: false },] }]
-        };
-        return AdvancedFilterComponent;
-    }());
-    if (false) {
-        /** @type {?} */
-        AdvancedFilterComponent.prototype.field;
-        /** @type {?} */
-        AdvancedFilterComponent.prototype.templateRef;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    var AdvancedTableComponent = /** @class */ (function () {
-        function AdvancedTableComponent(_elementRef, _renderer2) {
-            this._elementRef = _elementRef;
-            this._renderer2 = _renderer2;
-            this.columns = []; // 列数据
-            // 列数据
-            this.data = { data: [], totalSize: 0 }; // 表格数据
-            // 表格数据
-            this.selections = []; // 已选项
-            // 固定表头，滚动
-            this.loading = false; // 表格loading
-            // 表格loading
-            this.pageSize = 10; // 显示条数
-            // 显示条数
-            this.frontPagination = false; // 是否前端分页
-            // 是否前端分页
-            this.showPagination = true; // 是否显示分页器
-            // 是否显示分页器
-            this.fixedPagination = false; // 是否固定分页器
-            // 是否固定分页器
-            this.showSizeChanger = true; // 是否显示条数切换器
-            // 是否显示条数切换器
-            this.size = 'middle'; // 表格size
-            // 表格size
-            this.pageSizeOptions = [10, 30, 50, 100]; // 页数选择器可选值
-            // 页数选择器可选值
-            this.showCheckbox = false; // 是否显示复选框
-            // title模板
-            this.columnsChange = new core.EventEmitter(); // 列数据改变事件 用于双向绑定
-            // 列数据改变事件 用于双向绑定
-            this.selectionsChange = new core.EventEmitter(); // 已选项改变事件 用于双向绑定
-            // 已选项改变事件 用于双向绑定
-            this.load = new core.EventEmitter(); // load事件
-            // load事件
-            this.sort = new core.EventEmitter(); // 排序事件
-            // 排序事件
-            this.linkClick = new core.EventEmitter(); // 链接点击事件
-            // 自定义搜索组件
-            this.load$ = new rxjs.Subject(); // load流
-            // load流
-            this.displayData = []; // 当前显示数据
-            // 当前显示数据
-            this.pageIndex = 1; // 当前页码
-        }
-        /**
-         * @param {?} changes
-         * @return {?}
-         */
-        AdvancedTableComponent.prototype.ngOnChanges = /**
-         * @param {?} changes
-         * @return {?}
-         */
-        function (changes) {
-            if (changes.data) {
-                // 重走sort
-                if (this.sortParams && this.sortParams.key && this.sortParams.value) {
-                    this.onSort(this.sortParams);
-                }
-            }
-            if (changes.columns) {
-                // 是下拉选择的自动添加词典
-                changes.columns.currentValue.forEach((/**
-                 * @param {?} column
-                 * @return {?}
-                 */
-                function (column) {
-                    if (column.showFilter && column.filterType === 'select' && Array.isArray(column.filterOptions)) {
-                        column.lexicon = column.lexicon ? __spread(column.lexicon, column.filterOptions) : column.filterOptions;
-                    }
-                }));
-            }
-            if (changes.selections) {
-                this.updateCheckedBySelections();
-            }
-        };
-        /**
-         * @return {?}
-         */
-        AdvancedTableComponent.prototype.ngOnInit = /**
-         * @return {?}
-         */
-        function () {
-            var _this = this;
-            /* tslint:disable */
-            this.load$.pipe(operators.debounceTime(20)).subscribe((/**
-             * @return {?}
-             */
-            function () {
-                // 清空selections
-                _this.selections = [];
-                _this.selectionsChange.emit(_this.selections);
-                // 发出load事件
-                _this.load.emit({ page: _this.pageIndex, size: _this.pageSize });
-            }));
-        };
-        /**
-         * @return {?}
-         */
-        AdvancedTableComponent.prototype.ngAfterViewInit = /**
-         * @return {?}
-         */
-        function () {
-            // 页面初始化完成后自动load一次
-            this.load$.next();
-            if (this.fixedPagination) {
-                this.toFixedPagination();
-            }
-        };
-        /**
-         * @return {?}
-         */
-        AdvancedTableComponent.prototype.ngAfterContentInit = /**
-         * @return {?}
-         */
-        function () {
-            var _this = this;
-            // 赋值自定义单元格
-            this.customCells.forEach((/**
-             * @param {?} customCell
-             * @return {?}
-             */
-            function (customCell) {
-                /** @type {?} */
-                var findedColumn = _this.columns.find((/**
-                 * @param {?} column
-                 * @return {?}
-                 */
-                function (column) { return column.field === customCell.field; }));
-                if (findedColumn)
-                    findedColumn.customCell = customCell.templateRef;
-            }));
-            // 赋值自定义搜索组件
-            this.customFilters.forEach((/**
-             * @param {?} customFilter
-             * @return {?}
-             */
-            function (customFilter) {
-                /** @type {?} */
-                var findedColumn = _this.columns.find((/**
-                 * @param {?} column
-                 * @return {?}
-                 */
-                function (column) { return column.field === customFilter.field; }));
-                if (findedColumn) {
-                    findedColumn.showFilter = true;
-                    findedColumn.customFilter = customFilter.templateRef;
-                }
-            }));
-        };
-        /**
-         * @return {?}
-         */
-        AdvancedTableComponent.prototype.ngOnDestroy = /**
-         * @return {?}
-         */
-        function () {
-            // 不使用takeUntil是因为直接unsubscribe性能更好
-            this.load$.unsubscribe();
-        };
-        /**
-         * 表格当前显示数据改变回调
-         * @param currentData 当前页显示数据
-         */
-        /**
-         * 表格当前显示数据改变回调
-         * @param {?} currentData 当前页显示数据
-         * @return {?}
-         */
-        AdvancedTableComponent.prototype.currentPageDataChange = /**
-         * 表格当前显示数据改变回调
-         * @param {?} currentData 当前页显示数据
-         * @return {?}
-         */
-        function (currentData) {
-            this.displayData = currentData;
-        };
-        /**
-         * 单选改变回调
-         */
-        /**
-         * 单选改变回调
-         * @return {?}
-         */
-        AdvancedTableComponent.prototype.singleCheckChange = /**
-         * 单选改变回调
-         * @return {?}
-         */
-        function () {
-            this.updateSelectionsByChecked();
-        };
-        /**
-         * 全选复选框改变回调
-         * @param isChecked 是否全选
-         */
-        /**
-         * 全选复选框改变回调
-         * @param {?} isChecked 是否全选
-         * @return {?}
-         */
-        AdvancedTableComponent.prototype.allCheckChange = /**
-         * 全选复选框改变回调
-         * @param {?} isChecked 是否全选
-         * @return {?}
-         */
-        function (isChecked) {
-            this.displayData.forEach((/**
-             * @param {?} row
-             * @return {?}
-             */
-            function (row) { return (row.isChecked = isChecked); }));
-            this.updateSelectionsByChecked();
-        };
-        /**
-         * 根据checked更新selections
-         */
-        /**
-         * 根据checked更新selections
-         * @return {?}
-         */
-        AdvancedTableComponent.prototype.updateSelectionsByChecked = /**
-         * 根据checked更新selections
-         * @return {?}
-         */
-        function () {
-            this.selections = this.displayData.filter((/**
-             * @param {?} row
-             * @return {?}
-             */
-            function (row) { return row.isChecked; }));
-            this.selectionsChange.emit(this.selections);
-        };
-        /**
-         * 根据selections更新checked
-         */
-        /**
-         * 根据selections更新checked
-         * @return {?}
-         */
-        AdvancedTableComponent.prototype.updateCheckedBySelections = /**
-         * 根据selections更新checked
-         * @return {?}
-         */
-        function () {
-            var _this = this;
-            this.displayData.forEach((/**
-             * @param {?} row
-             * @return {?}
-             */
-            function (row) { return (row.isChecked = _this.selections.includes(row)); }));
-        };
-        /**
-         * 页码改变回调
-         */
-        /**
-         * 页码改变回调
-         * @return {?}
-         */
-        AdvancedTableComponent.prototype.pageIndexChange = /**
-         * 页码改变回调
-         * @return {?}
-         */
-        function () {
-            this.load$.next();
-        };
-        /**
-         * 显示条数改变回调
-         */
-        /**
-         * 显示条数改变回调
-         * @return {?}
-         */
-        AdvancedTableComponent.prototype.pageSizeChange = /**
-         * 显示条数改变回调
-         * @return {?}
-         */
-        function () {
-            // 显示条数改变时回到首页
-            this.pageIndex = 1;
-            this.load$.next();
-        };
-        /**
-         * 排序改变
-         * @param sortParams 排序参数
-         */
-        /**
-         * 排序改变
-         * @param {?} sortParams 排序参数
-         * @return {?}
-         */
-        AdvancedTableComponent.prototype.onSort = /**
-         * 排序改变
-         * @param {?} sortParams 排序参数
-         * @return {?}
-         */
-        function (sortParams) {
-            // 保存排序参数，用于下次数据进来再进行排序
-            this.sortParams = sortParams;
-            // 查找正在排序的列
-            /** @type {?} */
-            var sortColumn = this.columns.find((/**
-             * @param {?} column
-             * @return {?}
-             */
-            function (column) { return column.field === sortParams.key; }));
-            // 如果没有自定义排序，自动前端排序
-            if (sortColumn && !sortColumn.customSort) {
-                this.data.data.sort((/**
-                 * @param {?} previous
-                 * @param {?} further
-                 * @return {?}
-                 */
-                function (previous, further) {
-                    return sortParams.value === 'descend'
-                        ? further[sortParams.key] > previous[sortParams.key]
-                            ? 1
-                            : -1
-                        : previous[sortParams.key] > further[sortParams.key]
-                            ? 1
-                            : -1;
-                }));
-                this.data.data = __spread(this.data.data);
-            }
-            this.sort.emit(sortParams);
-        };
-        /**
-         * 日期改变回调
-         * @param isOpen 是否打开
-         * @param column 当前列模型数据
-         */
-        /**
-         * 日期改变回调
-         * @param {?} isOpen 是否打开
-         * @param {?} column 当前列模型数据
-         * @return {?}
-         */
-        AdvancedTableComponent.prototype.onRangePickerOpenChange = /**
-         * 日期改变回调
-         * @param {?} isOpen 是否打开
-         * @param {?} column 当前列模型数据
-         * @return {?}
-         */
-        function (isOpen, column) {
-            if (isOpen === false) {
-                /** @type {?} */
-                var date = column.searchValue;
-                if (date && Array.isArray(date) && date.length === 2) {
-                    column.searchValue = [common.formatDate(date[0], 'yyyy-MM-dd 00:00:00', 'zh_CN'), common.formatDate(date[1], 'yyyy-MM-dd 23:59:59', 'zh_CN')];
-                    column.displayValue = [common.formatDate(date[0], 'yyyy-MM-dd', 'zh_CN'), common.formatDate(date[1], 'yyyy-MM-dd', 'zh_CN')];
-                }
-            }
-        };
-        /**
-         * 查询确认回调
-         */
-        /**
-         * 查询确认回调
-         * @param {?} dropdown
-         * @return {?}
-         */
-        AdvancedTableComponent.prototype.onFilterConfim = /**
-         * 查询确认回调
-         * @param {?} dropdown
-         * @return {?}
-         */
-        function (dropdown) {
-            dropdown.setVisibleStateWhen(false);
-            this.columns = __spread(this.columns);
-            this.columnsChange.emit(this.columns);
-        };
-        /**
-         * 固定分页
-         */
-        /**
-         * 固定分页
-         * @return {?}
-         */
-        AdvancedTableComponent.prototype.toFixedPagination = /**
-         * 固定分页
-         * @return {?}
-         */
-        function () {
-            var _this = this;
-            // 没有滚动条时和有滚动条时tableBody会不一样，故先给上滚动条
-            this.scroll = { y: '0px' };
-            // 等待滚动条更新
-            setTimeout((/**
-             * @return {?}
-             */
-            function () {
-                /** @type {?} */
-                var windowHeight = document.documentElement.clientHeight;
-                /** @type {?} */
-                var tableBody = _this._elementRef.nativeElement.querySelector('.ant-table-body');
-                /** @type {?} */
-                var pagination = _this._elementRef.nativeElement.querySelector('nz-pagination');
-                /** @type {?} */
-                var tableBodyTop = tableBody.getBoundingClientRect().top;
-                /** @type {?} */
-                var scrollHeight = windowHeight - tableBodyTop - pagination.clientHeight - 8 + 'px';
-                _this.scroll = __assign({}, _this.scroll, { y: scrollHeight });
-                _this._renderer2.setStyle(tableBody, 'height', scrollHeight);
-            }));
-        };
-        /**
-         * @param {?} field
-         * @param {?} rowData
-         * @return {?}
-         */
-        AdvancedTableComponent.prototype.onlinkClick = /**
-         * @param {?} field
-         * @param {?} rowData
-         * @return {?}
-         */
-        function (field, rowData) {
-            this.linkClick.emit({ field: field, rowData: rowData });
-        };
-        AdvancedTableComponent.decorators = [
-            { type: core.Component, args: [{
-                        selector: 'p-advancedTable',
-                        template: "<nz-table\n  class=\"advanced-table\"\n  [nzData]=\"data?.data || []\"\n  [nzLoading]=\"loading\"\n  [nzTitle]=\"titleTemplate || null\"\n  [nzScroll]=\"scroll\"\n  [nzFrontPagination]=\"frontPagination\"\n  [nzSize]=\"size\"\n  [nzShowPagination]=\"showPagination\"\n  [(nzPageIndex)]=\"pageIndex\"\n  [(nzPageSize)]=\"pageSize\"\n  [nzShowSizeChanger]=\"showSizeChanger\"\n  [nzPageSizeOptions]=\"pageSizeOptions\"\n  [nzTotal]=\"data?.totalSize || 0\"\n  [nzShowTotal]=\"totalTemplate\"\n  (nzPageIndexChange)=\"pageIndexChange()\"\n  (nzPageSizeChange)=\"pageSizeChange()\"\n  (nzCurrentPageDataChange)=\"currentPageDataChange($event)\"\n  [class.fixed-pagination]=\"fixedPagination\"\n>\n  <thead (nzSortChange)=\"onSort($event)\" nzSingleSort>\n    <tr>\n      <th\n        *ngIf=\"showCheckbox\"\n        nzLeft=\"0px\"\n        nzWidth=\"40px\"\n        nzShowCheckbox\n        [nzChecked]=\"selections.length > 0 && displayData.length === selections.length\"\n        [nzIndeterminate]=\"selections.length > 0 && displayData.length !== selections.length\"\n        (nzCheckedChange)=\"allCheckChange($event)\"\n      ></th>\n      <th\n        *ngFor=\"let column of columns\"\n        [nzLeft]=\"column.left\"\n        [nzRight]=\"column.right\"\n        [nzWidth]=\"column.width || '120px'\"\n        [nzShowSort]=\"column.showSort\"\n        [nzSortKey]=\"column.field\"\n        [nzCustomFilter]=\"column.showFilter\"\n      >\n        {{ column.title }}\n        <nz-dropdown *ngIf=\"column.showFilter\" nzTrigger=\"click\" nzPlacement=\"bottomRight\" [nzClickHide]=\"false\" nzTableFilter #dropdown>\n          <i nz-icon nzType=\"search\" class=\"ant-table-filter-icon\" [class.ant-table-filter-open]=\"dropdown.nzVisible\" nz-dropdown></i>\n          <div class=\"advanced-table-filter-panel\">\n            <!-- \u81EA\u5B9A\u4E49\u641C\u7D22\u7EC4\u4EF6 -->\n            <ng-template [ngIf]=\"column.customFilter\" [ngIfElse]=\"defaultFilterTemplate\">\n              <ng-container [ngTemplateOutlet]=\"column.customFilter\" [ngTemplateOutletContext]=\"{ $implicit: column }\"></ng-container>\n            </ng-template>\n            <!-- \u9ED8\u8BA4\u641C\u7D22\u7EC4\u4EF6 -->\n            <ng-template #defaultFilterTemplate>\n              <ng-container [ngSwitch]=\"column.filterType\">\n                <!-- select -->\n                <ng-template ngSwitchCase=\"select\">\n                  <nz-select\n                    nzAllowClear\n                    nzPlaceHolder=\"\u8BF7\u9009\u62E9\"\n                    [(ngModel)]=\"column.searchValue\"\n                    [nzMode]=\"column.filterMultiple ? 'multiple' : 'default'\"\n                    [style.width]=\"column.filterWidth || '180px'\"\n                  >\n                    <nz-option\n                      *ngFor=\"let option of column.filterOptions || []\"\n                      [nzValue]=\"option.value\"\n                      [nzLabel]=\"option.label\"\n                    ></nz-option>\n                  </nz-select>\n                </ng-template>\n                <!-- range-picker -->\n                <ng-template ngSwitchCase=\"rangePicker\">\n                  <nz-range-picker\n                    nzAllowClear\n                    [(ngModel)]=\"column.searchValue\"\n                    [nzStyle]=\"{ width: column.filterWidth || '240px' }\"\n                    (nzOnOpenChange)=\"onRangePickerOpenChange($event, column)\"\n                  ></nz-range-picker>\n                </ng-template>\n                <!-- input -->\n                <ng-template ngSwitchDefault>\n                  <nz-input-group [nzSuffix]=\"suffixTemplate\">\n                    <input\n                      #input\n                      nz-input\n                      placeholder=\"\u8BF7\u8F93\u5165\"\n                      [(ngModel)]=\"column.searchValue\"\n                      [style.width]=\"column.filterWidth || '180px'\"\n                      (keydown.enter)=\"onFilterConfim(dropdown)\"\n                    />\n                  </nz-input-group>\n                  <ng-template #suffixTemplate>\n                    <i\n                      nz-icon\n                      nz-tooltip\n                      class=\"clear-icon\"\n                      nzTheme=\"fill\"\n                      nzType=\"close-circle\"\n                      *ngIf=\"column.searchValue\"\n                      (click)=\"column.searchValue = null; input.focus()\"\n                    ></i>\n                  </ng-template>\n                </ng-template>\n              </ng-container>\n            </ng-template>\n            <!-- \u6309\u94AE -->\n            <div nz-row nzType=\"flex\" nzJustify=\"end\" nzAlign=\"middle\" class=\"advanced-table-filter-button\">\n              <button nz-button nzSize=\"small\" nzType=\"primary\" (click)=\"onFilterConfim(dropdown)\">\n                \u786E\u8BA4\n              </button>\n            </div>\n          </div>\n        </nz-dropdown>\n      </th>\n    </tr>\n  </thead>\n  <tbody>\n    <ng-container *ngFor=\"let row of displayData\">\n      <tr>\n        <td *ngIf=\"showCheckbox\" nzLeft=\"0px\" nzShowCheckbox [(nzChecked)]=\"row.isChecked\" (nzCheckedChange)=\"singleCheckChange()\"></td>\n        <td [nzLeft]=\"column.left\" [nzRight]=\"column.right\" *ngFor=\"let column of columns\">\n          <!-- \u81EA\u5B9A\u4E49\u5355\u5143\u683C -->\n          <ng-template [ngIf]=\"column.customCell\" [ngIfElse]=\"defaultCellTemplate\">\n            <ng-container [ngTemplateOutlet]=\"column.customCell\" [ngTemplateOutletContext]=\"{ $implicit: row }\"></ng-container>\n          </ng-template>\n          <!-- \u9ED8\u8BA4\u5355\u5143\u683C -->\n          <ng-template #defaultCellTemplate>\n            <ng-container [ngSwitch]=\"column.type\">\n              <!-- link -->\n              <ng-template ngSwitchCase=\"link\">\n                <a (click)=\"onlinkClick(column['field'], row)\">\n                  <smart-text [text]=\"row[column['field']]\"></smart-text>\n                </a>\n              </ng-template>\n              <!-- thumbnail -->\n              <ng-template ngSwitchCase=\"thumbnail\">\n                <!-- \u65E0\u56FE\u7247\u4E0D\u521D\u59CB\u5316viewer -->\n                <div viewer [isLazyLoad]=\"true\" [maxShowNum]=\"1\" *ngIf=\"row[column['field']]?.length\">\n                  <!-- \u8D85\u8FC7\u4E00\u5F20\u56FE\u7247\u663E\u793Abadge -->\n                  <ng-template [ngIf]=\"row[column['field']]?.length > 1\" [ngIfElse]=\"noBadgeTemplate\">\n                    <nz-badge [nzCount]=\"row[column['field']]?.length\">\n                      <ng-container [ngTemplateOutlet]=\"noBadgeTemplate\"></ng-container>\n                    </nz-badge>\n                  </ng-template>\n                  <!-- \u53EA\u6709\u4E00\u5F20\u56FE\u7247\u4E0D\u663E\u793Abadge -->\n                  <ng-template #noBadgeTemplate>\n                    <img\n                      viewerImg\n                      height=\"24px\"\n                      width=\"24px\"\n                      *ngFor=\"let url of row[column['field']] || []\"\n                      [lazyLoadSrc]=\"url\"\n                      style=\"cursor: zoom-in\"\n                    />\n                  </ng-template>\n                </div>\n              </ng-template>\n              <!-- default -->\n              <ng-template ngSwitchDefault>\n                <smart-text [text]=\"row[column['field']]\"></smart-text>\n              </ng-template>\n            </ng-container>\n          </ng-template>\n        </td>\n      </tr>\n    </ng-container>\n  </tbody>\n\n  <!-- total\u6A21\u677F -->\n  <ng-template #totalTemplate let-total> \u603B {{ total }} \u6761\u6570\u636E </ng-template>\n</nz-table>\n",
-                        changeDetection: core.ChangeDetectionStrategy.OnPush,
-                        styles: [":host ::ng-deep .ant-table-scroll{position:relative}:host ::ng-deep .fixed-pagination .ant-table-placeholder{position:absolute;bottom:0;width:100%}td{word-break:break-all}.clear-icon{color:rgba(0,0,0,.25);font-size:12px;vertical-align:top;cursor:pointer;transition:color .3s}.clear-icon:hover{color:rgba(0,0,0,.45)}"]
-                    }] }
-        ];
-        /** @nocollapse */
-        AdvancedTableComponent.ctorParameters = function () { return [
-            { type: core.ElementRef },
-            { type: core.Renderer2 }
-        ]; };
-        AdvancedTableComponent.propDecorators = {
-            columns: [{ type: core.Input }],
-            data: [{ type: core.Input }],
-            selections: [{ type: core.Input }],
-            scroll: [{ type: core.Input }],
-            loading: [{ type: core.Input }],
-            pageSize: [{ type: core.Input }],
-            frontPagination: [{ type: core.Input }],
-            showPagination: [{ type: core.Input }],
-            fixedPagination: [{ type: core.Input }],
-            showSizeChanger: [{ type: core.Input }],
-            size: [{ type: core.Input }],
-            pageSizeOptions: [{ type: core.Input }],
-            showCheckbox: [{ type: core.Input }],
-            titleTemplate: [{ type: core.Input }],
-            columnsChange: [{ type: core.Output }],
-            selectionsChange: [{ type: core.Output }],
-            load: [{ type: core.Output }],
-            sort: [{ type: core.Output }],
-            linkClick: [{ type: core.Output }],
-            customCells: [{ type: core.ContentChildren, args: [AdvancedCellComponent,] }],
-            customFilters: [{ type: core.ContentChildren, args: [AdvancedFilterComponent,] }]
-        };
-        return AdvancedTableComponent;
-    }());
-    if (false) {
-        /** @type {?} */
-        AdvancedTableComponent.prototype.columns;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.data;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.selections;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.scroll;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.loading;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.pageSize;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.frontPagination;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.showPagination;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.fixedPagination;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.showSizeChanger;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.size;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.pageSizeOptions;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.showCheckbox;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.titleTemplate;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.columnsChange;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.selectionsChange;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.load;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.sort;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.linkClick;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.customCells;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.customFilters;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.load$;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.displayData;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.pageIndex;
-        /** @type {?} */
-        AdvancedTableComponent.prototype.sortParams;
-        /**
-         * @type {?}
-         * @private
-         */
-        AdvancedTableComponent.prototype._elementRef;
-        /**
-         * @type {?}
-         * @private
-         */
-        AdvancedTableComponent.prototype._renderer2;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    /** @type {?} */
-    var COMPONENT = [AdvancedTableComponent, AdvancedCellComponent, AdvancedFilterComponent];
-    /** @type {?} */
-    var MODULE = [common.CommonModule, forms.FormsModule, ngZorroAntd.NgZorroAntdModule, smartText.SmartTextModule, viewer.ViewerDirectiveModule];
-    var AdvancedTableModule = /** @class */ (function () {
-        function AdvancedTableModule() {
-        }
-        AdvancedTableModule.decorators = [
-            { type: core.NgModule, args: [{
-                        declarations: __spread(COMPONENT),
-                        imports: __spread(MODULE),
-                        exports: __spread(MODULE, COMPONENT),
-                    },] }
-        ];
-        return AdvancedTableModule;
-    }());
-    /**
-     * @record
-     */
-    function AdvancedTableColumn() { }
-    if (false) {
-        /** @type {?} */
-        AdvancedTableColumn.prototype.title;
-        /** @type {?} */
-        AdvancedTableColumn.prototype.field;
-        /** @type {?|undefined} */
-        AdvancedTableColumn.prototype.width;
-        /** @type {?|undefined} */
-        AdvancedTableColumn.prototype.left;
-        /** @type {?|undefined} */
-        AdvancedTableColumn.prototype.right;
-        /** @type {?|undefined} */
-        AdvancedTableColumn.prototype.type;
-        /** @type {?|undefined} */
-        AdvancedTableColumn.prototype.customCell;
-        /** @type {?|undefined} */
-        AdvancedTableColumn.prototype.showSort;
-        /** @type {?|undefined} */
-        AdvancedTableColumn.prototype.sortValue;
-        /** @type {?|undefined} */
-        AdvancedTableColumn.prototype.customSort;
-        /** @type {?|undefined} */
-        AdvancedTableColumn.prototype.showFilter;
-        /** @type {?|undefined} */
-        AdvancedTableColumn.prototype.filterType;
-        /** @type {?|undefined} */
-        AdvancedTableColumn.prototype.filterOptions;
-        /** @type {?|undefined} */
-        AdvancedTableColumn.prototype.filterWidth;
-        /** @type {?|undefined} */
-        AdvancedTableColumn.prototype.filterMultiple;
-        /** @type {?|undefined} */
-        AdvancedTableColumn.prototype.customFilter;
-    }
-    /**
-     * @record
-     */
-    function AdvancedTableRow() { }
-    if (false) {
-        /** @type {?} */
-        AdvancedTableRow.prototype.isChecked;
-        /* Skipping unhandled member: [key: string]: any;*/
-    }
-    /**
-     * @record
-     */
-    function PageParams() { }
-    if (false) {
-        /** @type {?} */
-        PageParams.prototype.page;
-        /** @type {?} */
-        PageParams.prototype.size;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    var SmartTextComponent = /** @class */ (function () {
-        function SmartTextComponent() {
-            this._text = '';
-            this.maxLength = 20;
-            this.tail = '...';
-        }
-        Object.defineProperty(SmartTextComponent.prototype, "text", {
-            get: /**
-             * @return {?}
-             */
-            function () {
-                return this._text;
-            },
-            set: /**
-             * @param {?} value
-             * @return {?}
-             */
-            function (value) {
-                if (value === undefined || value === null) {
-                    this._text = '';
-                }
-                else {
-                    this._text = String(value);
-                }
-            },
-            enumerable: true,
-            configurable: true
-        });
-        SmartTextComponent.decorators = [
-            { type: core.Component, args: [{
-                        selector: 'smart-text',
-                        template: "<!-- \u76F4\u63A5\u663E\u793A -->\n<ng-container *ngIf=\"text.length <= maxLength; else tooltipBlock\">\n  <span>{{ text }}</span>\n</ng-container>\n\n<!-- \u63D0\u793A\u6846\u663E\u793A -->\n<ng-template #tooltipBlock>\n  <span nz-tooltip [nzTitle]=\"text\">{{ text | shortcut: maxLength:tail }}</span>\n</ng-template>\n\n<ng-content></ng-content>\n"
-                    }] }
-        ];
-        SmartTextComponent.propDecorators = {
-            maxLength: [{ type: core.Input }],
-            tail: [{ type: core.Input }],
-            text: [{ type: core.Input }]
-        };
-        return SmartTextComponent;
-    }());
-    if (false) {
-        /**
-         * @type {?}
-         * @protected
-         */
-        SmartTextComponent.prototype._text;
-        /** @type {?} */
-        SmartTextComponent.prototype.maxLength;
-        /** @type {?} */
-        SmartTextComponent.prototype.tail;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    var SmartTextModule = /** @class */ (function () {
-        function SmartTextModule() {
-        }
-        SmartTextModule.decorators = [
-            { type: core.NgModule, args: [{
-                        imports: [common.CommonModule, theme.ShortcutPipeModule, tooltip.NzToolTipModule],
-                        declarations: [SmartTextComponent],
-                        exports: [common.CommonModule, SmartTextComponent],
-                    },] }
-        ];
-        return SmartTextModule;
-    }());
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    /**
-     * @Description: 上传组件，默认使用百度baidubce的对象存储bos上传
-     * Web端直传实践：https://cloud.baidu.com/doc/BOS/s/9jwvys8y7/
-     * @Author: zomixi
-     * @Date: 2019-07-22 15:44:37
-     */
-    /**
-     * @record
-     */
-    function BosConfig() { }
-    if (false) {
-        /** @type {?} */
-        BosConfig.prototype.endpoint;
-        /** @type {?} */
-        BosConfig.prototype.ak;
-        /** @type {?} */
-        BosConfig.prototype.sk;
-        /** @type {?} */
-        BosConfig.prototype.sessionToken;
-    }
-    /**
-     * @abstract
-     */
-    var   /**
-     * @abstract
-     */
-    UploadServiceToken = /** @class */ (function () {
-        function UploadServiceToken() {
-        }
-        return UploadServiceToken;
-    }());
-    if (false) {
-        /** @type {?} */
-        UploadServiceToken.prototype.bosConfig;
-        /** @type {?} */
-        UploadServiceToken.prototype.workerUrl;
-        /**
-         * @abstract
-         * @return {?}
-         */
-        UploadServiceToken.prototype.getConfig = function () { };
-    }
-    var AdvancedUploadComponent = /** @class */ (function () {
-        function AdvancedUploadComponent(_cdr, _uploadSrv) {
-            var _this = this;
-            this._cdr = _cdr;
-            this._uploadSrv = _uploadSrv;
-            this.accept = 'image/png,image/jpeg,image/gif,image/bmp'; // 接受上传的文件类型, 详见https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept
-            // 接受上传的文件类型, 详见https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept
-            this.action = ''; // 上传的地址
-            // 上传的地址
-            this.directory = false; // 是否支持上传文件夹
-            // 是否支持上传文件夹
-            this.disabled = false; // 是否禁用
-            // 是否禁用
-            this.limit = 9; // 限制单次最多上传数量，nzMultiple 打开时有效；0 表示不限
-            // 限制单次最多上传数量，nzMultiple 打开时有效；0 表示不限
-            this.size = 0; // 限制文件大小，单位：KB；0 表示不限
-            // 限制文件大小，单位：KB；0 表示不限
-            this.fileType = 'image/png,image/jpeg,image/gif,image/bmp'; // 限制文件类型，例如：image/png,image/jpeg,image/gif,image/bmp
-            // 限制文件类型，例如：image/png,image/jpeg,image/gif,image/bmp
-            this.listType = 'picture-card'; // 上传列表的内建样式，支持三种基本样式
-            // 上传列表的内建样式，支持三种基本样式
-            this.multiple = true; // 是否支持多选文件，ie10+ 支持
-            // 是否支持多选文件，ie10+ 支持
-            this.showButton = true; // 是否展示上传按钮
-            // 是否展示上传按钮
-            this.placeholder = '上传'; // 占位提示语
-            // 自定义content
-            this.maxLength = Infinity; // 最多上传数
-            // 最多上传数
-            this.bucket = 'bucket'; // 百度BOS上的命名空间
-            // 百度BOS上的命名空间
-            this.fastUpload = true; // 是否使用快传
-            // 是否使用快传
-            this.filter = [
-                {
-                    name: 'maxLength',
-                    fn: (/**
-                     * @param {?} fileList
-                     * @return {?}
-                     */
-                    function (fileList) {
-                        // 限制最大上传数量
-                        return fileList.slice(0, _this.maxLength - _this.fileList.length);
-                    }),
-                },
-            ];
-            // 是否显示预览图标和删除图标
-            this.showUploadList = {
-                showPreviewIcon: true,
-                showRemoveIcon: true,
-                hidePreviewIconInNonImage: true,
-            };
-            this.bosClient = null; // 百度上传客户端
-            // 百度上传客户端
-            this.isSupportWorker = false; // 浏览器是否支持Worker
-            // 浏览器是否支持Worker
-            this.isLoading = false; // 百度上传客户端初始化中
-            // 百度上传客户端初始化中
-            this.fileList = []; // 文件列表，绑定ControlValueAccessor
-            // 文件列表改变，绑定ControlValueAccessor
-            // 预览modal参数对象
-            this.previewModal = {
-                visible: false,
-                // 是否显示预览modal
-                image: '',
-            };
-            // 点击文件链接或预览图标时的回调；注意：务必使用 => 定义处理方法
-            this.preview = (/**
-             * @param {?} file
-             * @return {?}
-             */
-            function (file) {
-                _this.previewModal.image = (/** @type {?} */ (file.url)) || (/** @type {?} */ (file.thumbUrl));
-                _this.previewModal.visible = true;
-                _this._cdr.detectChanges();
-            });
-            // 通过覆盖默认的上传行为，可以自定义自己的上传实现；注意：务必使用 => 定义处理方法
-            this.customRequest = (/**
-             * @param {?} uploadSubject
-             * @return {?}
-             */
-            function (uploadSubject) {
-                /** @type {?} */
-                var uploadFile = uploadSubject.file;
-                // uploadKey用于标识文件唯一性，如果重复Put同一个key的Object，之前上传的数据将被覆盖
-                _this.getUploadKey(uploadFile).then((/**
-                 * @param {?} uploadKey
-                 * @return {?}
-                 */
-                function (uploadKey) {
-                    // 尝试秒传
-                    if (_this.isSupportWorker && _this.fastUpload) {
-                        // 先用HEAD请求根据key判断是否已上传过该文件
-                        _this.bosClient
-                            .getObjectMetadata(_this.bucket, uploadKey)
-                            .then((/**
-                         * @param {?} event
-                         * @return {?}
-                         */
-                        function (event) {
-                            // 上传过了，直接回显
-                            uploadFile.url = _this.bosClient.config.endpoint + "/v1/" + _this.bucket + "/" + uploadKey;
-                            (/** @type {?} */ (uploadSubject.onSuccess))('上传成功', uploadFile, event);
-                        }))
-                            .catch((
-                        // 没有上传过，使用百度bos直传
-                        // 没有上传过，使用百度bos直传
-                        /**
-                         * @return {?}
-                         */
-                        function () { return _this.bosUpload(uploadSubject, _this.bucket, uploadKey, uploadFile); }));
-                    }
-                    else {
-                        // 百度bos直传
-                        _this.bosUpload(uploadSubject, _this.bucket, uploadKey, uploadFile);
-                    }
-                }));
-                // ZORRO要求返回一个Subscription
-                return new rxjs.Subscription();
-            });
-            this.initBosClient();
-        }
-        Object.defineProperty(AdvancedUploadComponent.prototype, "showPreviewIcon", {
-            // 是否显示预览图标
-            set: 
-            // 是否显示预览图标
-            /**
-             * @param {?} value
-             * @return {?}
-             */
-            function (value) {
-                this.showUploadList = __assign({}, this.showUploadList, { showPreviewIcon: value });
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(AdvancedUploadComponent.prototype, "showRemoveIcon", {
-            // 是否显示删除图标
-            set: 
-            // 是否显示删除图标
-            /**
-             * @param {?} value
-             * @return {?}
-             */
-            function (value) {
-                this.showUploadList = __assign({}, this.showUploadList, { showPreviewIcon: value });
-            },
-            enumerable: true,
-            configurable: true
-        });
-        /**
-         * @return {?}
-         */
-        AdvancedUploadComponent.prototype.ngOnInit = /**
-         * @return {?}
-         */
-        function () {
-            // 判断是否支持Worker
-            if (typeof Worker !== 'undefined') {
-                this.isSupportWorker = true;
-            }
-            else {
-                if (this.fastUpload) {
-                    console.error('浏览器不支持Worker，无法使用快传！');
-                }
-            }
-        };
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-        AdvancedUploadComponent.prototype.writeValue = /**
-         * @param {?} value
-         * @return {?}
-         */
-        function (value) {
-            this.fileList = value || [];
-            this.fileList.forEach((/**
-             * @param {?} file
-             * @return {?}
-             */
-            function (file) {
-                file.uid = file.uid || util.uuidv1();
-            }));
-            this._cdr.detectChanges(); // for issue：https://github.com/angular/angular/issues/10816
-        };
-        /**
-         * @param {?} fn
-         * @return {?}
-         */
-        AdvancedUploadComponent.prototype.registerOnChange = /**
-         * @param {?} fn
-         * @return {?}
-         */
-        function (fn) {
-            this.fileListChange = fn;
-        };
-        /**
-         * @return {?}
-         */
-        AdvancedUploadComponent.prototype.registerOnTouched = /**
-         * @return {?}
-         */
-        function () { };
-        // 初始化百度上传客户端
-        // 初始化百度上传客户端
-        /**
-         * @return {?}
-         */
-        AdvancedUploadComponent.prototype.initBosClient = 
-        // 初始化百度上传客户端
-        /**
-         * @return {?}
-         */
-        function () {
-            var _this = this;
-            if (this._uploadSrv.getConfig()) {
-                this.isLoading = true;
-                (/** @type {?} */ (this._uploadSrv.getConfig())).subscribe((/**
-                 * @param {?} config
-                 * @return {?}
-                 */
-                function (config) {
-                    _this.bosClient = new baidubce.sdk.BosClient({
-                        endpoint: config.endpoint,
-                        credentials: {
-                            ak: config.ak,
-                            sk: config.sk,
-                        },
-                        sessionToken: config.sessionToken,
-                    });
-                    _this.isLoading = false;
-                    _this._cdr.detectChanges();
-                }));
-            }
-        };
-        /**
-         * @param {?} file
-         * @return {?}
-         */
-        AdvancedUploadComponent.prototype.getUploadKey = /**
-         * @param {?} file
-         * @return {?}
-         */
-        function (file) {
-            var _this = this;
-            return new Promise((/**
-             * @param {?} resolve
-             * @return {?}
-             */
-            function (resolve) {
-                // 使用Worker
-                if (_this.isSupportWorker && _this.fastUpload) {
-                    /** @type {?} */
-                    var worker_1 = new Worker(_this._uploadSrv.workerUrl);
-                    worker_1.onerror = (/**
-                     * @param {?} error
-                     * @return {?}
-                     */
-                    function (error) {
-                        console.error('Worker异常，已关闭！', error);
-                        worker_1.terminate();
-                    });
-                    worker_1.postMessage(file);
-                    worker_1.onmessage = (/**
-                     * @param {?} event
-                     * @return {?}
-                     */
-                    function (event) {
-                        // 使用文件md5+最后修改时间+文件大小+文件名来保证唯一性，同时相同的文件的key也会相同,用于秒传
-                        /** @type {?} */
-                        var key = "" + event.data + file.lastModified + file.size + file.name;
-                        resolve(key);
-                        worker_1.terminate();
-                    });
-                }
-                else {
-                    // 不使用Worker
-                    // 使用当前时间+四位随机码+最后修改时间+文件大小+文件名来保证唯一性，此时因为相同文件key也会不同，故实现不了秒传
-                    /** @type {?} */
-                    var random = "" + new Date().getTime() + (Math.random() * 10000).toFixed(0);
-                    /** @type {?} */
-                    var key = "" + random + file.lastModified + file.size + file.name;
-                    resolve(key);
-                }
-            }));
-        };
-        // 使用百度bos直传
-        // 使用百度bos直传
-        /**
-         * @param {?} uploadSubject
-         * @param {?} bucket
-         * @param {?} uploadKey
-         * @param {?} uploadFile
-         * @return {?}
-         */
-        AdvancedUploadComponent.prototype.bosUpload = 
-        // 使用百度bos直传
-        /**
-         * @param {?} uploadSubject
-         * @param {?} bucket
-         * @param {?} uploadKey
-         * @param {?} uploadFile
-         * @return {?}
-         */
-        function (uploadSubject, bucket, uploadKey, uploadFile) {
-            var _this = this;
-            this.bosClient
-                .putObjectFromBlob(bucket, uploadKey, uploadFile)
-                .then((/**
-             * @param {?} event
-             * @return {?}
-             */
-            function (event) {
-                uploadFile.url = _this.bosClient.config.endpoint + "/v1/" + bucket + "/" + uploadKey;
-                (/** @type {?} */ (uploadSubject.onSuccess))('上传成功', uploadFile, event);
-            }))
-                .catch((/**
-             * @param {?} event
-             * @return {?}
-             */
-            function (event) {
-                (/** @type {?} */ (uploadSubject.onError))(event, uploadFile);
-            }));
-        };
-        /**
-         * @return {?}
-         */
-        AdvancedUploadComponent.prototype.onFileListChange = /**
-         * @return {?}
-         */
-        function () {
-            // 去除缩略图，因为缩略图太大,要是外部不处理会影响Http请求速度
-            this.fileListChange(this.fileList.map((/**
-             * @param {?} file
-             * @return {?}
-             */
-            function (file) { return (__assign({}, file, { thumbUrl: '' })); })));
-            this._cdr.detectChanges();
-        };
-        /**
-         * @return {?}
-         */
-        AdvancedUploadComponent.prototype.onChange = /**
-         * @return {?}
-         */
-        function () {
-            // 赋值url
-            this.fileList.forEach((/**
-             * @param {?} file
-             * @return {?}
-             */
-            function (file) {
-                file.url = file.url || (file.originFileObj && ((/** @type {?} */ (file.originFileObj))).url);
-            }));
-            this.onFileListChange();
-        };
-        AdvancedUploadComponent.decorators = [
-            { type: core.Component, args: [{
-                        selector: 'p-advancedUpload',
-                        template: "<nz-upload\n  [nzAction]=\"action\"\n  [nzAccept]=\"accept\"\n  [nzListType]=\"listType\"\n  [(nzFileList)]=\"fileList\"\n  [nzShowButton]=\"showButton && fileList.length < maxLength\"\n  [nzFileType]=\"fileType\"\n  [nzShowUploadList]=\"showUploadList\"\n  [nzDirectory]=\"directory\"\n  [nzLimit]=\"limit\"\n  [nzSize]=\"size\"\n  [nzDisabled]=\"disabled || isLoading\"\n  [nzMultiple]=\"multiple\"\n  [nzPreview]=\"preview\"\n  [nzRemove]=\"remove\"\n  [nzFilter]=\"filter\"\n  [nzBeforeUpload]=\"beforeUpload\"\n  [nzCustomRequest]=\"customRequest\"\n  (nzFileListChange)=\"onFileListChange()\"\n  (nzChange)=\"onChange()\"\n>\n  <!-- \u81EA\u5B9A\u4E49content -->\n  <ng-template [ngIf]=\"customContent\" [ngIfElse]=\"defaultContent\">\n    <ng-container [ngTemplateOutlet]=\"customContent\"></ng-container>\n  </ng-template>\n\n  <!-- \u9ED8\u8BA4content -->\n  <ng-template #defaultContent>\n    <ng-container [ngSwitch]=\"listType\">\n      <ng-container *ngSwitchCase=\"'picture-card'\">\n        <i nz-icon nzType=\"plus\" class=\"upload-icon\"></i>\n        <div class=\"upload-text\">{{ placeholder }}</div>\n      </ng-container>\n      <ng-container *ngSwitchDefault>\n        <button nz-button>\n          <i nz-icon nzType=\"upload\"></i>\n          <span>{{ placeholder }}</span>\n        </button>\n      </ng-container>\n    </ng-container>\n  </ng-template>\n</nz-upload>\n\n<!-- \u9884\u89C8\u5F39\u6846 -->\n<nz-modal [(nzVisible)]=\"previewModal.visible\" [nzFooter]=\"null\" (nzOnCancel)=\"previewModal.visible = false\">\n  <img [src]=\"previewModal.image\" width=\"100%\" />\n</nz-modal>\n",
-                        providers: [
-                            {
-                                provide: forms.NG_VALUE_ACCESSOR,
-                                useExisting: AdvancedUploadComponent,
-                                multi: true,
-                            },
-                        ],
-                        changeDetection: core.ChangeDetectionStrategy.OnPush,
-                        styles: [".upload-icon{color:#999;font-size:32px}.upload-text{margin-top:8px;color:#666}"]
-                    }] }
-        ];
-        /** @nocollapse */
-        AdvancedUploadComponent.ctorParameters = function () { return [
-            { type: core.ChangeDetectorRef },
-            { type: UploadServiceToken }
-        ]; };
-        AdvancedUploadComponent.propDecorators = {
-            accept: [{ type: core.Input }],
-            action: [{ type: core.Input }],
-            directory: [{ type: core.Input }],
-            disabled: [{ type: core.Input }],
-            limit: [{ type: core.Input }],
-            size: [{ type: core.Input }],
-            fileType: [{ type: core.Input }],
-            listType: [{ type: core.Input }],
-            multiple: [{ type: core.Input }],
-            showButton: [{ type: core.Input }],
-            placeholder: [{ type: core.Input }],
-            customContent: [{ type: core.Input }],
-            maxLength: [{ type: core.Input }],
-            bucket: [{ type: core.Input }],
-            fastUpload: [{ type: core.Input }],
-            filter: [{ type: core.Input }],
-            showPreviewIcon: [{ type: core.Input }],
-            showRemoveIcon: [{ type: core.Input }],
-            beforeUpload: [{ type: core.Input }],
-            remove: [{ type: core.Input }],
-            preview: [{ type: core.Input }],
-            customRequest: [{ type: core.Input }]
-        };
-        return AdvancedUploadComponent;
-    }());
-    if (false) {
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.accept;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.action;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.directory;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.disabled;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.limit;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.size;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.fileType;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.listType;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.multiple;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.showButton;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.placeholder;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.customContent;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.maxLength;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.bucket;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.fastUpload;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.filter;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.showUploadList;
-        /**
-         * @type {?}
-         * @private
-         */
-        AdvancedUploadComponent.prototype.bosClient;
-        /**
-         * @type {?}
-         * @private
-         */
-        AdvancedUploadComponent.prototype.isSupportWorker;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.isLoading;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.fileList;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.fileListChange;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.previewModal;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.beforeUpload;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.remove;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.preview;
-        /** @type {?} */
-        AdvancedUploadComponent.prototype.customRequest;
-        /**
-         * @type {?}
-         * @private
-         */
-        AdvancedUploadComponent.prototype._cdr;
-        /**
-         * @type {?}
-         * @private
-         */
-        AdvancedUploadComponent.prototype._uploadSrv;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    var AdvancedUploadModule = /** @class */ (function () {
-        function AdvancedUploadModule() {
-        }
-        AdvancedUploadModule.decorators = [
-            { type: core.NgModule, args: [{
-                        declarations: [AdvancedUploadComponent],
-                        imports: [common.CommonModule, ngZorroAntd.NgZorroAntdModule],
-                        exports: [common.CommonModule, ngZorroAntd.NgZorroAntdModule, AdvancedUploadComponent]
-                    },] }
-        ];
-        return AdvancedUploadModule;
-    }());
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    var UploadService = /** @class */ (function (_super) {
-        __extends(UploadService, _super);
-        function UploadService() {
-            var _this = _super.call(this) || this;
-            _this.workerUrl = '/assets/js/getFileMd5.js';
-            return _this;
-        }
-        /**
-         * @return {?}
-         */
-        UploadService.prototype.getConfig = /**
-         * @return {?}
-         */
-        function () {
-            var _this = this;
-            return new rxjs.Observable((/**
-             * @param {?} observer
-             * @return {?}
-             */
-            function (observer) {
-                _this.getBosConfig().then((/**
-                 * @param {?} config
-                 * @return {?}
-                 */
-                function (config) {
-                    observer.next(config);
-                    observer.complete();
-                }));
-            }));
-        };
-        /**
-         * @return {?}
-         */
-        UploadService.prototype.getBosConfig = /**
-         * @return {?}
-         */
-        function () {
-            var _this = this;
-            return new Promise((/**
-             * @param {?} resolve
-             * @return {?}
-             */
-            function (resolve) {
-                if (_this.bosConfig) {
-                    resolve(_this.bosConfig);
-                }
-                else {
-                    setTimeout((/**
-                     * @return {?}
-                     */
-                    function () {
-                        _this.bosConfig = {
-                            endpoint: 'https://yztfile.gz.bcebos.com',
-                            ak: 'd1f34f5cac2211e9ba0643cb6446d1e6',
-                            sk: 'ce5c4d711a17438ca5d6f891b4d3d907',
-                            sessionToken: '',
-                        };
-                        resolve(_this.bosConfig);
-                    }));
-                }
-            }));
-        };
-        UploadService.decorators = [
-            { type: core.Injectable, args: [{
-                        providedIn: 'root',
-                    },] }
-        ];
-        /** @nocollapse */
-        UploadService.ctorParameters = function () { return []; };
-        /** @nocollapse */ UploadService.ngInjectableDef = core.ɵɵdefineInjectable({ factory: function UploadService_Factory() { return new UploadService(); }, token: UploadService, providedIn: "root" });
-        return UploadService;
-    }(UploadServiceToken));
-    if (false) {
-        /** @type {?} */
-        UploadService.prototype.workerUrl;
-        /** @type {?} */
-        UploadService.prototype.bosConfig;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
     /** @type {?} */
     var MODULES = [
-        AdvancedTableModule,
         QueryTabsModule,
         SmartTextModule,
         lodop.LodopModule,
@@ -6009,13 +6512,16 @@
         SidebarNavModule,
         SVModule,
         PageHeaderModule,
-        AdvancedUploadModule,
+        TableModule,
+        UploadModule,
+        PaginationModule,
+        FooterToolbarModule,
     ];
     var PikachuModule = /** @class */ (function () {
         function PikachuModule() {
         }
         PikachuModule.decorators = [
-            { type: core.NgModule, args: [{ exports: MODULES, providers: [{ provide: UploadServiceToken, useExisting: UploadService }] },] }
+            { type: core.NgModule, args: [{ exports: MODULES },] }
         ];
         return PikachuModule;
     }());
@@ -6036,6 +6542,54 @@
         enumerable: true,
         get: function () {
             return lodop.LodopService;
+        }
+    });
+    Object.defineProperty(exports, 'NoticeIconComponent', {
+        enumerable: true,
+        get: function () {
+            return noticeIcon.NoticeIconComponent;
+        }
+    });
+    Object.defineProperty(exports, 'NoticeIconModule', {
+        enumerable: true,
+        get: function () {
+            return noticeIcon.NoticeIconModule;
+        }
+    });
+    Object.defineProperty(exports, 'NoticeIconTabComponent', {
+        enumerable: true,
+        get: function () {
+            return noticeIcon.NoticeIconTabComponent;
+        }
+    });
+    Object.defineProperty(exports, 'PageHeaderComponent', {
+        enumerable: true,
+        get: function () {
+            return pageHeader.PageHeaderComponent;
+        }
+    });
+    Object.defineProperty(exports, 'PageHeaderConfig', {
+        enumerable: true,
+        get: function () {
+            return pageHeader.PageHeaderConfig;
+        }
+    });
+    Object.defineProperty(exports, 'PageHeaderModule', {
+        enumerable: true,
+        get: function () {
+            return pageHeader.PageHeaderModule;
+        }
+    });
+    Object.defineProperty(exports, 'PaginationComponent', {
+        enumerable: true,
+        get: function () {
+            return pagination.PaginationComponent;
+        }
+    });
+    Object.defineProperty(exports, 'PaginationModule', {
+        enumerable: true,
+        get: function () {
+            return pagination.PaginationModule;
         }
     });
     Object.defineProperty(exports, 'ReuseTabComponent', {
@@ -6092,24 +6646,6 @@
             return reuseTab.ReuseTabStrategy;
         }
     });
-    Object.defineProperty(exports, 'NoticeIconComponent', {
-        enumerable: true,
-        get: function () {
-            return noticeIcon.NoticeIconComponent;
-        }
-    });
-    Object.defineProperty(exports, 'NoticeIconModule', {
-        enumerable: true,
-        get: function () {
-            return noticeIcon.NoticeIconModule;
-        }
-    });
-    Object.defineProperty(exports, 'NoticeIconTabComponent', {
-        enumerable: true,
-        get: function () {
-            return noticeIcon.NoticeIconTabComponent;
-        }
-    });
     Object.defineProperty(exports, 'SidebarNavComponent', {
         enumerable: true,
         get: function () {
@@ -6152,43 +6688,84 @@
             return view.SVTitleComponent;
         }
     });
-    Object.defineProperty(exports, 'PageHeaderComponent', {
+    Object.defineProperty(exports, 'ViewerDirective', {
         enumerable: true,
         get: function () {
-            return pageHeader.PageHeaderComponent;
+            return viewer.ViewerDirective;
         }
     });
-    Object.defineProperty(exports, 'PageHeaderConfig', {
+    Object.defineProperty(exports, 'ViewerDirectiveModule', {
         enumerable: true,
         get: function () {
-            return pageHeader.PageHeaderConfig;
+            return viewer.ViewerDirectiveModule;
         }
     });
-    Object.defineProperty(exports, 'PageHeaderModule', {
+    Object.defineProperty(exports, 'ViewerImgDirective', {
         enumerable: true,
         get: function () {
-            return pageHeader.PageHeaderModule;
+            return viewer.ViewerImgDirective;
         }
     });
-    Object.defineProperty(exports, 'AdvancedTableModule', {
+    Object.defineProperty(exports, 'FooterToolbarComponent', {
         enumerable: true,
         get: function () {
-            return advancedTable.AdvancedTableModule;
+            return footerToolbar.FooterToolbarComponent;
+        }
+    });
+    Object.defineProperty(exports, 'FooterToolbarModule', {
+        enumerable: true,
+        get: function () {
+            return footerToolbar.FooterToolbarModule;
+        }
+    });
+    Object.defineProperty(exports, 'TableCellComponent', {
+        enumerable: true,
+        get: function () {
+            return table.TableCellComponent;
+        }
+    });
+    Object.defineProperty(exports, 'TableComponent', {
+        enumerable: true,
+        get: function () {
+            return table.TableComponent;
+        }
+    });
+    Object.defineProperty(exports, 'TableFilterComponent', {
+        enumerable: true,
+        get: function () {
+            return table.TableFilterComponent;
+        }
+    });
+    Object.defineProperty(exports, 'TableModule', {
+        enumerable: true,
+        get: function () {
+            return table.TableModule;
+        }
+    });
+    Object.defineProperty(exports, 'UploadModule', {
+        enumerable: true,
+        get: function () {
+            return upload.UploadModule;
+        }
+    });
+    Object.defineProperty(exports, 'UploadServiceToken', {
+        enumerable: true,
+        get: function () {
+            return upload.UploadServiceToken;
         }
     });
     exports.PikachuModule = PikachuModule;
-    exports.ɵa = AdvancedTableModule;
-    exports.ɵb = QueryTabsModule;
-    exports.ɵc = SmartTextModule;
-    exports.ɵd = ReuseTabModule;
-    exports.ɵe = NoticeIconModule;
-    exports.ɵf = SidebarNavModule;
-    exports.ɵg = SVModule;
-    exports.ɵh = PageHeaderModule;
-    exports.ɵi = AdvancedUploadModule;
-    exports.ɵj = UploadServiceToken;
-    exports.ɵk = AdvancedUploadComponent;
-    exports.ɵl = UploadService;
+    exports.ɵa = QueryTabsModule;
+    exports.ɵb = SmartTextModule;
+    exports.ɵc = ReuseTabModule;
+    exports.ɵd = NoticeIconModule;
+    exports.ɵe = SidebarNavModule;
+    exports.ɵf = SVModule;
+    exports.ɵg = PageHeaderModule;
+    exports.ɵh = TableModule;
+    exports.ɵi = UploadModule;
+    exports.ɵj = PaginationModule;
+    exports.ɵk = FooterToolbarModule;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

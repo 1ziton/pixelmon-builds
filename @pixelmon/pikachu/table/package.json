@@ -1,0 +1,13 @@
+{
+  "main": "../bundles/pTable.umd.js",
+  "module": "../fesm5/pTable.js",
+  "es2015": "../fesm2015/pTable.js",
+  "esm5": "../esm5/table/pTable.js",
+  "esm2015": "../esm2015/table/pTable.js",
+  "fesm5": "../fesm5/pTable.js",
+  "fesm2015": "../fesm2015/pTable.js",
+  "typings": "pTable.d.ts",
+  "metadata": "pTable.metadata.json",
+  "sideEffects": false,
+  "name": "@pixelmon/pikachu/table"
+}

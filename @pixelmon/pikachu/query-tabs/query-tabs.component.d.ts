@@ -4,7 +4,7 @@
  * @Date: 2019-05-15 14:42:17
  */
 import { OnInit, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
-import { QueryTab } from './query-tabs.module';
+import { QueryTab } from './query-tabs-interface';
 export declare class QueryTabsComponent implements OnInit, OnChanges {
     tabs: QueryTab[];
     lexicon: {

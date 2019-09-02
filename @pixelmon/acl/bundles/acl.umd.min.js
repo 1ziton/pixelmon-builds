@@ -1,6 +1,6 @@
 /**
- * @Based on delon(cipchk@qq.com) v0.1.5
- * (c) 2019 giscafer(giscafer@outlook.com)
+ * @Based on pixelmon(cipchk@qq.com) v0.1.6
+ * (c) 2019 developer(developer@1ziton.com)
  * 
  * Licensed under the MIT license:
  * https://opensource.org/licenses/MIT

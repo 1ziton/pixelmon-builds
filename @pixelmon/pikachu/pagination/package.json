@@ -1,0 +1,13 @@
+{
+  "main": "../bundles/pPagination.umd.js",
+  "module": "../fesm5/pPagination.js",
+  "es2015": "../fesm2015/pPagination.js",
+  "esm5": "../esm5/pagination/pPagination.js",
+  "esm2015": "../esm2015/pagination/pPagination.js",
+  "fesm5": "../fesm5/pPagination.js",
+  "fesm2015": "../fesm2015/pPagination.js",
+  "typings": "pPagination.d.ts",
+  "metadata": "pPagination.metadata.json",
+  "sideEffects": false,
+  "name": "@pixelmon/pikachu/pagination"
+}

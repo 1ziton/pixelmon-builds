@@ -1,0 +1,53 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { PaginationModule } from '@pixelmon/pikachu/pagination';
+import { SmartTextModule } from '@pixelmon/pikachu/smart-text';
+import { ViewerDirectiveModule } from '@pixelmon/pikachu/viewer';
+import { NzBadgeModule } from 'ng-zorro-antd/badge';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { TableCellComponent } from './table-cell.component';
+import { TableFilterComponent } from './table-filter.component';
+import { TableComponent } from './table.component';
+/** @type {?} */
+const COMPONENT = [TableComponent, TableCellComponent, TableFilterComponent];
+/** @type {?} */
+const MODULE = [
+    CommonModule,
+    FormsModule,
+    NzTableModule,
+    NzDropDownModule,
+    NzIconModule,
+    NzButtonModule,
+    NzInputModule,
+    NzGridModule,
+    NzBadgeModule,
+    NzSelectModule,
+    NzDatePickerModule,
+    NzSpinModule,
+    SmartTextModule,
+    ViewerDirectiveModule,
+    PaginationModule,
+];
+export class TableModule {
+}
+TableModule.decorators = [
+    { type: NgModule, args: [{
+                declarations: [...COMPONENT],
+                imports: [...MODULE],
+                exports: [...COMPONENT],
+            },] }
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidGFibGUubW9kdWxlLmpzIiwic291cmNlUm9vdCI6Im5nOi8vQHBpeGVsbW9uL3Bpa2FjaHUvIiwic291cmNlcyI6WyJ0YWJsZS90YWJsZS5tb2R1bGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLE9BQU8sRUFBRSxZQUFZLEVBQUUsTUFBTSxpQkFBaUIsQ0FBQztBQUMvQyxPQUFPLEVBQUUsUUFBUSxFQUFFLE1BQU0sZUFBZSxDQUFDO0FBQ3pDLE9BQU8sRUFBRSxXQUFXLEVBQUUsTUFBTSxnQkFBZ0IsQ0FBQztBQUM3QyxPQUFPLEVBQUUsZ0JBQWdCLEVBQUUsTUFBTSw4QkFBOEIsQ0FBQztBQUNoRSxPQUFPLEVBQUUsZUFBZSxFQUFFLE1BQU0sOEJBQThCLENBQUM7QUFDL0QsT0FBTyxFQUFFLHFCQUFxQixFQUFFLE1BQU0sMEJBQTBCLENBQUM7QUFDakUsT0FBTyxFQUFFLGFBQWEsRUFBRSxNQUFNLHFCQUFxQixDQUFDO0FBQ3BELE9BQU8sRUFBRSxjQUFjLEVBQUUsTUFBTSxzQkFBc0IsQ0FBQztBQUN0RCxPQUFPLEVBQUUsa0JBQWtCLEVBQUUsTUFBTSwyQkFBMkIsQ0FBQztBQUMvRCxPQUFPLEVBQUUsZ0JBQWdCLEVBQUUsTUFBTSx3QkFBd0IsQ0FBQztBQUMxRCxPQUFPLEVBQUUsWUFBWSxFQUFFLE1BQU0sb0JBQW9CLENBQUM7QUFDbEQsT0FBTyxFQUFFLFlBQVksRUFBRSxNQUFNLG9CQUFvQixDQUFDO0FBQ2xELE9BQU8sRUFBRSxhQUFhLEVBQUUsTUFBTSxxQkFBcUIsQ0FBQztBQUNwRCxPQUFPLEVBQUUsY0FBYyxFQUFFLE1BQU0sc0JBQXNCLENBQUM7QUFDdEQsT0FBTyxFQUFFLFlBQVksRUFBRSxNQUFNLG9CQUFvQixDQUFDO0FBQ2xELE9BQU8sRUFBRSxhQUFhLEVBQUUsTUFBTSxxQkFBcUIsQ0FBQztBQUNwRCxPQUFPLEVBQUUsa0JBQWtCLEVBQUUsTUFBTSx3QkFBd0IsQ0FBQztBQUM1RCxPQUFPLEVBQUUsb0JBQW9CLEVBQUUsTUFBTSwwQkFBMEIsQ0FBQztBQUNoRSxPQUFPLEVBQUUsY0FBYyxFQUFFLE1BQU0sbUJBQW1CLENBQUM7O01BRTdDLFNBQVMsR0FBRyxDQUFDLGNBQWMsRUFBRSxrQkFBa0IsRUFBRSxvQkFBb0IsQ0FBQzs7TUFFdEUsTUFBTSxHQUFHO0lBQ2IsWUFBWTtJQUNaLFdBQVc7SUFDWCxhQUFhO0lBQ2IsZ0JBQWdCO0lBQ2hCLFlBQVk7SUFDWixjQUFjO0lBQ2QsYUFBYTtJQUNiLFlBQVk7SUFDWixhQUFhO0lBQ2IsY0FBYztJQUNkLGtCQUFrQjtJQUNsQixZQUFZO0lBQ1osZUFBZTtJQUNmLHFCQUFxQjtJQUNyQixnQkFBZ0I7Q0FDakI7QUFPRCxNQUFNLE9BQU8sV0FBVzs7O1lBTHZCLFFBQVEsU0FBQztnQkFDUixZQUFZLEVBQUUsQ0FBQyxHQUFHLFNBQVMsQ0FBQztnQkFDNUIsT0FBTyxFQUFFLENBQUMsR0FBRyxNQUFNLENBQUM7Z0JBQ3BCLE9BQU8sRUFBRSxDQUFDLEdBQUcsU0FBUyxDQUFDO2FBQ3hCIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQ29tbW9uTW9kdWxlIH0gZnJvbSAnQGFuZ3VsYXIvY29tbW9uJztcbmltcG9ydCB7IE5nTW9kdWxlIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQgeyBGb3Jtc01vZHVsZSB9IGZyb20gJ0Bhbmd1bGFyL2Zvcm1zJztcbmltcG9ydCB7IFBhZ2luYXRpb25Nb2R1bGUgfSBmcm9tICdAcGl4ZWxtb24vcGlrYWNodS9wYWdpbmF0aW9uJztcbmltcG9ydCB7IFNtYXJ0VGV4dE1vZHVsZSB9IGZyb20gJ0BwaXhlbG1vbi9waWthY2h1L3NtYXJ0LXRleHQnO1xuaW1wb3J0IHsgVmlld2VyRGlyZWN0aXZlTW9kdWxlIH0gZnJvbSAnQHBpeGVsbW9uL3Bpa2FjaHUvdmlld2VyJztcbmltcG9ydCB7IE56QmFkZ2VNb2R1bGUgfSBmcm9tICduZy16b3Jyby1hbnRkL2JhZGdlJztcbmltcG9ydCB7IE56QnV0dG9uTW9kdWxlIH0gZnJvbSAnbmctem9ycm8tYW50ZC9idXR0b24nO1xuaW1wb3J0IHsgTnpEYXRlUGlja2VyTW9kdWxlIH0gZnJvbSAnbmctem9ycm8tYW50ZC9kYXRlLXBpY2tlcic7XG5pbXBvcnQgeyBOekRyb3BEb3duTW9kdWxlIH0gZnJvbSAnbmctem9ycm8tYW50ZC9kcm9wZG93bic7XG5pbXBvcnQgeyBOekdyaWRNb2R1bGUgfSBmcm9tICduZy16b3Jyby1hbnRkL2dyaWQnO1xuaW1wb3J0IHsgTnpJY29uTW9kdWxlIH0gZnJvbSAnbmctem9ycm8tYW50ZC9pY29uJztcbmltcG9ydCB7IE56SW5wdXRNb2R1bGUgfSBmcm9tICduZy16b3Jyby1hbnRkL2lucHV0JztcbmltcG9ydCB7IE56U2VsZWN0TW9kdWxlIH0gZnJvbSAnbmctem9ycm8tYW50ZC9zZWxlY3QnO1xuaW1wb3J0IHsgTnpTcGluTW9kdWxlIH0gZnJvbSAnbmctem9ycm8tYW50ZC9zcGluJztcbmltcG9ydCB7IE56VGFibGVNb2R1bGUgfSBmcm9tICduZy16b3Jyby1hbnRkL3RhYmxlJztcbmltcG9ydCB7IFRhYmxlQ2VsbENvbXBvbmVudCB9IGZyb20gJy4vdGFibGUtY2VsbC5jb21wb25lbnQnO1xuaW1wb3J0IHsgVGFibGVGaWx0ZXJDb21wb25lbnQgfSBmcm9tICcuL3RhYmxlLWZpbHRlci5jb21wb25lbnQnO1xuaW1wb3J0IHsgVGFibGVDb21wb25lbnQgfSBmcm9tICcuL3RhYmxlLmNvbXBvbmVudCc7XG5cbmNvbnN0IENPTVBPTkVOVCA9IFtUYWJsZUNvbXBvbmVudCwgVGFibGVDZWxsQ29tcG9uZW50LCBUYWJsZUZpbHRlckNvbXBvbmVudF07XG5cbmNvbnN0IE1PRFVMRSA9IFtcbiAgQ29tbW9uTW9kdWxlLFxuICBGb3Jtc01vZHVsZSxcbiAgTnpUYWJsZU1vZHVsZSxcbiAgTnpEcm9wRG93bk1vZHVsZSxcbiAgTnpJY29uTW9kdWxlLFxuICBOekJ1dHRvbk1vZHVsZSxcbiAgTnpJbnB1dE1vZHVsZSxcbiAgTnpHcmlkTW9kdWxlLFxuICBOekJhZGdlTW9kdWxlLFxuICBOelNlbGVjdE1vZHVsZSxcbiAgTnpEYXRlUGlja2VyTW9kdWxlLFxuICBOelNwaW5Nb2R1bGUsXG4gIFNtYXJ0VGV4dE1vZHVsZSxcbiAgVmlld2VyRGlyZWN0aXZlTW9kdWxlLFxuICBQYWdpbmF0aW9uTW9kdWxlLFxuXTtcblxuQE5nTW9kdWxlKHtcbiAgZGVjbGFyYXRpb25zOiBbLi4uQ09NUE9ORU5UXSxcbiAgaW1wb3J0czogWy4uLk1PRFVMRV0sXG4gIGV4cG9ydHM6IFsuLi5DT01QT05FTlRdLFxufSlcbmV4cG9ydCBjbGFzcyBUYWJsZU1vZHVsZSB7fVxuIl19

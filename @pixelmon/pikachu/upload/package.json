@@ -1,0 +1,13 @@
+{
+  "main": "../bundles/pUpload.umd.js",
+  "module": "../fesm5/pUpload.js",
+  "es2015": "../fesm2015/pUpload.js",
+  "esm5": "../esm5/upload/pUpload.js",
+  "esm2015": "../esm2015/upload/pUpload.js",
+  "fesm5": "../fesm5/pUpload.js",
+  "fesm2015": "../fesm2015/pUpload.js",
+  "typings": "pUpload.d.ts",
+  "metadata": "pUpload.metadata.json",
+  "sideEffects": false,
+  "name": "@pixelmon/pikachu/upload"
+}

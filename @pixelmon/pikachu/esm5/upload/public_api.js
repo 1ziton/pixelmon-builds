@@ -1,0 +1,7 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+export { UploadModule } from './upload.module';
+export { UploadServiceToken } from './upload-interface';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljX2FwaS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BwaXhlbG1vbi9waWthY2h1LyIsInNvdXJjZXMiOlsidXBsb2FkL3B1YmxpY19hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLE9BQU8sRUFBRSxZQUFZLEVBQUUsTUFBTSxpQkFBaUIsQ0FBQztBQUMvQyxtQ0FBYyxvQkFBb0IsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCB7IFVwbG9hZE1vZHVsZSB9IGZyb20gJy4vdXBsb2FkLm1vZHVsZSc7XG5leHBvcnQgKiBmcm9tICcuL3VwbG9hZC1pbnRlcmZhY2UnO1xuIl19

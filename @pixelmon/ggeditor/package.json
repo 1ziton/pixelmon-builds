@@ -1,6 +1,6 @@
 {
   "name": "@pixelmon/ggeditor",
-  "version": "0.1.6-f8873d3",
+  "version": "0.1.6-99f6253",
   "author": "giscafer<giscafer@outlook.com>",
   "license": "MIT",
   "repository": {
@@ -27,7 +27,7 @@
     "invariant": "^2.2.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "@pixelmon/util": "^0.1.6-f8873d3",
+    "@pixelmon/util": "^0.1.6-99f6253",
     "tslib": "^1.9.0"
   },
   "main": "bundles/ggeditor.umd.js",

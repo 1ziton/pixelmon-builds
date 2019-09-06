@@ -3,7 +3,6 @@ import { Component, Input as Input$1, NgModule } from '@angular/core';
 import { __extends, __assign, __decorate, __metadata } from 'tslib';
 import { uuidv1, InputBoolean } from '@pixelmon/util';
 import GGEditor, { Minimap, Command, NodeMenu, EdgeMenu, GroupMenu, MultiMenu, CanvasMenu, ContextMenu, Toolbar, ItemPanel, Item as Item$1, withPropsAPI, DetailPanel, NodePanel, EdgePanel, GroupPanel, MultiPanel, CanvasPanel, Flow, Mind } from 'gg-editor';
-import * as invariant_ from 'invariant';
 import React__default, { createElement, Fragment } from 'react';
 import { render } from 'react-dom';
 import { Card, Icon, Tooltip, Divider, Form, Select, Input, Row, Col } from 'antd';
@@ -683,8 +682,6 @@ var ɵ0$7 = FlowPage;
  * @fileoverview added by tsickle
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
-/** @type {?} */
-var invariant = invariant_;
 var GGEditorComponent = /** @class */ (function () {
     function GGEditorComponent() {
         this.style = {
@@ -705,7 +702,9 @@ var GGEditorComponent = /** @class */ (function () {
     function () {
         /** @type {?} */
         var node = document.getElementById(this.rootDomID);
-        invariant(node, "Node '" + this.rootDomID + " not found!");
+        if (!node) {
+            throw new Error("Node '" + this.rootDomID + " not found!");
+        }
         return node;
     };
     /**

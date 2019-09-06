@@ -6,10 +6,10 @@
  * https://opensource.org/licenses/MIT
  */
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/core'), require('@pixelmon/util'), require('gg-editor'), require('invariant'), require('react'), require('react-dom'), require('antd')) :
-    typeof define === 'function' && define.amd ? define('@pixelmon/ggeditor', ['exports', '@angular/common', '@angular/core', '@pixelmon/util', 'gg-editor', 'invariant', 'react', 'react-dom', 'antd'], factory) :
-    (global = global || self, factory((global.pixelmon = global.pixelmon || {}, global.pixelmon.ggeditor = {}), global.ng.common, global.ng.core, global.pixelmon.util, global.GGEditor, global.invariant, global.React, global.ReactDOM, global.antd));
-}(this, function (exports, common, core, util, GGEditor, invariant_, React__default, reactDom, antd) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/core'), require('@pixelmon/util'), require('gg-editor'), require('react'), require('react-dom'), require('antd')) :
+    typeof define === 'function' && define.amd ? define('@pixelmon/ggeditor', ['exports', '@angular/common', '@angular/core', '@pixelmon/util', 'gg-editor', 'react', 'react-dom', 'antd'], factory) :
+    (global = global || self, factory((global.pixelmon = global.pixelmon || {}, global.pixelmon.ggeditor = {}), global.ng.common, global.ng.core, global.pixelmon.util, global.GGEditor, global.React, global.ReactDOM, global.antd));
+}(this, function (exports, common, core, util, GGEditor, React__default, reactDom, antd) { 'use strict';
 
     var GGEditor__default = 'default' in GGEditor ? GGEditor['default'] : GGEditor;
     var React__default__default = 'default' in React__default ? React__default['default'] : React__default;
@@ -886,8 +886,6 @@
      * @fileoverview added by tsickle
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
-    /** @type {?} */
-    var invariant = invariant_;
     var GGEditorComponent = /** @class */ (function () {
         function GGEditorComponent() {
             this.style = {
@@ -908,7 +906,9 @@
         function () {
             /** @type {?} */
             var node = document.getElementById(this.rootDomID);
-            invariant(node, "Node '" + this.rootDomID + " not found!");
+            if (!node) {
+                throw new Error("Node '" + this.rootDomID + " not found!");
+            }
             return node;
         };
         /**

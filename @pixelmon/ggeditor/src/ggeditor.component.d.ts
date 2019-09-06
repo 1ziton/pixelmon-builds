@@ -14,7 +14,7 @@ export declare class GGEditorComponent implements OnInit, OnDestroy, OnChanges, 
     onLoadingChanged?: any;
     onError?: any;
     rootDomID: string;
-    protected getRootDomNode(): HTMLElement | null;
+    protected getRootDomNode(): HTMLElement;
     protected getProps(): FlowProps | MindProps;
     private isMounted;
     protected render(): void;

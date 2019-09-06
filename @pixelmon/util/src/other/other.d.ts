@@ -12,3 +12,11 @@ export declare function deepCopy(obj: any): any;
 export declare function copy(value: string): Promise<string>;
 export declare function deepMergeKey(original: any, ingoreArray: boolean, ...objects: any[]): any;
 export declare function deepMerge(original: any, ...objects: any[]): any;
+/**
+ * val值为空字符，null，undefined
+ */
+export declare const isEmptyVal: (val: any) => boolean;
+/**
+ * 有效的值
+ */
+export declare const isValidVal: (val: any) => boolean;

@@ -263,6 +263,30 @@ function deepMergeKey(original, ingoreArray, ...objects) {
 function deepMerge(original, ...objects) {
     return deepMergeKey(original, false, ...objects);
 }
+/**
+ * val值为空字符，null，undefined
+ * @type {?}
+ */
+const isEmptyVal = (/**
+ * @param {?} val
+ * @return {?}
+ */
+val => {
+    /** @type {?} */
+    const arr = [undefined, null, ''];
+    return arr.includes(val);
+});
+/**
+ * 有效的值
+ * @type {?}
+ */
+const isValidVal = (/**
+ * @param {?} val
+ * @return {?}
+ */
+val => {
+    return !isEmptyVal(val) && !['null', 'undefined'].includes(val);
+});
 
 /**
  * @fileoverview added by tsickle
@@ -294,6 +318,81 @@ function format(str, obj, needDeepGet = false) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * toFixed 解决js精度问题，使用方式：toFixed(value)
+ * \@param <Number | String> value
+ * \@param <Number> precision 精度，默认2位小数，需要取整则传0
+ * 该方法会处理好以下这些问题：
+ * 1.12*100=112.00000000000001
+ * 1.13*100=112.9999999999999
+ * '0.015'.toFixed(2)结果为0.01
+ * 1121.1/100 = 11.210999999999999
+ * @type {?}
+ */
+const toFixed = (/**
+ * @param {?} value
+ * @param {?=} precision
+ * @return {?}
+ */
+(value, precision = 2) => {
+    /** @type {?} */
+    const num = Number(value);
+    if (Number.isNaN(num)) {
+        return 0;
+    }
+    if (num < Math.pow(-2, 31) || num > Math.pow(2, 31) - 1) {
+        return 0;
+    }
+    // console.log(num, precision)
+    if (precision < 0 || typeof precision !== 'number') {
+        return value;
+    }
+    else if (precision > 0) {
+        return Math.round(num * Math.pow(10, precision)) / Math.pow(10, precision);
+    }
+    return Math.round(num);
+});
+/**
+ * 单位为元数值转为分
+ * \@param <Number> value
+ * @type {?}
+ */
+const toCentNumber = (/**
+ * @param {?} value
+ * @return {?}
+ */
+value => {
+    /** @type {?} */
+    const num = Number(value);
+    if (Number.isNaN(num)) {
+        return 0;
+    }
+    return toFixed(num * 100, 0);
+});
+/**
+ * 分数值数值转为元
+ * \@param <Number> centval 分为单位
+ * \@param <Number> precision 精度，默认2位小数
+ * @type {?}
+ */
+const toYuanNumber = (/**
+ * @param {?} centval
+ * @param {?=} precision
+ * @return {?}
+ */
+(centval, precision = 2) => {
+    /** @type {?} */
+    const num = Number(centval);
+    if (Number.isNaN(num)) {
+        return 0;
+    }
+    return toFixed(num / 100, precision);
+});
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 /** @type {?} */
 const uuid = v4;
 uuid.v1 = v1;
@@ -308,6 +407,797 @@ const uuidv3 = v3;
 const uuidv4 = v4;
 /** @type {?} */
 const uuidv5 = v5;
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @author: giscafer ,https://github.com/giscafer
+ * @date: 2019-09-05 10:57:44
+ * @description: DOM操作工具类
+ * copy form : https://github.com/primefaces/primeng/blob/master/src/app/components/dom/domhandler.spec.ts
+ */
+class DomHandler {
+    /**
+     * @param {?} element
+     * @param {?} className
+     * @return {?}
+     */
+    static addClass(element, className) {
+        if (element.classList)
+            element.classList.add(className);
+        else
+            element.className += ' ' + className;
+    }
+    /**
+     * @param {?} element
+     * @param {?} className
+     * @return {?}
+     */
+    static addMultipleClasses(element, className) {
+        if (element.classList) {
+            /** @type {?} */
+            const styles = className.split(' ');
+            for (const style of styles) {
+                element.classList.add(style);
+            }
+        }
+        else {
+            /** @type {?} */
+            const styles = className.split(' ');
+            for (const style of styles) {
+                element.className += ' ' + style;
+            }
+        }
+    }
+    /**
+     * @param {?} element
+     * @param {?} className
+     * @return {?}
+     */
+    static removeClass(element, className) {
+        if (element.classList)
+            element.classList.remove(className);
+        else
+            element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+    }
+    /**
+     * @param {?} element
+     * @param {?} className
+     * @return {?}
+     */
+    static hasClass(element, className) {
+        if (element.classList)
+            return element.classList.contains(className);
+        else
+            return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
+    }
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    static siblings(element) {
+        return Array.prototype.filter.call(element.parentNode.children, (/**
+         * @param {?} child
+         * @return {?}
+         */
+        child => {
+            return child !== element;
+        }));
+    }
+    /**
+     * @param {?} element
+     * @param {?} selector
+     * @return {?}
+     */
+    static find(element, selector) {
+        return Array.from(element.querySelectorAll(selector));
+    }
+    /**
+     * @param {?} element
+     * @param {?} selector
+     * @return {?}
+     */
+    static findSingle(element, selector) {
+        if (element) {
+            return element.querySelector(selector);
+        }
+        return null;
+    }
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    static index(element) {
+        /** @type {?} */
+        const children = element.parentNode.childNodes;
+        /** @type {?} */
+        let num = 0;
+        // tslint:disable-next-line: prefer-for-of
+        for (let i = 0; i < children.length; i++) {
+            if (children[i] === element)
+                return num;
+            if (children[i].nodeType === 1)
+                num++;
+        }
+        return -1;
+    }
+    /**
+     * @param {?} element
+     * @param {?} attributeName
+     * @return {?}
+     */
+    static indexWithinGroup(element, attributeName) {
+        /** @type {?} */
+        const children = element.parentNode.childNodes;
+        /** @type {?} */
+        let num = 0;
+        // tslint:disable-next-line: prefer-for-of
+        for (let i = 0; i < children.length; i++) {
+            if (children[i] === element)
+                return num;
+            if (children[i].attributes && children[i].attributes[attributeName] && children[i].nodeType === 1)
+                num++;
+        }
+        return -1;
+    }
+    /**
+     * @param {?} element
+     * @param {?} target
+     * @return {?}
+     */
+    static relativePosition(element, target) {
+        /** @type {?} */
+        const elementDimensions = element.offsetParent
+            ? { width: element.offsetWidth, height: element.offsetHeight }
+            : this.getHiddenElementDimensions(element);
+        /** @type {?} */
+        const targetHeight = target.offsetHeight;
+        /** @type {?} */
+        const targetOffset = target.getBoundingClientRect();
+        /** @type {?} */
+        const viewport = this.getViewport();
+        // tslint:disable-next-line: one-variable-per-declaration
+        /** @type {?} */
+        let top;
+        /** @type {?} */
+        let left;
+        if (targetOffset.top + targetHeight + elementDimensions.height > viewport.height) {
+            top = -1 * elementDimensions.height;
+            if (targetOffset.top + top < 0) {
+                top = -1 * targetOffset.top;
+            }
+        }
+        else {
+            top = targetHeight;
+        }
+        if (elementDimensions.width > viewport.width) {
+            // element wider then viewport and cannot fit on screen (align at left side of viewport)
+            left = targetOffset.left * -1;
+        }
+        else if (targetOffset.left + elementDimensions.width > viewport.width) {
+            // element wider then viewport but can be fit on screen (align at right side of viewport)
+            left = (targetOffset.left + elementDimensions.width - viewport.width) * -1;
+        }
+        else {
+            // element fits on screen (align with target)
+            left = 0;
+        }
+        element.style.top = top + 'px';
+        element.style.left = left + 'px';
+    }
+    /**
+     * @param {?} element
+     * @param {?} target
+     * @return {?}
+     */
+    static absolutePosition(element, target) {
+        /** @type {?} */
+        const elementDimensions = element.offsetParent
+            ? { width: element.offsetWidth, height: element.offsetHeight }
+            : this.getHiddenElementDimensions(element);
+        /** @type {?} */
+        const elementOuterHeight = elementDimensions.height;
+        /** @type {?} */
+        const elementOuterWidth = elementDimensions.width;
+        /** @type {?} */
+        const targetOuterHeight = target.offsetHeight;
+        /** @type {?} */
+        const targetOuterWidth = target.offsetWidth;
+        /** @type {?} */
+        const targetOffset = target.getBoundingClientRect();
+        /** @type {?} */
+        const windowScrollTop = this.getWindowScrollTop();
+        /** @type {?} */
+        const windowScrollLeft = this.getWindowScrollLeft();
+        /** @type {?} */
+        const viewport = this.getViewport();
+        // tslint:disable-next-line: one-variable-per-declaration
+        /** @type {?} */
+        let top;
+        /** @type {?} */
+        let left;
+        if (targetOffset.top + targetOuterHeight + elementOuterHeight > viewport.height) {
+            top = targetOffset.top + windowScrollTop - elementOuterHeight;
+            if (top < 0) {
+                top = windowScrollTop;
+            }
+        }
+        else {
+            top = targetOuterHeight + targetOffset.top + windowScrollTop;
+        }
+        if (targetOffset.left + elementOuterWidth > viewport.width)
+            left = Math.max(0, targetOffset.left + windowScrollLeft + targetOuterWidth - elementOuterWidth);
+        else
+            left = targetOffset.left + windowScrollLeft;
+        element.style.top = top + 'px';
+        element.style.left = left + 'px';
+    }
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    static getHiddenElementOuterHeight(element) {
+        element.style.visibility = 'hidden';
+        element.style.display = 'block';
+        /** @type {?} */
+        const elementHeight = element.offsetHeight;
+        element.style.display = 'none';
+        element.style.visibility = 'visible';
+        return elementHeight;
+    }
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    static getHiddenElementOuterWidth(element) {
+        element.style.visibility = 'hidden';
+        element.style.display = 'block';
+        /** @type {?} */
+        const elementWidth = element.offsetWidth;
+        element.style.display = 'none';
+        element.style.visibility = 'visible';
+        return elementWidth;
+    }
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    static getHiddenElementDimensions(element) {
+        /** @type {?} */
+        const dimensions = {};
+        element.style.visibility = 'hidden';
+        element.style.display = 'block';
+        dimensions.width = element.offsetWidth;
+        dimensions.height = element.offsetHeight;
+        element.style.display = 'none';
+        element.style.visibility = 'visible';
+        return dimensions;
+    }
+    /**
+     * @param {?} container
+     * @param {?} item
+     * @return {?}
+     */
+    static scrollInView(container, item) {
+        /** @type {?} */
+        const borderTopValue = getComputedStyle(container).getPropertyValue('borderTopWidth');
+        /** @type {?} */
+        const borderTop = borderTopValue ? parseFloat(borderTopValue) : 0;
+        /** @type {?} */
+        const paddingTopValue = getComputedStyle(container).getPropertyValue('paddingTop');
+        /** @type {?} */
+        const paddingTop = paddingTopValue ? parseFloat(paddingTopValue) : 0;
+        /** @type {?} */
+        const containerRect = container.getBoundingClientRect();
+        /** @type {?} */
+        const itemRect = item.getBoundingClientRect();
+        /** @type {?} */
+        const offset = itemRect.top + document.body.scrollTop - (containerRect.top + document.body.scrollTop) - borderTop - paddingTop;
+        /** @type {?} */
+        const scroll = container.scrollTop;
+        /** @type {?} */
+        const elementHeight = container.clientHeight;
+        /** @type {?} */
+        const itemHeight = this.getOuterHeight(item);
+        if (offset < 0) {
+            container.scrollTop = scroll + offset;
+        }
+        else if (offset + itemHeight > elementHeight) {
+            container.scrollTop = scroll + offset - elementHeight + itemHeight;
+        }
+    }
+    /**
+     * @param {?} element
+     * @param {?} duration
+     * @return {?}
+     */
+    static fadeIn(element, duration) {
+        element.style.opacity = 0;
+        /** @type {?} */
+        let last = +new Date();
+        /** @type {?} */
+        let opacity = 0;
+        /** @type {?} */
+        const tick = (/**
+         * @return {?}
+         */
+        () => {
+            opacity = +element.style.opacity.replace(',', '.') + (new Date().getTime() - last) / duration;
+            element.style.opacity = opacity;
+            last = +new Date();
+            if (+opacity < 1) {
+                // tslint:disable-next-line: no-unused-expression
+                (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+            }
+        });
+        tick();
+    }
+    /**
+     * @param {?} element
+     * @param {?} ms
+     * @return {?}
+     */
+    static fadeOut(element, ms) {
+        /** @type {?} */
+        let opacity = 1;
+        /** @type {?} */
+        const interval = 50;
+        /** @type {?} */
+        const duration = ms;
+        /** @type {?} */
+        const gap = interval / duration;
+        /** @type {?} */
+        const fading = setInterval((/**
+         * @return {?}
+         */
+        () => {
+            opacity = opacity - gap;
+            if (opacity <= 0) {
+                opacity = 0;
+                clearInterval(fading);
+            }
+            element.style.opacity = opacity;
+        }), interval);
+    }
+    /**
+     * @return {?}
+     */
+    static getWindowScrollTop() {
+        /** @type {?} */
+        const doc = document.documentElement;
+        return (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+    }
+    /**
+     * @return {?}
+     */
+    static getWindowScrollLeft() {
+        /** @type {?} */
+        const doc = document.documentElement;
+        return (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
+    }
+    /**
+     * @param {?} element
+     * @param {?} selector
+     * @return {?}
+     */
+    static matches(element, selector) {
+        /** @type {?} */
+        const p = Element.prototype;
+        /** @type {?} */
+        const f = p.matches ||
+            p.webkitMatchesSelector ||
+            p.mozMatchesSelector ||
+            p.msMatchesSelector ||
+            (/**
+             * @param {?} s
+             * @return {?}
+             */
+            function (s) {
+                return [].indexOf.call(document.querySelectorAll(s), this) !== -1;
+            });
+        return f.call(element, selector);
+    }
+    /**
+     * @param {?} el
+     * @param {?=} margin
+     * @return {?}
+     */
+    static getOuterWidth(el, margin) {
+        /** @type {?} */
+        let width = el.offsetWidth;
+        if (margin) {
+            /** @type {?} */
+            const style = getComputedStyle(el);
+            width += parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+        }
+        return width;
+    }
+    /**
+     * @param {?} el
+     * @return {?}
+     */
+    static getHorizontalPadding(el) {
+        /** @type {?} */
+        const style = getComputedStyle(el);
+        return parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+    }
+    /**
+     * @param {?} el
+     * @return {?}
+     */
+    static getHorizontalMargin(el) {
+        /** @type {?} */
+        const style = getComputedStyle(el);
+        return parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+    }
+    /**
+     * @param {?} el
+     * @return {?}
+     */
+    static innerWidth(el) {
+        /** @type {?} */
+        let width = el.offsetWidth;
+        /** @type {?} */
+        const style = getComputedStyle(el);
+        width += parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+        return width;
+    }
+    /**
+     * @param {?} el
+     * @return {?}
+     */
+    static width(el) {
+        /** @type {?} */
+        let width = el.offsetWidth;
+        /** @type {?} */
+        const style = getComputedStyle(el);
+        width -= parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+        return width;
+    }
+    /**
+     * @param {?} el
+     * @return {?}
+     */
+    static getInnerHeight(el) {
+        /** @type {?} */
+        let height = el.offsetHeight;
+        /** @type {?} */
+        const style = getComputedStyle(el);
+        height += parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
+        return height;
+    }
+    /**
+     * @param {?} el
+     * @param {?=} margin
+     * @return {?}
+     */
+    static getOuterHeight(el, margin) {
+        /** @type {?} */
+        let height = el.offsetHeight;
+        if (margin) {
+            /** @type {?} */
+            const style = getComputedStyle(el);
+            height += parseFloat(style.marginTop) + parseFloat(style.marginBottom);
+        }
+        return height;
+    }
+    /**
+     * @param {?} el
+     * @return {?}
+     */
+    static getHeight(el) {
+        /** @type {?} */
+        let height = el.offsetHeight;
+        /** @type {?} */
+        const style = getComputedStyle(el);
+        height -=
+            parseFloat(style.paddingTop) +
+                parseFloat(style.paddingBottom) +
+                parseFloat(style.borderTopWidth) +
+                parseFloat(style.borderBottomWidth);
+        return height;
+    }
+    /**
+     * @param {?} el
+     * @return {?}
+     */
+    static getWidth(el) {
+        /** @type {?} */
+        let width = el.offsetWidth;
+        /** @type {?} */
+        const style = getComputedStyle(el);
+        width -=
+            parseFloat(style.paddingLeft) +
+                parseFloat(style.paddingRight) +
+                parseFloat(style.borderLeftWidth) +
+                parseFloat(style.borderRightWidth);
+        return width;
+    }
+    /**
+     * @return {?}
+     */
+    static getViewport() {
+        // tslint:disable-next-line: one-variable-per-declaration
+        /** @type {?} */
+        const win = window;
+        /** @type {?} */
+        const d = document;
+        /** @type {?} */
+        const e = d.documentElement;
+        /** @type {?} */
+        const g = d.getElementsByTagName('body')[0];
+        /** @type {?} */
+        const w = win.innerWidth || e.clientWidth || g.clientWidth;
+        /** @type {?} */
+        const h = win.innerHeight || e.clientHeight || g.clientHeight;
+        return { width: w, height: h };
+    }
+    /**
+     * @param {?} el
+     * @return {?}
+     */
+    static getOffset(el) {
+        /** @type {?} */
+        const rect = el.getBoundingClientRect();
+        return {
+            top: rect.top + document.body.scrollTop,
+            left: rect.left + document.body.scrollLeft,
+        };
+    }
+    /**
+     * @param {?} element
+     * @param {?} replacementElement
+     * @return {?}
+     */
+    static replaceElementWith(element, replacementElement) {
+        /** @type {?} */
+        const parentNode = element.parentNode;
+        if (!parentNode)
+            throw new Error(`Can't replace element`);
+        return parentNode.replaceChild(replacementElement, element);
+    }
+    /**
+     * @return {?}
+     */
+    static getUserAgent() {
+        return navigator.userAgent;
+    }
+    /**
+     * @return {?}
+     */
+    static isIE() {
+        /** @type {?} */
+        const ua = window.navigator.userAgent;
+        /** @type {?} */
+        const msie = ua.indexOf('MSIE ');
+        if (msie > 0) {
+            // IE 10 or older => return version number
+            return true;
+        }
+        /** @type {?} */
+        const trident = ua.indexOf('Trident/');
+        if (trident > 0) {
+            // IE 11 => return version number
+            //   const rv = ua.indexOf('rv:');
+            return true;
+        }
+        /** @type {?} */
+        const edge = ua.indexOf('Edge/');
+        if (edge > 0) {
+            // Edge (IE 12+) => return version number
+            return true;
+        }
+        // other browser
+        return false;
+    }
+    /**
+     * @return {?}
+     */
+    static isIOS() {
+        return /iPad|iPhone|iPod/.test(navigator.userAgent) && !((/** @type {?} */ (window))).MSStream;
+    }
+    /**
+     * @return {?}
+     */
+    static isAndroid() {
+        return /(android)/i.test(navigator.userAgent);
+    }
+    /**
+     * @param {?} element
+     * @param {?} target
+     * @return {?}
+     */
+    static appendChild(element, target) {
+        if (this.isElement(target))
+            target.appendChild(element);
+        else if (target.el && target.el.nativeElement)
+            target.el.nativeElement.appendChild(element);
+        else
+            throw new Error('Cannot append ' + target + ' to ' + element);
+    }
+    /**
+     * @param {?} element
+     * @param {?} target
+     * @return {?}
+     */
+    static removeChild(element, target) {
+        if (this.isElement(target))
+            target.removeChild(element);
+        else if (target.el && target.el.nativeElement)
+            target.el.nativeElement.removeChild(element);
+        else
+            throw new Error('Cannot remove ' + element + ' from ' + target);
+    }
+    /**
+     * @param {?} obj
+     * @return {?}
+     */
+    static isElement(obj) {
+        return typeof HTMLElement === 'object'
+            ? obj instanceof HTMLElement
+            : obj && typeof obj === 'object' && obj !== null && obj.nodeType === 1 && typeof obj.nodeName === 'string';
+    }
+    /**
+     * @param {?=} el
+     * @return {?}
+     */
+    static calculateScrollbarWidth(el) {
+        if (el) {
+            /** @type {?} */
+            const style = getComputedStyle(el) || {};
+            return el.offsetWidth - el.clientWidth - parseFloat(style.borderLeftWidth) - parseFloat(style.borderRightWidth);
+        }
+        else {
+            if (this.calculatedScrollbarWidth || this.calculatedScrollbarWidth === 0) {
+                return this.calculatedScrollbarWidth;
+            }
+            /** @type {?} */
+            const scrollDiv = document.createElement('div');
+            scrollDiv.className = 'ui-scrollbar-measure';
+            document.body.appendChild(scrollDiv);
+            /** @type {?} */
+            const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+            document.body.removeChild(scrollDiv);
+            this.calculatedScrollbarWidth = scrollbarWidth;
+            return scrollbarWidth;
+        }
+    }
+    /**
+     * @return {?}
+     */
+    static calculateScrollbarHeight() {
+        if (this.calculatedScrollbarHeight || this.calculatedScrollbarHeight === 0) {
+            return this.calculatedScrollbarHeight;
+        }
+        /** @type {?} */
+        const scrollDiv = document.createElement('div');
+        scrollDiv.className = 'ui-scrollbar-measure';
+        document.body.appendChild(scrollDiv);
+        /** @type {?} */
+        const scrollbarHeight = scrollDiv.offsetHeight - scrollDiv.clientHeight;
+        document.body.removeChild(scrollDiv);
+        this.calculatedScrollbarWidth = scrollbarHeight;
+        return scrollbarHeight;
+    }
+    /**
+     * @param {?} element
+     * @param {?} methodName
+     * @param {?=} args
+     * @return {?}
+     */
+    static invokeElementMethod(element, methodName, args) {
+        ((/** @type {?} */ (element)))[methodName].apply(element, args);
+    }
+    /**
+     * @return {?}
+     */
+    static clearSelection() {
+        /** @type {?} */
+        const selection1 = ((/** @type {?} */ (document))).selection;
+        if (window.getSelection) {
+            /** @type {?} */
+            const selection = window.getSelection() || {};
+            if (selection.empty) {
+                selection.empty();
+            }
+            else if (selection.removeAllRanges && selection.rangeCount > 0 && selection.getRangeAt(0).getClientRects().length > 0) {
+                selection().removeAllRanges();
+            }
+        }
+        else if (selection1.selection && selection1.empty) {
+            try {
+                selection1.empty();
+            }
+            catch (error) {
+                // ignore IE bug
+            }
+        }
+    }
+    /**
+     * @return {?}
+     */
+    static getBrowser() {
+        if (!this.browser) {
+            /** @type {?} */
+            const matched = this.resolveUserAgent();
+            this.browser = {};
+            if (matched.browser) {
+                this.browser[matched.browser] = true;
+                this.browser.version = matched.version;
+            }
+            if (this.browser.chrome) {
+                this.browser.webkit = true;
+            }
+            else if (this.browser.webkit) {
+                this.browser.safari = true;
+            }
+        }
+        return this.browser;
+    }
+    /**
+     * @return {?}
+     */
+    static resolveUserAgent() {
+        /** @type {?} */
+        const ua = navigator.userAgent.toLowerCase();
+        /** @type {?} */
+        const match = /(chrome)[ \/]([\w.]+)/.exec(ua) ||
+            /(webkit)[ \/]([\w.]+)/.exec(ua) ||
+            /(opera)(?:.*version|)[ \/]([\w.]+)/.exec(ua) ||
+            /(msie) ([\w.]+)/.exec(ua) ||
+            (ua.indexOf('compatible') < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec(ua)) ||
+            [];
+        return {
+            browser: match[1] || '',
+            version: match[2] || '0',
+        };
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    static isInteger(value) {
+        if (Number.isInteger) {
+            return Number.isInteger(value);
+        }
+        else {
+            return typeof value === 'number' && isFinite(value) && Math.floor(value) === value;
+        }
+    }
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    static isHidden(element) {
+        /** @type {?} */
+        const cssStyles = window.getComputedStyle(element);
+        /** @type {?} */
+        const position = cssStyles.getPropertyValue('position');
+        return element.offsetParent === null && position !== 'fixed';
+    }
+}
+DomHandler.zindex = 1000;
+if (false) {
+    /** @type {?} */
+    DomHandler.zindex;
+    /**
+     * @type {?}
+     * @private
+     */
+    DomHandler.calculatedScrollbarWidth;
+    /**
+     * @type {?}
+     * @private
+     */
+    DomHandler.calculatedScrollbarHeight;
+    /**
+     * @type {?}
+     * @private
+     */
+    DomHandler.browser;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -1309,5 +2199,5 @@ PixelmonUtilModule.decorators = [
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
-export { ArrayService, InputBoolean, InputNumber, LazyService, PixelmonUtilConfig, PixelmonUtilModule, StringTemplateOutletDirective, _Validators, copy, deepCopy, deepGet, deepMerge, deepMergeKey, fixEndTimeOfRange, format, getTimeDistance, isDecimal, isEmpty, isIdCard, isInt, isMobile, isNum, isUrl, toBoolean, toNumber, updateHostClass, uuidv1, uuidv3, uuidv4, uuidv5 };
+export { ArrayService, DomHandler, InputBoolean, InputNumber, LazyService, PixelmonUtilConfig, PixelmonUtilModule, StringTemplateOutletDirective, _Validators, copy, deepCopy, deepGet, deepMerge, deepMergeKey, fixEndTimeOfRange, format, getTimeDistance, isDecimal, isEmpty, isEmptyVal, isIdCard, isInt, isMobile, isNum, isUrl, isValidVal, toBoolean, toCentNumber, toFixed, toNumber, toYuanNumber, updateHostClass, uuidv1, uuidv3, uuidv4, uuidv5 };
 //# sourceMappingURL=util.js.map

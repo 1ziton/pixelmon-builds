@@ -1,5 +1,5 @@
 import { TemplateRef, Directive, ViewContainerRef, Input, Injectable, Inject, ɵɵdefineInjectable, ɵɵinject, NgModule } from '@angular/core';
-import { __spread, __assign, __values } from 'tslib';
+import { __spread, __values, __assign } from 'tslib';
 import extend from 'extend';
 import v1 from 'uuid/v1';
 import v3 from 'uuid/v3';
@@ -276,6 +276,30 @@ function deepMerge(original) {
     }
     return deepMergeKey.apply(void 0, __spread([original, false], objects));
 }
+/**
+ * val值为空字符，null，undefined
+ * @type {?}
+ */
+var isEmptyVal = (/**
+ * @param {?} val
+ * @return {?}
+ */
+function (val) {
+    /** @type {?} */
+    var arr = [undefined, null, ''];
+    return arr.includes(val);
+});
+/**
+ * 有效的值
+ * @type {?}
+ */
+var isValidVal = (/**
+ * @param {?} val
+ * @return {?}
+ */
+function (val) {
+    return !isEmptyVal(val) && !['null', 'undefined'].includes(val);
+});
 
 /**
  * @fileoverview added by tsickle
@@ -310,6 +334,83 @@ function format(str, obj, needDeepGet) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * toFixed 解决js精度问题，使用方式：toFixed(value)
+ * \@param <Number | String> value
+ * \@param <Number> precision 精度，默认2位小数，需要取整则传0
+ * 该方法会处理好以下这些问题：
+ * 1.12*100=112.00000000000001
+ * 1.13*100=112.9999999999999
+ * '0.015'.toFixed(2)结果为0.01
+ * 1121.1/100 = 11.210999999999999
+ * @type {?}
+ */
+var toFixed = (/**
+ * @param {?} value
+ * @param {?=} precision
+ * @return {?}
+ */
+function (value, precision) {
+    if (precision === void 0) { precision = 2; }
+    /** @type {?} */
+    var num = Number(value);
+    if (Number.isNaN(num)) {
+        return 0;
+    }
+    if (num < Math.pow(-2, 31) || num > Math.pow(2, 31) - 1) {
+        return 0;
+    }
+    // console.log(num, precision)
+    if (precision < 0 || typeof precision !== 'number') {
+        return value;
+    }
+    else if (precision > 0) {
+        return Math.round(num * Math.pow(10, precision)) / Math.pow(10, precision);
+    }
+    return Math.round(num);
+});
+/**
+ * 单位为元数值转为分
+ * \@param <Number> value
+ * @type {?}
+ */
+var toCentNumber = (/**
+ * @param {?} value
+ * @return {?}
+ */
+function (value) {
+    /** @type {?} */
+    var num = Number(value);
+    if (Number.isNaN(num)) {
+        return 0;
+    }
+    return toFixed(num * 100, 0);
+});
+/**
+ * 分数值数值转为元
+ * \@param <Number> centval 分为单位
+ * \@param <Number> precision 精度，默认2位小数
+ * @type {?}
+ */
+var toYuanNumber = (/**
+ * @param {?} centval
+ * @param {?=} precision
+ * @return {?}
+ */
+function (centval, precision) {
+    if (precision === void 0) { precision = 2; }
+    /** @type {?} */
+    var num = Number(centval);
+    if (Number.isNaN(num)) {
+        return 0;
+    }
+    return toFixed(num / 100, precision);
+});
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 /** @type {?} */
 var uuid = v4;
 uuid.v1 = v1;
@@ -324,6 +425,1018 @@ var uuidv3 = v3;
 var uuidv4 = v4;
 /** @type {?} */
 var uuidv5 = v5;
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @author: giscafer ,https://github.com/giscafer
+ * @date: 2019-09-05 10:57:44
+ * @description: DOM操作工具类
+ * copy form : https://github.com/primefaces/primeng/blob/master/src/app/components/dom/domhandler.spec.ts
+ */
+var DomHandler = /** @class */ (function () {
+    function DomHandler() {
+    }
+    /**
+     * @param {?} element
+     * @param {?} className
+     * @return {?}
+     */
+    DomHandler.addClass = /**
+     * @param {?} element
+     * @param {?} className
+     * @return {?}
+     */
+    function (element, className) {
+        if (element.classList)
+            element.classList.add(className);
+        else
+            element.className += ' ' + className;
+    };
+    /**
+     * @param {?} element
+     * @param {?} className
+     * @return {?}
+     */
+    DomHandler.addMultipleClasses = /**
+     * @param {?} element
+     * @param {?} className
+     * @return {?}
+     */
+    function (element, className) {
+        var e_1, _a, e_2, _b;
+        if (element.classList) {
+            /** @type {?} */
+            var styles = className.split(' ');
+            try {
+                for (var styles_1 = __values(styles), styles_1_1 = styles_1.next(); !styles_1_1.done; styles_1_1 = styles_1.next()) {
+                    var style = styles_1_1.value;
+                    element.classList.add(style);
+                }
+            }
+            catch (e_1_1) { e_1 = { error: e_1_1 }; }
+            finally {
+                try {
+                    if (styles_1_1 && !styles_1_1.done && (_a = styles_1.return)) _a.call(styles_1);
+                }
+                finally { if (e_1) throw e_1.error; }
+            }
+        }
+        else {
+            /** @type {?} */
+            var styles = className.split(' ');
+            try {
+                for (var styles_2 = __values(styles), styles_2_1 = styles_2.next(); !styles_2_1.done; styles_2_1 = styles_2.next()) {
+                    var style = styles_2_1.value;
+                    element.className += ' ' + style;
+                }
+            }
+            catch (e_2_1) { e_2 = { error: e_2_1 }; }
+            finally {
+                try {
+                    if (styles_2_1 && !styles_2_1.done && (_b = styles_2.return)) _b.call(styles_2);
+                }
+                finally { if (e_2) throw e_2.error; }
+            }
+        }
+    };
+    /**
+     * @param {?} element
+     * @param {?} className
+     * @return {?}
+     */
+    DomHandler.removeClass = /**
+     * @param {?} element
+     * @param {?} className
+     * @return {?}
+     */
+    function (element, className) {
+        if (element.classList)
+            element.classList.remove(className);
+        else
+            element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+    };
+    /**
+     * @param {?} element
+     * @param {?} className
+     * @return {?}
+     */
+    DomHandler.hasClass = /**
+     * @param {?} element
+     * @param {?} className
+     * @return {?}
+     */
+    function (element, className) {
+        if (element.classList)
+            return element.classList.contains(className);
+        else
+            return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
+    };
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    DomHandler.siblings = /**
+     * @param {?} element
+     * @return {?}
+     */
+    function (element) {
+        return Array.prototype.filter.call(element.parentNode.children, (/**
+         * @param {?} child
+         * @return {?}
+         */
+        function (child) {
+            return child !== element;
+        }));
+    };
+    /**
+     * @param {?} element
+     * @param {?} selector
+     * @return {?}
+     */
+    DomHandler.find = /**
+     * @param {?} element
+     * @param {?} selector
+     * @return {?}
+     */
+    function (element, selector) {
+        return Array.from(element.querySelectorAll(selector));
+    };
+    /**
+     * @param {?} element
+     * @param {?} selector
+     * @return {?}
+     */
+    DomHandler.findSingle = /**
+     * @param {?} element
+     * @param {?} selector
+     * @return {?}
+     */
+    function (element, selector) {
+        if (element) {
+            return element.querySelector(selector);
+        }
+        return null;
+    };
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    DomHandler.index = /**
+     * @param {?} element
+     * @return {?}
+     */
+    function (element) {
+        /** @type {?} */
+        var children = element.parentNode.childNodes;
+        /** @type {?} */
+        var num = 0;
+        // tslint:disable-next-line: prefer-for-of
+        for (var i = 0; i < children.length; i++) {
+            if (children[i] === element)
+                return num;
+            if (children[i].nodeType === 1)
+                num++;
+        }
+        return -1;
+    };
+    /**
+     * @param {?} element
+     * @param {?} attributeName
+     * @return {?}
+     */
+    DomHandler.indexWithinGroup = /**
+     * @param {?} element
+     * @param {?} attributeName
+     * @return {?}
+     */
+    function (element, attributeName) {
+        /** @type {?} */
+        var children = element.parentNode.childNodes;
+        /** @type {?} */
+        var num = 0;
+        // tslint:disable-next-line: prefer-for-of
+        for (var i = 0; i < children.length; i++) {
+            if (children[i] === element)
+                return num;
+            if (children[i].attributes && children[i].attributes[attributeName] && children[i].nodeType === 1)
+                num++;
+        }
+        return -1;
+    };
+    /**
+     * @param {?} element
+     * @param {?} target
+     * @return {?}
+     */
+    DomHandler.relativePosition = /**
+     * @param {?} element
+     * @param {?} target
+     * @return {?}
+     */
+    function (element, target) {
+        /** @type {?} */
+        var elementDimensions = element.offsetParent
+            ? { width: element.offsetWidth, height: element.offsetHeight }
+            : this.getHiddenElementDimensions(element);
+        /** @type {?} */
+        var targetHeight = target.offsetHeight;
+        /** @type {?} */
+        var targetOffset = target.getBoundingClientRect();
+        /** @type {?} */
+        var viewport = this.getViewport();
+        // tslint:disable-next-line: one-variable-per-declaration
+        /** @type {?} */
+        var top;
+        /** @type {?} */
+        var left;
+        if (targetOffset.top + targetHeight + elementDimensions.height > viewport.height) {
+            top = -1 * elementDimensions.height;
+            if (targetOffset.top + top < 0) {
+                top = -1 * targetOffset.top;
+            }
+        }
+        else {
+            top = targetHeight;
+        }
+        if (elementDimensions.width > viewport.width) {
+            // element wider then viewport and cannot fit on screen (align at left side of viewport)
+            left = targetOffset.left * -1;
+        }
+        else if (targetOffset.left + elementDimensions.width > viewport.width) {
+            // element wider then viewport but can be fit on screen (align at right side of viewport)
+            left = (targetOffset.left + elementDimensions.width - viewport.width) * -1;
+        }
+        else {
+            // element fits on screen (align with target)
+            left = 0;
+        }
+        element.style.top = top + 'px';
+        element.style.left = left + 'px';
+    };
+    /**
+     * @param {?} element
+     * @param {?} target
+     * @return {?}
+     */
+    DomHandler.absolutePosition = /**
+     * @param {?} element
+     * @param {?} target
+     * @return {?}
+     */
+    function (element, target) {
+        /** @type {?} */
+        var elementDimensions = element.offsetParent
+            ? { width: element.offsetWidth, height: element.offsetHeight }
+            : this.getHiddenElementDimensions(element);
+        /** @type {?} */
+        var elementOuterHeight = elementDimensions.height;
+        /** @type {?} */
+        var elementOuterWidth = elementDimensions.width;
+        /** @type {?} */
+        var targetOuterHeight = target.offsetHeight;
+        /** @type {?} */
+        var targetOuterWidth = target.offsetWidth;
+        /** @type {?} */
+        var targetOffset = target.getBoundingClientRect();
+        /** @type {?} */
+        var windowScrollTop = this.getWindowScrollTop();
+        /** @type {?} */
+        var windowScrollLeft = this.getWindowScrollLeft();
+        /** @type {?} */
+        var viewport = this.getViewport();
+        // tslint:disable-next-line: one-variable-per-declaration
+        /** @type {?} */
+        var top;
+        /** @type {?} */
+        var left;
+        if (targetOffset.top + targetOuterHeight + elementOuterHeight > viewport.height) {
+            top = targetOffset.top + windowScrollTop - elementOuterHeight;
+            if (top < 0) {
+                top = windowScrollTop;
+            }
+        }
+        else {
+            top = targetOuterHeight + targetOffset.top + windowScrollTop;
+        }
+        if (targetOffset.left + elementOuterWidth > viewport.width)
+            left = Math.max(0, targetOffset.left + windowScrollLeft + targetOuterWidth - elementOuterWidth);
+        else
+            left = targetOffset.left + windowScrollLeft;
+        element.style.top = top + 'px';
+        element.style.left = left + 'px';
+    };
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    DomHandler.getHiddenElementOuterHeight = /**
+     * @param {?} element
+     * @return {?}
+     */
+    function (element) {
+        element.style.visibility = 'hidden';
+        element.style.display = 'block';
+        /** @type {?} */
+        var elementHeight = element.offsetHeight;
+        element.style.display = 'none';
+        element.style.visibility = 'visible';
+        return elementHeight;
+    };
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    DomHandler.getHiddenElementOuterWidth = /**
+     * @param {?} element
+     * @return {?}
+     */
+    function (element) {
+        element.style.visibility = 'hidden';
+        element.style.display = 'block';
+        /** @type {?} */
+        var elementWidth = element.offsetWidth;
+        element.style.display = 'none';
+        element.style.visibility = 'visible';
+        return elementWidth;
+    };
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    DomHandler.getHiddenElementDimensions = /**
+     * @param {?} element
+     * @return {?}
+     */
+    function (element) {
+        /** @type {?} */
+        var dimensions = {};
+        element.style.visibility = 'hidden';
+        element.style.display = 'block';
+        dimensions.width = element.offsetWidth;
+        dimensions.height = element.offsetHeight;
+        element.style.display = 'none';
+        element.style.visibility = 'visible';
+        return dimensions;
+    };
+    /**
+     * @param {?} container
+     * @param {?} item
+     * @return {?}
+     */
+    DomHandler.scrollInView = /**
+     * @param {?} container
+     * @param {?} item
+     * @return {?}
+     */
+    function (container, item) {
+        /** @type {?} */
+        var borderTopValue = getComputedStyle(container).getPropertyValue('borderTopWidth');
+        /** @type {?} */
+        var borderTop = borderTopValue ? parseFloat(borderTopValue) : 0;
+        /** @type {?} */
+        var paddingTopValue = getComputedStyle(container).getPropertyValue('paddingTop');
+        /** @type {?} */
+        var paddingTop = paddingTopValue ? parseFloat(paddingTopValue) : 0;
+        /** @type {?} */
+        var containerRect = container.getBoundingClientRect();
+        /** @type {?} */
+        var itemRect = item.getBoundingClientRect();
+        /** @type {?} */
+        var offset = itemRect.top + document.body.scrollTop - (containerRect.top + document.body.scrollTop) - borderTop - paddingTop;
+        /** @type {?} */
+        var scroll = container.scrollTop;
+        /** @type {?} */
+        var elementHeight = container.clientHeight;
+        /** @type {?} */
+        var itemHeight = this.getOuterHeight(item);
+        if (offset < 0) {
+            container.scrollTop = scroll + offset;
+        }
+        else if (offset + itemHeight > elementHeight) {
+            container.scrollTop = scroll + offset - elementHeight + itemHeight;
+        }
+    };
+    /**
+     * @param {?} element
+     * @param {?} duration
+     * @return {?}
+     */
+    DomHandler.fadeIn = /**
+     * @param {?} element
+     * @param {?} duration
+     * @return {?}
+     */
+    function (element, duration) {
+        element.style.opacity = 0;
+        /** @type {?} */
+        var last = +new Date();
+        /** @type {?} */
+        var opacity = 0;
+        /** @type {?} */
+        var tick = (/**
+         * @return {?}
+         */
+        function () {
+            opacity = +element.style.opacity.replace(',', '.') + (new Date().getTime() - last) / duration;
+            element.style.opacity = opacity;
+            last = +new Date();
+            if (+opacity < 1) {
+                // tslint:disable-next-line: no-unused-expression
+                (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+            }
+        });
+        tick();
+    };
+    /**
+     * @param {?} element
+     * @param {?} ms
+     * @return {?}
+     */
+    DomHandler.fadeOut = /**
+     * @param {?} element
+     * @param {?} ms
+     * @return {?}
+     */
+    function (element, ms) {
+        /** @type {?} */
+        var opacity = 1;
+        /** @type {?} */
+        var interval = 50;
+        /** @type {?} */
+        var duration = ms;
+        /** @type {?} */
+        var gap = interval / duration;
+        /** @type {?} */
+        var fading = setInterval((/**
+         * @return {?}
+         */
+        function () {
+            opacity = opacity - gap;
+            if (opacity <= 0) {
+                opacity = 0;
+                clearInterval(fading);
+            }
+            element.style.opacity = opacity;
+        }), interval);
+    };
+    /**
+     * @return {?}
+     */
+    DomHandler.getWindowScrollTop = /**
+     * @return {?}
+     */
+    function () {
+        /** @type {?} */
+        var doc = document.documentElement;
+        return (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+    };
+    /**
+     * @return {?}
+     */
+    DomHandler.getWindowScrollLeft = /**
+     * @return {?}
+     */
+    function () {
+        /** @type {?} */
+        var doc = document.documentElement;
+        return (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
+    };
+    /**
+     * @param {?} element
+     * @param {?} selector
+     * @return {?}
+     */
+    DomHandler.matches = /**
+     * @param {?} element
+     * @param {?} selector
+     * @return {?}
+     */
+    function (element, selector) {
+        /** @type {?} */
+        var p = Element.prototype;
+        /** @type {?} */
+        var f = p.matches ||
+            p.webkitMatchesSelector ||
+            p.mozMatchesSelector ||
+            p.msMatchesSelector ||
+            (/**
+             * @param {?} s
+             * @return {?}
+             */
+            function (s) {
+                return [].indexOf.call(document.querySelectorAll(s), this) !== -1;
+            });
+        return f.call(element, selector);
+    };
+    /**
+     * @param {?} el
+     * @param {?=} margin
+     * @return {?}
+     */
+    DomHandler.getOuterWidth = /**
+     * @param {?} el
+     * @param {?=} margin
+     * @return {?}
+     */
+    function (el, margin) {
+        /** @type {?} */
+        var width = el.offsetWidth;
+        if (margin) {
+            /** @type {?} */
+            var style = getComputedStyle(el);
+            width += parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+        }
+        return width;
+    };
+    /**
+     * @param {?} el
+     * @return {?}
+     */
+    DomHandler.getHorizontalPadding = /**
+     * @param {?} el
+     * @return {?}
+     */
+    function (el) {
+        /** @type {?} */
+        var style = getComputedStyle(el);
+        return parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+    };
+    /**
+     * @param {?} el
+     * @return {?}
+     */
+    DomHandler.getHorizontalMargin = /**
+     * @param {?} el
+     * @return {?}
+     */
+    function (el) {
+        /** @type {?} */
+        var style = getComputedStyle(el);
+        return parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+    };
+    /**
+     * @param {?} el
+     * @return {?}
+     */
+    DomHandler.innerWidth = /**
+     * @param {?} el
+     * @return {?}
+     */
+    function (el) {
+        /** @type {?} */
+        var width = el.offsetWidth;
+        /** @type {?} */
+        var style = getComputedStyle(el);
+        width += parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+        return width;
+    };
+    /**
+     * @param {?} el
+     * @return {?}
+     */
+    DomHandler.width = /**
+     * @param {?} el
+     * @return {?}
+     */
+    function (el) {
+        /** @type {?} */
+        var width = el.offsetWidth;
+        /** @type {?} */
+        var style = getComputedStyle(el);
+        width -= parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+        return width;
+    };
+    /**
+     * @param {?} el
+     * @return {?}
+     */
+    DomHandler.getInnerHeight = /**
+     * @param {?} el
+     * @return {?}
+     */
+    function (el) {
+        /** @type {?} */
+        var height = el.offsetHeight;
+        /** @type {?} */
+        var style = getComputedStyle(el);
+        height += parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
+        return height;
+    };
+    /**
+     * @param {?} el
+     * @param {?=} margin
+     * @return {?}
+     */
+    DomHandler.getOuterHeight = /**
+     * @param {?} el
+     * @param {?=} margin
+     * @return {?}
+     */
+    function (el, margin) {
+        /** @type {?} */
+        var height = el.offsetHeight;
+        if (margin) {
+            /** @type {?} */
+            var style = getComputedStyle(el);
+            height += parseFloat(style.marginTop) + parseFloat(style.marginBottom);
+        }
+        return height;
+    };
+    /**
+     * @param {?} el
+     * @return {?}
+     */
+    DomHandler.getHeight = /**
+     * @param {?} el
+     * @return {?}
+     */
+    function (el) {
+        /** @type {?} */
+        var height = el.offsetHeight;
+        /** @type {?} */
+        var style = getComputedStyle(el);
+        height -=
+            parseFloat(style.paddingTop) +
+                parseFloat(style.paddingBottom) +
+                parseFloat(style.borderTopWidth) +
+                parseFloat(style.borderBottomWidth);
+        return height;
+    };
+    /**
+     * @param {?} el
+     * @return {?}
+     */
+    DomHandler.getWidth = /**
+     * @param {?} el
+     * @return {?}
+     */
+    function (el) {
+        /** @type {?} */
+        var width = el.offsetWidth;
+        /** @type {?} */
+        var style = getComputedStyle(el);
+        width -=
+            parseFloat(style.paddingLeft) +
+                parseFloat(style.paddingRight) +
+                parseFloat(style.borderLeftWidth) +
+                parseFloat(style.borderRightWidth);
+        return width;
+    };
+    /**
+     * @return {?}
+     */
+    DomHandler.getViewport = /**
+     * @return {?}
+     */
+    function () {
+        // tslint:disable-next-line: one-variable-per-declaration
+        /** @type {?} */
+        var win = window;
+        /** @type {?} */
+        var d = document;
+        /** @type {?} */
+        var e = d.documentElement;
+        /** @type {?} */
+        var g = d.getElementsByTagName('body')[0];
+        /** @type {?} */
+        var w = win.innerWidth || e.clientWidth || g.clientWidth;
+        /** @type {?} */
+        var h = win.innerHeight || e.clientHeight || g.clientHeight;
+        return { width: w, height: h };
+    };
+    /**
+     * @param {?} el
+     * @return {?}
+     */
+    DomHandler.getOffset = /**
+     * @param {?} el
+     * @return {?}
+     */
+    function (el) {
+        /** @type {?} */
+        var rect = el.getBoundingClientRect();
+        return {
+            top: rect.top + document.body.scrollTop,
+            left: rect.left + document.body.scrollLeft,
+        };
+    };
+    /**
+     * @param {?} element
+     * @param {?} replacementElement
+     * @return {?}
+     */
+    DomHandler.replaceElementWith = /**
+     * @param {?} element
+     * @param {?} replacementElement
+     * @return {?}
+     */
+    function (element, replacementElement) {
+        /** @type {?} */
+        var parentNode = element.parentNode;
+        if (!parentNode)
+            throw new Error("Can't replace element");
+        return parentNode.replaceChild(replacementElement, element);
+    };
+    /**
+     * @return {?}
+     */
+    DomHandler.getUserAgent = /**
+     * @return {?}
+     */
+    function () {
+        return navigator.userAgent;
+    };
+    /**
+     * @return {?}
+     */
+    DomHandler.isIE = /**
+     * @return {?}
+     */
+    function () {
+        /** @type {?} */
+        var ua = window.navigator.userAgent;
+        /** @type {?} */
+        var msie = ua.indexOf('MSIE ');
+        if (msie > 0) {
+            // IE 10 or older => return version number
+            return true;
+        }
+        /** @type {?} */
+        var trident = ua.indexOf('Trident/');
+        if (trident > 0) {
+            // IE 11 => return version number
+            //   const rv = ua.indexOf('rv:');
+            return true;
+        }
+        /** @type {?} */
+        var edge = ua.indexOf('Edge/');
+        if (edge > 0) {
+            // Edge (IE 12+) => return version number
+            return true;
+        }
+        // other browser
+        return false;
+    };
+    /**
+     * @return {?}
+     */
+    DomHandler.isIOS = /**
+     * @return {?}
+     */
+    function () {
+        return /iPad|iPhone|iPod/.test(navigator.userAgent) && !((/** @type {?} */ (window))).MSStream;
+    };
+    /**
+     * @return {?}
+     */
+    DomHandler.isAndroid = /**
+     * @return {?}
+     */
+    function () {
+        return /(android)/i.test(navigator.userAgent);
+    };
+    /**
+     * @param {?} element
+     * @param {?} target
+     * @return {?}
+     */
+    DomHandler.appendChild = /**
+     * @param {?} element
+     * @param {?} target
+     * @return {?}
+     */
+    function (element, target) {
+        if (this.isElement(target))
+            target.appendChild(element);
+        else if (target.el && target.el.nativeElement)
+            target.el.nativeElement.appendChild(element);
+        else
+            throw new Error('Cannot append ' + target + ' to ' + element);
+    };
+    /**
+     * @param {?} element
+     * @param {?} target
+     * @return {?}
+     */
+    DomHandler.removeChild = /**
+     * @param {?} element
+     * @param {?} target
+     * @return {?}
+     */
+    function (element, target) {
+        if (this.isElement(target))
+            target.removeChild(element);
+        else if (target.el && target.el.nativeElement)
+            target.el.nativeElement.removeChild(element);
+        else
+            throw new Error('Cannot remove ' + element + ' from ' + target);
+    };
+    /**
+     * @param {?} obj
+     * @return {?}
+     */
+    DomHandler.isElement = /**
+     * @param {?} obj
+     * @return {?}
+     */
+    function (obj) {
+        return typeof HTMLElement === 'object'
+            ? obj instanceof HTMLElement
+            : obj && typeof obj === 'object' && obj !== null && obj.nodeType === 1 && typeof obj.nodeName === 'string';
+    };
+    /**
+     * @param {?=} el
+     * @return {?}
+     */
+    DomHandler.calculateScrollbarWidth = /**
+     * @param {?=} el
+     * @return {?}
+     */
+    function (el) {
+        if (el) {
+            /** @type {?} */
+            var style = getComputedStyle(el) || {};
+            return el.offsetWidth - el.clientWidth - parseFloat(style.borderLeftWidth) - parseFloat(style.borderRightWidth);
+        }
+        else {
+            if (this.calculatedScrollbarWidth || this.calculatedScrollbarWidth === 0) {
+                return this.calculatedScrollbarWidth;
+            }
+            /** @type {?} */
+            var scrollDiv = document.createElement('div');
+            scrollDiv.className = 'ui-scrollbar-measure';
+            document.body.appendChild(scrollDiv);
+            /** @type {?} */
+            var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+            document.body.removeChild(scrollDiv);
+            this.calculatedScrollbarWidth = scrollbarWidth;
+            return scrollbarWidth;
+        }
+    };
+    /**
+     * @return {?}
+     */
+    DomHandler.calculateScrollbarHeight = /**
+     * @return {?}
+     */
+    function () {
+        if (this.calculatedScrollbarHeight || this.calculatedScrollbarHeight === 0) {
+            return this.calculatedScrollbarHeight;
+        }
+        /** @type {?} */
+        var scrollDiv = document.createElement('div');
+        scrollDiv.className = 'ui-scrollbar-measure';
+        document.body.appendChild(scrollDiv);
+        /** @type {?} */
+        var scrollbarHeight = scrollDiv.offsetHeight - scrollDiv.clientHeight;
+        document.body.removeChild(scrollDiv);
+        this.calculatedScrollbarWidth = scrollbarHeight;
+        return scrollbarHeight;
+    };
+    /**
+     * @param {?} element
+     * @param {?} methodName
+     * @param {?=} args
+     * @return {?}
+     */
+    DomHandler.invokeElementMethod = /**
+     * @param {?} element
+     * @param {?} methodName
+     * @param {?=} args
+     * @return {?}
+     */
+    function (element, methodName, args) {
+        ((/** @type {?} */ (element)))[methodName].apply(element, args);
+    };
+    /**
+     * @return {?}
+     */
+    DomHandler.clearSelection = /**
+     * @return {?}
+     */
+    function () {
+        /** @type {?} */
+        var selection1 = ((/** @type {?} */ (document))).selection;
+        if (window.getSelection) {
+            /** @type {?} */
+            var selection = window.getSelection() || {};
+            if (selection.empty) {
+                selection.empty();
+            }
+            else if (selection.removeAllRanges && selection.rangeCount > 0 && selection.getRangeAt(0).getClientRects().length > 0) {
+                selection().removeAllRanges();
+            }
+        }
+        else if (selection1.selection && selection1.empty) {
+            try {
+                selection1.empty();
+            }
+            catch (error) {
+                // ignore IE bug
+            }
+        }
+    };
+    /**
+     * @return {?}
+     */
+    DomHandler.getBrowser = /**
+     * @return {?}
+     */
+    function () {
+        if (!this.browser) {
+            /** @type {?} */
+            var matched = this.resolveUserAgent();
+            this.browser = {};
+            if (matched.browser) {
+                this.browser[matched.browser] = true;
+                this.browser.version = matched.version;
+            }
+            if (this.browser.chrome) {
+                this.browser.webkit = true;
+            }
+            else if (this.browser.webkit) {
+                this.browser.safari = true;
+            }
+        }
+        return this.browser;
+    };
+    /**
+     * @return {?}
+     */
+    DomHandler.resolveUserAgent = /**
+     * @return {?}
+     */
+    function () {
+        /** @type {?} */
+        var ua = navigator.userAgent.toLowerCase();
+        /** @type {?} */
+        var match = /(chrome)[ \/]([\w.]+)/.exec(ua) ||
+            /(webkit)[ \/]([\w.]+)/.exec(ua) ||
+            /(opera)(?:.*version|)[ \/]([\w.]+)/.exec(ua) ||
+            /(msie) ([\w.]+)/.exec(ua) ||
+            (ua.indexOf('compatible') < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec(ua)) ||
+            [];
+        return {
+            browser: match[1] || '',
+            version: match[2] || '0',
+        };
+    };
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    DomHandler.isInteger = /**
+     * @param {?} value
+     * @return {?}
+     */
+    function (value) {
+        if (Number.isInteger) {
+            return Number.isInteger(value);
+        }
+        else {
+            return typeof value === 'number' && isFinite(value) && Math.floor(value) === value;
+        }
+    };
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    DomHandler.isHidden = /**
+     * @param {?} element
+     * @return {?}
+     */
+    function (element) {
+        /** @type {?} */
+        var cssStyles = window.getComputedStyle(element);
+        /** @type {?} */
+        var position = cssStyles.getPropertyValue('position');
+        return element.offsetParent === null && position !== 'fixed';
+    };
+    DomHandler.zindex = 1000;
+    return DomHandler;
+}());
+if (false) {
+    /** @type {?} */
+    DomHandler.zindex;
+    /**
+     * @type {?}
+     * @private
+     */
+    DomHandler.calculatedScrollbarWidth;
+    /**
+     * @type {?}
+     * @private
+     */
+    DomHandler.calculatedScrollbarHeight;
+    /**
+     * @type {?}
+     * @private
+     */
+    DomHandler.browser;
+}
 
 /**
  * @fileoverview added by tsickle
@@ -1485,5 +2598,5 @@ var PixelmonUtilModule = /** @class */ (function () {
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
-export { ArrayService, InputBoolean, InputNumber, LazyService, PixelmonUtilConfig, PixelmonUtilModule, StringTemplateOutletDirective, _Validators, copy, deepCopy, deepGet, deepMerge, deepMergeKey, fixEndTimeOfRange, format, getTimeDistance, isDecimal, isEmpty, isIdCard, isInt, isMobile, isNum, isUrl, toBoolean, toNumber, updateHostClass, uuidv1, uuidv3, uuidv4, uuidv5 };
+export { ArrayService, DomHandler, InputBoolean, InputNumber, LazyService, PixelmonUtilConfig, PixelmonUtilModule, StringTemplateOutletDirective, _Validators, copy, deepCopy, deepGet, deepMerge, deepMergeKey, fixEndTimeOfRange, format, getTimeDistance, isDecimal, isEmpty, isEmptyVal, isIdCard, isInt, isMobile, isNum, isUrl, isValidVal, toBoolean, toCentNumber, toFixed, toNumber, toYuanNumber, updateHostClass, uuidv1, uuidv3, uuidv4, uuidv5 };
 //# sourceMappingURL=util.js.map

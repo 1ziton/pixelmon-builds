@@ -1,0 +1,13 @@
+{
+  "main": "../bundles/dropdown-panel.umd.js",
+  "module": "../fesm5/dropdown-panel.js",
+  "es2015": "../fesm2015/dropdown-panel.js",
+  "esm5": "../esm5/dropdown-panel/dropdown-panel.js",
+  "esm2015": "../esm2015/dropdown-panel/dropdown-panel.js",
+  "fesm5": "../fesm5/dropdown-panel.js",
+  "fesm2015": "../fesm2015/dropdown-panel.js",
+  "typings": "dropdown-panel.d.ts",
+  "metadata": "dropdown-panel.metadata.json",
+  "sideEffects": false,
+  "name": "@pixelmon/pikachu/dropdown-panel"
+}

@@ -1,0 +1,13 @@
+{
+  "main": "../bundles/address-select.umd.js",
+  "module": "../fesm5/address-select.js",
+  "es2015": "../fesm2015/address-select.js",
+  "esm5": "../esm5/address-select/address-select.js",
+  "esm2015": "../esm2015/address-select/address-select.js",
+  "fesm5": "../fesm5/address-select.js",
+  "fesm2015": "../fesm2015/address-select.js",
+  "typings": "address-select.d.ts",
+  "metadata": "address-select.metadata.json",
+  "sideEffects": false,
+  "name": "@pixelmon/pikachu/address-select"
+}

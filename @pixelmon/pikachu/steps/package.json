@@ -1,0 +1,13 @@
+{
+  "main": "../bundles/steps.umd.js",
+  "module": "../fesm5/steps.js",
+  "es2015": "../fesm2015/steps.js",
+  "esm5": "../esm5/steps/steps.js",
+  "esm2015": "../esm2015/steps/steps.js",
+  "fesm5": "../fesm5/steps.js",
+  "fesm2015": "../fesm2015/steps.js",
+  "typings": "steps.d.ts",
+  "metadata": "steps.metadata.json",
+  "sideEffects": false,
+  "name": "@pixelmon/pikachu/steps"
+}

@@ -1,5 +1,5 @@
 /**
- * @Based on pixelmon(cipchk@qq.com) v0.1.6
+ * @Based on pixelmon(cipchk@qq.com) v0.1.7
  * (c) 2019 developer(developer@1ziton.com)
  * 
  * Licensed under the MIT license:

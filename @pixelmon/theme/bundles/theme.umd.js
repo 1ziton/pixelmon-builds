@@ -1,5 +1,5 @@
 /**
- * @Based on pixelmon(cipchk@qq.com) v0.1.7
+ * @Based on pixelmon(cipchk@qq.com) v0.1.8
  * (c) 2019 developer(developer@1ziton.com)
  * 
  * Licensed under the MIT license:
@@ -4322,7 +4322,7 @@
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
-    var VERSION = new core.Version('0.1.7');
+    var VERSION = new core.Version('0.1.8');
 
     exports.APP = APP;
     exports.BaseApi = BaseApi;

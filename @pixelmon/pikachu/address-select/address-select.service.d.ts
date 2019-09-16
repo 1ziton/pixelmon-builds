@@ -31,7 +31,7 @@ export declare class AddressSelectService {
     check$: import("rxjs").Observable<unknown>;
     compareWith: (o1: any, o2: any) => boolean;
     constructor(addrQuerySrv: AddressQueryService);
-    getAreasByCode(code?: string, level?: number): void;
+    getListByCode(code?: string, level?: number): void;
     toggleTab(index: number): void;
     isMaxLevel(): boolean;
     clickOption(option: AddrOption): void;

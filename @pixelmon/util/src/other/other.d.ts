@@ -20,3 +20,8 @@ export declare const isEmptyVal: (val: any) => boolean;
  * 有效的值
  */
 export declare const isValidVal: (val: any) => boolean;
+/**
+ * 深克隆
+ * @param obj
+ */
+export declare const deepClone: (obj: any) => any;

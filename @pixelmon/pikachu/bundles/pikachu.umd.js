@@ -6,10 +6,10 @@
  * https://opensource.org/licenses/MIT
  */
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@pixelmon/pikachu/lodop'), require('@pixelmon/pikachu/notice-icon'), require('@pixelmon/pikachu/page-header'), require('@pixelmon/pikachu/pagination'), require('@pixelmon/pikachu/reuse-tab'), require('@pixelmon/pikachu/sidebar-nav'), require('@pixelmon/pikachu/view'), require('@pixelmon/pikachu/viewer'), require('@pixelmon/pikachu/footer-toolbar'), require('@pixelmon/pikachu/table'), require('@pixelmon/pikachu/upload'), require('@pixelmon/pikachu/steps'), require('@pixelmon/pikachu/address-select'), require('@pixelmon/pikachu/dropdown-panel'), require('@angular/core'), require('@pixelmon/pikachu/query-tabs'), require('@pixelmon/pikachu/smart-text')) :
-    typeof define === 'function' && define.amd ? define('@pixelmon/pikachu', ['exports', '@pixelmon/pikachu/lodop', '@pixelmon/pikachu/notice-icon', '@pixelmon/pikachu/page-header', '@pixelmon/pikachu/pagination', '@pixelmon/pikachu/reuse-tab', '@pixelmon/pikachu/sidebar-nav', '@pixelmon/pikachu/view', '@pixelmon/pikachu/viewer', '@pixelmon/pikachu/footer-toolbar', '@pixelmon/pikachu/table', '@pixelmon/pikachu/upload', '@pixelmon/pikachu/steps', '@pixelmon/pikachu/address-select', '@pixelmon/pikachu/dropdown-panel', '@angular/core', '@pixelmon/pikachu/query-tabs', '@pixelmon/pikachu/smart-text'], factory) :
-    (global = global || self, factory((global.pixelmon = global.pixelmon || {}, global.pixelmon.pikachu = {}), global.pixelmon.pikachu.lodop, global.pixelmon.pikachu['notice-icon'], global.pixelmon.pikachu['page-header'], global.pixelmon.pikachu.pagination, global.pixelmon.pikachu['reuse-tab'], global.pixelmon.pikachu['sidebar-nav'], global.pixelmon.pikachu.view, global.pixelmon.pikachu.viewer, global.pixelmon.pikachu['footer-toolbar'], global.pixelmon.pikachu.table, global.pixelmon.pikachu.upload, global.pixelmon.pikachu.steps, global.pixelmon.pikachu['address-select'], global.pixelmon.pikachu['dropdown-panel'], global.ng.core, global.pixelmon.pikachu['query-tabs'], global.pixelmon.pikachu['smart-text']));
-}(this, function (exports, lodop, noticeIcon, pageHeader, pagination, reuseTab, sidebarNav, view, viewer, footerToolbar, table, upload, steps, addressSelect, dropdownPanel, core, queryTabs, smartText) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@pixelmon/pikachu/lodop'), require('@pixelmon/pikachu/notice-icon'), require('@pixelmon/pikachu/page-header'), require('@pixelmon/pikachu/pagination'), require('@pixelmon/pikachu/reuse-tab'), require('@pixelmon/pikachu/sidebar-nav'), require('@pixelmon/pikachu/view'), require('@pixelmon/pikachu/viewer'), require('@pixelmon/pikachu/footer-toolbar'), require('@pixelmon/pikachu/table'), require('@pixelmon/pikachu/upload'), require('@pixelmon/pikachu/steps'), require('@pixelmon/pikachu/address-select'), require('@pixelmon/pikachu/dropdown-panel'), require('@pixelmon/pikachu/smart-text'), require('@pixelmon/pikachu/query-tabs'), require('@angular/core')) :
+    typeof define === 'function' && define.amd ? define('@pixelmon/pikachu', ['exports', '@pixelmon/pikachu/lodop', '@pixelmon/pikachu/notice-icon', '@pixelmon/pikachu/page-header', '@pixelmon/pikachu/pagination', '@pixelmon/pikachu/reuse-tab', '@pixelmon/pikachu/sidebar-nav', '@pixelmon/pikachu/view', '@pixelmon/pikachu/viewer', '@pixelmon/pikachu/footer-toolbar', '@pixelmon/pikachu/table', '@pixelmon/pikachu/upload', '@pixelmon/pikachu/steps', '@pixelmon/pikachu/address-select', '@pixelmon/pikachu/dropdown-panel', '@pixelmon/pikachu/smart-text', '@pixelmon/pikachu/query-tabs', '@angular/core'], factory) :
+    (global = global || self, factory((global.pixelmon = global.pixelmon || {}, global.pixelmon.pikachu = {}), global.pixelmon.pikachu.lodop, global.pixelmon.pikachu['notice-icon'], global.pixelmon.pikachu['page-header'], global.pixelmon.pikachu.pagination, global.pixelmon.pikachu['reuse-tab'], global.pixelmon.pikachu['sidebar-nav'], global.pixelmon.pikachu.view, global.pixelmon.pikachu.viewer, global.pixelmon.pikachu['footer-toolbar'], global.pixelmon.pikachu.table, global.pixelmon.pikachu.upload, global.pixelmon.pikachu.steps, global.pixelmon.pikachu['address-select'], global.pixelmon.pikachu['dropdown-panel'], global.pixelmon.pikachu['smart-text'], global.pixelmon.pikachu['query-tabs'], global.ng.core));
+}(this, function (exports, lodop, noticeIcon, pageHeader, pagination, reuseTab, sidebarNav, view, viewer, footerToolbar, table, upload, steps, addressSelect, dropdownPanel, smartText, queryTabs, core) { 'use strict';
 
     /**
      * @fileoverview added by tsickle
@@ -288,6 +288,12 @@
             return steps.StepsModule;
         }
     });
+    Object.defineProperty(exports, 'AddrCheckedFilterPipe', {
+        enumerable: true,
+        get: function () {
+            return addressSelect.AddrCheckedFilterPipe;
+        }
+    });
     Object.defineProperty(exports, 'AddrFilterOptionPipe', {
         enumerable: true,
         get: function () {
@@ -370,6 +376,30 @@
         enumerable: true,
         get: function () {
             return dropdownPanel.PanelSelectTopControlComponent;
+        }
+    });
+    Object.defineProperty(exports, 'SmartTextComponent', {
+        enumerable: true,
+        get: function () {
+            return smartText.SmartTextComponent;
+        }
+    });
+    Object.defineProperty(exports, 'SmartTextModule', {
+        enumerable: true,
+        get: function () {
+            return smartText.SmartTextModule;
+        }
+    });
+    Object.defineProperty(exports, 'QueryTabsComponent', {
+        enumerable: true,
+        get: function () {
+            return queryTabs.QueryTabsComponent;
+        }
+    });
+    Object.defineProperty(exports, 'QueryTabsModule', {
+        enumerable: true,
+        get: function () {
+            return queryTabs.QueryTabsModule;
         }
     });
     exports.PikachuModule = PikachuModule;

@@ -243,11 +243,11 @@
         ResultOption.prototype.level;
     }
     /**
-     * 必须集成
+     * 抽象类，继承以便重写方法获取数据
      * @abstract
      */
     var   /**
-     * 必须集成
+     * 抽象类，继承以便重写方法获取数据
      * @abstract
      */
     AddressQueryService = /** @class */ (function () {
@@ -261,13 +261,13 @@
          * @param {?=} code
          * @return {?}
          */
-        AddressQueryService.prototype.getAreasByCode = function (code) { };
+        AddressQueryService.prototype.getListByCode = function (code) { };
         /**
          * @abstract
          * @param {?} code
          * @return {?}
          */
-        AddressQueryService.prototype.getAreaLabelByCode = function (code) { };
+        AddressQueryService.prototype.getOptionByCode = function (code) { };
     }
 
     /**
@@ -316,11 +316,14 @@
                 return options;
             }
             else {
-                return ((/** @type {?} */ (options))).filter((/**
+                /** @type {?} */
+                var result = ((/** @type {?} */ (options))).filter((/**
                  * @param {?} o
                  * @return {?}
                  */
                 function (o) { return filterOption(searchValue, o); }));
+                console.log(result);
+                return result;
             }
         };
         AddrFilterOptionPipe.decorators = [
@@ -347,7 +350,13 @@
      */
     function defaultLevelLabelsFilterOption(level) {
         if (level === void 0) { level = 1; }
-        return defaultAddressLevelOptions.slice(0, level);
+        /** @type {?} */
+        var cloneArr = defaultAddressLevelOptions.map((/**
+         * @param {?} o
+         * @return {?}
+         */
+        function (o) { return (__assign({}, o)); }));
+        return cloneArr.slice(0, level);
     }
     var AddrLevelFilterPipe = /** @class */ (function () {
         function AddrLevelFilterPipe() {
@@ -368,6 +377,34 @@
         ];
         return AddrLevelFilterPipe;
     }());
+    var AddrCheckedFilterPipe = /** @class */ (function () {
+        function AddrCheckedFilterPipe() {
+        }
+        /**
+         * @param {?} activedOption
+         * @param {?} index
+         * @param {?} option
+         * @return {?}
+         */
+        AddrCheckedFilterPipe.prototype.transform = /**
+         * @param {?} activedOption
+         * @param {?} index
+         * @param {?} option
+         * @return {?}
+         */
+        function (activedOption, index, option) {
+            if (activedOption && activedOption.length > 0) {
+                if (!activedOption[index])
+                    return false;
+                return activedOption[index].value === option.value && !option.disabled;
+            }
+            return false;
+        };
+        AddrCheckedFilterPipe.decorators = [
+            { type: core.Pipe, args: [{ name: 'pAddrCheckedFitler' },] }
+        ];
+        return AddrCheckedFilterPipe;
+    }());
 
     /**
      * @fileoverview added by tsickle
@@ -385,8 +422,8 @@
             this.levelLabels = [];
             this.currentLevel = 1;
             this.maxLevel = 1;
+            this.separator = '/';
             // selectedValueChanged should emit ngModelChange or not
-            // tslint:disable-next-line:no-any
             this.listOfSelectedValueWithEmit$ = new rxjs.BehaviorSubject({
                 value: [],
                 emit: false,
@@ -428,9 +465,9 @@
              */
             function (value) {
                 _this.searchValue = value;
-                if (value) {
-                    _this.updateActivatedOption(_this.listOfFilteredOption[0], _this.currentLevel);
-                }
+                // if (value) {
+                //   this.updateActivatedOption(this.listOfFilteredOption[0], this.currentLevel);
+                // }
                 _this.updateListOfFilteredOption();
             })));
             // address data
@@ -451,7 +488,7 @@
          * @param {?=} level
          * @return {?}
          */
-        AddressSelectService.prototype.getAreasByCode = /**
+        AddressSelectService.prototype.getListByCode = /**
          * @param {?=} code
          * @param {?=} level
          * @return {?}
@@ -459,7 +496,7 @@
         function (code, level) {
             var _this = this;
             if (level === void 0) { level = 0; }
-            this.addrQuerySrv.getAreasByCode(code).subscribe((/**
+            this.addrQuerySrv.getListByCode(code).subscribe((/**
              * @param {?} json
              * @return {?}
              */
@@ -529,13 +566,13 @@
             this.updateActivatedOption(option, level);
             // 设置值
             if (this.isMaxLevel()) {
-                if (this.autoClearSearchValue) {
-                    this.clearInput();
-                }
                 this.setOpenState(false);
                 return;
             }
-            this.getAreasByCode(option.value, level);
+            if (this.autoClearSearchValue) {
+                this.clearInput();
+            }
+            this.getListByCode(option.value, level);
             this.toggleTab(level);
         };
         /**
@@ -555,6 +592,7 @@
                     value: '',
                     mergeName: '',
                 };
+                this.listOfActivatedOption = [];
                 return;
             }
             /** @type {?} */
@@ -564,7 +602,6 @@
              */
             function (o) { return o && o.value; }));
             var length = selectedOption.length;
-            console.log(this.separator);
             if (length > 0) {
                 var _a = selectedOption[length - 1], label = _a.label, value = _a.value, level = _a.level;
                 this.selectedOption = {
@@ -587,7 +624,17 @@
          */
         function () {
             /** @type {?} */
-            var listOfFilteredOption = new AddrFilterOptionPipe().transform(this.listOfProvinceOptions, this.searchValue, this.filterOption, this.serverSearch);
+            var filterOptionList = [];
+            if (this.currentLevel === 1)
+                filterOptionList = __spread(this.listOfProvinceOptions);
+            if (this.currentLevel === 2)
+                filterOptionList = __spread(this.listOfCityOptions);
+            if (this.currentLevel === 3)
+                filterOptionList = __spread(this.listOfDistinctOptions);
+            if (this.currentLevel === 4)
+                filterOptionList = __spread(this.listOfStreetOptions);
+            /** @type {?} */
+            var listOfFilteredOption = new AddrFilterOptionPipe().transform(filterOptionList, this.searchValue, this.filterOption, this.serverSearch);
             this.listOfFilteredOption = __spread(listOfFilteredOption);
             this.isShowNotFound = !this.listOfFilteredOption.length;
         };
@@ -613,6 +660,7 @@
         function (value, emit) {
             this.listOfSelectedValueWithEmit$.next({ value: value, emit: emit });
             this.updateSelectedOption(!value.length);
+            this.check();
         };
         /**
          * @param {?} option
@@ -626,13 +674,6 @@
          */
         function (option, level) {
             this.listOfActivatedOption$.next(option);
-            if (this.listOfActivatedOption[level]) {
-                if (this.listOfActivatedOption[level].value !== (option && option.value) && this.isMaxLevel()) {
-                    this.listOfActivatedOption[level] = option;
-                    this.updateListOfSelectedValue(__spread(this.listOfActivatedOption), true);
-                    return;
-                }
-            }
             this.listOfActivatedOption[level] = option;
             if (this.isMaxLevel()) {
                 this.updateListOfSelectedValue(__spread(this.listOfActivatedOption), true);
@@ -717,7 +758,7 @@
          */
         function (code) {
             var _this = this;
-            this.addrQuerySrv.getAreaLabelByCode(code).subscribe((/**
+            this.addrQuerySrv.getOptionByCode(code).subscribe((/**
              * @param {?} json
              * @return {?}
              */
@@ -1350,19 +1391,16 @@
             }));
         };
         /** update ngModel -> update selectedOption */
-        // tslint:disable-next-line:no-any
         /**
          * update ngModel -> update selectedOption
          * @param {?} value
          * @return {?}
          */
-        // tslint:disable-next-line:no-any
         AddressSelectComponent.prototype.writeValue = /**
          * update ngModel -> update selectedOption
          * @param {?} value
          * @return {?}
          */
-        // tslint:disable-next-line:no-any
         function (value) {
             this.value = value;
             /** @type {?} */
@@ -1424,7 +1462,7 @@
         function () {
             var _this = this;
             // 获取一级地址数据
-            this.addrSelectService.getAreasByCode('', 0);
+            this.addrSelectService.getListByCode('', 0);
             this.addrSelectService.searchValue$.pipe(operators.takeUntil(this.destroy$)).subscribe((/**
              * @param {?} data
              * @return {?}
@@ -1560,7 +1598,6 @@
             showSearch: [{ type: core.Input }],
             loading: [{ type: core.Input }],
             placeHolder: [{ type: core.Input }],
-            maxTagCount: [{ type: core.Input }],
             suffixIcon: [{ type: core.Input }],
             clearIcon: [{ type: core.Input }],
             removeIcon: [{ type: core.Input }],
@@ -1658,8 +1695,6 @@
         /** @type {?} */
         AddressSelectComponent.prototype.placeHolder;
         /** @type {?} */
-        AddressSelectComponent.prototype.maxTagCount;
-        /** @type {?} */
         AddressSelectComponent.prototype.suffixIcon;
         /** @type {?} */
         AddressSelectComponent.prototype.clearIcon;
@@ -1704,8 +1739,8 @@
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var AddrOptionContainerComponent = /** @class */ (function () {
-        function AddrOptionContainerComponent(addrSelectService, cdr) {
-            this.addrSelectService = addrSelectService;
+        function AddrOptionContainerComponent(addrSrv, cdr) {
+            this.addrSrv = addrSrv;
             this.cdr = cdr;
             this.destroy$ = new rxjs.Subject();
             this.scrollToBottom = new core.EventEmitter();
@@ -1716,8 +1751,9 @@
              * @return {?}
              */
             function (v) {
-                this.addrSelectService.levelLabels = new AddrLevelFilterPipe().transform(v);
-                this.addrSelectService.maxLevel = v;
+                this.addrSrv.levelLabels = new AddrLevelFilterPipe().transform(v);
+                this.addrSrv.maxLevel = v;
+                this.addrSrv.currentLevel = 1;
             },
             enumerable: true,
             configurable: true
@@ -1731,7 +1767,7 @@
          * @return {?}
          */
         function (option) {
-            this.addrSelectService.clickOption(option);
+            this.addrSrv.clickOption(option);
         };
         /**
          * @param {?} tab
@@ -1746,7 +1782,8 @@
         function (tab, index) {
             if (tab.checked)
                 return;
-            this.addrSelectService.toggleTab(index);
+            this.addrSrv.toggleTab(index);
+            this.addrSrv.updateListOfFilteredOption();
         };
         /**
          * @param {?} _index
@@ -1786,7 +1823,7 @@
          */
         function () {
             var _this = this;
-            this.addrSelectService.check$.pipe(operators.takeUntil(this.destroy$)).subscribe((/**
+            this.addrSrv.check$.pipe(operators.takeUntil(this.destroy$)).subscribe((/**
              * @return {?}
              */
             function () {
@@ -1810,14 +1847,13 @@
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
                         encapsulation: core.ViewEncapsulation.None,
                         preserveWhitespaces: false,
-                        template: "<div class=\"address-container\">\n  <div class=\"ant-tabs ant-tabs-card\">\n    <div class=\"ant-tabs-bar ant-tabs-card-bar ant-tabs-top-bar ant-tabs-default-bar\">\n      <span\n        class=\"ant-tabs-tab\"\n        [class.ant-tabs-tab-active]=\"item.checked\"\n        *ngFor=\"let item of addrSelectService.levelLabels;let i=index\"\n        (click)=\"toggleTabs(item,i)\"\n        >{{ item.label }}</span\n      >\n    </div>\n  </div>\n  <!-- province -->\n  <ul\n    #provinceUl\n    class=\"ant-select-dropdown-menu ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical\"\n    role=\"menu\"\n    tabindex=\"0\"\n    [hidden]=\"addrSelectService.levelLabels[0] && !addrSelectService.levelLabels[0]['checked']\"\n  >\n    <li\n      *ngIf=\"addrSelectService.isShowNotFound\"\n      nz-select-unselectable\n      class=\"ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled\"\n    >\n      <nz-embed-empty [nzComponentName]=\"'select'\" [specificContent]=\"notFoundContent\"></nz-embed-empty>\n    </li>\n    <li\n      class=\"item ant-select-dropdown-menu-item\"\n      [class.ant-select-dropdown-menu-item-selected]=\"option.checked && !option.disabled\"\n      *ngFor=\"\n        let option of addrSelectService.listOfProvinceOptions\n          | addrFilterOption: addrSelectService.searchValue:addrSelectService.filterOption:addrSelectService.serverSearch;\n        trackBy: trackValue\n      \"\n      (click)=\"clickOption(option)\"\n    >\n      {{ option.label }}\n      <i nz-icon nzType=\"check\" class=\"ant-select-selected-icon\" *ngIf=\"option.checked && !option.disabled && !menuItemSelectedIcon\"></i>\n    </li>\n  </ul>\n  <!-- city -->\n  <ul\n    #cityUl\n    class=\"ant-select-dropdown-menu ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical\"\n    role=\"menu\"\n    tabindex=\"1\"\n    [hidden]=\"addrSelectService.levelLabels[1] && !addrSelectService.levelLabels[1]['checked']\"\n  >\n    <li\n      *ngIf=\"addrSelectService.isShowNotFound\"\n      nz-select-unselectable\n      class=\"ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled\"\n    >\n      <nz-embed-empty [nzComponentName]=\"'select'\" [specificContent]=\"notFoundContent\"></nz-embed-empty>\n    </li>\n    <li\n      class=\"item ant-select-dropdown-menu-item\"\n      [class.ant-select-dropdown-menu-item-selected]=\"option.checked && !option.disabled\"\n      *ngFor=\"\n        let option of addrSelectService.listOfCityOptions\n          | addrFilterOption: addrSelectService.searchValue:addrSelectService.filterOption:addrSelectService.serverSearch;\n        trackBy: trackValue\n      \"\n      (click)=\"clickOption(option)\"\n    >\n      {{ option.label }}\n      <i nz-icon nzType=\"check\" class=\"ant-select-selected-icon\" *ngIf=\"option.checked && !option.disabled && !menuItemSelectedIcon\"></i>\n    </li>\n  </ul>\n  <!-- distinct -->\n  <ul\n    #distinctUl\n    class=\"ant-select-dropdown-menu ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical\"\n    role=\"menu\"\n    tabindex=\"2\"\n    [hidden]=\"addrSelectService.levelLabels[2] && !addrSelectService.levelLabels[2]['checked']\"\n  >\n    <li\n      *ngIf=\"addrSelectService.isShowNotFound\"\n      nz-select-unselectable\n      class=\"ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled\"\n    >\n      <nz-embed-empty [nzComponentName]=\"'select'\" [specificContent]=\"notFoundContent\"></nz-embed-empty>\n    </li>\n    <li\n      class=\"item ant-select-dropdown-menu-item\"\n      [class.ant-select-dropdown-menu-item-selected]=\"option.checked && !option.disabled\"\n      *ngFor=\"\n        let option of addrSelectService.listOfDistinctOptions\n          | addrFilterOption: addrSelectService.searchValue:addrSelectService.filterOption:addrSelectService.serverSearch;\n        trackBy: trackValue\n      \"\n      (click)=\"clickOption(option)\"\n    >\n      {{ option.label }}\n      <i nz-icon nzType=\"check\" class=\"ant-select-selected-icon\" *ngIf=\"option.checked && !option.disabled && !menuItemSelectedIcon\"></i>\n    </li>\n  </ul>\n</div>\n",
+                        template: "<div class=\"p-address-select-container\">\n  <div class=\"ant-tabs ant-tabs-card\">\n    <div class=\"ant-tabs-bar ant-tabs-card-bar ant-tabs-top-bar ant-tabs-default-bar\">\n      <span\n        class=\"ant-tabs-tab\"\n        [class.ant-tabs-tab-active]=\"item.checked\"\n        *ngFor=\"let item of addrSrv.levelLabels; let i = index\"\n        (click)=\"toggleTabs(item, i)\"\n        >{{ item.label }}</span\n      >\n    </div>\n  </div>\n  <!-- province -->\n  <ul\n    #provinceUl\n    class=\"ant-select-dropdown-menu ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical\"\n    role=\"menu\"\n    tabindex=\"0\"\n    [hidden]=\"addrSrv.levelLabels[0] && !addrSrv.levelLabels[0]['checked']\"\n  >\n    <li\n      *ngIf=\"addrSrv.isShowNotFound && addrSrv.currentLevel === 1\"\n      nz-select-unselectable\n      class=\"ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled\"\n    >\n      <nz-embed-empty [nzComponentName]=\"'select'\" [specificContent]=\"notFoundContent\"></nz-embed-empty>\n    </li>\n    <li\n      class=\"item ant-select-dropdown-menu-item\"\n      [class.ant-select-dropdown-menu-item-selected]=\"addrSrv.listOfActivatedOption | pAddrCheckedFitler: 1:option\"\n      *ngFor=\"\n        let option of addrSrv.listOfProvinceOptions | addrFilterOption: addrSrv.searchValue:addrSrv.filterOption:addrSrv.serverSearch;\n        trackBy: trackValue\n      \"\n      (click)=\"clickOption(option)\"\n    >\n      {{ option.label }}\n      <i\n        nz-icon\n        nzType=\"check\"\n        class=\"ant-select-selected-icon\"\n        *ngIf=\"(addrSrv.listOfActivatedOption | pAddrCheckedFitler: 1:option) && !menuItemSelectedIcon\"\n      ></i>\n    </li>\n  </ul>\n  <!-- city -->\n  <ul\n    #cityUl\n    class=\"ant-select-dropdown-menu ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical\"\n    role=\"menu\"\n    tabindex=\"1\"\n    [hidden]=\"addrSrv.levelLabels[1] && !addrSrv.levelLabels[1]['checked']\"\n  >\n    <li\n      *ngIf=\"addrSrv.isShowNotFound && addrSrv.currentLevel === 2\"\n      nz-select-unselectable\n      class=\"ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled\"\n    >\n      <nz-embed-empty [nzComponentName]=\"'select'\" [specificContent]=\"notFoundContent\"></nz-embed-empty>\n    </li>\n    <li\n      class=\"item ant-select-dropdown-menu-item\"\n      *ngFor=\"\n        let option of addrSrv.listOfCityOptions | addrFilterOption: addrSrv.searchValue:addrSrv.filterOption:addrSrv.serverSearch;\n        trackBy: trackValue\n      \"\n      [class.ant-select-dropdown-menu-item-selected]=\"addrSrv.listOfActivatedOption | pAddrCheckedFitler: 2:option\"\n      (click)=\"clickOption(option)\"\n    >\n      {{ option.label }}\n      <i\n        nz-icon\n        nzType=\"check\"\n        class=\"ant-select-selected-icon\"\n        *ngIf=\"(addrSrv.listOfActivatedOption | pAddrCheckedFitler: 2:option) && !menuItemSelectedIcon\"\n      ></i>\n    </li>\n  </ul>\n  <!-- distinct -->\n  <ul\n    #distinctUl\n    class=\"ant-select-dropdown-menu ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical\"\n    role=\"menu\"\n    tabindex=\"2\"\n    [hidden]=\"addrSrv.levelLabels[2] && !addrSrv.levelLabels[2]['checked']\"\n  >\n    <li\n      *ngIf=\"addrSrv.isShowNotFound && addrSrv.currentLevel === 3\"\n      nz-select-unselectable\n      class=\"ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled\"\n    >\n      <nz-embed-empty [nzComponentName]=\"'select'\" [specificContent]=\"notFoundContent\"></nz-embed-empty>\n    </li>\n    <li\n      class=\"item ant-select-dropdown-menu-item\"\n      [class.ant-select-dropdown-menu-item-selected]=\"addrSrv.listOfActivatedOption | pAddrCheckedFitler: 3:option\"\n      *ngFor=\"\n        let option of addrSrv.listOfDistinctOptions | addrFilterOption: addrSrv.searchValue:addrSrv.filterOption:addrSrv.serverSearch;\n        trackBy: trackValue\n      \"\n      (click)=\"clickOption(option)\"\n    >\n      {{ option.label }}\n      <i\n        nz-icon\n        nzType=\"check\"\n        class=\"ant-select-selected-icon\"\n        *ngIf=\"(addrSrv.listOfActivatedOption | pAddrCheckedFitler: 3:option) && !menuItemSelectedIcon\"\n      ></i>\n    </li>\n  </ul>\n  <!-- street -->\n  <ul\n    class=\"ant-select-dropdown-menu ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical\"\n    role=\"menu\"\n    tabindex=\"3\"\n    [hidden]=\"addrSrv.levelLabels[3] && !addrSrv.levelLabels[3]['checked']\"\n  >\n    <li\n      *ngIf=\"addrSrv.isShowNotFound && addrSrv.currentLevel === 4\"\n      nz-select-unselectable\n      class=\"ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled\"\n    >\n      <nz-embed-empty [nzComponentName]=\"'select'\" [specificContent]=\"notFoundContent\"></nz-embed-empty>\n    </li>\n    <li\n      class=\"item ant-select-dropdown-menu-item\"\n      [class.ant-select-dropdown-menu-item-selected]=\"addrSrv.listOfActivatedOption | pAddrCheckedFitler: 4:option\"\n      *ngFor=\"\n        let option of addrSrv.listOfStreetOptions | addrFilterOption: addrSrv.searchValue:addrSrv.filterOption:addrSrv.serverSearch;\n        trackBy: trackValue\n      \"\n      (click)=\"clickOption(option)\"\n    >\n      {{ option.label }}\n      <i\n        nz-icon\n        nzType=\"check\"\n        class=\"ant-select-selected-icon\"\n        *ngIf=\"(addrSrv.listOfActivatedOption | pAddrCheckedFitler: 4:option) && !menuItemSelectedIcon\"\n      ></i>\n    </li>\n  </ul>\n</div>\n",
                         host: {
                             '[attr.unselectable]': '"unselectable"',
                             '[style.user-select]': '"none"',
-                            '[style.padding]': '"10px"',
                             '(mousedown)': '$event.preventDefault()',
                         },
-                        styles: ["\n      .item {\n        display: inline-block;\n        width: 120px;\n        padding: 5px 10px;\n      }\n    "]
+                        styles: [".p-address-select-container .ant-tabs-bar{margin-bottom:10px;padding-left:10px;background:#e8e8e8;border-bottom:none!important}.p-address-select-container .ant-tabs-tab{display:inline-block;height:100%;background:0 0!important;cursor:pointer}.p-address-select-container .ant-tabs-tab-active{background:#fff!important}.p-address-select-container .ant-select-dropdown-menu-root{padding:0 10px 5px}.p-address-select-container .item{display:inline-block;width:120px;padding:5px 10px}"]
                     }] }
         ];
         /** @nocollapse */
@@ -1826,7 +1862,6 @@
             { type: core.ChangeDetectorRef }
         ]; };
         AddrOptionContainerComponent.propDecorators = {
-            dropdownUl: [{ type: core.ViewChild, args: ['dropdownUl', { static: true },] }],
             notFoundContent: [{ type: core.Input }],
             menuItemSelectedIcon: [{ type: core.Input }],
             scrollToBottom: [{ type: core.Output }],
@@ -1841,15 +1876,13 @@
          */
         AddrOptionContainerComponent.prototype.destroy$;
         /** @type {?} */
-        AddrOptionContainerComponent.prototype.dropdownUl;
-        /** @type {?} */
         AddrOptionContainerComponent.prototype.notFoundContent;
         /** @type {?} */
         AddrOptionContainerComponent.prototype.menuItemSelectedIcon;
         /** @type {?} */
         AddrOptionContainerComponent.prototype.scrollToBottom;
         /** @type {?} */
-        AddrOptionContainerComponent.prototype.addrSelectService;
+        AddrOptionContainerComponent.prototype.addrSrv;
         /**
          * @type {?}
          * @private
@@ -1871,6 +1904,7 @@
                             AddrSelectTopControlComponent,
                             AddrFilterOptionPipe,
                             AddrLevelFilterPipe,
+                            AddrCheckedFilterPipe,
                             AddrOptionContainerComponent,
                         ],
                         imports: [
@@ -1889,6 +1923,7 @@
                             AddrSelectTopControlComponent,
                             AddrFilterOptionPipe,
                             AddrLevelFilterPipe,
+                            AddrCheckedFilterPipe,
                             AddrOptionContainerComponent,
                         ],
                     },] }
@@ -1896,6 +1931,7 @@
         return AddressSelectModule;
     }());
 
+    exports.AddrCheckedFilterPipe = AddrCheckedFilterPipe;
     exports.AddrFilterOptionPipe = AddrFilterOptionPipe;
     exports.AddrLevelFilterPipe = AddrLevelFilterPipe;
     exports.AddrOptionContainerComponent = AddrOptionContainerComponent;

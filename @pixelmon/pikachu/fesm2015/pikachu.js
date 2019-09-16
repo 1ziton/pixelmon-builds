@@ -22,12 +22,14 @@ export { UploadModule, UploadServiceToken, ɵa } from '@pixelmon/pikachu/upload'
 import { StepsModule } from '@pixelmon/pikachu/steps';
 export { StepsComponent, StepsModule } from '@pixelmon/pikachu/steps';
 import { AddressSelectModule } from '@pixelmon/pikachu/address-select';
-export { AddrFilterOptionPipe, AddrLevelFilterPipe, AddrOptionContainerComponent, AddrSelectTopControlComponent, AddressQueryService, AddressSelectComponent, AddressSelectModule, AddressSelectService } from '@pixelmon/pikachu/address-select';
+export { AddrCheckedFilterPipe, AddrFilterOptionPipe, AddrLevelFilterPipe, AddrOptionContainerComponent, AddrSelectTopControlComponent, AddressQueryService, AddressSelectComponent, AddressSelectModule, AddressSelectService } from '@pixelmon/pikachu/address-select';
 import { DropdownPanelModule } from '@pixelmon/pikachu/dropdown-panel';
 export { DropdownPanelComponent, DropdownPanelModule, DropdownPanelService, PanelFilterOptionPipe, PanelOptionContainerComponent, PanelSelectTopControlComponent } from '@pixelmon/pikachu/dropdown-panel';
-import { NgModule } from '@angular/core';
-import { QueryTabsModule } from '@pixelmon/pikachu/query-tabs';
 import { SmartTextModule } from '@pixelmon/pikachu/smart-text';
+export { SmartTextComponent, SmartTextModule } from '@pixelmon/pikachu/smart-text';
+import { QueryTabsModule } from '@pixelmon/pikachu/query-tabs';
+export { QueryTabsComponent, QueryTabsModule } from '@pixelmon/pikachu/query-tabs';
+import { NgModule } from '@angular/core';
 
 /**
  * @fileoverview added by tsickle

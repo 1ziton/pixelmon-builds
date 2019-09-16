@@ -9,3 +9,6 @@ export declare function defaultLevelLabelsFilterOption(level?: number): AddrOpti
 export declare class AddrLevelFilterPipe implements PipeTransform {
     transform(level: number): any[];
 }
+export declare class AddrCheckedFilterPipe implements PipeTransform {
+    transform(activedOption: AddrOption[], index: number, option: AddrOption): boolean;
+}

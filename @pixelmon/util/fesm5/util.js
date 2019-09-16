@@ -1,5 +1,5 @@
 import { TemplateRef, Directive, ViewContainerRef, Input, Injectable, Inject, ɵɵdefineInjectable, ɵɵinject, NgModule } from '@angular/core';
-import { __spread, __values, __assign } from 'tslib';
+import { __spread, __assign, __values } from 'tslib';
 import extend from 'extend';
 import v1 from 'uuid/v1';
 import v3 from 'uuid/v3';
@@ -299,6 +299,25 @@ var isValidVal = (/**
  */
 function (val) {
     return !isEmptyVal(val) && !['null', 'undefined'].includes(val);
+});
+/**
+ * 深克隆
+ * \@param obj
+ * @type {?}
+ */
+var deepClone = (/**
+ * @param {?} obj
+ * @return {?}
+ */
+function (obj) {
+    /** @type {?} */
+    var clone = __assign({}, obj);
+    Object.keys(clone).forEach((/**
+     * @param {?} key
+     * @return {?}
+     */
+    function (key) { return (clone[key] = typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key]); }));
+    return Array.isArray(obj) && obj.length ? (clone.length = obj.length) && Array.from(clone) : Array.isArray(obj) ? Array.from(obj) : clone;
 });
 
 /**
@@ -1787,12 +1806,63 @@ function isMobile(value) {
     return typeof value === 'string' && /^(0|\+?86|17951)?(13[0-9]|15[0-9]|17[0678]|18[0-9]|14[57])[0-9]{8}$/.test(value);
 }
 /**
+ * 是否为手机号/座机/或有特殊符号分隔的电话号码
+ * @param {?=} which
+ * @param {?=} value
+ * @return {?}
+ */
+function isTelPhone(which, value) {
+    if (which === void 0) { which = 'phone'; }
+    /** @type {?} */
+    var _regex = {
+        phone: /^(0|\+?86|17951)?(13[0-9]|15[0-9]|17[0678]|18[0-9]|14[57])[0-9]{8}$/,
+        tel: /^[0]\d{2,3}-\d{7,8}$/,
+        // 标准座机没分号
+        multFormat: /^\d[\s+-\/,，0-9]{0,34}$/,
+    };
+    return _regex[which].test(value);
+}
+/**
  * 是否URL地址
  * @param {?} url
  * @return {?}
  */
 function isUrl(url) {
     return /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/.test(url);
+}
+/**
+ * 是否base64编码
+ * @param {?} value
+ * @return {?}
+ */
+function isBase64(value) {
+    return /^\s*data:([a-z]+\/[a-z0-9-+.]+(;[a-z-]+=[a-z0-9-]+)?)?(;base64)?,([a-z0-9!$&',()*+;=\-._~:@\/?%\s]*?)\s*$/i.test(value);
+}
+/**
+ * 是否银行卡格式
+ * @param {?} value
+ * @return {?}
+ */
+function isCreditCard(value) {
+    /** @type {?} */
+    var sanitized = value.replace(/[^0-9]+/g, '');
+    return /^(?:[1-9]{1})(?:\d{15}|\d{18})$/.test(sanitized);
+}
+/**
+ * 是否email
+ * @param {?} value
+ * @return {?}
+ */
+function isEmail(value) {
+    return /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.test(value);
+}
+/**
+ * 是否uuid
+ * @param {?} value
+ * @return {?}
+ */
+function isUUID(value) {
+    return /^[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}$/i.test(value);
 }
 
 /**
@@ -1880,6 +1950,29 @@ _Validators = /** @class */ (function () {
     function (control) {
         return isMobile(control.value) ? null : { mobile: true };
     };
+    /**
+     * 是否为手机号/座机/或有特殊符号分隔的电话号码
+     * @param which 号码类型
+     */
+    /**
+     * 是否为手机号/座机/或有特殊符号分隔的电话号码
+     * @param {?=} which 号码类型
+     * @return {?}
+     */
+    _Validators.telPhone = /**
+     * 是否为手机号/座机/或有特殊符号分隔的电话号码
+     * @param {?=} which 号码类型
+     * @return {?}
+     */
+    function (which) {
+        return (/**
+         * @param {?} control
+         * @return {?}
+         */
+        function (control) {
+            return isTelPhone(which, control.value) ? null : { telPhone: true };
+        });
+    };
     /** 是否URL地址 */
     /**
      * 是否URL地址
@@ -1893,6 +1986,194 @@ _Validators = /** @class */ (function () {
      */
     function (control) {
         return isUrl(control.value) ? null : { url: true };
+    };
+    /** 是否base64编码 */
+    /**
+     * 是否base64编码
+     * @param {?} control
+     * @return {?}
+     */
+    _Validators.base64 = /**
+     * 是否base64编码
+     * @param {?} control
+     * @return {?}
+     */
+    function (control) {
+        return isBase64(control.value) ? null : { base64: true };
+    };
+    /** 是否银行卡 */
+    /**
+     * 是否银行卡
+     * @param {?} control
+     * @return {?}
+     */
+    _Validators.creditCard = /**
+     * 是否银行卡
+     * @param {?} control
+     * @return {?}
+     */
+    function (control) {
+        return isCreditCard(control.value) ? null : { creditCard: true };
+    };
+    /** 是否email */
+    /**
+     * 是否email
+     * @param {?} control
+     * @return {?}
+     */
+    _Validators.email = /**
+     * 是否email
+     * @param {?} control
+     * @return {?}
+     */
+    function (control) {
+        return isEmail(control.value) ? null : { email: true };
+    };
+    /** 是否全等 */
+    /**
+     * 是否全等
+     * @param {?} val
+     * @return {?}
+     */
+    _Validators.equal = /**
+     * 是否全等
+     * @param {?} val
+     * @return {?}
+     */
+    function (val) {
+        return (/**
+         * @param {?} control
+         * @return {?}
+         */
+        function (control) {
+            /** @type {?} */
+            var v = control.value;
+            return val === v ? null : { equal: true };
+        });
+    };
+    /** 是否大于某个数 */
+    /**
+     * 是否大于某个数
+     * @param {?} val
+     * @return {?}
+     */
+    _Validators.gt = /**
+     * 是否大于某个数
+     * @param {?} val
+     * @return {?}
+     */
+    function (val) {
+        return (/**
+         * @param {?} control
+         * @return {?}
+         */
+        function (control) {
+            /** @type {?} */
+            var v = control.value;
+            return +v > +val ? null : { gt: true };
+        });
+    };
+    /** 是否大于等于某个数 */
+    /**
+     * 是否大于等于某个数
+     * @param {?} val
+     * @return {?}
+     */
+    _Validators.gte = /**
+     * 是否大于等于某个数
+     * @param {?} val
+     * @return {?}
+     */
+    function (val) {
+        return (/**
+         * @param {?} control
+         * @return {?}
+         */
+        function (control) {
+            /** @type {?} */
+            var v = control.value;
+            return +v >= +val ? null : { gte: true };
+        });
+    };
+    /** 是否小于某个数 */
+    /**
+     * 是否小于某个数
+     * @param {?} val
+     * @return {?}
+     */
+    _Validators.lt = /**
+     * 是否小于某个数
+     * @param {?} val
+     * @return {?}
+     */
+    function (val) {
+        return (/**
+         * @param {?} control
+         * @return {?}
+         */
+        function (control) {
+            /** @type {?} */
+            var v = control.value;
+            return +v < +val ? null : { lt: true };
+        });
+    };
+    /** 是否小于等于某个数 */
+    /**
+     * 是否小于等于某个数
+     * @param {?} val
+     * @return {?}
+     */
+    _Validators.lte = /**
+     * 是否小于等于某个数
+     * @param {?} val
+     * @return {?}
+     */
+    function (val) {
+        return (/**
+         * @param {?} control
+         * @return {?}
+         */
+        function (control) {
+            /** @type {?} */
+            var v = control.value;
+            return +v <= +val ? null : { lte: true };
+        });
+    };
+    /** 是否在指定区间内 */
+    /**
+     * 是否在指定区间内
+     * @param {?} val
+     * @return {?}
+     */
+    _Validators.range = /**
+     * 是否在指定区间内
+     * @param {?} val
+     * @return {?}
+     */
+    function (val) {
+        return (/**
+         * @param {?} control
+         * @return {?}
+         */
+        function (control) {
+            /** @type {?} */
+            var v = control.value;
+            return +v >= val[0] && +v <= val[1] ? null : { range: true };
+        });
+    };
+    /** 是否uuid */
+    /**
+     * 是否uuid
+     * @param {?} control
+     * @return {?}
+     */
+    _Validators.uuid = /**
+     * 是否uuid
+     * @param {?} control
+     * @return {?}
+     */
+    function (control) {
+        return isUUID(control.value) ? null : { uuid: true };
     };
     return _Validators;
 }());
@@ -2598,5 +2879,5 @@ var PixelmonUtilModule = /** @class */ (function () {
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
-export { ArrayService, DomHandler, InputBoolean, InputNumber, LazyService, PixelmonUtilConfig, PixelmonUtilModule, StringTemplateOutletDirective, _Validators, copy, deepCopy, deepGet, deepMerge, deepMergeKey, fixEndTimeOfRange, format, getTimeDistance, isDecimal, isEmpty, isEmptyVal, isIdCard, isInt, isMobile, isNum, isUrl, isValidVal, toBoolean, toCentNumber, toFixed, toNumber, toYuanNumber, updateHostClass, uuidv1, uuidv3, uuidv4, uuidv5 };
+export { ArrayService, DomHandler, InputBoolean, InputNumber, LazyService, PixelmonUtilConfig, PixelmonUtilModule, StringTemplateOutletDirective, _Validators, copy, deepClone, deepCopy, deepGet, deepMerge, deepMergeKey, fixEndTimeOfRange, format, getTimeDistance, isBase64, isCreditCard, isDecimal, isEmail, isEmpty, isEmptyVal, isIdCard, isInt, isMobile, isNum, isTelPhone, isUUID, isUrl, isValidVal, toBoolean, toCentNumber, toFixed, toNumber, toYuanNumber, updateHostClass, uuidv1, uuidv3, uuidv4, uuidv5 };
 //# sourceMappingURL=util.js.map

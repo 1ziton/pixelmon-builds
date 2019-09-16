@@ -42,7 +42,6 @@ export declare class AddressSelectComponent implements ControlValueAccessor, OnI
     showSearch: boolean;
     loading: boolean;
     placeHolder: string;
-    maxTagCount: number;
     suffixIcon: TemplateRef<void>;
     clearIcon: TemplateRef<void>;
     removeIcon: TemplateRef<void>;

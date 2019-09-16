@@ -4,7 +4,7 @@
  * @Date: 2019-07-05 10:06:41
  */
 import { AfterContentInit, AfterViewInit, ElementRef, EventEmitter, OnChanges, OnDestroy, OnInit, Renderer2, TemplateRef } from '@angular/core';
-import { NzDropDownComponent } from 'ng-zorro-antd';
+import { NzDropDownDirective } from 'ng-zorro-antd';
 import { Subject } from 'rxjs';
 import { TableCellComponent } from './table-cell.component';
 import { TableFilterComponent } from './table-filter.component';
@@ -105,7 +105,7 @@ export declare class TableComponent implements OnChanges, OnInit, AfterViewInit,
     /**
      * 查询确认回调
      */
-    onFilterConfim(dropdown: NzDropDownComponent): void;
+    onFilterConfim(dropdown: NzDropDownDirective): void;
     /**
      * 固定分页
      */

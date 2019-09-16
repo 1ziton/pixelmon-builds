@@ -47,7 +47,7 @@
             { type: core.Component, args: [{
                         selector: 'smart-text',
                         exportAs: 'pSmartText',
-                        template: "<!-- \u76F4\u63A5\u663E\u793A -->\n<ng-container *ngIf=\"text.length <= maxLength; else tooltipBlock\">\n  <span>{{ text }}</span>\n</ng-container>\n\n<!-- \u63D0\u793A\u6846\u663E\u793A -->\n<ng-template #tooltipBlock>\n  <span nz-tooltip [nzTitle]=\"text\">{{ text | shortcut: maxLength:tail }}</span>\n</ng-template>\n\n<ng-content></ng-content>\n"
+                        template: "<!-- \u76F4\u63A5\u663E\u793A -->\n<ng-container *ngIf=\"text.length <= maxLength; else tooltipTemplate\">\n  <span>{{ text }}</span>\n</ng-container>\n\n<!-- \u63D0\u793A\u6846\u663E\u793A -->\n<ng-template #tooltipTemplate>\n  <span nz-tooltip [nzTooltipTitle]=\"text\">{{ text | shortcut: maxLength:tail }}</span>\n</ng-template>\n"
                     }] }
         ];
         SmartTextComponent.propDecorators = {

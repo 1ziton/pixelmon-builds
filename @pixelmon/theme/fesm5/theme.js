@@ -4127,7 +4127,7 @@ var PixelmonThemeModule = /** @class */ (function () {
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
-var VERSION = new Version('0.1.8-512e438');
+var VERSION = new Version('0.1.9');
 
 /**
  * @fileoverview added by tsickle

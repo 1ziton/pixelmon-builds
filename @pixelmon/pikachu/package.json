@@ -1,6 +1,6 @@
 {
   "name": "@pixelmon/pikachu",
-  "version": "0.1.8-512e438",
+  "version": "0.1.9",
   "author": "giscafer<giscafer@outlook.com>",
   "license": "MIT",
   "repository": {
@@ -24,9 +24,9 @@
     "ngx-countdown": "^3.0.0",
     "qrious": "^4.0.2",
     "@baiducloud/sdk": "^1.0.0-rc.9",
-    "@pixelmon/theme": "^0.1.8-512e438",
-    "@pixelmon/util": "^0.1.8-512e438",
-    "@pixelmon/acl": "^0.1.8-512e438",
+    "@pixelmon/theme": "^0.1.9",
+    "@pixelmon/util": "^0.1.9",
+    "@pixelmon/acl": "^0.1.9",
     "tslib": "^1.9.0"
   },
   "sideEffects": false,

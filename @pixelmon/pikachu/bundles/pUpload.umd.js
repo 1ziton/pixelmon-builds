@@ -6,10 +6,10 @@
  * https://opensource.org/licenses/MIT
  */
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('rxjs'), require('@angular/forms'), require('@pixelmon/util'), require('ng-zorro-antd/upload'), require('ng-zorro-antd/spin'), require('ng-zorro-antd/modal'), require('ng-zorro-antd/button')) :
-    typeof define === 'function' && define.amd ? define('@pixelmon/pikachu/upload', ['exports', '@angular/core', '@angular/common', 'rxjs', '@angular/forms', '@pixelmon/util', 'ng-zorro-antd/upload', 'ng-zorro-antd/spin', 'ng-zorro-antd/modal', 'ng-zorro-antd/button'], factory) :
-    (global = global || self, factory((global.pixelmon = global.pixelmon || {}, global.pixelmon.pikachu = global.pixelmon.pikachu || {}, global.pixelmon.pikachu.upload = {}), global.ng.core, global.ng.common, global.rxjs, global.ng.forms, global.pixelmon.util, global['ng-zorro-antd/upload'], global['ng-zorro-antd/spin'], global['ng-zorro-antd/modal'], global['ng-zorro-antd/button']));
-}(this, function (exports, core, common, rxjs, forms, util, upload, spin, modal, button) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('rxjs'), require('@angular/forms'), require('@pixelmon/util'), require('ng-zorro-antd/upload'), require('ng-zorro-antd/spin'), require('ng-zorro-antd/modal'), require('ng-zorro-antd/button'), require('ng-zorro-antd/icon')) :
+    typeof define === 'function' && define.amd ? define('@pixelmon/pikachu/upload', ['exports', '@angular/core', '@angular/common', 'rxjs', '@angular/forms', '@pixelmon/util', 'ng-zorro-antd/upload', 'ng-zorro-antd/spin', 'ng-zorro-antd/modal', 'ng-zorro-antd/button', 'ng-zorro-antd/icon'], factory) :
+    (global = global || self, factory((global.pixelmon = global.pixelmon || {}, global.pixelmon.pikachu = global.pixelmon.pikachu || {}, global.pixelmon.pikachu.upload = {}), global.ng.core, global.ng.common, global.rxjs, global.ng.forms, global.pixelmon.util, global['ng-zorro-antd/upload'], global['ng-zorro-antd/spin'], global['ng-zorro-antd/modal'], global['ng-zorro-antd/button'], global.icon));
+}(this, function (exports, core, common, rxjs, forms, util, upload, spin, modal, button, icon) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -740,7 +740,7 @@
         UploadModule.decorators = [
             { type: core.NgModule, args: [{
                         declarations: [UploadComponent],
-                        imports: [common.CommonModule, upload.NzUploadModule, modal.NzModalModule, spin.NzSpinModule, button.NzButtonModule],
+                        imports: [common.CommonModule, upload.NzUploadModule, modal.NzModalModule, spin.NzSpinModule, button.NzButtonModule, icon.NzIconModule],
                         exports: [UploadComponent],
                     },] }
         ];

@@ -27038,8 +27038,38 @@ body {
 .p-table-clear-icon:hover {
   color: rgba(0, 0, 0, 0.45);
 }
+.p-table.fixed-pagination .ant-table-placeholder {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: none;
+}
+.p-table .ant-table-scroll {
+  position: relative;
+}
+.p-table .ant-table-thead > tr > th .ant-table-header-column .ant-table-column-sorters > *:not(.ant-table-column-sorter) {
+  position: unset;
+}
 .p-table-pagination-container {
-  padding: 2px;
+  padding-top: 2px;
+}
+.p-table-pagination-container .ant-pagination {
+  padding: 8px 0;
+  text-align: right;
+  box-shadow: 0px -2px 4px 1px #f1f7f5;
+  background: white;
+}
+.p-table-pagination-container .ant-pagination-options {
+  margin-right: 16px;
+}
+.p-table td {
+  word-break: break-all;
+}
+.p-table tr:nth-child(odd) > td {
+  background: #f6f8f8;
+}
+.p-table tr:nth-child(even) > td {
+  background: white;
 }
 .reuse-tab {
   display: block;

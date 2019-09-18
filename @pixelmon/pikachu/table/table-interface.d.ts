@@ -1,10 +1,10 @@
 import { TemplateRef } from '@angular/core';
 import { QueryTab } from '@pixelmon/pikachu/query-tabs';
-export interface PTableData {
-    data: PTableRow[];
+export interface TableData {
+    data: TableRow[];
     totalSize: number;
 }
-export interface PTableColumn extends QueryTab {
+export interface TableColumn extends QueryTab {
     title: string;
     field: string;
     width?: string;
@@ -25,11 +25,11 @@ export interface PTableColumn extends QueryTab {
     filterMultiple?: boolean;
     customFilter?: TemplateRef<any>;
 }
-export interface PTableRow {
-    isChecked: boolean;
+export interface TableRow {
+    isChecked?: boolean;
     [key: string]: any;
 }
-export interface PTablePage {
+export interface TablePage {
     page: number;
     size: number;
 }

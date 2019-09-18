@@ -860,9 +860,9 @@ if (false) {
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var DropdownPanelComponent = /** @class */ (function () {
-    function DropdownPanelComponent(renderer, dropPanelService, cdr, focusMonitor, platform, elementRef, noAnimation) {
+    function DropdownPanelComponent(renderer, dropdownPanelService, cdr, focusMonitor, platform, elementRef, noAnimation) {
         this.renderer = renderer;
-        this.dropPanelService = dropPanelService;
+        this.dropdownPanelService = dropdownPanelService;
         this.cdr = cdr;
         this.focusMonitor = focusMonitor;
         this.platform = platform;
@@ -912,7 +912,7 @@ var DropdownPanelComponent = /** @class */ (function () {
              * @return {?}
              */
             function () {
-                _this.dropPanelService.updateTemplateOption(_this._data);
+                _this.dropdownPanelService.updateTemplateOption(_this._data);
             }));
         },
         enumerable: true,
@@ -924,7 +924,7 @@ var DropdownPanelComponent = /** @class */ (function () {
          * @return {?}
          */
         function (value) {
-            this.dropPanelService.autoClearSearchValue = toBoolean(value);
+            this.dropdownPanelService.autoClearSearchValue = toBoolean(value);
         },
         enumerable: true,
         configurable: true
@@ -935,7 +935,7 @@ var DropdownPanelComponent = /** @class */ (function () {
          * @return {?}
          */
         function (value) {
-            this.dropPanelService.maxMultipleCount = value;
+            this.dropdownPanelService.maxMultipleCount = value;
         },
         enumerable: true,
         configurable: true
@@ -946,7 +946,7 @@ var DropdownPanelComponent = /** @class */ (function () {
          * @return {?}
          */
         function (value) {
-            this.dropPanelService.serverSearch = toBoolean(value);
+            this.dropdownPanelService.serverSearch = toBoolean(value);
         },
         enumerable: true,
         configurable: true
@@ -957,8 +957,8 @@ var DropdownPanelComponent = /** @class */ (function () {
          * @return {?}
          */
         function (value) {
-            this.dropPanelService.mode = value;
-            this.dropPanelService.check();
+            this.dropdownPanelService.mode = value;
+            this.dropdownPanelService.check();
         },
         enumerable: true,
         configurable: true
@@ -969,7 +969,7 @@ var DropdownPanelComponent = /** @class */ (function () {
          * @return {?}
          */
         function (value) {
-            this.dropPanelService.filterOption = value;
+            this.dropdownPanelService.filterOption = value;
         },
         enumerable: true,
         configurable: true
@@ -980,7 +980,7 @@ var DropdownPanelComponent = /** @class */ (function () {
          * @return {?}
          */
         function (value) {
-            this.dropPanelService.compareWith = value;
+            this.dropdownPanelService.compareWith = value;
         },
         enumerable: true,
         configurable: true
@@ -1004,13 +1004,26 @@ var DropdownPanelComponent = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(DropdownPanelComponent.prototype, "open", {
+        get: /**
+         * @return {?}
+         */
+        function () {
+            return this._open;
+        },
         set: /**
          * @param {?} value
          * @return {?}
          */
         function (value) {
-            this._open = value;
-            this.dropPanelService.setOpenState(value);
+            var _this = this;
+            setTimeout((/**
+             * @return {?}
+             */
+            function () {
+                _this._open = value;
+                _this.dropdownPanelService.setOpenState(value);
+                _this.cdr.markForCheck();
+            }));
         },
         enumerable: true,
         configurable: true
@@ -1028,8 +1041,8 @@ var DropdownPanelComponent = /** @class */ (function () {
          */
         function (value) {
             this._disabled = toBoolean(value);
-            this.dropPanelService.disabled = this._disabled;
-            this.dropPanelService.check();
+            this.dropdownPanelService.disabled = this._disabled;
+            this.dropdownPanelService.check();
             if (this.disabled && this.isInit) {
                 this.closeDropDown();
             }
@@ -1086,7 +1099,7 @@ var DropdownPanelComponent = /** @class */ (function () {
      * @return {?}
      */
     function (event) {
-        this.dropPanelService.onKeyDown(event);
+        this.dropdownPanelService.onKeyDown(event);
     };
     /**
      * @return {?}
@@ -1096,7 +1109,7 @@ var DropdownPanelComponent = /** @class */ (function () {
      */
     function () {
         if (!this.disabled) {
-            this.dropPanelService.setOpenState(!this.open);
+            this.dropdownPanelService.setOpenState(!this.open);
         }
     };
     /**
@@ -1106,7 +1119,7 @@ var DropdownPanelComponent = /** @class */ (function () {
      * @return {?}
      */
     function () {
-        this.dropPanelService.setOpenState(false);
+        this.dropdownPanelService.setOpenState(false);
     };
     /**
      * @param {?} position
@@ -1126,7 +1139,7 @@ var DropdownPanelComponent = /** @class */ (function () {
      * @return {?}
      */
     function () {
-        if (this.platform.isBrowser) {
+        if (this.platform.isBrowser && this.cdkOverlayOrigin) {
             /** @type {?} */
             var triggerWidth = this.cdkOverlayOrigin.elementRef.nativeElement.getBoundingClientRect().width;
             this.triggerWidth = this.dropdownMatchSelectWidth ? triggerWidth : triggerWidth + 75;
@@ -1175,7 +1188,7 @@ var DropdownPanelComponent = /** @class */ (function () {
                 listValue = [value];
             }
         }
-        this.dropPanelService.updateListOfSelectedValue(listValue, false);
+        this.dropdownPanelService.updateListOfSelectedValue(listValue, false);
         this.cdr.markForCheck();
     };
     /**
@@ -1220,7 +1233,7 @@ var DropdownPanelComponent = /** @class */ (function () {
      */
     function () {
         var _this = this;
-        this.dropPanelService.searchValue$.pipe(takeUntil(this.destroy$)).subscribe((/**
+        this.dropdownPanelService.searchValue$.pipe(takeUntil(this.destroy$)).subscribe((/**
          * @param {?} data
          * @return {?}
          */
@@ -1228,7 +1241,7 @@ var DropdownPanelComponent = /** @class */ (function () {
             _this.onSearch.emit(data);
             _this.updateCdkConnectedOverlayPositions();
         }));
-        this.dropPanelService.modelChange$.pipe(takeUntil(this.destroy$)).subscribe((/**
+        this.dropdownPanelService.modelChange$.pipe(takeUntil(this.destroy$)).subscribe((/**
          * @param {?} modelValue
          * @return {?}
          */
@@ -1240,7 +1253,7 @@ var DropdownPanelComponent = /** @class */ (function () {
                 // this.cdr.detectChanges();
             }
         }));
-        this.dropPanelService.open$.pipe(takeUntil(this.destroy$)).subscribe((/**
+        this.dropdownPanelService.open$.pipe(takeUntil(this.destroy$)).subscribe((/**
          * @param {?} value
          * @return {?}
          */
@@ -1257,9 +1270,9 @@ var DropdownPanelComponent = /** @class */ (function () {
                 _this.onTouched();
             }
             _this.open = value;
-            _this.dropPanelService.clearInput();
+            _this.dropdownPanelService.clearInput();
         }));
-        this.dropPanelService.check$.pipe(takeUntil(this.destroy$)).subscribe((/**
+        this.dropdownPanelService.check$.pipe(takeUntil(this.destroy$)).subscribe((/**
          * @return {?}
          */
         function () {
@@ -1312,7 +1325,7 @@ var DropdownPanelComponent = /** @class */ (function () {
                     changeDetection: ChangeDetectionStrategy.OnPush,
                     encapsulation: ViewEncapsulation.None,
                     animations: [slideMotion],
-                    template: "<div\n  cdkOverlayOrigin\n  p-panel-top-control\n  tabindex=\"0\"\n  class=\"ant-select-selection\"\n  [open]=\"_open\"\n  [@.disabled]=\"noAnimation?.nzNoAnimation\"\n  [nzNoAnimation]=\"noAnimation?.nzNoAnimation\"\n  [placeHolder]=\"placeHolder\"\n  [allowClear]=\"allowClear\"\n  [showArrow]=\"showArrow\"\n  [loading]=\"loading\"\n  [suffixIcon]=\"suffixIcon\"\n  [clearIcon]=\"clearIcon\"\n  [removeIcon]=\"removeIcon\"\n  [showSearch]=\"showSearch\"\n  [class.ant-select-selection--single]=\"dropPanelService.isSingleMode\"\n  (keydown)=\"onKeyDown($event)\"\n></div>\n<ng-template\n  cdkConnectedOverlay\n  nzConnectedOverlay\n  [cdkConnectedOverlayHasBackdrop]=\"true\"\n  [cdkConnectedOverlayWidth]=\"triggerWidth\"\n  [cdkConnectedOverlayOrigin]=\"cdkOverlayOrigin\"\n  (backdropClick)=\"closeDropDown()\"\n  (detach)=\"closeDropDown()\"\n  (positionChange)=\"onPositionChange($event)\"\n  [cdkConnectedOverlayOpen]=\"_open\"\n>\n  <div\n    class=\"ant-select-dropdown\"\n    [class.ant-select-dropdown--single]=\"dropPanelService.isSingleMode\"\n    [class.ant-select-dropdown-placement-bottomLeft]=\"dropDownPosition === 'bottom'\"\n    [class.ant-select-dropdown-placement-topLeft]=\"dropDownPosition === 'top'\"\n    [nzClassListAdd]=\"[dropdownClassName]\"\n    [@slideMotion]=\"dropDownPosition\"\n    [@.disabled]=\"noAnimation?.nzNoAnimation\"\n    [nzNoAnimation]=\"noAnimation?.nzNoAnimation\"\n    [ngStyle]=\"dropdownStyle\"\n  >\n    <div\n      p-panel-option-container\n      style=\"overflow: auto;transform: translateZ(0px);\"\n      (keydown)=\"onKeyDown($event)\"\n      [menuItemSelectedIcon]=\"menuItemSelectedIcon\"\n      [notFoundContent]=\"notFoundContent\"\n      (scrollToBottom)=\"scrollToBottom.emit()\"\n    ></div>\n  </div>\n\n  <!-- <div\n    p-panel-option-container\n    class=\"ant-select-dropdown\"\n    [ngStyle]=\"dropdownStyle\"\n    [@slideMotion]=\"dropDownPosition\"\n    [nzClassListAdd]=\"[dropdownClassName]\"\n    [class.ant-select-dropdown--single]=\"dropPanelService.isSingleMode\"\n    [class.ant-select-dropdown-placement-bottomLeft]=\"dropDownPosition === 'bottom'\"\n    [class.ant-select-dropdown-placement-topLeft]=\"dropDownPosition === 'top'\"\n    style=\"overflow: auto;transform: translateZ(0px);\"\n    (keydown)=\"onKeyDown($event)\"\n    [menuItemSelectedIcon]=\"menuItemSelectedIcon\"\n    [notFoundContent]=\"notFoundContent\"\n    (scrollToBottom)=\"scrollToBottom.emit()\"\n  ></div> -->\n</ng-template>\n",
+                    template: "<div\n  cdkOverlayOrigin\n  p-panel-top-control\n  tabindex=\"0\"\n  class=\"ant-select-selection\"\n  [open]=\"_open\"\n  [@.disabled]=\"noAnimation?.nzNoAnimation\"\n  [nzNoAnimation]=\"noAnimation?.nzNoAnimation\"\n  [placeHolder]=\"placeHolder\"\n  [allowClear]=\"allowClear\"\n  [showArrow]=\"showArrow\"\n  [loading]=\"loading\"\n  [suffixIcon]=\"suffixIcon\"\n  [clearIcon]=\"clearIcon\"\n  [removeIcon]=\"removeIcon\"\n  [showSearch]=\"showSearch\"\n  [class.ant-select-selection--single]=\"dropdownPanelService.isSingleMode\"\n  (keydown)=\"onKeyDown($event)\"\n></div>\n<ng-template\n  cdkConnectedOverlay\n  nzConnectedOverlay\n  [cdkConnectedOverlayHasBackdrop]=\"true\"\n  [cdkConnectedOverlayWidth]=\"triggerWidth\"\n  [cdkConnectedOverlayOrigin]=\"cdkOverlayOrigin\"\n  (backdropClick)=\"closeDropDown()\"\n  (detach)=\"closeDropDown()\"\n  (positionChange)=\"onPositionChange($event)\"\n  [cdkConnectedOverlayOpen]=\"_open\"\n>\n  <div\n    class=\"ant-select-dropdown\"\n    [class.ant-select-dropdown--single]=\"dropdownPanelService.isSingleMode\"\n    [class.ant-select-dropdown-placement-bottomLeft]=\"dropDownPosition === 'bottom'\"\n    [class.ant-select-dropdown-placement-topLeft]=\"dropDownPosition === 'top'\"\n    [nzClassListAdd]=\"[dropdownClassName]\"\n    [@slideMotion]=\"dropDownPosition\"\n    [@.disabled]=\"noAnimation?.nzNoAnimation\"\n    [nzNoAnimation]=\"noAnimation?.nzNoAnimation\"\n    [ngStyle]=\"dropdownStyle\"\n  >\n    <div\n      p-panel-option-container\n      style=\"overflow: auto;transform: translateZ(0px);\"\n      (keydown)=\"onKeyDown($event)\"\n      [menuItemSelectedIcon]=\"menuItemSelectedIcon\"\n      [notFoundContent]=\"notFoundContent\"\n      (scrollToBottom)=\"scrollToBottom.emit()\"\n    ></div>\n  </div>\n \n</ng-template>\n",
                     host: {
                         '[class.ant-select-lg]': 'size==="large"',
                         '[class.ant-select-sm]': 'size==="small"',
@@ -1478,7 +1491,7 @@ if (false) {
      */
     DropdownPanelComponent.prototype.renderer;
     /** @type {?} */
-    DropdownPanelComponent.prototype.dropPanelService;
+    DropdownPanelComponent.prototype.dropdownPanelService;
     /**
      * @type {?}
      * @private

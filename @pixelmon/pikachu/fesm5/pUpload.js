@@ -8,6 +8,7 @@ import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 /**
  * @fileoverview added by tsickle
@@ -541,7 +542,7 @@ var UploadModule = /** @class */ (function () {
     UploadModule.decorators = [
         { type: NgModule, args: [{
                     declarations: [UploadComponent],
-                    imports: [CommonModule, NzUploadModule, NzModalModule, NzSpinModule, NzButtonModule],
+                    imports: [CommonModule, NzUploadModule, NzModalModule, NzSpinModule, NzButtonModule, NzIconModule],
                     exports: [UploadComponent],
                 },] }
     ];

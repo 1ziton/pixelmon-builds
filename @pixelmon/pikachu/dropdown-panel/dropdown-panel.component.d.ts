@@ -9,7 +9,7 @@ import { PanelSelectTopControlComponent } from './p-panel-top-control.component'
 import { POption } from './interface';
 export declare class DropdownPanelComponent implements ControlValueAccessor, OnInit, AfterViewInit, OnDestroy, AfterContentInit {
     private renderer;
-    dropPanelService: DropdownPanelService;
+    dropdownPanelService: DropdownPanelService;
     private cdr;
     private focusMonitor;
     private platform;
@@ -70,7 +70,7 @@ export declare class DropdownPanelComponent implements ControlValueAccessor, OnI
     onPositionChange(position: ConnectedOverlayPositionChange): void;
     updateCdkConnectedOverlayStatus(): void;
     updateCdkConnectedOverlayPositions(): void;
-    constructor(renderer: Renderer2, dropPanelService: DropdownPanelService, cdr: ChangeDetectorRef, focusMonitor: FocusMonitor, platform: Platform, elementRef: ElementRef, noAnimation?: NzNoAnimationDirective | undefined);
+    constructor(renderer: Renderer2, dropdownPanelService: DropdownPanelService, cdr: ChangeDetectorRef, focusMonitor: FocusMonitor, platform: Platform, elementRef: ElementRef, noAnimation?: NzNoAnimationDirective | undefined);
     /** update ngModel -> update listOfSelectedValue */
     writeValue(value: any | any[]): void;
     registerOnChange(fn: (value: string | string[]) => void): void;

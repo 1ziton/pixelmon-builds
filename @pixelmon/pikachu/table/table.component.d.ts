@@ -8,16 +8,16 @@ import { NzDropDownDirective } from 'ng-zorro-antd';
 import { Subject } from 'rxjs';
 import { TableCellComponent } from './table-cell.component';
 import { TableFilterComponent } from './table-filter.component';
-import { PTableColumn, PTablePage, PTableRow } from './table-interface';
+import { TableColumn, TablePage, TableRow } from './table-interface';
 export declare class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterContentInit, OnDestroy {
     private _elementRef;
     private _renderer2;
-    columns: PTableColumn[];
+    columns: TableColumn[];
     data: {
-        data: PTableRow[];
+        data: TableRow[];
         totalSize: number;
     };
-    selections: PTableRow[];
+    selections: TableRow[];
     scroll: {
         x?: string | null;
         y?: string | null;
@@ -28,13 +28,15 @@ export declare class TableComponent implements OnChanges, OnInit, AfterViewInit,
     showPagination: boolean;
     fixedPagination: boolean;
     showSizeChanger: boolean;
-    size: string;
+    showQuickJumper: boolean;
+    size: 'middle' | 'small' | 'default';
+    paginationSize: 'default' | 'small';
     pageSizeOptions: number[];
     showCheckbox: boolean;
     titleTemplate: TemplateRef<void>;
-    columnsChange: EventEmitter<PTableColumn[]>;
-    selectionsChange: EventEmitter<PTableRow[]>;
-    load: EventEmitter<PTablePage>;
+    columnsChange: EventEmitter<TableColumn[]>;
+    selectionsChange: EventEmitter<TableRow[]>;
+    load: EventEmitter<TablePage>;
     sort: EventEmitter<{
         key: string;
         value: 'descend' | 'ascend' | null;
@@ -46,7 +48,7 @@ export declare class TableComponent implements OnChanges, OnInit, AfterViewInit,
     customCells: TableCellComponent[];
     customFilters: TableFilterComponent[];
     load$: Subject<any>;
-    displayData: PTableRow[];
+    displayData: TableRow[];
     pageIndex: number;
     sortParams: {
         key: string;
@@ -101,7 +103,7 @@ export declare class TableComponent implements OnChanges, OnInit, AfterViewInit,
      * @param isOpen 是否打开
      * @param column 当前列模型数据
      */
-    onRangePickerOpenChange(isOpen: boolean, column: PTableColumn): void;
+    onRangePickerOpenChange(isOpen: boolean, column: TableColumn): void;
     /**
      * 查询确认回调
      */

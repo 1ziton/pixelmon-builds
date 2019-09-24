@@ -1,6 +1,6 @@
 {
   "name": "@pixelmon/acl",
-  "version": "0.1.9-98cea7d",
+  "version": "0.1.9-2e050cf",
   "author": "giscafer<giscafer@outlook.com>",
   "license": "MIT",
   "repository": {
@@ -26,7 +26,7 @@
     "component"
   ],
   "dependencies": {
-    "@pixelmon/util": "^0.1.9-98cea7d",
+    "@pixelmon/util": "^0.1.9-2e050cf",
     "tslib": "^1.9.0"
   },
   "sideEffects": false,

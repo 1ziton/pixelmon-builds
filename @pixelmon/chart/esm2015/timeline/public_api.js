@@ -1,0 +1,7 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+export { G2TimelineData, G2TimelineComponent } from './timeline.component';
+export { G2TimelineModule } from './timeline.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljX2FwaS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BwaXhlbG1vbi9jaGFydC90aW1lbGluZS8iLCJzb3VyY2VzIjpbInB1YmxpY19hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLG9EQUFjLHNCQUFzQixDQUFDO0FBQ3JDLGlDQUFjLG1CQUFtQixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0ICogZnJvbSAnLi90aW1lbGluZS5jb21wb25lbnQnO1xuZXhwb3J0ICogZnJvbSAnLi90aW1lbGluZS5tb2R1bGUnO1xuIl19

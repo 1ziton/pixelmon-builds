@@ -1,0 +1,21 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+export { G2BarComponent, G2BarModule } from '@pixelmon/chart/bar';
+export { G2CardComponent, G2CardModule } from '@pixelmon/chart/card';
+export { G2CustomComponent, G2CustomModule } from '@pixelmon/chart/custom';
+export { G2GaugeComponent, G2GaugeModule } from '@pixelmon/chart/gauge';
+export { G2MiniAreaComponent, G2MiniAreaModule } from '@pixelmon/chart/mini-area';
+export { G2MiniBarComponent, G2MiniBarModule } from '@pixelmon/chart/mini-bar';
+export { G2MiniProgressComponent, G2MiniProgressModule } from '@pixelmon/chart/mini-progress';
+export { G2PieComponent, G2PieModule } from '@pixelmon/chart/pie';
+export { G2RadarComponent, G2RadarModule } from '@pixelmon/chart/radar';
+export { G2TagCloudComponent, G2TagCloudModule } from '@pixelmon/chart/tag-cloud';
+export { G2TimelineData, G2TimelineComponent, G2TimelineModule } from '@pixelmon/chart/timeline';
+export { G2WaterWaveComponent, G2WaterWaveModule } from '@pixelmon/chart/water-wave';
+export { NumberInfoComponent, NumberInfoModule } from '@pixelmon/chart/number-info';
+export { TrendComponent, TrendModule } from '@pixelmon/chart/trend';
+export { G2SingleBarComponent, G2SingleBarModule } from '@pixelmon/chart/single-bar';
+export { PixelmonChartModule } from './chart.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljX2FwaS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BwaXhlbG1vbi9jaGFydC8iLCJzb3VyY2VzIjpbInB1YmxpY19hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLDRDQUFjLHFCQUFxQixDQUFDO0FBQ3BDLDhDQUFjLHNCQUFzQixDQUFDO0FBQ3JDLGtEQUFjLHdCQUF3QixDQUFDO0FBQ3ZDLGdEQUFjLHVCQUF1QixDQUFDO0FBQ3RDLHNEQUFjLDJCQUEyQixDQUFDO0FBQzFDLG9EQUFjLDBCQUEwQixDQUFDO0FBQ3pDLDhEQUFjLCtCQUErQixDQUFDO0FBQzlDLDRDQUFjLHFCQUFxQixDQUFDO0FBQ3BDLGdEQUFjLHVCQUF1QixDQUFDO0FBQ3RDLHNEQUFjLDJCQUEyQixDQUFDO0FBQzFDLHNFQUFjLDBCQUEwQixDQUFDO0FBQ3pDLHdEQUFjLDRCQUE0QixDQUFDO0FBQzNDLHNEQUFjLDZCQUE2QixDQUFDO0FBQzVDLDRDQUFjLHVCQUF1QixDQUFDO0FBQ3RDLHdEQUFjLDRCQUE0QixDQUFDO0FBRTNDLG9DQUFjLGdCQUFnQixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0ICogZnJvbSAnQHBpeGVsbW9uL2NoYXJ0L2Jhcic7XG5leHBvcnQgKiBmcm9tICdAcGl4ZWxtb24vY2hhcnQvY2FyZCc7XG5leHBvcnQgKiBmcm9tICdAcGl4ZWxtb24vY2hhcnQvY3VzdG9tJztcbmV4cG9ydCAqIGZyb20gJ0BwaXhlbG1vbi9jaGFydC9nYXVnZSc7XG5leHBvcnQgKiBmcm9tICdAcGl4ZWxtb24vY2hhcnQvbWluaS1hcmVhJztcbmV4cG9ydCAqIGZyb20gJ0BwaXhlbG1vbi9jaGFydC9taW5pLWJhcic7XG5leHBvcnQgKiBmcm9tICdAcGl4ZWxtb24vY2hhcnQvbWluaS1wcm9ncmVzcyc7XG5leHBvcnQgKiBmcm9tICdAcGl4ZWxtb24vY2hhcnQvcGllJztcbmV4cG9ydCAqIGZyb20gJ0BwaXhlbG1vbi9jaGFydC9yYWRhcic7XG5leHBvcnQgKiBmcm9tICdAcGl4ZWxtb24vY2hhcnQvdGFnLWNsb3VkJztcbmV4cG9ydCAqIGZyb20gJ0BwaXhlbG1vbi9jaGFydC90aW1lbGluZSc7XG5leHBvcnQgKiBmcm9tICdAcGl4ZWxtb24vY2hhcnQvd2F0ZXItd2F2ZSc7XG5leHBvcnQgKiBmcm9tICdAcGl4ZWxtb24vY2hhcnQvbnVtYmVyLWluZm8nO1xuZXhwb3J0ICogZnJvbSAnQHBpeGVsbW9uL2NoYXJ0L3RyZW5kJztcbmV4cG9ydCAqIGZyb20gJ0BwaXhlbG1vbi9jaGFydC9zaW5nbGUtYmFyJztcblxuZXhwb3J0ICogZnJvbSAnLi9jaGFydC5tb2R1bGUnO1xuIl19

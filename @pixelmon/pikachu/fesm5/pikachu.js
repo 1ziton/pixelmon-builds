@@ -12,6 +12,8 @@ import { SidebarNavModule } from '@pixelmon/pikachu/sidebar-nav';
 export { SidebarNavComponent, SidebarNavModule } from '@pixelmon/pikachu/sidebar-nav';
 import { SVModule } from '@pixelmon/pikachu/view';
 export { SVComponent, SVConfig, SVContainerComponent, SVModule, SVTitleComponent } from '@pixelmon/pikachu/view';
+import { SEModule } from '@pixelmon/pikachu/edit';
+export { SEComponent, SEConfig, SEContainerComponent, SEErrorComponent, SEModule, SETitleComponent } from '@pixelmon/pikachu/edit';
 export { ViewerDirective, ViewerDirectiveModule, ViewerImgDirective } from '@pixelmon/pikachu/viewer';
 import { FooterToolbarModule } from '@pixelmon/pikachu/footer-toolbar';
 export { FooterToolbarComponent, FooterToolbarModule } from '@pixelmon/pikachu/footer-toolbar';
@@ -29,6 +31,8 @@ import { SmartTextModule } from '@pixelmon/pikachu/smart-text';
 export { SmartTextComponent, SmartTextModule } from '@pixelmon/pikachu/smart-text';
 import { QueryTabsModule } from '@pixelmon/pikachu/query-tabs';
 export { QueryTabsComponent, QueryTabsModule } from '@pixelmon/pikachu/query-tabs';
+import { TagSelectModule } from '@pixelmon/pikachu/tag-select';
+export { TagSelectComponent, TagSelectModule } from '@pixelmon/pikachu/tag-select';
 import { NgModule } from '@angular/core';
 
 /**
@@ -44,6 +48,7 @@ var MODULES = [
     NoticeIconModule,
     SidebarNavModule,
     SVModule,
+    SEModule,
     PageHeaderModule,
     TableModule,
     UploadModule,
@@ -52,6 +57,7 @@ var MODULES = [
     StepsModule,
     AddressSelectModule,
     DropdownPanelModule,
+    TagSelectModule,
 ];
 var PikachuModule = /** @class */ (function () {
     function PikachuModule() {

@@ -27,13 +27,14 @@ export declare class TableComponent implements OnChanges, OnInit, AfterViewInit,
     frontPagination: boolean;
     showPagination: boolean;
     fixedPagination: boolean;
+    paginationOffset: number;
     showSizeChanger: boolean;
     showQuickJumper: boolean;
     size: 'middle' | 'small' | 'default';
     paginationSize: 'default' | 'small';
+    title: string | TemplateRef<void>;
     pageSizeOptions: number[];
     showCheckbox: boolean;
-    titleTemplate: TemplateRef<void>;
     columnsChange: EventEmitter<TableColumn[]>;
     selectionsChange: EventEmitter<TableRow[]>;
     load: EventEmitter<TablePage>;

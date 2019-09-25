@@ -17,12 +17,11 @@ export declare class ViewerDirective implements AfterContentInit, OnDestroy {
     viewer: any;
     private _subscription;
     isLazyLoad: boolean;
-    maxShowNum: number;
     viewerImgs: QueryList<ViewerImgDirective>;
     constructor(_elementRef: ElementRef);
     ngAfterContentInit(): void;
     ngOnDestroy(): void;
-    initViewer(): void;
+    updateViewer(): void;
 }
 export declare class ViewerDirectiveModule {
 }

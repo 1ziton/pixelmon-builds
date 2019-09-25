@@ -114,4 +114,5 @@ export declare class TableComponent implements OnChanges, OnInit, AfterViewInit,
      */
     toFixedPagination(): void;
     onlinkClick(field: string, rowData: any): void;
+    view(imgUrls: string[]): void;
 }

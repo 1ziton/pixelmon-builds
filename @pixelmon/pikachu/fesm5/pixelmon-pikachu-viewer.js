@@ -1,3 +1,4 @@
+import { __values } from 'tslib';
 import { Directive, ElementRef, Input, ContentChildren, NgModule } from '@angular/core';
 
 /**
@@ -56,11 +57,8 @@ if (false) {
 var ViewerDirective = /** @class */ (function () {
     function ViewerDirective(_elementRef) {
         this._elementRef = _elementRef;
-        this.viewer = null; // viewer实例
         // 用于unsubscribe
         this.isLazyLoad = false; // 是否懒加载图片
-        // 是否懒加载图片
-        this.maxShowNum = Infinity; // 最大显示数量
     }
     /**
      * @return {?}
@@ -70,7 +68,7 @@ var ViewerDirective = /** @class */ (function () {
      */
     function () {
         var _this = this;
-        this.initViewer();
+        this.updateViewer();
         this._subscription = this.viewerImgs.changes.subscribe((/**
          * @return {?}
          */
@@ -80,7 +78,7 @@ var ViewerDirective = /** @class */ (function () {
              * @return {?}
              */
             function () {
-                _this.initViewer();
+                _this.updateViewer();
             }));
         }));
     };
@@ -98,42 +96,38 @@ var ViewerDirective = /** @class */ (function () {
     /**
      * @return {?}
      */
-    ViewerDirective.prototype.initViewer = /**
+    ViewerDirective.prototype.updateViewer = /**
      * @return {?}
      */
     function () {
         var _this = this;
-        /** @type {?} */
-        var imgElements;
-        // 因为ready事件只会执行一遍，故采用destroy再new的方法，update方法不适用
-        if (this.viewer) {
-            this.viewer.destroy();
-        }
         this.viewer = new Viewer(this._elementRef.nativeElement, {
             ready: (/**
              * @return {?}
              */
             function () {
-                imgElements = _this.viewer.images || [];
+                var e_1, _a;
+                if (!_this.isLazyLoad) {
+                    return;
+                }
                 // 给src赋值懒加载url
-                if (_this.isLazyLoad) {
-                    // tslint:disable-next-line: prefer-for-of
-                    for (var index = 0; index < imgElements.length; index++) {
-                        /** @type {?} */
-                        var element = (/** @type {?} */ (imgElements[index]));
+                /** @type {?} */
+                var imgElements = _this.viewer.images || [];
+                try {
+                    for (var imgElements_1 = __values(imgElements), imgElements_1_1 = imgElements_1.next(); !imgElements_1_1.done; imgElements_1_1 = imgElements_1.next()) {
+                        var element = imgElements_1_1.value;
                         element.src = (/** @type {?} */ (element.dataset.lazyLoadSrc));
                     }
                 }
+                catch (e_1_1) { e_1 = { error: e_1_1 }; }
+                finally {
+                    try {
+                        if (imgElements_1_1 && !imgElements_1_1.done && (_a = imgElements_1.return)) _a.call(imgElements_1);
+                    }
+                    finally { if (e_1) throw e_1.error; }
+                }
             }),
         });
-        // viewer初始化后才有viewer.images
-        imgElements = this.viewer.images || [];
-        // 超过最大数量的不显示
-        for (var index = this.maxShowNum; index < imgElements.length; index++) {
-            /** @type {?} */
-            var element = (/** @type {?} */ (imgElements[index]));
-            element.hidden = true;
-        }
     };
     ViewerDirective.decorators = [
         { type: Directive, args: [{
@@ -146,7 +140,6 @@ var ViewerDirective = /** @class */ (function () {
     ]; };
     ViewerDirective.propDecorators = {
         isLazyLoad: [{ type: Input }],
-        maxShowNum: [{ type: Input }],
         viewerImgs: [{ type: ContentChildren, args: [ViewerImgDirective, { descendants: true },] }]
     };
     return ViewerDirective;
@@ -161,8 +154,6 @@ if (false) {
     ViewerDirective.prototype._subscription;
     /** @type {?} */
     ViewerDirective.prototype.isLazyLoad;
-    /** @type {?} */
-    ViewerDirective.prototype.maxShowNum;
     /** @type {?} */
     ViewerDirective.prototype.viewerImgs;
     /**

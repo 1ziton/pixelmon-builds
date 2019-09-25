@@ -1,5 +1,5 @@
 /**
- * @Based on pixelmon(cipchk@qq.com) v0.1.9
+ * @Based on pixelmon(cipchk@qq.com) v0.1.10
  * (c) 2019 developer(developer@1ziton.com)
  * 
  * Licensed under the MIT license:
@@ -2517,6 +2517,27 @@
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
+     * 模拟lodash _.pick
+     * @param {?} o
+     * @param {?} props
+     * @return {?}
+     */
+    function pick(o, props) {
+        return Object.assign.apply(Object, __spread([{}], props.map((/**
+         * @param {?} prop
+         * @return {?}
+         */
+        function (prop) {
+            var _a;
+            return (_a = {}, _a[prop] = o[prop], _a);
+        }))));
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /**
      * @param {?} el
      * @param {?} classMap
      * @param {?} renderer
@@ -3105,6 +3126,7 @@
     exports.isUUID = isUUID;
     exports.isUrl = isUrl;
     exports.isValidVal = isValidVal;
+    exports.pick = pick;
     exports.toBoolean = toBoolean;
     exports.toCentNumber = toCentNumber;
     exports.toFixed = toFixed;

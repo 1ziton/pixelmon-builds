@@ -1929,6 +1929,24 @@ function InputNumber(fallback = 0) {
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
+ * 模拟lodash _.pick
+ * @param {?} o
+ * @param {?} props
+ * @return {?}
+ */
+function pick(o, props) {
+    return Object.assign({}, ...props.map((/**
+     * @param {?} prop
+     * @return {?}
+     */
+    prop => ({ [prop]: o[prop] }))));
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
  * @param {?} el
  * @param {?} classMap
  * @param {?} renderer
@@ -2410,5 +2428,5 @@ PixelmonUtilModule.decorators = [
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
-export { ArrayService, DomHandler, InputBoolean, InputNumber, LazyService, PixelmonUtilConfig, PixelmonUtilModule, StringTemplateOutletDirective, _Validators, copy, deepClone, deepCopy, deepGet, deepMerge, deepMergeKey, fixEndTimeOfRange, format, getTimeDistance, isBase64, isCreditCard, isDecimal, isEmail, isEmpty, isEmptyVal, isIdCard, isInt, isMobile, isNum, isTelPhone, isUUID, isUrl, isValidVal, toBoolean, toCentNumber, toFixed, toNumber, toYuanNumber, updateHostClass, uuidv1, uuidv3, uuidv4, uuidv5 };
+export { ArrayService, DomHandler, InputBoolean, InputNumber, LazyService, PixelmonUtilConfig, PixelmonUtilModule, StringTemplateOutletDirective, _Validators, copy, deepClone, deepCopy, deepGet, deepMerge, deepMergeKey, fixEndTimeOfRange, format, getTimeDistance, isBase64, isCreditCard, isDecimal, isEmail, isEmpty, isEmptyVal, isIdCard, isInt, isMobile, isNum, isTelPhone, isUUID, isUrl, isValidVal, pick, toBoolean, toCentNumber, toFixed, toNumber, toYuanNumber, updateHostClass, uuidv1, uuidv3, uuidv4, uuidv5 };
 //# sourceMappingURL=util.js.map

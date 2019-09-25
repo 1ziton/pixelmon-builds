@@ -118,17 +118,14 @@ class ViewerDirective {
      */
     constructor(_elementRef) {
         this._elementRef = _elementRef;
-        this.viewer = null; // viewer实例
         // 用于unsubscribe
         this.isLazyLoad = false; // 是否懒加载图片
-        // 是否懒加载图片
-        this.maxShowNum = Infinity; // 最大显示数量
     }
     /**
      * @return {?}
      */
     ngAfterContentInit() {
-        this.initViewer();
+        this.updateViewer();
         this._subscription = this.viewerImgs.changes.subscribe((/**
          * @return {?}
          */
@@ -138,7 +135,7 @@ class ViewerDirective {
              * @return {?}
              */
             () => {
-                this.initViewer();
+                this.updateViewer();
             }));
         }));
     }
@@ -153,38 +150,23 @@ class ViewerDirective {
     /**
      * @return {?}
      */
-    initViewer() {
-        /** @type {?} */
-        let imgElements;
-        // 因为ready事件只会执行一遍，故采用destroy再new的方法，update方法不适用
-        if (this.viewer) {
-            this.viewer.destroy();
-        }
+    updateViewer() {
         this.viewer = new Viewer(this._elementRef.nativeElement, {
             ready: (/**
              * @return {?}
              */
             () => {
-                imgElements = this.viewer.images || [];
+                if (!this.isLazyLoad) {
+                    return;
+                }
                 // 给src赋值懒加载url
-                if (this.isLazyLoad) {
-                    // tslint:disable-next-line: prefer-for-of
-                    for (let index = 0; index < imgElements.length; index++) {
-                        /** @type {?} */
-                        const element = (/** @type {?} */ (imgElements[index]));
-                        element.src = (/** @type {?} */ (element.dataset.lazyLoadSrc));
-                    }
+                /** @type {?} */
+                const imgElements = this.viewer.images || [];
+                for (const element of imgElements) {
+                    element.src = (/** @type {?} */ (element.dataset.lazyLoadSrc));
                 }
             }),
         });
-        // viewer初始化后才有viewer.images
-        imgElements = this.viewer.images || [];
-        // 超过最大数量的不显示
-        for (let index = this.maxShowNum; index < imgElements.length; index++) {
-            /** @type {?} */
-            const element = (/** @type {?} */ (imgElements[index]));
-            element.hidden = true;
-        }
     }
 }
 ViewerDirective.decorators = [
@@ -198,7 +180,6 @@ ViewerDirective.ctorParameters = () => [
 ];
 ViewerDirective.propDecorators = {
     isLazyLoad: [{ type: Input }],
-    maxShowNum: [{ type: Input }],
     viewerImgs: [{ type: ContentChildren, args: [ViewerImgDirective, { descendants: true },] }]
 };
 if (false) {
@@ -211,8 +192,6 @@ if (false) {
     ViewerDirective.prototype._subscription;
     /** @type {?} */
     ViewerDirective.prototype.isLazyLoad;
-    /** @type {?} */
-    ViewerDirective.prototype.maxShowNum;
     /** @type {?} */
     ViewerDirective.prototype.viewerImgs;
     /**

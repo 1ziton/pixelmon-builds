@@ -9,6 +9,7 @@ export * from './src/validate/validate';
 export { _Validators } from './src/validate/validators';
 export * from './src/other/check';
 export * from './src/other/other';
+export * from './src/other/utils';
 export * from './src/other/style';
 export * from './src/array/array.config';
 export * from './src/array/array.service';

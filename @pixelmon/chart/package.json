@@ -1,6 +1,6 @@
 {
   "name": "@pixelmon/chart",
-  "version": "0.1.10-4a79c0e",
+  "version": "0.1.10",
   "author": "cipchk<cipchk@qq.com>",
   "license": "MIT",
   "repository": {
@@ -25,8 +25,8 @@
     "component"
   ],
   "dependencies": {
-    "@pixelmon/util": "^0.1.10-4a79c0e",
-    "@pixelmon/theme": "^0.1.10-4a79c0e",
+    "@pixelmon/util": "^0.1.10",
+    "@pixelmon/theme": "^0.1.10",
     "tslib": "^1.9.0"
   },
   "sideEffects": false,

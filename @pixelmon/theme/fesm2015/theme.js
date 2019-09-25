@@ -3502,7 +3502,7 @@ PixelmonThemeModule.ctorParameters = () => [
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
-const VERSION = new Version('0.1.10-4a79c0e');
+const VERSION = new Version('0.1.10');
 
 /**
  * @fileoverview added by tsickle
